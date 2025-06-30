@@ -1,0 +1,168 @@
+<entities >
+  <entity name="cdcep_awardcode" displayname="National Award Configuration" etc="10499" primaryidfield="cdcep_awardcodeid" primarynamefield="cdcep_name" disableplugins="false">
+    <fields>
+      <field displayname="Award Category" name="cdcep_awardcategory" type="optionsetvalue" customfield="true" />
+      <field displayname="Award Code" name="cdcep_awardcodeid" type="guid" primaryKey="true" />
+      <field displayname="Award Hours" name="cdcep_awardhours" type="number" customfield="true" />
+      <field displayname="Award Type" name="cdcep_awardtype" type="optionsetvalue" customfield="true" />
+      <field displayname="Benefiting Role" name="cdcep_benefitingrole" type="entityreference" lookupType="cdcep_benefitingserviceroletemplate" customfield="true" />
+      <field displayname="Benefiting Service" name="cdcep_benefitingservice" type="entityreference" lookupType="cdcep_benefitingservicetemplate" customfield="true" />
+      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created By (Delegate)" name="createdonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created On" name="createdon" type="datetime" />
+      <field displayname="Eligibility Begin Age" name="cdcep_eligibilitybeginage" type="number" customfield="true" />
+      <field displayname="Eligibility End Age" name="cdcep_eligibilityendage" type="number" customfield="true" />
+      <field displayname="Import Sequence Number" name="importsequencenumber" type="number" />
+      <field displayname="Is Role Specific" name="cdcep_isrolespecific" type="bool" customfield="true" />
+      <field displayname="Modified By" name="modifiedby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified By (Delegate)" name="modifiedonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified On" name="modifiedon" type="datetime" />
+      <field displayname="Name" name="cdcep_name" type="string" customfield="true" />
+      <field displayname="Organization Id" name="organizationid" type="entityreference" lookupType="organization" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Required Hours" name="cdcep_requiredhours" type="number" customfield="true" />
+      <field displayname="Required Years" name="cdcep_requiredyears" type="number" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Time Zone Rule Version Number" name="timezoneruleversionnumber" type="number" />
+      <field displayname="UTC Conversion Time Zone Code" name="utcconversiontimezonecode" type="number" />
+      <field displayname="Version Number" name="versionnumber" type="bigint" />
+      <field displayname="Volunteer Award VSSID" name="cdcep_volunteeraward_vssid" type="number" customfield="true" />
+      <field displayname="VSS Award Code" name="cdcep_awardcode" type="string" customfield="true" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="cdcep_stafftitle" displayname="Staff Title" etc="10532" primaryidfield="cdcep_stafftitleid" primarynamefield="cdcep_title" disableplugins="false">
+    <fields>
+      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created By (Delegate)" name="createdonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created On" name="createdon" type="datetime" />
+      <field displayname="Description" name="cdcep_description" type="string" customfield="true" />
+      <field displayname="Import Sequence Number" name="importsequencenumber" type="number" />
+      <field displayname="Is Chief" name="cdcep_ischief" type="bool" customfield="true" />
+      <field displayname="Is Vol Chief Supervisor" name="cdcep_isvolchiefsupervisor" type="bool" customfield="true" />
+      <field displayname="Modified By" name="modifiedby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified By (Delegate)" name="modifiedonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified On" name="modifiedon" type="datetime" />
+      <field displayname="Name" name="cdcep_title" type="string" customfield="true" />
+      <field displayname="Organization Id" name="organizationid" type="entityreference" lookupType="organization" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Scope" name="cdcep_scope" type="optionsetvalue" customfield="true" />
+      <field displayname="Staff Title" name="cdcep_stafftitleid" type="guid" primaryKey="true" />
+      <field displayname="Staff Title VSSID" name="cdcep_stafftitle_vssid" type="number" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Time Zone Rule Version Number" name="timezoneruleversionnumber" type="number" />
+      <field displayname="UTC Conversion Time Zone Code" name="utcconversiontimezonecode" type="number" />
+      <field displayname="Ver" name="cdcep_ver" type="number" customfield="true" />
+      <field displayname="Version Number" name="versionnumber" type="bigint" />
+      <field displayname="VSSID" name="cdcep_vssid" type="string" customfield="true" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="msnfp_itemtype" displayname="Item Type" etc="10327" primaryidfield="msnfp_itemtypeid" primarynamefield="msnfp_itemname" disableplugins="false">
+    <fields>
+      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created By (Delegate)" name="createdonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created On" name="createdon" type="datetime" />
+      <field displayname="Currency" name="transactioncurrencyid" type="entityreference" lookupType="transactioncurrency" />
+      <field displayname="Estimated Cost" name="msnfp_estimatedcost" type="money" customfield="true" />
+      <field displayname="Estimated Cost (Base)" name="msnfp_estimatedcost_base" type="money" customfield="true" />
+      <field displayname="Exchange Rate" name="exchangerate" type="decimal" />
+      <field displayname="High Value" name="cdcep_highvalue" type="money" customfield="true" />
+      <field displayname="High Value (Base)" name="cdcep_highvalue_base" type="money" customfield="true" />
+      <field displayname="Import Sequence Number" name="importsequencenumber" type="number" />
+      <field displayname="Item Classification" name="msnfp_itemclassification" type="optionsetvalue" customfield="true" />
+      <field displayname="Item Name" name="msnfp_itemname" type="string" customfield="true" />
+      <field displayname="Item Type" name="msnfp_itemtypeid" type="guid" primaryKey="true" />
+      <field displayname="Item Type Code" name="msnfp_itemtypecode" type="string" customfield="true" />
+      <field displayname="Low Value" name="cdcep_lowvalue" type="money" customfield="true" />
+      <field displayname="Low Value (Base)" name="cdcep_lowvalue_base" type="money" customfield="true" />
+      <field displayname="Modified By" name="modifiedby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified By (Delegate)" name="modifiedonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified On" name="modifiedon" type="datetime" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Owning Business Unit" name="owningbusinessunit" type="entityreference" lookupType="businessunit" />
+      <field displayname="Owning Team" name="owningteam" type="entityreference" lookupType="team" />
+      <field displayname="Owning User" name="owninguser" type="entityreference" lookupType="systemuser" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Single Item" name="msnfp_singleitem" type="bool" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Time Zone Rule Version Number" name="timezoneruleversionnumber" type="number" />
+      <field displayname="UTC Conversion Time Zone Code" name="utcconversiontimezonecode" type="number" />
+      <field displayname="Valuation Type" name="cdcep_valuationtype" type="optionsetvalue" customfield="true" />
+      <field displayname="Version Number" name="versionnumber" type="bigint" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="cdcep_shirtsize" displayname="Shirt Size" etc="10531" primaryidfield="cdcep_shirtsizeid" primarynamefield="cdcep_name" disableplugins="false">
+    <fields>
+      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created By (Delegate)" name="createdonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created On" name="createdon" type="datetime" />
+      <field displayname="Import Sequence Number" name="importsequencenumber" type="number" />
+      <field displayname="Modified By" name="modifiedby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified By (Delegate)" name="modifiedonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified On" name="modifiedon" type="datetime" />
+      <field displayname="Name" name="cdcep_name" type="string" customfield="true" />
+      <field displayname="Organization Id" name="organizationid" type="entityreference" lookupType="organization" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Shirt Size" name="cdcep_shirtsizeid" type="guid" primaryKey="true" />
+      <field displayname="Sort Order" name="cdcep_sortorder" type="number" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Time Zone Rule Version Number" name="timezoneruleversionnumber" type="number" />
+      <field displayname="UTC Conversion Time Zone Code" name="utcconversiontimezonecode" type="number" />
+      <field displayname="Version Number" name="versionnumber" type="bigint" />
+      <field displayname="VSS ID" name="cdcep_vssid" type="number" customfield="true" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="cdcep_faq_topic" displayname="FAQ Topic" etc="10519" primaryidfield="cdcep_faq_topicid" primarynamefield="cdcep_name" disableplugins="false">
+    <fields>
+      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created By (Delegate)" name="createdonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created On" name="createdon" type="datetime" />
+      <field displayname="FAQ Topic" name="cdcep_faq_topicid" type="guid" primaryKey="true" />
+      <field displayname="Import Sequence Number" name="importsequencenumber" type="number" />
+      <field displayname="Modified By" name="modifiedby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified By (Delegate)" name="modifiedonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified On" name="modifiedon" type="datetime" />
+      <field displayname="Name" name="cdcep_name" type="string" customfield="true" />
+      <field displayname="Organization Id" name="organizationid" type="entityreference" lookupType="organization" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Time Zone Rule Version Number" name="timezoneruleversionnumber" type="number" />
+      <field displayname="UTC Conversion Time Zone Code" name="utcconversiontimezonecode" type="number" />
+      <field displayname="Version Number" name="versionnumber" type="bigint" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="cdcep_faq_question" displayname="FAQ Question" etc="10518" primaryidfield="cdcep_faq_questionid" primarynamefield="cdcep_name" disableplugins="false">
+    <fields>
+      <field displayname="Answer" name="cdcep_answer" type="string" customfield="true" />
+      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created By (Delegate)" name="createdonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created On" name="createdon" type="datetime" />
+      <field displayname="Display Order" name="cdcep_display_order" type="number" customfield="true" />
+      <field displayname="Display Yes/No" name="cdcep_display_yesno" type="bool" customfield="true" />
+      <field displayname="FAQ Question" name="cdcep_faq_questionid" type="guid" primaryKey="true" />
+      <field displayname="Import Sequence Number" name="importsequencenumber" type="number" />
+      <field displayname="Modified By" name="modifiedby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified By (Delegate)" name="modifiedonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified On" name="modifiedon" type="datetime" />
+      <field displayname="Name" name="cdcep_name" type="string" customfield="true" />
+      <field displayname="Organization Id" name="organizationid" type="entityreference" lookupType="organization" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Time Zone Rule Version Number" name="timezoneruleversionnumber" type="number" />
+      <field displayname="Topic" name="cdcep_topicid" type="entityreference" lookupType="cdcep_faq_topic" customfield="true" />
+      <field displayname="UTC Conversion Time Zone Code" name="utcconversiontimezonecode" type="number" />
+      <field displayname="Version Number" name="versionnumber" type="bigint" />
+    </fields>
+    <relationships />
+  </entity>
+</entities>
