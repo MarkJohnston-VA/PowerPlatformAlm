@@ -1,0 +1,38 @@
+{% fetchxml facilitiesQuery %}
+<fetch version="1.0" mapping="logical">
+  <entity name="account" >
+    <attribute name="name" alias="FacilityName" />
+    <attribute name="accountid" alias="FacilityId" />
+    <filter>
+      <condition attribute="msnfp_accounttype" operator="eq" value="844060002" />
+    </filter>
+    <link-entity name="account" from="parentaccountid" to="accountid" link-type="outer" >
+      <attribute name="name" alias="PhysicalLocationName" />
+      <attribute name="accountid" alias="PhysicalLocationId" />
+      <attribute name="parentaccountid" alias="ParentFacilityId" />
+      <filter>
+        <condition attribute="msnfp_accounttype" operator="eq" value="844060000" />
+      </filter>
+    </link-entity>
+    <link-entity name="cdcep_state" from="cdcep_stateid" to="cdcep_stateid" >
+      <filter>
+        <condition attribute="cdcep_stateid" operator="eq" value="{{ request.params['id']}}" />
+      </filter>
+    </link-entity>
+  </entity>
+</fetch>
+{% endfetchxml %}
+
+{
+    "results":[
+        {% for item in facilitiesQuery.results.entities %}
+        {
+            "Id": "{{item.FacilityId}}",
+            "Name": "{{item.FacilityName}}",
+            "PhysicalLocationId": "{{item.PhysicalLocationId}}",
+            "PhysicalLocationName": "{{item.PhysicalLocationName}}",
+            "ParentFacilityId": "{{item.ParentFacilityId}}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
+}

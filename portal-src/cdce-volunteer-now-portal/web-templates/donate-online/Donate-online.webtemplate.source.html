@@ -1,0 +1,125 @@
+{% fetchxml question1 %}
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="cdcep_faq_topic" >
+    <filter>
+      <condition attribute="cdcep_name" operator="eq" value="donate_online" />
+    </filter>
+    <link-entity name="cdcep_faq_question" from="cdcep_topicid" to="cdcep_faq_topicid" >
+      <attribute name="cdcep_name" alias='Question' />
+      <attribute name="cdcep_answer" alias='Answer' />
+      <filter>
+        <condition attribute="cdcep_display_yesno" operator="eq" value="1" />
+      </filter>
+      <order attribute="cdcep_display_order" />
+    </link-entity>
+  </entity>
+</fetch>
+{% endfetchxml %}
+<div class="container">
+ <div class="page-heading">
+  {% block breadcrumbs %}
+      {% include 'Breadcrumbs' %}
+    {% endblock %}
+ </div>
+  <section id="content"> 
+    <div class="feature">
+                <h2>Donate Online</h2>
+                <p>Thank you for your interest in making a difference in the lives of Veterans! To provide you with more information regarding your interest in serving America's Veterans, please provide your contact information below and click 'Submit'. All fields marked with an asterisk are required.</p><br />
+                <strong>Note: Due to current volume of volunteer and donation information requests, a response may take more than two business days. You are welcome to directly contact the VA Center for Development and Civic Engagement office, sometimes referred to as Voluntary Service, at the nearest VA Medical Center. If you would like to offer support at the national level, please select District of Columbia - Veterans Health Administration.</strong><br /><br />
+                <p>OMB Number 2900-0090<br>
+                Estimated Average: 15 min.</p>
+    </div>
+</section>
+ <div class="row">
+  <div class="col-sm-4 col-lg-4 left-column">
+   {% block main %}
+   Frequently Asked Questions
+    <div id="accordion" class="nav-sidebar">
+    {{question1.results}}
+{% for item in question1.results.entities %}
+<button class="accordion">{{item.Question}}</button><div class="panel"><p>{{item.Answer}}</p></div>{% endfor %}
+  </div>
+   {% endblock %}
+  </div>
+  <div class="col-sm-8 col-lg-8 right-column">
+   {% block aside %}
+
+{% entitylist name:'States List' %}
+{% entityview statesView = endentitylist.views[0] %}
+
+<form id="liquid_form">
+
+    <main>
+        <div>
+            <div>
+                <div>
+                    <section>
+
+                        <div>
+                            <fieldset>
+                               <div>
+                                Please select the State and Facility where you wish to donate<BR><BR>
+                                </div>
+                                <div class="usa-row">
+                                    <div class="info required">
+                                        <label for="stateList" class="field-label">State</label>
+                                    </div> 
+                                    <div class="control" id="divstate">
+                                        <select id="statesList" class="usa-select">
+                                            <option />
+                                            {% for state in statesView.records -%}
+                                            {% for column in statesView.columns -%}
+                                            {% if forloop.index == 1 %}
+                                            {% assign stateName = state[column.logical_name] %}
+                                            {% else %}
+                                            {% assign stateValue = state[column.logical_name] %}
+                                            {% endif %}
+                                            {% endfor -%}
+                                            <option value="{{stateValue}}">{{stateName}}</option>
+                                            {% endfor -%}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="usa-row" id="divfacility">
+                                    <div class="info required">
+                                        <label for="facilitiesList" class="field-label">Facility</label>
+                                    </div> 
+                                    <div class="control">
+                                        <select id="facilitiesList" class="usa-select" disabled>
+                                            <option />
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="usa-row">
+                                    <div class="usa-form">
+                                        <div class="entity-action-button">
+                                            <input id="submit" class="usa-button" type="button" value="Submit" />
+                                            <input id="reset" class="usa-button" type="reset" />
+                                        </div>
+                                    </div>
+                                </div>
+						<div id = "notification" class = "alert alert-danger" role ="alert" style="display:none">
+						
+						</div>
+								
+								
+                            </fieldset>
+                        </div>
+                        <div class="vads-l-row">
+                            <div>
+                                <a href="https://www.publichealth.va.gov/n-coronavirus/?utm_source=Homepage&amp;utm_campaign=Coronavirus" target="_new">Learn more about VA’s COVID-19 Response Plan »</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+</form>
+    {% endentityview %}
+    {% endentitylist %}
+
+   {% endblock %}
+  </div>
+ </div>
+</div>

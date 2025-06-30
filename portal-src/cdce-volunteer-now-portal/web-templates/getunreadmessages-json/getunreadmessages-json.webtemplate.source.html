@@ -1,0 +1,30 @@
+{% fetchxml unreadMessages %}
+<fetch returntotalrecordcount="true">
+  <entity name="adx_portalcomment" >
+    <attribute name="statecode" />
+    <attribute name="statuscode" />
+    <attribute name="adx_portalcommentdirectioncode" />
+    <attribute name="activityid" />
+    <filter>
+      <condition attribute="adx_portalcommentdirectioncode" operator="eq" value="2" />
+      <condition attribute="statuscode" operator="neq" value="100000000" />
+      <filter type="or" >
+        <condition attribute="cdcep_portal_recipient_id" operator="eq" value="{{ request.params['id'] }}" />
+        <condition attribute="regardingobjectid" operator="eq" value="{{ request.params['id'] }}" uitype="contact" />
+      </filter>
+    </filter>
+  </entity>
+</fetch>
+{% endfetchxml %}
+{
+    "results":[
+        {% for message in unreadMessages.results.entities %}
+        {
+            "Id": "{{message.id}}",
+            "DirectionCode": "{{message.adx_portalcommentdirectioncode.Value}}",
+            "MessageStateCode": "{{message.statecode.Value}}",
+            "MessageStatusCode": "{{message.statuscode.Value}}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
+}

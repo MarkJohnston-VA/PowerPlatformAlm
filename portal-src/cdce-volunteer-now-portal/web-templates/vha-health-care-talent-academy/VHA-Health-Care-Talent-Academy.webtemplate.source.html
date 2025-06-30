@@ -1,0 +1,46 @@
+    <div class="breadcrumb">
+        {% block breadcrumbs %}
+        {% include 'Breadcrumbs' %}
+        {% endblock %}
+    </div>
+    <main>
+        <section>
+            <div class="alert alert-danger" role="alert" id="fieldsrequired" style="display:none;">
+ Please fill in all required fields and answer all questions.
+</div>
+<div class="alert alert-success" role="alert" id="notqualified" style="display:none;">
+ Thank you for your interest. However, based on your answers you are currently not qualified for the VHA Health Care Talent Academy program.
+</div>
+            {% webform name: 'VHA Health Care Talent Academy Application' %}
+            <div class="feature">
+                <p></p>
+                <p><strong>The Paperwork Reduction Act of 1995</strong>&nbsp;requires us to notify you that this information collection is in accordance with the clearance requirements of section 3507 of the Paperwork Reduction Act of 1995. We may not conduct or sponsor, and you are not required to respond to a collection of information unless it displays a valid OMB number. We anticipate that the time expended by all individuals who must complete this form will average 15 minutes. This includes the time it will take to read instructions, gather the necessary facts and fill out the form. The form is used to assist personnel of both voluntary organizations, which recruit volunteers from their membership, and the VA in the selection, screening and placement of volunteers in the nationwide VA Voluntary Service program. The volunteer program supplements the medical care and treatment of veteran patients in all VA medical centers.</p>
+                <p>
+                    <strong>Privacy Act Information</strong><br>
+                    The information requested on this form is solicited under the authority of 38 U.S.C. 513 and will be used in the selection and placement of potential volunteers in the VA Voluntary Service Program. The information you supply may be disclosed outside VA as permitted by law; possible disclosures include those described in the "routine uses" identified in the VA system of records 57VA125 Voluntary Service Records-VA, published in the Federal Register in accordance with the Privacy Act of 1974. The routine uses include disclosures: in response to court subpoenas, to report apparent law violations to other Federal, State or local agencies charged with law enforcement responsibilities, to service organizations, employers and Unemployment Compensation Offices to confirm volunteer service, and to congressional offices at the request of the volunteer. Disclosure of the information is voluntary, however, failure to furnish the information will hamper our ability to arrange the most satisfactory assignment for you and the Department of Veterans Affairs. Disclosure of the Social Security number is voluntary. The number will be used in the identification or records.
+                </p>
+                <p></p>
+                <p>
+                    <a name="learnmore"></a><strong>About Donations to VA</strong><br>
+                    VA medical center directors have authority to accept gifts pursuant to 38 USC 8301 and VHA Handbook 4721 for the general benefit of the medical center and the Veterans we serve. The Chief of Voluntary Service at each VA medical center may accept gifts that benefit the facility and its patients except for gifts for research and education. Donations provide Veteran patients with many essential services and programs that otherwise would not be available to them, such as transportation services, social service assistance, rehabilitation equipment, recreation programs, activities, homeless Veteran's services, holiday gifts, phone cards and many other options. Your donations are 100 percent tax deductible and all administrative costs for VA are already appropriated by Congress, so you can be assured your entire donation is going directly to support Veterans in the way you choose.
+                </p>
+                <p>VA Voluntary Service (VAVS) is following revised protocols in accepting volunteers and donations during the ongoing response to the coronavirus pandemic. All donations of Personal Protective Equipment (PPE) (i.e., masks, gloves, gowns, face shields) must be evaluated and approved by a medical center director-appointed infection control committee designee or group, before entering the facility supply chain.</p>
+                <p>All donations of handmade masks should also be evaluated by the appointee identified above, and if approved the items must be sanitized and distributed with direction as to their use, with explicit clarification that handmade masks are not considered PPE.</p>
+                <p>All donations will be processed through the Office of Voluntary Service in accordance with VHA Directive 4721 to ensure consistent tracking and acknowledgment of COVID-19 donations.</p>
+                <a href="https://www.publichealth.va.gov/n-coronavirus/?utm_source=Homepage&amp;utm_campaign=Coronavirus">More about VA’s COVID-19 Response Plan »</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-crisisline" class="va-overlay va-modal va-modal-large" role="alertdialog">
+        <div class="va-crisis-panel va-modal-inner">
+            <h3 class="vads-u-padding--1">Donate Online?</h3>
+            <div class="va-overlay-body va-crisis-panel-body vads-u-padding--1">
+                <p class="vads-u-margin--0">Would you like to make your donation online?</p>
+                <div class="vads-u-padding-y--1p5">
+                    <button class="va-overlay-close" type="button" aria-label="Close this modal" onClick="window.hideModal(this);">Yes</button>
+                    <button class="va-overlay-close" type="button" aria-label="Close this modal" onClick="window.hideModal(this);">No</button>
+                </div>
+            </div>
+        </div>
+    </div>

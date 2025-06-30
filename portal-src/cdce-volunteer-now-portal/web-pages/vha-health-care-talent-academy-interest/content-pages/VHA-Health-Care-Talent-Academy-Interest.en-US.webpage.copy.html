@@ -1,0 +1,75 @@
+<form class="form-horizontal" id="formQA" action="/vha_healthcareacademy" method="post">
+<fieldset>
+<div class="alert alert-danger" role="alert" id="fieldsrequired" style="display:none;">
+ Please answer all questions.
+</div>
+<div class="alert alert-success" role="alert" id="notqualified" style="display:none;">
+ Thank you for your interest. However, based on your answers you are currently not qualified for the VHA Healthcare Academy program.
+</div>
+<!-- Form Name -->
+<p>Please answer the following questions to determine your qualification in the VHA Healthcare Academy</p>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-6 control-label" for="radios">Are you United States Citizen or National?</label>
+  <div class="col-md-6"> 
+    <label class="radio-inline" for="radios-0">
+      <input type="radio" name="uscitizen" id="radios-0" value="1">
+      Yes
+    </label> 
+    <label class="radio-inline" for="radios-1">
+      <input type="radio" name="uscitizen" id="radios-1" value="0">
+      No
+    </label>
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-6 control-label" for="radios">Are you over the age of 18 ?</label>
+  <div class="col-md-6"> 
+    <label class="radio-inline" for="radios-0">
+      <input type="radio" name="over18" id="radios-0" value="1">
+      Yes
+    </label> 
+    <label class="radio-inline" for="radios-1">
+      <input type="radio" name="over18" id="radios-1" value="0">
+      No
+    </label>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-6 control-label" for="radios">Are you currently a student enrolled in a university undergraduate program?</label>
+  <div class="col-md-6"> 
+    <label class="radio-inline" for="radios-0">
+      <input type="radio" name="undergrad" id="radios-0" value="1">
+      Yes
+    </label> 
+    <label class="radio-inline" for="radios-1">
+      <input type="radio" name="undergrad" id="radios-1" value="0">
+      No
+    </label>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-6 control-label" for="radios">Are you interested in a career in healthcare ?</label>
+  <div class="col-md-6"> 
+    <label class="radio-inline" for="radios-0">
+      <input type="radio" name="healthcareyn" id="radios-0" value="1">
+      Yes
+    </label> 
+    <label class="radio-inline" for="radios-1">
+      <input type="radio" name="healthcareyn" id="radios-1" value="0">
+      No
+    </label>
+  </div>
+</div>
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-6">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary" align="middle">Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

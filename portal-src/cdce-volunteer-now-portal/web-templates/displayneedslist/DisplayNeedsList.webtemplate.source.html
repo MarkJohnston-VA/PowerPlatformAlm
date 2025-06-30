@@ -1,0 +1,129 @@
+{% assign facilityid=request.params['id'] %}
+{% assign today = now %}
+{% fetchxml items1 %}
+
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+    <entity name="msnfp_item">
+        <attribute name="msnfp_itemid" />
+        <attribute name="msnfp_itemname" />
+        <attribute name="msnfp_itemtypeid" />
+        <attribute name="msnfp_description" />
+        <attribute name="cdcep_size" />
+        <attribute name="cdcep_quantity" />
+        <!--<attribute name="cdcep_itemvalue" />-->
+        <attribute name="cdcep_classification" />
+        <order attribute="cdcep_classification" descending="false" />
+        <filter type="and">
+            <condition attribute="cdcep_includeonneedslist" operator="eq" value="1" />
+        </filter>
+        <filter type="and">
+            <condition attribute="cdcep_includeonneedslist" operator="eq" value="1" />
+        </filter>
+        <filter type="or">
+            <condition attribute="cdcep_startdate" operator="null" />
+            <condition attribute="cdcep_startdate" operator="on-or-before" value="{{today}}" />
+        </filter>
+        <filter type="or">
+            <condition attribute="cdcep_enddate" operator="null" />
+            <condition attribute="cdcep_enddate" operator="on-or-after" value="{{today}}" />
+        </filter>
+        <link-entity name="account" from="accountid" to="msnfp_supplierid">
+            <attribute name="name" alias="facilityname" />
+            <attribute name="cdcep_stateid" />
+            <attribute name="address1_stateorprovince" alias="address1state" />
+            <attribute name="address1_postalcode" alias="address1postalcode" />
+            <attribute name="address1_line1" alias="addressline1" />
+            <attribute name="address1_city" alias="address1city" />
+            <attribute name="emailaddress1" alias="email1" />
+            <attribute name="telephone1" alias="telephone1" />
+            <attribute name="cdcep_facilityneedsdescription" alias="banner" />
+            <filter>
+                <condition attribute="accountnumber" operator="eq" value="{{facilityid}}" />
+            </filter>
+
+        </link-entity>
+    </entity>
+</fetch>
+{% endfetchxml %}
+<div class="container">
+    <div class="page-heading">
+        {% block breadcrumbs %}
+        {% include 'Breadcrumbs' %}
+        {% endblock %}
+        {% block title %}
+        {% include 'Page Header' %}
+        {% endblock %}
+    </div>
+</div>
+  {% block aside %}
+<div class="container">
+    <div>
+        <div>
+            <button type="button" class="btn btn-primary" id="printButton" style="float:right">Print</button>
+        </div>
+    </div>
+</div>
+
+<div id="printElement">
+    <div class="row">
+        <div class="col-sm-7">
+            <h4> {{items1.results.entities[0].facilityname}} - Needs List</h4>
+        </div>
+        <div class="col-sm-5">
+            {{items1.results.entities[0].facilityname}}<BR>
+            {% if items1.results.entities[0].adressline1 != null %}
+            {{items1.results.entities[0].addressline1}}<BR>
+            {% endif %}
+            {{items1.results.entities[0].address1city}}, {{items1.results.entities[0].address1state}} {{items1.results.entities[0].address1postalcode}}<BR>
+            <BR>
+            {% if items1.results.entities[0].telephone1 != null %}
+            <b>Phone:</b> {{items1.results.entities[0].telephone1}}<BR>
+            {% endif %}
+            {% if items1.results.entities[0].email1 != null %}
+            <B>Email:</B> {{items1.results.entities[0].email1}}<BR>
+            {% endif %}
+            <BR>
+        </div>
+    </div> <!-- row -->
+    {% if items1.results.entities[0].banner != null %}
+    <div class="row">
+        <div class="col-12">
+            {{items1.results.entities[0].banner}}<BR><BR>
+        </div>
+    </div>
+    {% endif %}
+    <div class="row">
+        <div class="col">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Qty</th>
+                        <th>Category</th>
+                        <th>Item</th>
+                        <th>Size</th>
+                       <!-- <th>Value</th> -->
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items1.results.entities %}
+                    <tr>
+                        <td>{{item.cdcep_quantity}}</td>
+                        <td>{{item.cdcep_classification.label}}</td>
+                        <td>{{item.msnfp_itemname}}</td>
+                        <td>{{item.cdcep_size.label}}</td>
+                <!--        <td>
+                            {% if item.cdcep_itemvalue != null &&  item.cdcep_itemvalue > 0 %}
+                            {{ item.cdcep_itemvalue | format: "C", "en-US" }}
+                            {% endif %}
+                        </td> -->
+                        <td>{{item.msnfp_description}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div><!-- col -->
+    </div><!-- row -->
+</div>
+{% endblock %}
+

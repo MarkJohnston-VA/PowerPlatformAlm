@@ -1,0 +1,36 @@
+<div class="xrm-editable-html xrm-attribute">
+  <div class="xrm-attribute-value">
+    <div class="row">
+      <div class="col-md-3 col-xs-12 icon-box">
+        <a id="editMyTime" href="/profile/todays-time-entry" target="_self"
+          ><img src="/timesheet.png" height="80px" />
+          <h3>Enter My Time</h3>
+          <p>Registered volunteers can sign in and enter their volunteer time.</p></a
+        >
+      </div>
+      <div class="col-md-3 col-xs-12 icon-box">
+        <a id="editMyProfile" href="/profile" target="_self"
+          ><img src="/profile3.png" height="80px" />
+          <h3>Edit My Profile</h3>
+          <p>Registered volunteers can update contact information for their profile.</p></a
+        >
+      </div>
+      <div class="col-md-3 col-xs-12 icon-box">
+        <a href="/profile/available-assignments" target="_self"
+          ><img src="/assignment.png" width="80px" />
+          <h3>Available Assignments</h3>
+          <p>Registered volunteers can view other assignments available to support. (New volunteers should select "Volunteer or Donate"  and choose "Volunteer at a Facility")</p></a
+        >
+      </div>
+	    {% if user %}
+      <div class="col-md-3 col-xs-12 icon-box">
+        <a id="signout" href="/Account/Login/LogOff?returnUrl=%2F" target="_self"
+          ><img src="/signout.png" width="80px" />
+          <h3>Sign out</h3>
+          <p>Sign out the volunteer from the system</p></a
+        >
+      </div>
+	    {% endif %}
+    </div>
+  </div>
+</div>

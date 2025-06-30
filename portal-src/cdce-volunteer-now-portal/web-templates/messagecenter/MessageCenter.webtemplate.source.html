@@ -1,0 +1,154 @@
+{% substitution %}
+{% entityview my_unread_messages = logical_name:'adx_portalcomment', name:'My Portal Unread Messages' %}
+    {% assign unreadMessages = my_unread_messages %}
+{% endentityview %}
+{% entityview my_received_messages = logical_name:'adx_portalcomment', name:'My Portal Received Messages' %}
+    {% assign receivedMessages = my_received_messages %}
+{% endentityview %}
+
+{% if unreadMessages %}
+<script>
+    window.portalunreadmessages = {{ unreadMessages.total_records }}
+</script>
+{% endif %}
+
+{% if receivedMessages %}
+<script>
+    window.receivedMessages = [
+        {% for msg in receivedMessages.records %}
+        {
+            "Id": "{{ msg['activityid'] }}",
+            "Subject": "{{ msg['subject'] }}",
+            "MessageStatus": "{{ msg['statuscode'].Value }}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ];
+</script>
+{% endif %}
+{% endsubstitution %}
+
+<script>
+    let _completedStateCode = 1;
+    let _getMessagesTimer;
+    let _directionCodeIncoming = 1;
+    let _directionCodeOutgoing = 2;
+    let _openStateCode = 1;
+    let _openedMessageStatusCode = 100000000;
+    let _pollingInterval = "{{ settings['MessageCenter/PollingInterval'] }}";
+    let _pollingTimer;
+    let _notificationHasBeenShown = sessionStorage.getItem('Notification Has Been Shown');
+    let _unopenedMessageStatusCode = 100000001;
+    let _unreadMessages = localStorage.getItem("UnreadMessages");
+
+    $(window).on('beforeunload', function(){
+        if(_pollingTimer) clearInterval(_pollingTimer);
+    });
+
+    var notificationMsg = (function () {
+        var $processingMsgEl = $('#processingMsg');
+        return {
+            show: function (msg) {
+                $processingMsgEl.empty();
+                $processingMsgEl.append(msg);
+                $processingMsgEl.show();
+            },
+            hide: function () {
+                $processingMsgEl.hide();
+            }
+        }
+    })();
+
+    function findMessage(messages, messageId) {
+        var matchingMessage;
+        messages.forEach((msg, idx) => {
+            if (msg.Id === messageId) {
+                matchingMessage = msg;
+                return;
+            }
+        });
+        if(matchingMessage) return matchingMessage;
+        else{
+            if(window.receivedMessages){
+                window.receivedMessages.forEach((msg, idx) => {
+                    if (msg.Id === messageId && msg.MessageStatus !== "100000000") {
+                        matchingMessage = msg;
+                        return;
+                    }
+                });
+            }
+        }
+        return matchingMessage;
+    }
+
+    function getAllUnreadMessages(){
+        if(_pollingTimer) clearInterval(_pollingTimer);
+        $.getJSON('/getunreadmessages-json?id=' + sessionStorage.getItem("User Id"))
+            .done(function(resp) {
+                if (resp && resp.results) {
+                    localStorage.setItem("UnreadMessages", JSON.stringify(resp.results));
+                    showUnreadMessageCount(JSON.stringify(resp.results));
+                    if(_pollingInterval) _pollingTimer = setInterval(getAllUnreadMessages, _pollingInterval);
+                }
+            })
+            .fail(function (jqxhr, textStatus, error) {
+                console.log(jqxhr);
+                console.log(textStatus);
+                console.log(error);
+            });
+    }
+
+    function getMessageStatus(messageId){
+        $.getJSON('/getmessagestatus-json?id=' + messageId + '&v=' + Date.now())
+            .done(function(resp) {
+                if (resp && resp.results && resp.results.MessageStatusCode === _openedMessageStatusCode) return null;
+                else return resp.results;
+            })
+            .fail(function (jqxhr, textStatus, error) {
+                console.log(jqxhr);
+                console.log(textStatus);
+                console.log(error);
+            });
+    }
+
+    function hideNotification(){
+        $('#processingMsg').hide();
+    }
+
+    function showNotification(){
+        if(!_notificationHasBeenShown && _unreadMessages.length > 0){
+            //let msg = "<div>You have unread messages</div><div><button type='button' class='btn btn-primary' onclick='hideNotification()'>Ok</button></div>";
+            //$('#processingMsg').empty();
+            //$('#processingMsg').append(msg);
+            //$('#processingMsg').show();
+            let msg = "You have unread messages";
+            alert(msg);
+
+            sessionStorage.setItem('Notification Has Been Shown', true);
+        }
+    }
+
+    function showUnreadMessageCount(unreadMessages) {
+        if (unreadMessages) {
+            unreadMessages = JSON.parse(unreadMessages);
+            let menuItemLabel = $("a[aria-label='My Received Messages']").text().trim();
+            if (menuItemLabel.indexOf('(') === 0) {
+                let start = menuItemLabel.indexOf('(');
+                let end = menuItemLabel.indexOf(')') + 1;
+                let count = menuItemLabel.substr(start, end);
+                let newCount = "(" + unreadMessages.length + ") "
+                if(unreadMessages.length > 0) menuItemLabel = menuItemLabel.replace(count, newCount);
+                else menuItemLabel = menuItemLabel.replace(count, "");
+            }
+            else{
+                if(unreadMessages.length > 0) menuItemLabel = "(" + unreadMessages.length + ") " + menuItemLabel;
+            }
+            $("a[aria-label='My Received Messages']").text(menuItemLabel);
+
+            $("#msgNotification").remove();
+            if(unreadMessages.length > 0){
+                $("a[aria-label='My Received Messages']").parents("ul").prev().prepend("<span id='msgNotification' style='font-weight: bold;color: #fff;'>*</span>");
+                showNotification();
+            }
+        }
+    }
+</script>

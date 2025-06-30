@@ -1,0 +1,139 @@
+    {% block main %}
+
+    {% assign id = request.params['id'] %}
+    {% assign fac_id = request.params['fid'] %}
+    {% assign today = now %}
+    {% fetchxml facility %}
+    <fetch version="1.0" aggregate="true">
+        <entity name="account">
+    <attribute name="name" alias="name" groupby="true" />
+    <attribute name="parentaccountid" alias="parentaccountid" groupby="true" />
+    <attribute name="cdcep_stateid" alias="cdcep_stateid" groupby="true" />
+    <attribute name="accountnumber" alias="accountnumber" groupby="true" />
+    <attribute name="accountid" alias="AccountId" groupby="true" />
+            <filter>
+                <condition attribute="msnfp_accounttype" operator="eq" value="844060002" />
+                <condition attribute="statecode" operator="eq" value="0" />
+                <condition attribute="cdcep_stateid" operator="not-null" />
+                {% if id %}
+                <condition attribute="cdcep_stateid" operator="eq" value="{{ id }}" />
+                {% endif %}
+                {% if fac_id %}
+                <filter type="or">
+                    <condition attribute="accountid" operator="eq" value="{{ fac_id }}" />
+                    <condition attribute="parentaccountid" operator="eq" value="{{ fac_id }}" />
+                </filter>
+                {% endif %}
+            </filter>
+    <order alias="cdcep_stateid" />
+    <order alias="parentaccountid" />
+            <link-entity name="msnfp_item" from="msnfp_supplierid" to="accountid" link-type="outer" >
+                  <attribute name="msnfp_itemname" alias="needcount" aggregate="countcolumn" />
+                  <filter type="and" >
+                    <condition attribute="cdcep_includeonneedslist" operator="eq" value="1" />
+                  </filter>
+                  <filter type="or" >
+                    <condition attribute="cdcep_startdate" operator="null" />
+                    <condition attribute="cdcep_startdate" operator="on-or-before" value="{{today}}" />
+                  </filter>
+                  <filter type="or" >
+                    <condition attribute="cdcep_enddate" operator="null" />
+                    <condition attribute="cdcep_enddate" operator="on-or-after" value="{{today}}" />
+                  </filter>
+                </link-entity>
+
+        </entity>
+    </fetch>
+    {% endfetchxml %}
+
+<form id="content_form">
+    <div class="breadcrumb">
+        {% block breadcrumbs %}
+        {% include 'Breadcrumbs' %}
+        {% endblock %}
+    </div>
+    <div class="vads-l-grid-container large-screen:vads-u-padding-x--0 vads-u-padding-y--2">
+        <div class="vads-l-row vads-u-margin-x--neg2p5">
+            <h2 class="vads-u-margin-top--0">Volunteer or Donate</h2>
+
+            {% assign stateFac = facility.results.entities | group_by: 'cdcep_stateid.name' %}
+            <nav class="usa-sidebarnav vads-u-width--full">
+                <div class="vads-u-margin-bottom--2">
+                    {% for state in stateFac %}
+                    {% assign divId = state.key | downcase | replace: ' ', '' %}
+                    <ul class="usa-sidenav-list">
+                        <li>
+                            {% if id %}
+                            <a href="#" onclick="javascript:void(0);">{{state.key}} - <i>Not Available</i></a>
+                            <div id="{{divId}}">
+                            {% else %}
+                            <button type="button" class="usa-accordion-button-dark" aria-controls="{{divId}}" aria-expanded="false">
+                                {{state.key}}
+                            </button>
+                            <div id="{{divId}}" class="usa-accordion-content usa-accordion-content--hideoverflow" aria-hidden="true">
+                            {% endif %}
+                                {% assign childFac = state.items | group_by: 'parentaccountid.name' %}
+                                <ul class="usa-sidenav-sub_list">
+                                    {% assign chKey = '' %}
+                                    {% for ch in childFac %}
+                                        {% if ch.key %}
+                                            {% if ch.key != chKey %}
+                                                {% assign chKey = ch.key %}
+                                            {% endif %}
+                                            {% if ch.key contains 'VISN' %} 
+                                                {% for item in ch.items %}
+                                                    {% if item.needcount == null or item.needcount <= 0  %}
+                                                    <li><a href="#" onclick="javascript:void(0);">{{item.name}} - <i>Not Available</i></a></li>
+                                                    {%else%}
+                                                    <li><a href="~/facility_needlist?id={{item.accountnumber}}" target="_blank">{{item.name}} - <b>Needs List ({{item.needcount}} items)</b></a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% else %}
+                                            <li>
+                                                {% capture subId %}{{ divId }}-sub{% endcapture %}
+                                                <a href="#" onclick="javascript:void(0);">{{ch.key}}</a>
+                                                <div id="{{ subId }}">
+                                                    <ul class="usa-sidenav-list">
+                                                        <li>
+                                                        {% for item in ch.items %}
+                                                            {% assign divSubId = item.name | downcase | replace: " ", "" %}
+                                                            {% if forloop.first %}
+                                                            <div id="{{divSubId}}-sub" class="vads-u-margin-left--1p5 vads-u-padding-right--1">
+                                                                <ul class="usa-sidenav-list vads-u-margin-0">
+                                                            {% endif %}
+                                                            {% if item.needcount == null or item.needcount <= 0  %}
+                                                            <li><a href="#" onclick="javascript:void(0);">{{item.name}} - <i>Not Available</i></a></li>
+                                                            {%else%}
+                                                            <li><a href="~/facility_needlist?id={{item.accountnumber}}" target="_blank">{{item.name}} - <b>Needs List ({{item.needcount}} items)</b></a></li>
+                                                            {% endif %}
+                                                            {% if forloop.last %}
+                                                                </ul>
+                                                            </div>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            {% endif %}
+                                        {% else %}
+                                            {% for item in ch.items %}
+                                                 {% if item.needcount == null or item.needcount <= 0  %}
+                                                    <li><a href="#" onclick="javascript:void(0);">{{item.name}} - <i>Not Available</i></a></li>
+                                                    {%else%}
+                                                    <li><a href="~/facility_needlist?id={{item.accountnumber}}" target="_blank">{{item.name}} - <b>Needs List ({{item.needcount}} items)</b></a></li>
+                                                    {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endfor %}
+                </div>
+            </nav>
+        </div>
+    </div>
+</form>
+    {% endblock %}

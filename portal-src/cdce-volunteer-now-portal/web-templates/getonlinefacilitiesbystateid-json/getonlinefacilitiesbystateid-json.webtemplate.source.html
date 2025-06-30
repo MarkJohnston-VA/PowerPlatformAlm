@@ -1,0 +1,31 @@
+{% fetchxml facilitiesQuery %}
+<fetch version="1.0" mapping="logical">
+  <entity name="account" >
+    <attribute name="accountid" alias="Id" />
+    <attribute name="name" alias="Name" />
+    <attribute name="cdcep_epay_url" alias="VisnUrl" />
+    <filter>
+      <condition attribute="msnfp_accounttype" operator="eq" value="844060002" />
+      <condition attribute="cdcep_epay_url" operator="not-null" />
+      <!--<condition attribute="cdcep_online" operator="eq" valie="1" />-->
+    </filter>
+    <link-entity name="cdcep_state" from="cdcep_stateid" to="cdcep_stateid" >
+      <filter type="or">
+        <condition attribute="cdcep_iso2" operator="eq" value="{{ request.params['id']}}" />
+      </filter>
+    </link-entity>
+  </entity>
+</fetch>
+{% endfetchxml %}
+
+{
+    "results":[
+        {% for item in facilitiesQuery.results.entities %}
+        {
+            "Id": "{{item.Id}}",
+            "Name": "{{item.Name}}",
+            "URL": "{{item.VisnUrl}}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
+}

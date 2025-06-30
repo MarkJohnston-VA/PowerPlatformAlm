@@ -1,0 +1,65 @@
+<style>
+button[title*="SSOController"] {
+    display:none;
+}
+.btn-line {
+    margin-right: 5px;
+}   
+</style>
+<script>
+$(document).ready(function() {  
+    
+    var expiredSession = sessionStorage.getItem("Session Expired");
+    if(expiredSession){
+        sessionStorage.removeItem("Session Expired");
+        alert("Your session has expired.  Please Sign In again to resume.");
+    }
+
+    var enableStub = '{{settings["EnableAccessVASignIn"] | downcase}}';
+    //If stub sign in is disabled, redirect to access VA
+    if (enableStub == "true") {
+        $(".nav.nav-tabs.nav-account").hide();
+        redirectToAccessVA();
+    }
+    // else{
+    //     var ssoControllerButton = $("button[title*='SSOController']");    
+        
+    //     var stubRedirectButton = $("<input class='btn btn-primary btn-line' onclick='redirectToStub()' type='submit' value='Stub IDP Sign In'>");
+    //     var accessVARedirectButton = $("<input class='btn btn-primary btn-line' id='btnRedirectToAccessVA' onclick='redirectToAccessVA()' type='submit' value='Access VA Sign In'> ");
+        
+    //     ssoControllerButton.after(stubRedirectButton);
+    //     ssoControllerButton.after(accessVARedirectButton);
+    // }
+});
+function redirectToAccessVA()
+{    
+    var controllerUrl = getControllerUrl();
+    if (controllerUrl.indexOf("?")!=-1){
+        controllerUrl = controllerUrl + "&idp=AccessVASignIn";
+    }else{
+        controllerUrl = controllerUrl + "?returnUrl=%2F&idp=AccessVASignIn";
+    }
+    window.location.href = controllerUrl;        
+}
+function redirectToStub()
+{     
+    var controllerUrl = getControllerUrl();
+debugger;
+    if (controllerUrl.indexOf("?")!=-1){
+        controllerUrl = controllerUrl + "&idp=StubSignIn";
+    }else{
+        controllerUrl = controllerUrl + "?returnUrl=%2F&idp=StubSignIn";
+    }
+    window.location.href = controllerUrl;
+    //window.location = controllerUrl;           
+}
+
+function getControllerUrl(){
+    var controllerUrl = "{{settings['SSOControllerLogin']}}";
+    var qsParams = window.location.search;
+    if (qsParams.toUpperCase().indexOf("RETURNURL") != -1){
+        controllerUrl = controllerUrl + qsParams;
+    }
+    return controllerUrl;
+}
+</script>

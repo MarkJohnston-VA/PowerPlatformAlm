@@ -1,0 +1,114 @@
+
+{% fetchxml question1 %}
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="cdcep_faq_topic" >
+    <filter>
+      <condition attribute="cdcep_name" operator="eq" value="donate_online" />
+    </filter>
+    <link-entity name="cdcep_faq_question" from="cdcep_topicid" to="cdcep_faq_topicid" >
+      <attribute name="cdcep_name" alias='Question' />
+      <attribute name="cdcep_answer" alias='Answer' />
+      <filter>
+        <condition attribute="cdcep_display_yesno" operator="eq" value="1" />
+      </filter>
+      <order attribute="cdcep_display_order" />
+    </link-entity>
+  </entity>
+</fetch>
+  {% endfetchxml %}
+<div class="container">
+ <div class="page-heading">
+  {% block breadcrumbs %}
+      {% include 'Breadcrumbs' %}
+    {% endblock %}
+  {% block title %}
+    {% include 'Page Header' %} 
+  {% endblock %}
+ </div>
+ <div class="row">
+  <div class="col-sm-4 col-lg-4 left-column">
+   {% block main %}
+    Frequently Asked Questions
+    <div id="accordion">
+    {{question1.results}}
+{% for item in question1.results.entities %}
+<button class="accordion">{{item.Question}}</button><div class="panel"><p>{{item.Answer}}</p></div>{% endfor %}
+  </div>
+   {% endblock %}
+  </div>
+  <div class="col-sm-8 col-lg-8 right-column">
+   {% block aside %}
+
+{% entitylist name:'States List' %}
+{% entityview statesView = endentitylist.views[0] %}
+
+<form id="liquid_form">
+
+    <main>
+        <div>
+            <div>
+                <div>
+                    <section>
+                        <div>
+                            <fieldset>
+                               <div>
+                                Please select the State and Facility where you wish to donate<BR><BR>
+                                </div>
+                                <div class="usa-row">
+                                    <div class="info required">
+                                        <label for="stateList" class="field-label">State</label>
+                                    </div> 
+                                    <div class="control">
+                                        <select id="statesList" class="usa-select">
+                                            <option />
+                                            {% for state in statesView.records -%}
+                                            {% for column in statesView.columns -%}
+                                            {% if forloop.index == 1 %}
+                                            {% assign stateName = state[column.logical_name] %}
+                                            {% else %}
+                                            {% assign stateValue = state[column.logical_name] %}
+                                            {% endif %}
+                                            {% endfor -%}
+                                            <option value="{{stateValue}}">{{stateName}}</option>
+                                            {% endfor -%}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="usa-row">
+                                    <div class="info required">
+                                        <label for="facilitiesList" class="field-label">Facility</label>
+                                    </div> 
+                                    <div class="control">
+                                        <select id="facilitiesList" class="usa-select" disabled>
+                                            <option />
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="usa-row">
+                                    <div class="usa-form">
+                                        <div class="entity-action-button">
+                                            <input id="submit" class="usa-button" type="button" disabled value="Submit" />
+                                            <input id="reset" class="usa-button" type="reset" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="vads-l-row">
+                            <div>
+                                <a href="https://www.publichealth.va.gov/n-coronavirus/?utm_source=Homepage&amp;utm_campaign=Coronavirus">Learn more about VA’s COVID-19 Response Plan »</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+</form>
+    {% endentityview %}
+    {% endentitylist %}
+
+   {% endblock %}
+  </div>
+ </div>
+</div>

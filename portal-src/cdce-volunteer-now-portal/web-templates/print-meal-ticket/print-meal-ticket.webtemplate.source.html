@@ -1,0 +1,27 @@
+{% fetchxml mealTicketsQuery %}
+<fetch>
+  <entity name="annotation" >
+    <attribute name="documentbody" />
+    <filter>
+      <condition attribute="objectid" operator="eq" value="{{ request.params['id'] }}" />
+    </filter>
+  </entity>
+</fetch>
+{% endfetchxml %}
+
+{% assign mealTicket = mealTicketsQuery.results.entities[0] %}
+
+{% if mealTicket %}
+<script>
+  window.pdfBody = '{{mealTicket.documentbody}}';
+    function loadPdf(){
+      var objbuilder = '';
+      objbuilder += '<embed width=\'100%\' height=\'100%\' src="data:application/pdf;base64,' + window.pdfBody + '" type="application/pdf" />';
+      document.write(objbuilder);
+    }
+
+    window.onload = function(){
+      loadPdf();
+    }
+</script>
+{% endif %}

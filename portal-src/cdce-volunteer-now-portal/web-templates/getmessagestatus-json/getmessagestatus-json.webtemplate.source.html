@@ -1,0 +1,26 @@
+{% fetchxml messageQuery %}
+<fetch returntotalrecordcount="true">
+  <entity name="adx_portalcomment" >
+    <attribute name="statecode" />
+    <attribute name="statuscode" />
+    <attribute name="adx_portalcommentdirectioncode" />
+    <attribute name="activityid" />
+    <filter>
+      <condition attribute="activityid" operator="eq" value="{{ request.params['id'] }}" uitype="adx_portalcomment" />
+    </filter>
+  </entity>
+</fetch>
+{% endfetchxml %}
+
+{% assign message = messageQuery.results.entities[0] %}
+
+{% if message %}
+{
+    "results":{
+        "Id": "{{message.id}}",
+        "DirectionCode": "{{message.adx_portalcommentdirectioncode.Value}}",
+        "MessageStateCode": "{{message.statecode.Value}}",
+        "MessageStatusCode": "{{message.statuscode.Value}}"
+    }
+}
+{% endif %}

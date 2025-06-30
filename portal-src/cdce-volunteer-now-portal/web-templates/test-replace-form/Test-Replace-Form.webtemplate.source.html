@@ -1,0 +1,76 @@
+{% assign message = entities.adx_portalcomment[request.params['id']] %}
+
+{% if message %}
+<div class="main">
+    <div class="tab clearfix">
+        <div class="tab-column" style="width:55%;">
+            <div>
+                <fieldset aria-label="General">
+                        <table role="presentation" class="section">
+                            <colgroup></colgroup>
+                            <tbody>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="clearfix cell lookup form-control-cell">
+                                    <div class="info">
+                                        <label id="cdcep_recipient_id_label" class="field-label">To</label>
+                                        <div class="validators"></div>
+                                    </div>
+                                    <div class="control">
+                                        <label id="cdcep_recipient_id_label" class="field-label">{{ message.cdcep_portal_recipient_id.name }}</label>
+                                    </div>
+                                </td>
+                                <td class="cell zero-cell"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="clearfix cell text form-control-cell">
+                                    <div class="info required">
+                                        <label for="subject" id="subject_label" class="field-label">Subject</label>
+                                    </div>
+                                    <div class="control">
+                                        <label for="subject" id="subject_label" class="field-label">{{ message.subject }}</label>
+                                    </div>
+                                </td>
+                                <td class="cell zero-cell"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="clearfix cell lookup form-control-cell">
+                                    <div class="info">
+                                        <label id="cdcep_previous_comment_id_label" class="field-label">Previous Message</label>
+                                        <div class="validators"></div>
+                                    </div>
+                                    <div class="control"><div class="input-group" style="position: relative;">
+                                        <label for="subject" id="subject_label" class="field-label">{{ message.cdcep_previous_comment_id.name }}</label>
+                                    </div>
+                                </td>
+                                <td class="cell zero-cell"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+                <fieldset aria-label="Web Activity description">
+                    <table role="presentation" data-name="{54373510-ffda-4801-b39b-1d305942d8d6}_section_2" class="section">
+                        <colgroup>
+                            <col style="width:100%;"><col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td colspan="1" rowspan="5" class="clearfix cell textarea form-control-cell">
+                                    <div class="info">
+                                        <label for="description" id="description_label" class="field-label">Description</label>
+                                    </div>
+                                    <div class="control">
+                                        <textarea rows="13" cols="20" maxlength="100000" id="description" class="textarea form-control " onchange="setIsDirty(this.id);" readonly="readonly" onkeydown="javascript:return LimitInput(this, event);" oninput="javascript:return LimitInput(this, event);" onpaste="javascript:return LimitPaste(this, event);">{{ message.description }}</textarea>
+                                    </div>
+                                </td>
+                                <td class="cell zero-cell"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% entityform name:'Create Portal Message' %}

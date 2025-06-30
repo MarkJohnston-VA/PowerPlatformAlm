@@ -1,0 +1,21 @@
+{% fetchxml InvitationQuery %}
+<fetch aggregate="true" >
+  <entity name="cdcep_applicantinvitation" >
+    <attribute name="cdcep_applicantinvitationid" alias="Count" aggregate="count" />
+    <filter type="and" >
+      <condition attribute="cdcep_email" operator="eq" value="{{ request.params['email']}}" />
+      <condition attribute="cdcep_invitationcode" operator="eq" value="{{ request.params['redeemcode']}}" />
+    </filter>
+  </entity>
+</fetch>
+{% endfetchxml %}
+
+{
+    "results":[
+        {% for item in InvitationQuery.results.entities %}
+        {
+            "Total": "{{item.Count}}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
+}

@@ -1,0 +1,29 @@
+{% assign currentDate = now | date: "yyyy-MM-dd" %}
+{% fetchxml InvitationQuery %}
+<fetch>
+  <entity name="cdcep_applicantinvitation" >
+    <attribute name="cdcep_email" alias="Email" />
+    <attribute name="cdcep_lastname" alias="LastName" />
+    <attribute name="cdcep_firstname" alias="FirstName" />
+    <attribute name="cdcep_invitationcode" alias="RedeemCode" />
+    <filter>
+      <condition attribute="cdcep_invitationcode" operator="eq" value="{{ request.params['redeemcode']}}" />
+      <condition attribute="cdcep_expirationdate" operator="on-or-after" value="{{currentDate}}" />   
+      <condition attribute="cdcep_applicantid" operator="null" />
+      <condition attribute="statecode" operator="eq" value="0" />
+      <condition attribute="createdon" operator="le" value='{{ "today" | date: "yyyy-MM-dd HH:mm:ss" }}' />
+    </filter>
+  </entity>
+</fetch>
+{% endfetchxml %}
+{
+    "results":[ {
+        {% for item in InvitationQuery.results.entities %}
+             "Email": "{{item.Email}}",
+             "FirstName": "{{item.FirstName}}",
+             "LastName": "{{item.LastName}}",
+             "RedeemCode": "{{item.RedeemCode}}"
+        {% unless forloop.last %},{% endunless %}
+        {% endfor %} }
+    ]
+}

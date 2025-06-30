@@ -1,0 +1,120 @@
+{% extends 'Layout 1 Column' %}
+
+{% block title %}
+  {% include 'Page Header' title: pagetitle %}
+{% endblock %}
+
+
+{% block main %}
+<style>
+body {
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+ul,
+#treeUL {
+list-style-type: none;
+}
+#treeUL {
+margin: 0;
+padding: 0;
+}
+.rootTree {
+cursor: pointer;
+user-select: none;
+font-size: 18px;
+font-weight: bold;
+color: blue;
+}
+li {
+font-size: 16px;
+color: crimson;
+font-weight: 500;
+}
+.rootTree::before {
+content: "\25B6";
+color: black;
+display: inline-block;
+margin-right: 6px;
+}
+.rootTree-down::before {
+transform: rotate(90deg);
+}
+.children {
+display: none;
+}
+.active {
+display: block;
+}
+</style>
+
+{% fetchxml facility %}
+
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+	<entity name="account" >
+		<attribute name="name" />
+		<attribute name="parentaccountid" />
+		<attribute name="cdcep_stateid" />
+		<attribute name="accountid" />
+		<filter>
+			<condition attribute="msnfp_accounttype" operator="eq" value="844060002" />
+			<condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="cdcep_stateid" operator="not-null" />
+		</filter>
+        <order attribute="parentaccountid" />
+	</entity>
+</fetch>
+
+{% endfetchxml %}
+
+
+
+<h1>Need List</h1>
+
+<ul id="treeUL">
+{% assign stateFac = facility.results.entities | group_by: 'cdcep_stateid.name' %}
+{% for state in stateFac | order_by: 'key' %}
+<li>
+<span class="rootTree">{{state.key}}</span>
+    {% assign childFac = state.items | group_by: 'parentaccountid.name' %}
+	<ul class="children">
+	{% for ch in childFac %}
+		{% if ch.key %}
+			{% if ch.key contains 'VISN' %}
+			
+				{% for item in ch.items %}
+					<li>{{item.name}}</li>
+				{% endfor %}
+				
+			{% else %}
+			<li><span class="rootTree">{{ch.key}}</span>
+				<ul class="children">
+				{% for item in ch.items %}
+					<li>{{item.name}}</li>
+				{% endfor %}
+				</ul>
+			</li>
+			{% endif %}
+		{% else %}
+			{% for item in ch.items %}
+				<li>{{item.name}}</li>
+			{% endfor %}
+		{% endif %}
+	{% endfor %}
+	</ul>		
+</li>
+{% endfor %}
+</ul>
+
+
+<script>
+var toggler = document.querySelectorAll(".rootTree");
+Array.from(toggler).forEach(item => {
+item.addEventListener("click", () => {
+item.parentElement
+.querySelector(".children")
+.classList.toggle("active");
+item.classList.toggle("rootTree-down");
+});
+});
+</script>
+{% endblock %}

@@ -1,0 +1,186 @@
+{% if user %}
+{% assign expireTimeSpan = settings['Authentication/ApplicationCookie/ExpireTimeSpan'] %}
+<script>
+    sessionStorage.setItem("User Authenticated", true);
+    sessionStorage.setItem("User Id", '{{ user.Id }}');
+    sessionStorage.setItem("User Name", '{{ user.fullname }}');
+    window.expireTimeSpan = '{{ expireTimeSpan }}'
+</script>
+
+{% else %}
+<script>
+    sessionStorage.setItem("User Authenticated", false);
+    sessionStorage.removeItem("User Id");
+    localStorage.removeItem("NextUpdate");
+</script>
+{% endif %}
+{% include 'WrapperAjax' %}
+{% include 'MessageCenter' %}
+
+<div class="container">
+<footer class="footer" role="contentinfo">
+  <div id="footerNav"><div><div class="footer-inner"><div aria-hidden="false" class="usa-grid-full flex-container usa-grid-flex-mobile va-footer-content">
+    <div class="va-footer-linkgroup"><h2 class="va-footer-linkgroup-title">Veteran programs and services</h2>
+        <ul class="va-footer-links">
+            <li><a href="https://www.va.gov/homeless/" target="">Homeless Veterans</a></li>
+            <li><a href="https://www.va.gov/womenvet/" target="">Women Veterans</a></li>
+            <li><a href="https://www.va.gov/centerforminorityveterans/" target="">Minority Veterans</a></li>
+            <li><a href="https://www.ptsd.va.gov" target="" rel="noopener noreferrer">PTSD</a></li>
+            <li><a href="https://www.mentalhealth.va.gov" target="" rel="noopener noreferrer">Mental health</a></li>
+            <li><a href="https://www.va.gov/adaptivesports/" target="">Adaptive sports and special events</a></li>
+            <li><a href="https://www.va.gov/outreach-and-events/events/">VA outreach events</a></li>
+            <li><a href="https://www.nrd.gov" target="_blank" rel="noopener noreferrer">National Resource Directory</a></li></ul></div>
+            <div class="va-footer-linkgroup" id="footer-services">
+<h2 class="va-footer-linkgroup-title">More VA resources</h2><ul class="va-footer-links">
+    <li><a href="https://www.va.gov/find-forms/">VA forms</a></li>
+    <li><a href="https://www.accesstocare.va.gov/ourproviders/" target="_blank" rel="noopener noreferrer">VA health care providers</a></li>
+    <li><a href="https://www.va.gov/ogc/accreditation.asp">Accredited claims representatives</a></li>
+    <li><a href="https://www.mobile.va.gov/appstore/" target="_blank" rel="noopener noreferrer">VA mobile apps</a></li>
+    <li><a href="https://www.va.gov/vso/">Veterans Service Organizations (VSOs)</a></li>
+    <li><a href="https://www.va.gov/statedva.htm">State Veterans Affairs offices</a></li>
+    <li><a href="https://www.va.gov/landing2_business.htm">Doing business with VA</a></li>
+    <li><a href="https://www.va.gov/jobs/">Careers at VA</a></li>
+    <li><a href="https://www.va.gov/outreach-and-events/outreach-materials/">VA outreach materials</a></li>
+    <li><a href="https://www.va.gov/welcome-kit/">Your VA welcome kit</a></li></ul></div><div class="va-footer-linkgroup" id="footer-popular">
+        
+<h2 class="va-footer-linkgroup-title">Get VA updates</h2><ul class="va-footer-links">
+    <li><a href="https://www.blogs.va.gov/VAntage/" target="_blank" rel="noopener noreferrer">VAntage Point blog</a></li>
+    <li><a href="https://public.govdelivery.com/accounts/USVA/subscriber/new/" target="_blank" rel="noopener noreferrer">Email updates</a></li><li><a href="https://www.facebook.com/VeteransAffairs" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/deptvetaffairs/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.twitter.com/DeptVetAffairs/" target="_blank" rel="noopener noreferrer">Twitter</a></li><li><a href="https://www.flickr.com/photos/VeteransAffairs/" target="_blank" rel="noopener noreferrer">Flickr</a></li><li><a href="https://www.youtube.com/user/DeptVetAffairs" target="_blank" rel="noopener noreferrer">YouTube</a></li><li><a href="https://www.va.gov/opa/socialmedia.asp">All VA social media</a></li></ul></div><div class="va-footer-linkgroup" id="veteran-crisis"><h2 class="va-footer-linkgroup-title">In crisis? Talk to someone now</h2><ul class="va-footer-links"><li><a class="newanchor" href="https://www.veteranscrisisline.net/" target="_blank">Veterans Crisis Line</a></li></ul>
+    
+    <h2 class="va-footer-linkgroup-title">Get answers</h2>
+    <ul class="va-footer-links">
+        <li><a href="https://www.va.gov/resources/" alt="Resources and support" title="Resources and support">Resources and support</a></li>
+        <li><a href="https://www.va.gov/contact-us/">Contact us</a></li>
+    </ul>
+
+        
+    <h2 class="va-footer-linkgroup-title vads-u-margin-top--2 vads-u-padding-bottom--1">Call us</h2>
+    <ul class="va-footer-links">
+        <li><a href="tel:18006982411">800-698-2411</a></li>
+        <li><a aria-label="TTY: 7 1 1." href="tel:+1711">TTY: 711</a></li>
+    </ul>
+            
+    <h2 class="va-footer-linkgroup-title vads-u-margin-top--2 vads-u-padding-bottom--1" title="Visit a medical center or regional office" alt="Visit a medical center or regional office">Visit a medical center or regional office</h2>
+    <ul class="va-footer-links">
+        <li><a href="https://www.va.gov/find-locations/">Find a VA location</a></li>
+    </ul>
+</div></div><div aria-hidden="true" class="usa-grid-full flex-container usa-grid-flex-mobile va-footer-content"><ul class="usa-accordion va-footer-accordion"><li><button class="usa-button-unstyled usa-accordion-button va-footer-button" aria-controls="veteran-contact" itemprop="name" aria-expanded="false">Contact us</button><div class="usa-accordion-content va-footer-accordion-content" id="veteran-contact" aria-hidden="true"><h2 class="va-footer-linkgroup-title vads-u-padding-bottom--1">Get answers</h2><ul class="va-footer-links"><li><a href="https://www.va.gov/resources/">Resources and support</a></li><li><a href="https://www.va.gov/contact-us/">Contact us</a></li><li><h2 class="va-footer-linkgroup-title vads-u-margin-top--2 vads-u-padding-bottom--1">Call us</h2><a href="tel:18006982411">800-698-2411</a></li><li><a aria-label="TTY: 7 1 1." href="tel:+1711">TTY: 711</a></li><li><h2 class="va-footer-linkgroup-title vads-u-margin-top--2 vads-u-padding-bottom--1" alt="Visit a medical center or regional office" title="Visit a medical center or regional office">Visit a medical center or regional office</h2><a href="https://www.va.gov/find-locations/" alt="Find a VA location" title="Find a VA location">Find a VA location</a></li></ul></div></li><li><button class="usa-button-unstyled usa-accordion-button va-footer-button" aria-controls="veteran-programs" itemprop="name" aria-expanded="false">Veteran programs and services</button><div class="usa-accordion-content va-footer-accordion-content" aria-hidden="true" id="veteran-programs"><ul class="va-footer-links"><li><a href="https://www.va.gov/homeless/" target="">Homeless Veterans</a></li><li><a href="https://www.va.gov/womenvet/" target="">Women Veterans</a></li><li><a href="https://www.va.gov/centerforminorityveterans/" target="">Minority Veterans</a></li><li><a href="https://www.ptsd.va.gov" target="" rel="noopener noreferrer">PTSD</a></li><li><a href="https://www.mentalhealth.va.gov" target="" rel="noopener noreferrer">Mental health</a></li><li><a href="https://www.va.gov/adaptivesports/" target="">Adaptive sports and special events</a></li><li><a href="https://www.va.gov/outreach-and-events/events/">VA outreach events</a></li><li><a href="https://www.nrd.gov" target="_blank" rel="noopener noreferrer">National Resource Directory</a></li></ul></div></li><li><button class="usa-button-unstyled usa-accordion-button va-footer-button" aria-controls="veteran-resources" itemprop="name" aria-expanded="false">More VA resources</button><div class="usa-accordion-content va-footer-accordion-content" aria-hidden="true" id="veteran-resources"><ul class="va-footer-links"><li><a href="https://www.va.gov/find-forms/">VA forms</a></li><li><a href="https://www.accesstocare.va.gov/ourproviders/" target="_blank" rel="noopener noreferrer">VA health care providers</a></li><li><a href="https://www.va.gov/ogc/accreditation.asp">Accredited claims representatives</a></li><li><a href="https://www.mobile.va.gov/appstore/" target="_blank" rel="noopener noreferrer">VA mobile apps</a></li><li><a href="https://www.va.gov/vso/">Veterans Service Organizations (VSOs)</a></li><li><a href="https://www.va.gov/statedva.htm">State Veterans Affairs offices</a></li><li><a href="https://www.va.gov/landing2_business.htm">Doing business with VA</a></li><li><a href="https://www.va.gov/jobs/">Careers at VA</a></li><li><a href="https://www.va.gov/outreach-and-events/outreach-materials/">VA outreach materials</a></li><li><a href="https://www.va.gov/welcome-kit/">Your VA welcome kit</a></li></ul></div></li><li><button class="usa-button-unstyled usa-accordion-button va-footer-button" aria-controls="veteran-connect" itemprop="name" aria-expanded="false">Get VA updates</button><div class="usa-accordion-content va-footer-accordion-content" id="veteran-connect" aria-hidden="true"><ul class="va-footer-links"><li><a href="https://www.blogs.va.gov/VAntage/" target="_blank" rel="noopener noreferrer">VAntage Point blog</a></li><li><a href="https://public.govdelivery.com/accounts/USVA/subscriber/new/" target="_blank" rel="noopener noreferrer">Email updates</a></li><li><a href="https://www.facebook.com/VeteransAffairs" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/deptvetaffairs/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.twitter.com/DeptVetAffairs/" target="_blank" rel="noopener noreferrer">Twitter</a></li><li><a href="https://www.flickr.com/photos/VeteransAffairs/" target="_blank" rel="noopener noreferrer">Flickr</a></li><li><a href="https://www.youtube.com/user/DeptVetAffairs" target="_blank" rel="noopener noreferrer">YouTube</a></li><li><a href="https://www.va.gov/opa/socialmedia.asp">All VA social media</a></li></ul></div></li></ul></div>
+<div class="usa-grid usa-grid-full footer-banner">
+    <a href="https://www.va.gov/" class="va-footer-logo" title="Go to VA.gov">
+        <img src="https://www.va.gov/img/homepage/va-logo-white.png" alt="VA logo and Seal, U.S. Department of Veterans Affairs"></a></div><div class="usa-grid usa-grid-full va-footer-links-bottom"><ul><li><a href="https://www.section508.va.gov" rel="noopener noreferrer">Accessibility</a></li><li><a href="https://www.va.gov/ormdi/NOFEAR_Select.asp">No FEAR Act Data</a></li><li><a href="https://www.va.gov/oig/">Office of Inspector General</a></li><li><a href="https://www.va.gov/opa/Plain_Language.asp">Plain language</a></li><li><a href="https://www.va.gov/privacy-policy/">Privacy, policies, and legal information</a></li><li><a href="https://www.va.gov/privacy/">VA Privacy Service</a></li><li><a href="https://www.va.gov/foia/">Freedom of Information Act (FOIA)</a></li><li><a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a></li><li><a href="https://www.va.gov/performance-dashboard/">VA performance dashboard</a></li><li><a href="https://www.va.gov/veterans-portrait-project/">Veterans Portrait Project</a></li></ul></div></div><div id="modal-crisisline" class="va-overlay va-modal va-modal-large" role="alertdialog"><div class="va-crisis-panel va-modal-inner"><button aria-label="Close this modal" class="va-modal-close va-overlay-close va-crisis-panel-close" type="button"><i class="fas fa-times-circle va-overlay-close" aria-hidden="true"></i></button><div class="va-overlay-body va-crisis-panel-body"><h3 class="va-crisis-panel-title">We’re here anytime, day or night – 24/7</h3><p>If you are a Veteran in crisis or concerned about one, connect with our caring, qualified responders for confidential help. Many of them are Veterans themselves.</p><ul class="va-crisis-panel-list"><li><i class="fa fa-phone va-crisis-panel-icon" aria-hidden="true"></i><a href="tel:18002738255">Call <strong>800-273-8255 and press 1</strong></a></li><li><i class="fa fa-mobile-alt va-crisis-panel-icon" aria-hidden="true"></i><a href="sms:838255">Text <strong>838255</strong></a></li><li><i class="fa fa-comments va-crisis-panel-icon" aria-hidden="true"></i><a class="no-external-icon" href="https://www.veteranscrisisline.net/ChatTermsOfService.aspx?account=Veterans%20Chat">Start a confidential chat</a></li><li><i class="fa fa-deaf va-crisis-panel-icon" aria-hidden="true"></i>Call TTY if you have hearing loss <strong><a class="no-wrap " href="tel:+18007994889" aria-label="8 0 0. 7 9 9. 4 8 8 9.">800-799-4889</a></strong></li></ul>Get more resources at <a class="no-external-icon" href="https://www.veteranscrisisline.net/">VeteransCrisisLine.net</a>.</div></div></div></div></div> <!-- let's try this React thing -->
+</footer>
+</div>
+<div id="processingMsg" class="alert alert-warning" role="alert"></div>
+<script type="text/javascript">
+(function ($) {
+    $(document).on('ready', function () {
+        let userIsAuthenticated = sessionStorage.getItem("User Authenticated");
+        $(".dropdown-submenu").on("keydown", function (event) {
+            if (event.keyCode == 9) {
+                $(this).toggleClass("open");
+            }
+        });
+
+        let kioskMode = parseQS(window.location.search, "kioskmode");
+
+        if(kioskMode === null && sessionStorage.getItem("KioskMode") != null){
+            kioskMode = sessionStorage.getItem("KioskMode");
+        }
+
+        if(kioskMode && kioskMode !== null){
+            sessionStorage.setItem("KioskMode", kioskMode);
+            $("footer").hide();
+           // $("#vetnav-menu>li.divider-vertical:first").next().hide();
+
+            //for header shiju 8/29/24 to disable external link in kiosk mode . this code can be in header template as an improvement
+            var link = $('#linktovalogo');
+            link.attr('href','/');
+//for header shiju 12/03/24 to disable announcement links 3 added
+   var linktoannouncement = $('#linktoannouncement');
+    linktoannouncement.removeAttr('href');
+			
+ var linktoannouncementlogindotgov = $('#linktoannouncementlogindotgov');
+    linktoannouncementlogindotgov.removeAttr('href');
+			
+var linktoannouncementidme = $('#linktoannouncementidme');
+    linktoannouncementidme.removeAttr('href');
+ //end announcment hide kiosk           
+        }
+
+        setTimeout(function(){
+            if(location.search.length > 0 && location.search.indexOf("kioskmode") > 0){
+                let url = location.href.substr(0, location.href.indexOf("?"));
+                location = url;
+            }
+            if(userIsAuthenticated == "true"){
+                if(location.search.length > 0 && location.search.indexOf("ReturnUrl") > 0){
+                    let returnUrl = decodeURIComponent(parseQS(window.location.search, 'ReturnUrl'));
+                    location = escapeHtml(returnUrl.substr(returnUrl.indexOf('=')+1));
+                }
+            }
+        },100);
+
+        var entityMap = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;',
+            '/': '&#x2F;',
+            '`': '&#x60;',
+            '=': '&#x3D;'
+        };
+
+        function escapeHtml (string) {
+            return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+                return entityMap[s];
+            });
+        }
+
+        if(userIsAuthenticated !== "false") {
+            getAllUnreadMessages();
+            let expireTimeSpanParts = window.expireTimeSpan ? window.expireTimeSpan.split(':') : [];
+            if(expireTimeSpanParts.length > 0){
+                let hoursPart = parseInt(expireTimeSpanParts[0]) * 60 * 60 * 1000;
+                let minutesPart = parseInt(expireTimeSpanParts[1]) * 60 * 1000;
+                let secondsPart = parseInt(expireTimeSpanParts[2]) * 1000;
+                let timeout = hoursPart + minutesPart + secondsPart + 5;
+                setTimeout(function(){
+                    checkSessionStatus();
+                }, timeout);
+            }
+        }
+    });
+
+    function checkSessionStatus(){
+        $.getJSON('/isuserauthenticated-json')
+            .done(function(resp) {
+                if (resp && !resp.results){
+                    console.log('force logout');
+                    //clearInterval(sessionInterval);
+                    //window.location = "/Account/Login/LogOff?returnUrl=/pkmslogout";
+                    sessionStorage.setItem("Session Expired", true);
+                    window.location.reload();
+                }
+            })
+            .fail(function (jqxhr, textStatus, error) {
+                console.log(jqxhr);
+                console.log(textStatus);
+                console.log(error);
+            });
+    }
+
+    function parseQS(querystr, key) {
+        let qs = querystr.replace("?", "");
+        let qsPairs = qs.split("&");
+        for (let pair of qsPairs) {
+            if (pair.includes(key)) {
+                let qsKeyValuePairs = pair.split("=");
+                return qsKeyValuePairs[1];
+            }
+
+            return null;
+        }
+    }
+}(jQuery));
+</script>

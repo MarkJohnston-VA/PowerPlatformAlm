@@ -1,0 +1,381 @@
+/*User Nav CSS*/
+html {
+    box-sizing: border-box
+}
+
+*, :after, :before {
+    box-sizing: inherit
+}
+
+#va-modal {
+    display: none
+}
+
+.va-modal {
+    background: rgba(50,58,69,.8);
+    content: " ";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 6
+}
+
+@media screen and (max-width:481px) {
+    .va-modal {
+        overflow-y: scroll
+    }
+}
+
+.va-modal .va-modal-body p:first-of-type {
+    margin-top: 0
+}
+
+.va-modal-title {
+    margin: 0 0 1.6rem
+}
+
+.va-modal-inner {
+    background: #fff;
+    margin: auto;
+    max-width: 40rem;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    cursor: auto
+}
+
+@media screen and (max-width:481px) {
+    .va-modal-inner {
+        transform: none;
+        top: 0
+    }
+}
+
+.va-modal-alert {
+    max-width: 60rem
+}
+
+    .va-modal-alert .alert-actions {
+        margin-top: 2.4rem
+    }
+
+        .va-modal-alert .alert-actions button {
+            margin: 0
+        }
+
+            .va-modal-alert .alert-actions button + button {
+                margin-left: 2rem
+            }
+
+.va-modal-body {
+    overflow-wrap: break-word;
+    padding: 2rem;
+    word-break: break-word;
+    word-wrap: break-word
+}
+
+.va-modal-large .va-modal-inner {
+    max-width: 75rem;
+    width: 75vw
+}
+
+    .va-modal-large .va-modal-inner .va-modal-body {
+        max-height: 95vh;
+        overflow-y: auto
+    }
+
+.va-modal-body h3 {
+    margin-top: 0
+}
+
+.va-modal button {
+    white-space: nowrap
+}
+
+button.va-modal-close {
+    background-color: transparent;
+    color: #0071bb;
+    font-size: 2.25rem;
+    padding: 0;
+    position: absolute;
+    margin: 1.6rem;
+    right: 0;
+    top: 0;
+    width: auto;
+    z-index: 9
+}
+
+    button.va-modal-close:hover {
+        background-color: transparent;
+        color: #003e73
+    }
+
+    button.va-modal-close:active {
+        background-color: transparent;
+        color: #112e51
+    }
+
+span.sidelines {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    font-size: 1.15em;
+    font-weight: 700
+}
+
+    span.sidelines:after, span.sidelines:before {
+        position: absolute;
+        top: 51%;
+        overflow: hidden;
+        width: 50%;
+        height: 2px;
+        content: "\a0";
+        background-color: #eee
+    }
+
+    span.sidelines:before {
+        margin-left: -52%;
+        text-align: right
+    }
+
+    span.sidelines:after {
+        margin-left: 2%
+    }
+
+#signin-signup-modal .va-modal-body {
+    color: #323a45;
+    padding-top: 0
+}
+
+#signin-signup-modal .va-modal-inner {
+    max-width: 62.5em;
+    width: 95vw
+}
+
+#login-root .profile-nav {
+    display: flex;
+    align-items: center
+}
+
+#login-root .contact-us-link {
+    min-width: 91px
+}
+
+@media print and (min-width:768px),screen and (min-width:768px) {
+    #login-root .login .explanation-content {
+        margin-left: 2em
+    }
+}
+
+#login-root .login .explanation-content ul {
+    list-style: square;
+    padding-left: 1.5em
+}
+
+#login-root .login .explanation-content p {
+    margin: 1em 0
+}
+
+.login button, .verify button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: .75em;
+    font-size: 16px;
+    margin: 1em 0;
+    white-space: normal !important
+}
+
+    .login button.dslogon, .verify button.dslogon {
+        background: #003e73
+    }
+
+        .login button.dslogon:hover, .verify button.dslogon:hover {
+            background: #112e51
+        }
+
+    .login button.idme-create, .verify button.idme-create {
+        box-shadow: inset 0 0 0 2px #2e8540;
+        color: #2e8540;
+        margin-bottom: 0
+    }
+
+        .login button.idme-create:hover, .verify button.idme-create:hover {
+            box-shadow: inset 0 0 0 2px #195c27;
+            color: #195c27
+        }
+
+    .login button img, .verify button img {
+        height: 1em;
+        padding: 0 .25em
+    }
+
+.login .container, .verify .container {
+    padding: 2em 0;
+    color: #212121
+}
+
+.login .logo, .verify .logo {
+    text-align: center;
+    border-bottom: 2px solid #eee;
+    padding: 1em 0
+}
+
+    .login .logo a, .verify .logo a {
+        display: inline-block
+    }
+
+        .login .logo a:hover, .verify .logo a:hover {
+            background-color: transparent
+        }
+
+.login .help-info, .verify .help-info {
+    padding: 2em 0
+}
+
+    .login .help-info p:first-of-type, .verify .help-info p:first-of-type {
+        margin-top: 0
+    }
+
+.verify button {
+    width: auto
+}
+
+    .verify button.dslogon {
+        margin-bottom: .25em
+    }
+
+.verify h4 + p {
+    margin-top: 0
+}
+
+.login {
+    background: #fff
+}
+
+    .login hr {
+        border-color: #d6d7d9
+    }
+
+    .login .mobile-explanation {
+        padding: 1em 0
+    }
+
+        .login .mobile-explanation p {
+            margin-top: 0
+        }
+
+    .login .fed-warning {
+        font-size: .9em;
+        margin-bottom: 2em
+    }
+
+        .login .fed-warning p {
+            margin: .5em 0
+        }
+
+    .login .signin-actions-container {
+        text-align: center;
+        border: 2px solid #eee
+    }
+
+@media screen and (max-width:481px) {
+    .login .signin-actions-container {
+        margin-right: 0
+    }
+}
+
+.login .signin-actions-container div:first-child {
+    background: #eee
+}
+
+.login .signin-actions-container .top-banner {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: .25em 0;
+    font-style: italic
+}
+
+    .login .signin-actions-container .top-banner div:first-child {
+        margin: 0 auto
+    }
+
+    .login .signin-actions-container .top-banner img {
+        height: inherit;
+        vertical-align: baseline;
+        padding: 0 .25em
+    }
+
+.login .signin-actions-container .signin-actions {
+    padding: 2em 2em 1em
+}
+
+    .login .signin-actions-container .signin-actions h5 {
+        margin-top: 0
+    }
+
+@media screen and (max-width:481px) {
+    .login .signin-actions-container .signin-actions {
+        padding: 2em 1em 1em
+    }
+}
+
+.login .signin-actions-container .signin-actions .alternate-signin {
+    padding-top: 1em
+}
+
+    .login .signin-actions-container .signin-actions .alternate-signin p:first-of-type {
+        margin-top: .5em;
+        color: #323a45
+    }
+
+.sign-in-nav {
+    color: #fff;
+    white-space: nowrap
+}
+
+    .sign-in-nav a {
+        color: inherit;
+        text-decoration: none
+    }
+
+        .sign-in-nav a:visited {
+            color: inherit
+        }
+
+    .sign-in-nav button:disabled {
+        background-color: inherit;
+        opacity: .7
+    }
+
+.sign-in-links {
+    margin-left: 1rem
+}
+
+.sign-in-link {
+    color: inherit !important;
+    text-decoration: none
+}
+
+    .sign-in-link:hover {
+        color: #fdb81e !important;
+        text-decoration: underline
+    }
+
+.sign-in-spacer {
+    color: #fff;
+    margin: 0 .6em
+}
+
+#help-menu {
+    width: 21rem
+}
