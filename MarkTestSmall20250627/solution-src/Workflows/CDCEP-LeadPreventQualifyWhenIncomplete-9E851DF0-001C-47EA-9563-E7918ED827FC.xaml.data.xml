@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{9e851df0-001c-47ea-9563-e7918ed827fc}" Name="CDCEP - Lead Prevent Qualify When Incomplete" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/CDCEP-LeadPreventQualifyWhenIncomplete-9E851DF0-001C-47EA-9563-E7918ED827FC.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>0</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnUpdateAttributeList>statecode</TriggerOnUpdateAttributeList>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>1</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <UpdateStage>40</UpdateStage>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.5.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <PrimaryEntity>Lead</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="CDCEP - Lead Prevent Qualify When Incomplete" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{a80a51d4-ed2a-46bd-8b2b-adfd78e8e6ef}">
+      <label languagecode="1033" description="Placement stage is incomplete. All stages must be marked complete prior to marking Placement stage complete." />
+    </steplabels>
+  </labels>
+</Workflow>

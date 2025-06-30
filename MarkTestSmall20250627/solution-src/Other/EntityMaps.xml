@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityMaps xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityMap>
+    <EntitySource>contact</EntitySource>
+    <EntityTarget>cdcep_donationsummary</EntityTarget>
+    <AttributeMaps>
+      <AttributeMap>
+        <AttributeSource>cdcep_donortype</AttributeSource>
+        <AttributeTarget>cdcep_donortype</AttributeTarget>
+      </AttributeMap>
+      <AttributeMap>
+        <AttributeSource>parentcustomerid</AttributeSource>
+        <AttributeTarget>cdcep_affiliationid</AttributeTarget>
+      </AttributeMap>
+    </AttributeMaps>
+  </EntityMap>
+</EntityMaps>

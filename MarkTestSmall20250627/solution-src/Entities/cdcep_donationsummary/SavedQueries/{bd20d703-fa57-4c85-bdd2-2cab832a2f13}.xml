@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{bd20d703-fa57-4c85-bdd2-2cab832a2f13}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cdcep_name" select="1" icon="1" preview="1">
+        <row name="result" id="cdcep_donationsummaryid">
+          <cell name="cdcep_name" width="300" />
+          <cell name="cdcep_autoreferencenumber" width="100" />
+          <cell name="cdcep_checkdate" width="100" />
+          <cell name="cdcep_checknumber" width="100" />
+          <cell name="cdcep_donationdate" width="100" />
+          <cell name="cdcep_donationtype" width="100" />
+          <cell name="cdcep_total" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cdcep_donationsummary">
+          <attribute name="cdcep_name" />
+          <order attribute="cdcep_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="cdcep_total" operator="eq" value="{2}" />
+            <condition attribute="cdcep_name" operator="like" value="{0}" />
+            <condition attribute="cdcep_donorid" operator="like" value="{0}" />
+            <condition attribute="cdcep_donationreferenceid" operator="like" value="{0}" />
+            <condition attribute="cdcep_donationdate" operator="on" value="{3}" />
+            <condition attribute="cdcep_checknumber" operator="like" value="{0}" />
+            <condition attribute="cdcep_autoreferencenumber" operator="like" value="{0}" />
+            <condition attribute="cdcep_donationsummary_vssid" operator="eq" value="{1}" />
+          </filter>
+          <attribute name="cdcep_total" />
+          <attribute name="cdcep_donationtype" />
+          <attribute name="cdcep_donationdate" />
+          <attribute name="cdcep_checknumber" />
+          <attribute name="cdcep_checkdate" />
+          <attribute name="cdcep_autoreferencenumber" />
+          <attribute name="cdcep_donationsummaryid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.1.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Donation Summary" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

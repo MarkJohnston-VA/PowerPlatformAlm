@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{df39f059-3e9e-4f48-b235-6d0b461a86b7}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cdcep_name" select="1" icon="1" preview="1">
+        <row name="result" id="cdcep_donationsummaryid">
+          <cell name="cdcep_autoreferencenumber" width="100" />
+          <cell name="createdon" width="100" />
+          <cell name="cdcep_donationdate" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="cdcep_donationtype" width="100" />
+          <cell name="cdcep_totaldonationamount" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="cdcep_donorid" width="100" />
+          <cell name="cdcep_facilityid" width="100" />
+          <cell name="cdcep_checknumber" width="100" />
+          <cell name="cdcep_checkdate" width="100" />
+          <cell name="cdcep_donationsummary_vssid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cdcep_donationsummary">
+          <order attribute="createdon" descending="true" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cdcep_facilityid" />
+          <attribute name="cdcep_donorid" />
+          <attribute name="cdcep_donationtype" />
+          <attribute name="cdcep_checkdate" />
+          <attribute name="cdcep_checknumber" />
+          <attribute name="cdcep_donationdate" />
+          <attribute name="cdcep_donationsummary_vssid" />
+          <attribute name="cdcep_autoreferencenumber" />
+          <attribute name="cdcep_totaldonationamount" />
+          <attribute name="createdon" />
+          <attribute name="cdcep_donationsummaryid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.1.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Donation Summary" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

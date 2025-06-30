@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b202dcdf-9c1d-47ed-82ca-d2cf7388304b}</formid>
+    <IntroducedVersion>1.1.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{1337f603-c0f1-451d-9e56-7bdf6b6e3028}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{2b24b2cb-d5ad-41e2-b185-eafdf3611e4a}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{7e9de9c4-37d8-4352-31e1-37e4369123ad}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Donation Date" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donationdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cdcep_donationdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b2ec895c-9a31-478d-a31c-10cb8050e0d9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Donation Type" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donationtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cdcep_donationtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{894ca9d9-b600-e798-be80-0e879c45eddd}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Affiliation" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_affiliationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cdcep_affiliationid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{79e29002-5803-c118-9e83-337c06ad3dd6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Total Donation Amount" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_totaldonationamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="cdcep_totaldonationamount" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Last Donation Summary QV" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

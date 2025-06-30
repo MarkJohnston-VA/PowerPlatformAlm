@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{2288d785-72af-eb11-b1ac-001dd801d918}</savedqueryid>
+    <querytype>8192</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" output-format="xml-platform">
+        <entity name="cdcep_donationsummary">
+          <attribute name="cdcep_donationsummaryid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.1.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Donation Summary" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="All active Donation Summary" languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

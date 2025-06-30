@@ -1,0 +1,546 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cdcep_sharedcommondataserviceforapps_51ba3"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "8100f616-5912-480f-8225-7e2960ac12ab"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text_2": {
+                  "title": "Address",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter Address",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_3": {
+                  "title": "City",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter  City",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_4": {
+                  "title": "PostalCode",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter post code",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_5": {
+                  "description": "Please enter facility id",
+                  "title": "FacilityId",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                },
+                "text": {
+                  "title": "FullName",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter full name",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_7": {
+                  "title": "Email",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter Email",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_8": {
+                  "title": "Phone",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter Phone",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "number": {
+                  "title": "State",
+                  "type": "number",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter Active or Inactive 0 or 1",
+                  "x-ms-content-hint": "NUMBER"
+                },
+                "text_9": {
+                  "title": "usstate",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter US state ID",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "number_1": {
+                  "title": "Scope",
+                  "type": "number",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter Scope",
+                  "x-ms-content-hint": "NUMBER"
+                },
+                "number_2": {
+                  "title": "AccountType",
+                  "type": "number",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter a Acccount Type",
+                  "x-ms-content-hint": "NUMBER"
+                },
+                "text_1": {
+                  "title": "ParentOrganization",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter Patrent Organization",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "number",
+                "number_1",
+                "number_2"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Initialize_variable_-_FacilityIdCriteria": {
+          "runAfter": {
+            "Initialize_variable_-AddressNameCriteria": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "642256bd-6e42-4e10-99ee-405518d13146"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "FacilityIdCriteria",
+                "type": "string",
+                "value": "@{if(not(empty(triggerBody()?['text_5'])), concat('<condition  entityname=''Facility'' attribute=''accountid'' operator=''eq'' value=''', triggerBody()?['text_5'] ,''' />'), '')}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-_FetchXml": {
+          "runAfter": {
+            "Initialize_variable_-USStateIdCriteria": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "25a3f97e-31f2-48ef-8de5-5cb09f79cba5"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "FetchXml",
+                "type": "string",
+                "value": "@{concat('<fetch version=''1.0'' output-format=''xml-platform'' mapping=''logical'' distinct=''true'' savedqueryid=''cf955fa0-92d7-e811-a960-000d3a378f36'' no-lock=''true'' top=''5000''>\r\n  <entity name=''contact''>\r\n    <attribute name=''entityimage_url'' />\r\n    <attribute name=''fullname'' />\r\n    <attribute name=''parentcustomerid'' />\r\n    <attribute name=''telephone1'' />\r\n    <attribute name=''emailaddress1'' />\r\n    <attribute name=''telephone2'' />\r\n\t <attribute name=''mobilephone'' />\r\n    <attribute name=''address1_country'' />\r\n    <attribute name=''address1_city'' />\r\n    <attribute name=''statecode'' />\r\n    <order attribute=''createdon'' descending=''true'' />\r\n    <order attribute=''fullname'' descending=''false'' />\r\n    <attribute name=''msnfp_primaryconstituenttype'' />\r\n    <attribute name=''createdon'' />\r\n    <attribute name=''cdcep_lastdonationfacilityid'' />\r\n    <attribute name=''contactid'' />\r\n\t\r\n    <link-entity name=\"cdcep_state\" from=\"cdcep_stateid\" to=\"cdcep_state_id\" link-type=\"outer\" visible=\"false\" alias=\"usstate\">\r\n      <attribute name=\"cdcep_name\" />\r\n    </link-entity>\r\n      <link-entity name=\"account\" from=\"accountid\" to=\"parentcustomerid\" link-type=\"inner\" alias=\"linkedaccount\" visible=\"false\">\r\n      <attribute name=\"cdcep_scope\" />\r\n\t  <attribute name=\"msnfp_accounttype\" />\r\n\t      <filter type=''and''>',\r\n\t\t\tvariables('ScopeCriteria'),\r\n\t\t\tvariables('AccountTypeCriteria'),\r\n\t\t  '</filter>\t\t  \r\n        <link-entity name=\"account\" from=\"accountid\" to=\"cdcep_facilityid\" link-type=\"outer\" alias=\"Facility\">\r\n\t\t\t<attribute name=\"name\" />\r\n\t\t\t<attribute name=\"accountid\" />\r\n\t\t</link-entity>\t  \t\t  \t\t  \r\n    </link-entity>\r\n\r\n<link-entity name=\"account\" from=\"accountid\" to=\"parentcustomerid\" link-type=\"outer\" alias=\"middleaccount\" visible=\"false\">\r\n\t  <attribute name=\"parentaccountid\" />\r\n\t\t  \r\n   <link-entity name=\"account\" from=\"accountid\" to=\"parentaccountid\" link-type=\"outer\" alias=\"ParentOrganization\">\r\n\t\t\t<attribute name=\"name\" />\r\n\t\t\t<attribute name=\"accountid\" />\r\n        </link-entity>\r\n    </link-entity>\r\n\r\n    <filter type=''and''>\r\n      <condition attribute=''msnfp_primaryconstituenttype'' operator=''eq'' value=''100000000'' />\r\n      <condition attribute=''cdcep_donortype'' operator=''eq'' value=''100000003'' />\r\n  ',variables('FullNameCriteria'),variables('CityNameCriteria'),variables('AddressCriteria'),variables('USStateIdCriteria'),variables('PostalCodeCriteria'),variables('PhoneCriteria'),variables('FacilityIDCriteria'),variables('ParentOrganizationCriteria'),variables('emailCriteria'),variables('ActiveOrInactiveCriteria'),'</filter>','</entity>\r\n</fetch>')\r\n\r\n}"
+              }
+            ]
+          }
+        },
+        "List_rows": {
+          "runAfter": {
+            "Initialize_variable_-_FetchXml": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f36b6616-9d1b-43a1-8ebf-07886f09ee26"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "contacts",
+              "$select": "fullname,firstname,lastname,_parentcustomerid_value,telephone1,emailaddress1,telephone2,address1_line1,address1_postalcode,address1_country,address1_city,cdcep_state_id,cdcep_donortype,statecode,contactid",
+              "$orderby": "createdon desc,fullname asc",
+              "fetchXml": "@variables('FetchXml')"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Select_Donor_Records": {
+          "runAfter": {
+            "List_rows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "34b46c85-f779-4137-9d14-53ba766e9146"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('List_rows')?['body/value']",
+            "select": {
+              "fullname": "@item()?['fullname']",
+              "donortype": "@item()?['cdcep_donortype']",
+              "organization": "@item()?['_parentcustomerid_value']",
+              "donortypetext": "@item()?['cdcep_donortype@OData.Community.Display.V1.FormattedValue']",
+              "addressline1": "@item()?['address1_line1']",
+              "city": "@item()?['address1_city']",
+              "state": "@item()?['usstate.cdcep_name']",
+              "donorid": "@item()?['contactid']",
+              "statuscode": "@item()?['statecode']",
+              "telephone1": "@item()?['telephone1']",
+              "telephone2": "@item()?['telephone2']",
+              "emailaddress1": "@item()?['emailaddress1']",
+              "lastdonationfacility": "@item()?['facilityname']",
+              "mobilephone": "@item()?['mobilephone']",
+              "address1_postalcode": "@item()?['address1_postalcode']",
+              "accounttypetext": "@item()?['linkedaccount.msnfp_accounttype@OData.Community.Display.V1.FormattedValue']",
+              "scopetypetext": "@item()?['linkedaccount.cdcep_scope@OData.Community.Display.V1.FormattedValue']",
+              "companyname": "@item()?['_parentcustomerid_value@OData.Community.Display.V1.FormattedValue']",
+              "statuscodetext": "@item()?['statecode@OData.Community.Display.V1.FormattedValue']",
+              "parentorganizationtext": "@item()?['linkedaccount.parentaccountid@OData.Community.Display.V1.FormattedValue']",
+              "domationsummaryid": "@item()?['_cdcep_lastdonationfacilityid_value']",
+              "donationsummarytitle": "@item()?['_cdcep_lastdonationfacilityid_value@OData.Community.Display.V1.FormattedValue']"
+            }
+          }
+        },
+        "Initialize_variable_-FullNameCriteria": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "3ef47c28-624c-4c03-8f39-e2142b26e44f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "FullNameCriteria",
+                "type": "string",
+                "value": "@{if(not(empty(triggerBody()?['text'])), concat('<condition attribute=''fullname'' operator=''like'' value=''%', triggerBody()?['text'] ,'%'' />'), '')}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-City": {
+          "runAfter": {
+            "Initialize_variable_-FullNameCriteria": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3ef47c28-624c-4c03-8f39-e2142b26e44f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "CityNameCriteria",
+                "type": "string",
+                "value": "@{if(not(empty(triggerBody()?['text_3'])), concat('<condition attribute=''address1_city'' operator=''like'' value=''%', triggerBody()?['text_3'] ,'%'' />'), '')}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-AddressNameCriteria": {
+          "runAfter": {
+            "Initialize_variable_-Phone": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3ef47c28-624c-4c03-8f39-e2142b26e44f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "AddressCriteria",
+                "type": "string",
+                "value": "@{if(not(empty(triggerBody()?['text_2'])), concat('<condition attribute=''address1_line1'' operator=''like'' value=''%', triggerBody()?['text_2'] ,'%'' />'), '')}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-Email": {
+          "runAfter": {
+            "Initialize_variable_-AccountType": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3ef47c28-624c-4c03-8f39-e2142b26e44f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "EmailCriteria",
+                "type": "string",
+                "value": "@{if(not(empty(triggerBody()?['text_7'])), concat('<condition attribute=''emailaddress1'' operator=''like'' value=''%', triggerBody()?['text_7'] ,'%'' />'), '')}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-Phone": {
+          "runAfter": {
+            "Initialize_variable_-PostalCode": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3ef47c28-624c-4c03-8f39-e2142b26e44f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "PhoneCriteria",
+                "type": "string",
+                "value": "@{if(not(empty(triggerBody()?['text_8'])), concat(\r\n  '<filter type=\"or\">',\r\n  '<condition attribute=\"telephone1\" operator=\"like\" value=''%', triggerBody()?['text_8'], '%'' />',\r\n  '<condition attribute=\"telephone2\" operator=\"like\" value=''%', triggerBody()?['text_8'], '%''/>',\r\n  '<condition attribute=\"mobilephone\" operator=\"like\" value=''%', triggerBody()?['text_8'], '%'' />',\r\n  '</filter>'\r\n), '')\r\n}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-ActiveOrInactive": {
+          "runAfter": {
+            "Initialize_variable_-City": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3ef47c28-624c-4c03-8f39-e2142b26e44f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ActiveOrInactiveCriteria",
+                "type": "string",
+                "value": "@{ concat('<condition attribute=\"statecode\" operator=\"eq\" value=\"', string(triggerBody()?['number']) ,'\" />')}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-USStateIdCriteria": {
+          "runAfter": {
+            "Initialize_variable_-_Parent_Organization": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "642256bd-6e42-4e10-99ee-405518d13146"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "USStateIdCriteria",
+                "type": "string",
+                "value": "@{if(not(empty(triggerBody()?['text_9'])), concat('<condition attribute=''cdcep_state_id'' operator=''eq'' value=''', triggerBody()?['text_9'] ,''' />'), '')}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-PostalCode": {
+          "runAfter": {
+            "Initialize_variable_-Email": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3ef47c28-624c-4c03-8f39-e2142b26e44f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "PostalCodeCriteria",
+                "type": "string",
+                "value": "@{if(not(empty(triggerBody()?['text_4'])), concat('<condition attribute=''address1_postalcode'' operator=''like'' value=''%', triggerBody()?['text_4'] ,'%'' />'), '')}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-Scope": {
+          "runAfter": {
+            "Initialize_variable_-ActiveOrInactive": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3ef47c28-624c-4c03-8f39-e2142b26e44f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ScopeCriteria",
+                "type": "string",
+                "value": "@{if(not(equals(triggerBody()?['number_1'],-1)), concat('<condition attribute=''cdcep_scope'' operator=\"eq\" value=\"', triggerBody()?['number_1'] ,'\" />'), '')}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-AccountType": {
+          "runAfter": {
+            "Initialize_variable_-Scope": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3ef47c28-624c-4c03-8f39-e2142b26e44f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "AccountTypeCriteria",
+                "type": "string",
+                "value": "@{if(not(equals(triggerBody()?['number_2'],-1)), concat('<condition attribute=''msnfp_accounttype'' operator=\"eq\" value=\"', triggerBody()?['number_2'] ,'\" />'), '')}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-_Parent_Organization": {
+          "runAfter": {
+            "Initialize_variable_-_FacilityIdCriteria": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "642256bd-6e42-4e10-99ee-405518d13146"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ParentOrganizationCriteria",
+                "type": "string",
+                "value": "@{if(not(empty(triggerBody()?['text_1'])), concat('<condition  entityname=''ParentOrganization'' attribute=''name'' operator=''like'' value=''%', triggerBody()?['text_1'] ,'%'' />'), '')}"
+              }
+            ]
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "Select_Donor_Records": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "868558c4-7ab1-4008-b8e7-b2ee3a9cae54"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "Donors": "@body('Select_Donor_Records')"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Donors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "fullname": {
+                        "type": "string"
+                      },
+                      "donortype": {
+                        "type": "integer"
+                      },
+                      "organization": {
+                        "type": "string"
+                      },
+                      "donortypetext": {
+                        "type": "string"
+                      },
+                      "addressline1": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "donorid": {
+                        "type": "string"
+                      },
+                      "statuscode": {
+                        "type": "integer"
+                      },
+                      "telephone1": {
+                        "type": "string"
+                      },
+                      "telephone2": {},
+                      "emailaddress1": {
+                        "type": "string"
+                      },
+                      "lastdonationfacility": {},
+                      "mobilephone": {},
+                      "address1_postalcode": {
+                        "type": "string"
+                      },
+                      "accounttypetext": {
+                        "type": "string"
+                      },
+                      "scopetypetext": {
+                        "type": "string"
+                      },
+                      "companyname": {
+                        "type": "string"
+                      },
+                      "statuscodetext": {
+                        "type": "string"
+                      },
+                      "parentorganizationtext": {},
+                      "domationsummaryid": {
+                        "type": "string"
+                      },
+                      "donationsummarytitle": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

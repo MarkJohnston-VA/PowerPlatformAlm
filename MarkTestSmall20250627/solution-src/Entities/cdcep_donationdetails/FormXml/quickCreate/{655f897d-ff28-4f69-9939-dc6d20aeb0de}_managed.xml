@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{655f897d-ff28-4f69-9939-dc6d20aeb0de}</formid>
+    <IntroducedVersion>1.1.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1920">
+      <tabs>
+        <tab id="{4a4e2daf-4a16-4820-bfea-924f7c72cca4}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{b3f58c7a-363e-408e-93ee-63160ec5d844}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ae970629-05b0-0e77-0026-b45c65d88503}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Donation Value" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donationvalue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="cdcep_donationvalue" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{16bc19cb-5e38-2e16-8102-047b07d01e66}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="General Post Fund" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_generalpostfundid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cdcep_generalpostfundid" disabled="false" uniqueid="{ca8780b1-d6ed-11c8-aee2-368e9c78eab8}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{BEEB38B1-4830-4778-B5AB-C1578D4F722A}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                            <IsInlineNewEnabled>false</IsInlineNewEnabled>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{84231592-6417-49f8-a78f-e4518801c76e}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e980c90b-5c7b-4b52-6727-624c9223406b}" showlabel="true" locklevel="1">
+                        <labels>
+                          <label description="Donation Summary" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donationsummaryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cdcep_donationsummaryid" disabled="true" uniqueid="{00275891-2d26-9e4a-0d91-e30956d7ea1e}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E601DB8A-54BB-4EB9-9F37-C3639AF94EC1}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{309814e8-de84-4429-9479-13b823501889}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d7abd56b-4a72-493b-a84e-c0568559d454}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="cdcep_CommonValidation.js" libraryUniqueId="{e786a031-170e-9d20-e90c-076d363ce06d}" />
+        <Library name="cdcep_donationdetail_quickcreateform.js" libraryUniqueId="{c19268bc-5423-e2e9-e8c4-7053783baae5}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CDCEP.DonationDetailQuickCreateForm.OnLoad" libraryName="cdcep_donationdetail_quickcreateform.js" handlerUniqueId="{e22ae196-a62b-08b9-d221-56cd4c2c7c6d}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Donation Detail QC" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

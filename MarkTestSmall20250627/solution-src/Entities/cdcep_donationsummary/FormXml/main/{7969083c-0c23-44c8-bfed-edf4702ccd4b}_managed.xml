@@ -1,0 +1,1210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7969083c-0c23-44c8-bfed-edf4702ccd4b}</formid>
+    <IntroducedVersion>1.1.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920" headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{25de6d8b-e513-4b11-83b4-951b834a48bc}" IsUserDefined="1" name="GeneralTab" expanded="true" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Donation" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="20%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{da438515-54e8-4375-9aa3-ee45d44fc370}" name="{da438515-54e8-4375-9aa3-ee45d44fc370}" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c964b360-ae67-a237-7541-a00debad9a8d}" showlabel="true" locklevel="0" colspan="2">
+                        <labels>
+                          <label description="Facility" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_facilityid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cdcep_facilityid" disabled="false" uniqueid="{db6e853b-86ed-948d-a483-67a183a04c89}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>true</DisableViewPicker>
+                            <DefaultViewId>{74F51800-2671-EB11-A812-001DD801D7B8}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                            <AvailableViewIds>{A9AF0AB8-861D-4CFA-92A5-C6281FED7FAB}</AvailableViewIds>
+                            <IsInlineNewEnabled>false</IsInlineNewEnabled>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6a631c62-8954-dc2c-70a1-c372cc49b9ad}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Donation Date" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donationdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cdcep_donationdate" disabled="false" uniqueid="{8c147b80-dbb8-b607-9241-4858675711b1}" />
+                      </cell>
+                      <cell id="{507829d6-e998-34c9-7725-d0b2db277446}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Total Donation Amount" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_totaldonationamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="cdcep_totaldonationamount" disabled="true" uniqueid="{0b7ea7b0-e749-4ad4-4456-d2c348ab0d65}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0395b8e0-8dee-ca50-8c85-776a1317861c}" showlabel="true" locklevel="0" colspan="2">
+                        <labels>
+                          <label description="Affiliation" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_affiliationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cdcep_affiliationid" disabled="false" uniqueid="{8aa64530-e91d-0070-6791-86358184b0c1}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{B4045EBC-CBD3-E811-A960-000D3A37870E}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                            <AvailableViewIds>{C61E185F-4637-EC11-B6E5-001DD804CCD9},{B4045EBC-CBD3-E811-A960-000D3A37870E}</AvailableViewIds>
+                            <IsInlineNewEnabled>false</IsInlineNewEnabled>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="GeneralTab_section_donor" showlabel="true" showbar="false" locklevel="0" id="{56de8cbd-e0a3-e10d-e8a1-85a78b0b9bb2}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Donor" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{02c1e0a2-985c-e637-0300-81072cec33e5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Donor Type" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donortype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cdcep_donortype" disabled="false" uniqueid="{e5316436-632e-2ca5-a2bc-eb0b5e5b1b4a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{26450d31-4695-69e5-cd97-307e1057e769}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Donor" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donorid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cdcep_donorid" disabled="false" uniqueid="{6b656ebe-3123-105d-4c98-e9d0c11a5058}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>true</DisableViewPicker>
+                            <DefaultViewId>{E800019F-29EF-EB11-BACB-001DD801C6C2}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                            <IsInlineNewEnabled>false</IsInlineNewEnabled>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d593e575-81cb-2bda-2655-93c12155ae5a}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="Donor" languagecode="1033" />
+                        </labels>
+                        <control id="QuickView_Donor" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="cdcep_donorid" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="contact"&gt;d50f970a-f3ef-425f-bb0f-9cb23dcf3e40&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="60%">
+              <sections>
+                <section name="GeneralTab_section_4" showlabel="false" showbar="false" locklevel="0" id="{3bd11557-3bd3-937e-2869-adccd55d7647}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{50a0e274-667a-4aae-5536-86e64d592177}" showlabel="true" locklevel="0" colspan="2">
+                        <labels>
+                          <label description="Donation Type" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donationtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cdcep_donationtype" disabled="false" uniqueid="{e03281c0-6823-0184-1427-2a88d3a770b5}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{09c43ac8-39de-0766-6235-a45145530685}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CreditCard Type" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_creditcardtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cdcep_creditcardtype" disabled="false" />
+                      </cell>
+                      <cell id="{0421345c-b098-e9d3-4b11-1aea815ab779}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Confirmation #" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_creditcardtransactionid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_creditcardtransactionid" disabled="false" uniqueid="{592c44c6-7192-7875-48b1-90783135dc89}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d1aa34e9-561d-5980-b384-b5c2c0d9564a}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Check Number" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_checknumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_checknumber" disabled="false" uniqueid="{55d3dc27-485b-5b26-5be8-b480807c5ec5}" />
+                      </cell>
+                      <cell id="{2bb43490-8833-a054-0d04-db516cd12dd3}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Check Date" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_checkdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cdcep_checkdate" disabled="false" uniqueid="{82a6ceea-6777-9b09-6abe-e527cb5e01e6}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9784e134-c8d3-37db-4b57-31e79aab3890}" showlabel="true" locklevel="0" colspan="2">
+                        <labels>
+                          <label description="E-Pay Tracking ID" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_epaytrackingid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_epaytrackingid" disabled="false" uniqueid="{0683e6ad-0be2-b971-8090-908ca4eb3a47}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{08e0d27e-b08e-319b-1893-2e7cb396b611}" showlabel="true" locklevel="0" colspan="2">
+                        <labels>
+                          <label description="Field Service Receipt" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_fieldservicereceipt" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_fieldservicereceipt" disabled="false" uniqueid="{072a105c-449d-db04-8356-8102a2cb5c9a}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="GeneralTab_section_7" showlabel="false" showbar="false" locklevel="0" id="{4259d61b-c641-0b46-621c-0646ec60d109}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{217a1627-b3aa-8425-2a03-86dddd755108}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Acknowledgement Date" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_acknowledgementdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cdcep_acknowledgementdate" disabled="false" />
+                      </cell>
+                      <cell id="{9388ec69-c745-9c7d-1652-e9d7accde7a5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Reference" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donationreferenceid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cdcep_donationreferenceid" disabled="false" uniqueid="{d7d0aae8-1015-7d42-8217-9a1392ead1e6}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>true</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{DC991C82-DBFF-48FB-A069-B3F7283F096F}</DefaultViewId>
+                            <FilterRelationshipName>cdcep_account_cdcep_donationreference</FilterRelationshipName>
+                            <DependentAttributeName>cdcep_donationsummary.cdcep_facilityid</DependentAttributeName>
+                            <DependentAttributeType>account</DependentAttributeType>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9bd636d7-2d91-eb76-b6ad-a21e077b85e5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Salutation" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_salutation" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_salutation" disabled="false" />
+                      </cell>
+                      <cell id="{ee147605-055e-1387-7c21-99d69567798d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Designation" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_designation" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_designation" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="GeneralTab_section_6" showlabel="true" showbar="false" locklevel="0" id="{b37bbe3c-edc9-dd59-1be0-0bb09970e1b3}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" height="auto">
+                  <labels>
+                    <label description="Donation Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{65cc9169-ba45-718a-a83b-e501106cb987}" showlabel="false" colspan="1" auto="true" rowspan="4">
+                        <labels>
+                          <label description="Donation Details (Donation Summary)" languagecode="1033" />
+                        </labels>
+                        <control id="SUBGRID_donationdetails" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{46eaecc3-2b9e-1ba0-2050-4724e88a55d8}">
+                          <parameters>
+                            <ViewId>{816B7FA4-5761-4F2B-8AA4-D415593A9237}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>cdcep_cdcep_donationsummary_cdcep_donationdetai</RelationshipName>
+                            <TargetEntityType>cdcep_donationdetails</TargetEntityType>
+                            <AutoExpand>Auto</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{816B7FA4-5761-4F2B-8AA4-D415593A9237}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+                <section name="GeneralTab_section_9" showlabel="false" showbar="false" locklevel="0" id="{61cbc919-88b8-ec78-5474-9ab427c90253}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8008a286-8839-4a21-b7a5-a8d446d24131}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{7d614381-21dc-504d-5e43-d79224cccb1a}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="GeneralTab_section_8" showlabel="false" showbar="false" locklevel="0" id="{99e10978-3319-1d91-4c5d-8e6d05223b26}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{339c69e2-1ec5-d2a0-0008-7d13aed87d46}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Acknowledgement Address Override" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_showacknowledgementaddress" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="cdcep_showacknowledgementaddress" disabled="false" uniqueid="{49d41612-9731-09e2-7ac4-c7331bd5551a}" />
+                      </cell>
+                      <cell id="{c21d89d6-b50e-ab2e-b6e5-2b1ba714dcb4}" showlabel="false" userspacer="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{93c2b880-941a-ad83-516c-7848694b676b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Ack Name Prefix" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_acknameprefix" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_acknameprefix" disabled="false" />
+                      </cell>
+                      <cell id="{d1dd7985-3a88-bebd-995c-15c9869c4b88}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Ack Title" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_acktitle" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_acktitle" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{521153e5-e331-1098-d15d-1e8da7272ec7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Ack First Name" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_ackfirstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_ackfirstname" disabled="false" uniqueid="{571d823d-0b7c-48c0-4653-c04ad72ae07e}" />
+                      </cell>
+                      <cell id="{5cdd7526-0753-ae4c-1de2-aab853c1ea29}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Ack Last Name" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_acklastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_acklastname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5198f257-9f06-4de9-be9a-e875e9ddd866}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
+                        <labels>
+                          <label description="Enter Ack Address Manually" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_ackenteraddressmanually" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="cdcep_ackenteraddressmanually" disabled="false" uniqueid="{12ab514b-3319-23cd-18e2-2c88242dcdac}" />
+                      </cell>
+                      <cell locklevel="0" id="{4b4bb341-0a92-4469-b213-ca0fd0126823}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ed707972-c1ac-4073-45ba-99e1d54e7c9b}" showlabel="true" colspan="2" auto="false" rowspan="6">
+                        <labels>
+                          <label description="Address Finder" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_addressverification" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>cdcep_addressverification.html</Url>
+                            <PassParameters>false</PassParameters>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>true</Border>
+                            <WebResourceId>{A3B91518-5986-EE11-8179-001DD804E9EE}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false">
+                            <dependencies />
+                          </event>
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{4dee7ee6-2e11-5b21-eca0-a616e8791499}" showlabel="true" locklevel="0" colspan="2">
+                        <labels>
+                          <label description="Ack Address 1" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_ackaddress1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_ackaddress1" disabled="false" uniqueid="{50b79750-d077-2a35-33de-012bdd5e268a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a7ba5040-5d53-3931-0b60-54e824e57823}" showlabel="true" locklevel="0" colspan="2">
+                        <labels>
+                          <label description="Ack Address 2" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_ackaddress2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_ackaddress2" disabled="false" uniqueid="{39ace649-a4dc-42c7-6420-0240b283c850}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3a87bd06-eca0-128b-6998-769bdb400d4a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Ack City" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_ackcity" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_ackcity" disabled="false" uniqueid="{4b385712-c874-d793-5972-cee1b8906de2}" />
+                      </cell>
+                      <cell id="{52d90b5d-663e-7ab7-0022-cd974d532ce0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Ack State" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_ackstateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cdcep_ackstateid" disabled="false" uniqueid="{d3428cde-9297-5d77-a4bd-b24770832bd1}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{339888C0-C8A9-47B1-9004-92F494D3BE71}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9550aa57-c70a-be77-45a3-0ad067e32d2e}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_ackstate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_ackstate" disabled="false" uniqueid="{785b3223-51ed-dcd7-567d-691529525eea}" />
+                      </cell>
+                      <cell id="{71b75734-c63a-7ec3-e07b-a34287c1492b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Ack Zip" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_ackzip" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_ackzip" disabled="false" uniqueid="{e6d28c78-77a1-5725-eaba-eec020b06221}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="20%">
+              <sections>
+                <section name="DetailSection" showlabel="false" showbar="false" locklevel="0" id="{7246c2d3-49ce-db47-b47c-62cc89ce0da5}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{9bcac561-605d-9768-2e4e-ab18ada52126}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Donation Description" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donationdescription" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_donationdescription" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{514d41b4-1323-5d26-9021-6dee64576608}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Additional Information" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_additionalinformation" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_additionalinformation" disabled="false" uniqueid="{c0bd3676-8463-2b38-a500-c290b256149e}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="GeneralTab_section_edonation" showlabel="true" showbar="false" locklevel="0" id="{a045458b-a629-9ea4-3494-e041cc028d95}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="E-Donation" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{9196a732-d0c1-15c4-88d4-5cd43b4b9a15}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="E-Donation" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_edonationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cdcep_edonationid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4cd88a73-065c-8011-1d0d-775476c02614}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="E-Donation QuickView" languagecode="1033" />
+                        </labels>
+                        <control id="QuickView_eDonation" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="cdcep_edonationid" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cdcep_donationlog"&gt;c84620e7-a48e-4e66-bcf8-32135a0d32aa&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_InMemoryOf" id="{dc91b1ad-bc4e-443c-b14e-855589ba84b0}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="In Memory Of" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_3_section_1" showlabel="false" showbar="false" locklevel="0" id="{85eb310b-55a2-0ec2-bd3d-969b71bcac91}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{14233a13-1703-39ad-7eba-6dcc3a7847d7}" showlabel="true" locklevel="0" colspan="2">
+                        <labels>
+                          <label description="In Memory Of" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_inmemoryof" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_inmemoryof" disabled="false" uniqueid="{d1878480-b658-7764-1b05-b14a9c30ecbb}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="tab_3_section_2" showlabel="true" showbar="false" locklevel="0" id="{9808b4a2-d39d-c023-647c-55cc95a36c18}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Family Contact" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e0a6c04d-6996-a0a9-1ee2-1d6177e3aa19}" showlabel="true" locklevel="0" colspan="2">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_familycontact_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_familycontact_name" disabled="false" uniqueid="{a842a90e-3320-95c2-540a-96101c48184b}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5a619721-7e6b-076c-3a5a-042224a01b75}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Street" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_familycontact_street" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_familycontact_street" disabled="false" uniqueid="{d2e919c3-0696-d292-d1b2-402bd2757a67}" />
+                      </cell>
+                      <cell id="{895949a8-edbd-9980-7909-a0b82d525a40}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="State" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_familycontactstateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cdcep_familycontactstateid" disabled="false" uniqueid="{cba4020b-ee4e-07be-4032-317c43619025}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{339888C0-C8A9-47B1-9004-92F494D3BE71}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6b099504-2300-a20d-7932-d79e09117052}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="City" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_familycontact_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_familycontact_city" disabled="false" uniqueid="{54e5d4cb-ce8c-315a-88cb-2a5c86d60eb6}" />
+                      </cell>
+                      <cell id="{1dd6bb3d-d8dc-3521-a417-8995bbc58c85}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Zip" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_familycontact_zip" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_familycontact_zip" disabled="false" uniqueid="{65c2609d-c317-a970-318a-05d8287834c7}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_4" id="{96659a20-8b2d-496d-6155-834dabb7cb4c}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="CC Fields" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_4_section_1" showlabel="false" showbar="false" locklevel="0" id="{ca6bb8cd-980d-229b-d24b-d9a0029674e9}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6e8b53cd-b473-0d95-93d5-6654a66ccc41}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CC1" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_cc1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_cc1" disabled="false" />
+                      </cell>
+                      <cell id="{24a1a3d8-ec20-8641-2dd3-0dcae02166ae}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CC4" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_cc4" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_cc4" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{847bdd9c-ac35-98b2-49b8-b47028071cab}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CC2" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_cc2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_cc2" disabled="false" />
+                      </cell>
+                      <cell id="{6ec7b00b-50dc-d778-25ee-ce5ab766817d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CC5" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_cc5" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_cc5" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{90dd3d3e-7372-2529-c054-a33b93000023}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CC3" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_cc3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_cc3" disabled="false" />
+                      </cell>
+                      <cell id="{247d9b60-238a-6183-c185-4323b67a7265}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_donation_letter" id="{093813d5-3ec9-e997-3e8a-d1b12940aaa4}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Donation Letter" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_5_section_1" showlabel="false" showbar="false" locklevel="0" id="{668e3c35-ad82-26e8-1618-17e3465401a2}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" height="auto" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a4686734-2ac6-6765-67e7-d887ea8dcd27}" showlabel="true" locklevel="0" auto="true" rowspan="40">
+                        <labels>
+                          <label description="Donation Letter" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donationletter" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cdcep_donationletter" disabled="false" uniqueid="{5e73b6c3-4136-9c43-55a1-95aa545280b1}" />
+                      </cell>
+                      <cell id="{b02d9423-ba93-e220-e200-de1ee127ed47}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Family Donation Letter" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_familydonationletter" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cdcep_familydonationletter" disabled="false" uniqueid="{62ebec3a-737e-bd7d-ab01-197deed153d8}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ebeec164-8205-2bc3-0da0-d18b37a4deb3}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4a0a70c4-4a92-9007-a2ee-361806b8cb20}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{575adc8c-6237-4b2d-ee84-0333d0581082}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dab3d123-625d-67b4-1eeb-9c162d117cde}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a81a5003-e43b-1b10-736e-3135d8959101}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{970da36e-b884-c398-a959-4d7ea7bc8bc9}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8b363db8-0da9-c69e-2e94-47095312d871}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{25d93e0e-5a87-0a00-7a32-db0348a855e9}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{052b7ca9-5217-b68a-a432-851644e40809}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7b1250cd-d636-d15d-0804-b9ea30a85754}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aab35683-6943-d1ea-1713-51727ecc69bd}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c32d0131-9221-e466-0aac-890a97b31722}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4e6a8193-b90e-7149-56ce-e5a5ee898724}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{871cbc88-53c6-1517-e013-71ab36abd7da}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ceab9195-66a1-0c1d-ab80-8cbdd9dd2a42}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{592339b6-44ee-78e2-ea27-b7d59a6ad23b}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{37627105-9bb5-e420-9887-b7cce9cba313}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bddb7517-1d1a-abed-4cea-2d2c232a2d62}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{790a395d-5bd8-97c9-9a9a-94c99b6e7e18}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5d8006e7-84ad-1cc8-99ca-5e96271add77}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4355269a-99ac-0404-cab9-6ed80629c36c}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d7c6742e-6499-7b10-6adb-8c4cc0820e74}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{62e27479-70dd-a0d5-b6a3-d0b2ec2c54b2}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{72835111-2dbc-0e21-2e41-9443982a3b6e}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c29142a8-86ce-8730-a590-5abccecb7e57}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e1aa8dce-47a8-66dd-4281-974db3a769c6}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{97689434-5da9-4eb5-37c9-751c03748592}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{db8595d3-eabe-c082-925a-1b44c6c2b2b6}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{26991232-508d-cc8c-7d26-c1ed5c5c82a0}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{46bb2353-5387-99a0-3868-e2005edc17ab}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e436c1aa-a597-eb65-05a3-c3cd1e816ab9}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{abd4567c-1ecd-5757-641c-4c10614b61a9}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8daa766c-b360-c057-9abc-1bb7a883ded8}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9a93012b-3399-21d1-2c6e-d8014930c9b3}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2b01a64a-6269-64ac-d012-0749425a12a5}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{32ee0ad2-2ac1-5ce1-70d3-24e033369b6d}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2ca5c4d5-7448-0287-47ea-468661452d8d}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1e513ac6-b1d9-1519-433a-8e29e9410596}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row height="auto">
+                      <cell id="{258ce077-c3c3-d14d-81db-d543c8aa31d2}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="{8b8c7a5e-2378-2421-9994-bc82498026a4}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Administrative" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{661517a5-197c-5ad4-6e21-4697eaa21887}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3371ca36-696e-d3d3-e708-add67643d2c2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Donation Summary VSSID" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_donationsummary_vssid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="cdcep_donationsummary_vssid" disabled="false" />
+                      </cell>
+                      <cell id="{dbc002e4-2247-daa0-bda0-98915219e833}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Generate Donation Letter" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_generatedonationletter" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="cdcep_generatedonationletter" disabled="false" uniqueid="{ce5ea712-21a9-c704-0503-4b95e761a81a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1b76a048-679c-61b8-066c-7b7ed38402e8}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Ready to Generate PDF?" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_readytogeneratepdf" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="cdcep_readytogeneratepdf" disabled="false" uniqueid="{430e382a-dead-bdbd-cde6-6b4ec9d20c20}" />
+                      </cell>
+                      <cell id="{c28d87de-c2d4-002d-1994-883c5edeeba2}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Generate PDF" languagecode="1033" />
+                        </labels>
+                        <control id="cdcep_generatepdf" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="cdcep_generatepdf" disabled="false" uniqueid="{2533a90e-40b7-7921-c9c2-4c7ecb2dd3cd}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="tab_2_section_2" showlabel="false" showbar="false" locklevel="0" id="{512c9b72-9a01-373a-5cc8-785b944472ea}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{608c941a-c302-d6dd-ec75-e8dc4534d981}" showlabel="true" rowspan="15" auto="false" colspan="1" locklevel="0">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" uniqueid="{c2e48a72-73cc-daa9-2e56-39e40d3c2529}" disabled="false">
+                          <parameters>
+                            <UClientUniqueName>Timeline</UClientUniqueName>
+                            <UClientModules>Notes</UClientModules>
+                            <UClientDefaultModuleForCreateExperience>Notes</UClientDefaultModuleForCreateExperience>
+                            <UClientShowFilterPane>true</UClientShowFilterPane>
+                            <UClientExpandFilterPane>true</UClientExpandFilterPane>
+                            <UClientOrderBy>descending</UClientOrderBy>
+                            <UClientRecordPerPage>10</UClientRecordPerPage>
+                            <UClientEnableWhatsNewFilter>false</UClientEnableWhatsNewFilter>
+                            <DefaultTabId>ActivitiesTab</DefaultTabId>
+                            <EmailConversationView>true</EmailConversationView>
+                            <ShowArticleTab>false</ShowArticleTab>
+                            <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{8c7b07fa-549f-407a-85c4-c05b4742adba}" columns="111">
+        <rows>
+          <row>
+            <cell id="{072c7b9b-a769-4e71-a893-80058f714357}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{da68de6b-db53-cc3d-3d52-77ab4d842927}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Auto Reference Number" languagecode="1033" />
+              </labels>
+              <control id="header_cdcep_autoreferencenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_autoreferencenumber" disabled="false" />
+            </cell>
+            <cell id="{a9b413e5-e8ba-ac1c-7552-6370acc8e080}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Name" languagecode="1033" />
+              </labels>
+              <control id="header_cdcep_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cdcep_name" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions>
+        <controlDescription forControl="{5e73b6c3-4136-9c43-55a1-95aa545280b1}">
+          <customControl id="{E0DECE4B-6FC8-4a8f-A065-082708572369}">
+            <parameters>
+              <datafieldname>cdcep_donationletter</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value>cdcep_donationletter</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value>cdcep_donationletter</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value>cdcep_donationletter</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{62ebec3a-737e-bd7d-ab01-197deed153d8}">
+          <customControl id="{E0DECE4B-6FC8-4a8f-A065-082708572369}">
+            <parameters>
+              <datafieldname>cdcep_familydonationletter</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value>cdcep_familydonationletter</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value>cdcep_familydonationletter</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value>cdcep_familydonationletter</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <formLibraries>
+        <Library name="cdcep_customAPI.js" libraryUniqueId="{1ce53225-ebc6-18e7-71a4-1ccc2c70a0cc}" />
+        <Library name="cdcep_DonationSummaryFunctions" libraryUniqueId="{39640b0a-d943-6341-095d-c85e3d46d727}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CDCEP.DonationSummaryForm.OnLoad" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{489b26db-6a0b-9504-48c6-be19d942c9e7}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="CDCEP.DonationSummaryForm.OnDonorTypeChange" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{d5b3cb4e-b674-bb72-89dc-3824a1e76e7d}" enabled="true" parameters="true" passExecutionContext="true" />
+            <Handler functionName="CDCEP.DonationSummaryForm.DateValidation" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{de364939-2aa5-2d95-0d81-971a99d29e8c}" enabled="true" parameters="true,false" passExecutionContext="true" />
+            <Handler functionName="CDCEP.DonationSummaryForm.ConfigureGeoLocationPieces" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{85e832c6-5bda-759a-7b40-ced76abd0604}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="cdcep_donationtype">
+          <Handlers>
+            <Handler functionName="CDCEP.DonationSummaryForm.OnDonationTypeChange" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{b8c68168-1509-d6d1-06ae-145cc32593ab}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="cdcep_donortype">
+          <Handlers>
+            <Handler functionName="CDCEP.DonationSummaryForm.OnDonorTypeChange" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{72733131-4ad1-8404-b751-414ba10bb4be}" enabled="true" parameters="false" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="cdcep_donationdate">
+          <Handlers>
+            <Handler functionName="CDCEP.DonationSummaryForm.DateValidation" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{c4e8ec94-e0bd-d0b6-0ce1-37e95562eed0}" enabled="true" parameters="false,false" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="cdcep_ackstate">
+          <Handlers>
+            <Handler functionName="CDCEP.DonationSummaryForm.UpdateStateLookup" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{9105798a-443a-d7d3-a008-57dc6389d773}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="cdcep_ackenteraddressmanually">
+          <Handlers>
+            <Handler functionName="CDCEP.DonationSummaryForm.HideAddressSearchControl" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{0b264ea9-5cbe-bb8e-c83d-cd28ad1345b4}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="cdcep_showacknowledgementaddress">
+          <Handlers>
+            <Handler functionName="CDCEP.DonationSummaryForm.HideAddressSearchControl" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{bda9a2b0-9815-b040-7a97-cc77acb4d26d}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CDCEP.DonationSummaryForm.DateValidation" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{797c495b-c92e-ba65-dcb3-8b9148b1b669}" enabled="true" parameters="false,true" passExecutionContext="true" />
+            <Handler functionName="CDCEP.DonationSummaryForm.CallGPFClearFlow" libraryName="cdcep_DonationSummaryFunctions" handlerUniqueId="{e7e167af-f0cd-4972-bbaf-91d6bcf3e83c}" enabled="true" parameters="false,true" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <footer id="{120f6586-fa03-41f0-941d-6411200ce56f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{911ef692-27a1-4c29-bbb9-a18a389c8ac2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ca912e7d-3742-4374-b638-b8f6f61c7455}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e35fa9b7-b7ec-46db-a322-755a7c2744da}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <formparameters>
+        <querystringparameter name="DonorTypeCanvas_0" type="Integer" />
+        <querystringparameter name="DonorIDCanvas_0" type="UniqueId" />
+      </formparameters>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

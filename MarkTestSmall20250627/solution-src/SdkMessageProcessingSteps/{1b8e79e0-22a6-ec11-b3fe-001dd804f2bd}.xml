@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="CDCEP.D365.PlugIns.LEIECheckOnContactCreateUpdate: Update of contact" SdkMessageProcessingStepId="{1b8e79e0-22a6-ec11-b3fe-001dd804f2bd}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>CDCEP.D365.PlugIns.LEIECheckOnContactCreateUpdate, CDCEP.D365.PlugIns, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37b98a35f47c6af8</PluginTypeName>
+  <PluginTypeId>8764bf1d-58ca-4cfe-bc45-d9401a6e8efe</PluginTypeId>
+  <PrimaryEntity>contact</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <FilteringAttributes>birthdate,firstname,lastname</FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="PostImage">
+      <SdkMessageProcessingStepImageId>{63d77d11-23a6-ec11-b3fe-001dd804f2bd}</SdkMessageProcessingStepImageId>
+      <Attributes>birthdate,cdcep_leie,firstname,lastname</Attributes>
+      <EntityAlias>PostImage</EntityAlias>
+      <ImageType>1</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>
