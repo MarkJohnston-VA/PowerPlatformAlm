@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
+  <PropertyGroup>
+    <!--To be passed in by command line: dotnet build ThisFile.cdsproj -p:SolutionName=YourSolution-->
+    <SolutionName />
+  </PropertyGroup>
+
   <Target Name="NpmRunBuildWebResources" BeforeTargets="Restore" Condition="'$(Configuration)' == 'Release'">
     <Exec Command="npm --prefix webresource-src run build"/>
   </Target>
@@ -18,7 +23,7 @@
     <!--Remove TargetFramework when this is available in 16.1-->
     <TargetFramework>net462</TargetFramework>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <SolutionRootPath>solution-src</SolutionRootPath>
+    <SolutionRootPath>$(SolutionName)/solution-src</SolutionRootPath>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
@@ -29,7 +34,7 @@
   <PropertyGroup>
     <SolutionPackageType>Unmanaged</SolutionPackageType>
     <SolutionPackageEnableLocalization>false</SolutionPackageEnableLocalization>
-    <SolutionPackageMapFilePath>map.xml</SolutionPackageMapFilePath>
+    <SolutionPackageMapFilePath>$(SolutionName)\map.xml</SolutionPackageMapFilePath>
   </PropertyGroup>
  
 
@@ -55,7 +60,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\plugin-src\CDCEP.D365.Plugins\CDCEP.D365.Plugins.csproj" />
+    <ProjectReference Include="plugin-src\CDCEP.D365.Plugins\CDCEP.D365.Plugins.csproj" />
   </ItemGroup>
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
