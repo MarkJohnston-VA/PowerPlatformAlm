@@ -1,0 +1,20 @@
+{
+  "spec_dir": "tests",
+  "spec_files": [
+    "**/*[sS]pec.ts",
+    "!**/*nospec.js",
+    "!**/node_modules/**"
+  ],
+  "helpers": [
+    "helpers/type-check.js",
+    "helpers/jsdom.js",
+    "helpers/logger.js",
+    "helpers/Xrm.js"
+  ],
+  "env": {
+    "failSpecWithNoExpectations": false,
+    "stopSpecOnExpectationFailure": false,
+    "stopOnSpecFailure": false,
+    "random": false
+  }
+}

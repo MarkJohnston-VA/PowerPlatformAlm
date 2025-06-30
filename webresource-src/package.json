@@ -1,0 +1,42 @@
+{
+    "name": "typescript-dataverse-project",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "build-dev": "webpack --config webpack.config.dev.js",
+        "build": "webpack --config webpack.config.prod.js",
+        "test": "jasmine --config=jasmine.json",
+        "server-dev": "npx webpack-dev-server --config webpack.config.server.js --mode development",
+        "coverage": "nyc npm run test"
+    },
+    "author": "Dataverse DevTools",
+    "devDependencies": {
+        "@types/jasmine": "^5.1.8",
+        "@types/node": "^16.4.11",
+        "@types/xrm": "^9.0.41",
+        "@typescript-eslint/eslint-plugin": "^4.30.0",
+        "@typescript-eslint/parser": "^4.30.0",
+        "clean-webpack-plugin": "^3.0.0",
+        "copy-webpack-plugin": "^13.0.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "jasmine": "^5.7.1",
+        "jasmine-core": "^5.7.1",
+        "jsdom": "^26.1.0",
+        "nyc": "^17.1.0",
+        "prettier": "2.3.2",
+        "terser-webpack-plugin": "^5.2.5",
+        "ts-loader": "^9.2.6",
+        "ts-node": "^10.9.2",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^4.1.2",
+        "webpack": "^5.58.1",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.2",
+        "webpack-merge": "^5.8.0"
+    },
+    "dependencies": {
+        "dotenv": "^16.5.0"
+    }
+}

@@ -1,0 +1,133 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+      "*.ts": "${capture}.js",
+      "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+      "*.jsx": "${capture}.js",
+      "*.tsx": "${capture}.ts",
+      "tsconfig.json": "tsconfig.*.json",
+      "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
+      "webpack.config.js": "webpack.config.*.js"
+    }
+  },
+  "extensions": {
+    "recommendations": ["danish-naglekar.dataverse-devtools", "hbenl.vscode-jasmine-test-adapter", "hbenl.vscode-test-explorer"]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "options": {
+      "env": {
+				//TODO: Replace this with your dev environment URL
+        "DYNAMICS_URL": "dvagov-dpass-dev.crm9.dynamics.com"
+      }
+    },
+    "tasks": [
+      {
+        "label": "SourceMapsServer",
+        "command": "npm",
+        "type": "shell",
+        "isBackground": true,
+        "args": ["run", "server-dev"],
+        "problemMatcher": [
+          {
+            "owner": "webpack",
+            "pattern": [
+              {
+                "regexp": "^(?<file>[^\\s]+)\\((?<line>\\d+),(?<column>\\d+)\\):\\s(?<severity>error|warning)\\s(?<message>.+)$",
+                "file": 1,
+                "line": 2,
+                "column": 3,
+                "severity": 4,
+                "message": 5
+              },
+              {
+                "regexp": "^ERROR in (?<file>.+) (?<message>.+)$",
+                "file": 1,
+                "message": 2,
+                "severity": 3
+              }
+            ],
+            "background": {
+              "activeOnStart": true,
+              "beginsPattern": { "regexp": "." },
+              "endsPattern": { "regexp": "webpack .* compiled successfully in .* ms" }
+            }
+          }
+        ],
+        "presentation": {
+          "reveal": "always"
+        },
+        "group": "build"
+      },
+      {
+        "label": "BuildAndWatchForDebugging",
+        "command": "npm",
+        "type": "shell",
+        "isBackground": true,
+        "args": ["run", "build-dev"],
+        "problemMatcher": [
+          {
+            "owner": "webpack",
+            "pattern": [
+              {
+                "regexp": "^(?<file>[^\\s]+)\\((?<line>\\d+),(?<column>\\d+)\\):\\s(?<severity>error|warning)\\s(?<message>.+)$",
+                "file": 1,
+                "line": 2,
+                "column": 3,
+                "severity": 4,
+                "message": 5
+              },
+              {
+                "regexp": "^ERROR in (?<file>.+) (?<message>.+)$",
+                "file": 1,
+                "message": 2,
+                "severity": 3
+              }
+            ],
+            "background": {
+              "activeOnStart": true,
+              "beginsPattern": { "regexp": "." },
+              "endsPattern": { "regexp": "webpack .* compiled successfully in .* ms" }
+            }
+          }
+        ],
+        "presentation": {
+          "reveal": "always"
+        },
+        "group": "build"
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "msedge",
+        "request": "launch",
+        "name": "DebugWithEdge",
+        "runtimeArgs": ["--remote-debugging-port=9222", "--auto-open-devtools-for-tabs"],
+				//TODO: Replace this with your dev environment URL
+        "url": "https://dvagov-dpass-dev.crm9.dynamics.com",
+        "port": 9222,
+        "sourceMaps": true,
+        "disableNetworkCache": true,
+        "cleanUp": "onlyTab",
+        "preLaunchTask": "SourceMapsServer",
+      }
+    ],
+    "compounds": [
+      {
+        "name": "DebugWithEdge-AllProcesses",
+        "configurations": ["DebugWithEdge"],
+        "preLaunchTask": "BuildAndWatchForDebugging",
+        "stopAll": true
+      }
+    ]
+  }
+}
