@@ -23,7 +23,7 @@
     <!--Remove TargetFramework when this is available in 16.1-->
     <TargetFramework>net462</TargetFramework>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <SolutionRootPath>$(SolutionName)/solution-src</SolutionRootPath>
+    <SolutionRootPath>solution-src\$(SolutionName)\src</SolutionRootPath>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
@@ -34,7 +34,7 @@
   <PropertyGroup>
     <SolutionPackageType>Unmanaged</SolutionPackageType>
     <SolutionPackageEnableLocalization>false</SolutionPackageEnableLocalization>
-    <SolutionPackageMapFilePath>$(SolutionName)\map.xml</SolutionPackageMapFilePath>
+    <SolutionPackageMapFilePath>solution-src\$(SolutionName)\map.xml</SolutionPackageMapFilePath>
   </PropertyGroup>
  
 
