@@ -1,0 +1,213 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |+
+        =////Set Current URL from Environment Variables
+        //Set(varCurrentEnvironmentURL, LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name' = "CurrentEnvironmentURL").Value);
+        //ClearCollect(UserRoles, (LookUp(Users,domainname = User().Email).'Security Roles (systemuserroles_association)').Name);
+        ////Notify("ur: " & First(UserRoles).Name & "; Param(modelappid): " & Param("modelappid"));
+        //Set(varAppId, Param("modelappid"));
+        //Set(varHideAddButton, LookUp(UserRoles, "CDCEP - Volunteer/Office assistant" exactin name || "System Administrator1" exactin name, true));
+        ////Notify("hide add button: " & varHideAddButton);
+        
+        //Set Current URL from Environment Variables
+        Set(varCurrentEnvironmentURL, LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name' = "CurrentEnvironmentURL").Value);
+        Set(varUnknownAnonymousContactId, LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name' = "CDCEP_UnknownAnonymousContactID").Value);
+        //ClearCollect(UserRoles, (LookUp(Users,domainname = User().Email).'Security Roles (systemuserroles_association)').Name);
+        //Notify("ur: " & First(UserRoles).Name & "; Param(modelappid): " & Param("modelappid"));
+        //Set(varAppId, Param("modelappid"));
+        //Set(varHideAddButton, LookUp(UserRoles, "CDCEP - Volunteer/Office assistant" exactin name || "System Administrator1" exactin name, true));
+        //Notify("hide add button: " & varHideAddButton);
+        
+        Set(varCDCEPHub, LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name' = "CDCEAppId").Value);
+        Set(varVolunteerHub, LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name' = "VolunteerAppId").Value);
+        Set(varNewContactForm, LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name' = "CDCENewContactForm").Value);
+        Set(varShowAddButton, DataSourceInfo(Contacts, DataSourceInfo.CreatePermission));
+        Set(varAppId, If(varShowAddButton, varCDCEPHub, varVolunteerHub));
+        Set(varShowDonationButton, DataSourceInfo('Donation Summary', DataSourceInfo.CreatePermission));
+        //Set(varBU, DataSourceInfo(Accounts, DataSourceInfo.g
+        //Set(varShowDonationButton, false);
+        Set(varResultsLabel, "Enter Search Criteria");
+        Set(varDefaultResultsLabel, "Enter Search Criteria");
+        Set(varStartSearch, false);
+        Set(varIndivSortField, "fullname");
+        Set(varIndivSortDirection, "Ascending");
+        Set(varOrgSortField, "companyname");
+        Set(varOrgSortDirection, "Ascending");
+        
+        // Base global styles
+        Set(Colors, {
+            WarningRed: "#BB2C38",
+            WarningRedRGBA: RGBA(187,44,44, 1),
+            VABlueHex: "#005ea4",
+            VABlue: RGBA(0, 94, 164, 1),
+            PrimaryGreen: RGBA(46, 133, 64, 1),
+            LightGray: RGBA(151, 151, 151, 1),
+            DarkGray: RGBA(86, 92, 101, 1)
+        });
+        Set(
+            Styles,
+            {
+                mainContainerPad: 20,
+                mainContainerGap: 12,
+                subContainerPadX: 20,
+                subContainerPadY: 15,
+                screenPadX: 16,
+                screenPadY: 16
+            }
+        );
+        // Text Input Styles
+        Set(
+            TextInput,
+            {height: 36}
+        );
+        // Button Styles
+        Set(
+            Button,{
+                height: 33,
+                width: 92, 
+                fontSize: 13
+             }
+        );
+        // Results Gallery Styles
+        Set(
+            VeteranResultsGalleryStyle,
+            {
+                buttonWidth: 60,
+                buttonHeight: 30,
+                galleryScrollPad: 40,
+                rowPadX: 15,
+                rowPadY: 15,
+                rowHeight: 40,
+                extraRowHeight: 10,
+                labelFontSize: 10,
+                fieldFontSize: 11,
+                fieldValueHeight: 20,
+                checkboxWidth: 23,
+                checkboxSize: 18
+            }
+        );
+        Set(CommandBarStyles, {
+            height: 42,
+            buttonHeight: 33,
+            buttonFontSize: 13,
+            returnIconX: 10,
+            returnIconY: 5,
+            returnIconWidth: 30,
+            returnIconHeight: 32,
+            returnIconPad: 3,
+            returnIconColor: RGBA(216, 216, 216, 1),
+            returnIconOverlayWidth: 15,
+            returnDividerColor: RGBA(209, 209, 209, 1)
+        });
+        
+        Set(
+            ShowAlternateSearch,
+            false
+        );
+        // Instantiate empty results 
+        Collect(
+            veteranProfileResults, Blank()
+        );
+        
+        // Declare the three search types (the first two define the FormTabList items container)
+        Set(EDIPI_Search_Key, "EDIPI_Search");
+        Set(PI_Search_Key, "PI_Search");
+        Set(Alt_Search_Key, "Alt_search");
+        
+        Set(SearchTypes, Table(
+            {Id: 1, Name: "Personal Identifier Search", Value: PI_Search_Key},
+            {Id: 2, Name: "EDIPI Search", Value: EDIPI_Search_Key },
+            {Id: 3, Name: "Alternate Search", Value: Alt_Search_Key }
+        ));
+        
+        // Set default search to EDIPI
+        Set(SearchTabDefault, Index(SearchTypes, 1));
+        Set(CurrentSearch, SearchTabDefault);
+        
+        // Set Form Validation properties, these will be patched through OnChange event of corresponding Input
+        Set(FormState, {
+            ssnErrors: true,
+            firstNameErrors: false,
+            lastNameErrors: true,
+            dobErrors: true,
+            edipiErrors: true,
+            dodErrors: false,
+            serviceStartDateErrors: false,
+            activeDutyEndDateErrors: false,
+            branchOfService: false
+        });
+        // Set mock data results for debug without flow
+        Set(MockVeteranSearchResults, Table(
+                    {
+                    id: "f33edf02-3ec8-4842-8522-88ce26d19f4c",
+                    ssn: "308885555",
+                    fileNumber: "308885555",
+                    ssnVerified: true,
+                    participantID: "1299393",
+                    lastName: "Zion",
+                    preferredLastName: "",
+                    lastNameVerified: true,
+                    firstName: "Jordan",
+                    preferredFirstName: "",
+                    firstNameVerified: true,
+                    dob: "08/25/2000",
+                    dobVerified: true,
+                    fnodFiled: "",
+                    characterOfDischarge: "Honorable",
+                    branchOfService: "Coast Guard",
+                    branchOfServiceVerified: true,
+                    streetAddress: "12345 Apple Street",
+                    city: "Indianapolis",
+                    state: "IN",
+                    zip: "25556",
+                    genderIdentity: "M",
+                    gender: "M",
+                    expanded: false,
+                    selected: false,
+                    source: "MVI",
+                    combinedServiceConnectedRatingPercentage: "",
+                    combinedNonServiceConnectedRatingPercentage: "",
+                    sensitivityLevel: 3
+            },
+            {
+                    id: "58372e17-634c-41ba-bb79-b17f74b3c890",
+                    ssn: "234234234",
+                    fileNumber: "23424115",
+                    participantID: "1299393",
+                    ssnVerified: true,
+                    lastName: "Zion",
+                    preferredLastName: "",
+                    lastNameVerified: true,
+                    firstName: "Jordan",
+                    preferredFirstName: "",
+                    firstNameVerified: true,
+                    dob: "03/21/1984",
+                    dobVerified: true,
+                    fnodFiled: "",
+                    characterOfDischarge: "Honorable",
+                    branchOfServiceVerified: true,
+                    branchOfService: "Coast Guard",
+                    streetAddress: "12345 Apple Street",
+                    city: "Indianapolis",
+                    state: "IN",
+                    zip: "25556",
+                    genderIdentity: "M",
+                    gender: "M",
+                    expanded: false,
+                    selected: false,
+                    combinedServiceConnectedRatingPercentage: "",
+                    combinedNonServiceConnectedRatingPercentage: "",
+                    source: "MVI",
+                    sensitivityLevel: 3
+            }
+        ));
+        
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

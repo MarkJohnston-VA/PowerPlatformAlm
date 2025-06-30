@@ -1,0 +1,478 @@
+App As appinfo:
+    BackEnabled: =true
+    Formulas: |-
+        =FilterIcon = "data:image/svg+xml;utf8, "&EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='#000000' aria-hidden='true' data-slot='icon' stroke-linecap='round' stroke-linejoin='round' width='40px' height='40px'><path stroke-linecap='round' stroke-linejoin='round' d='M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75'/></svg>");
+    OnStart: |+
+        =Set(varCurrentEnvironmentURL, LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name' = "CurrentEnvironmentURL").Value);
+        Set(varCDCEPHub, LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name' = "CDCEAppId").Value);
+        Set(varVolunteerHub, LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name' = "VolunteerAppId").Value);
+        Set(varNewContactForm, LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name' = "CDCENewContactForm").Value);
+        Set(varShowAddButton, DataSourceInfo(Contacts, DataSourceInfo.CreatePermission));
+        Set(varShowAddButtonAfterSearch, false);
+        Set(varAppId, If(varShowAddButton, varCDCEPHub, varVolunteerHub));
+        Set(varShowDonationButton, DataSourceInfo('Donation Summary', DataSourceInfo.CreatePermission));
+        
+        Set(varResultsLabel, "Enter Search Criteria");
+        Set(varDefaultResultsLabel, "Enter Search Criteria");
+        Set(varStartSearch, false);
+        Set(varIndivSortField, "fullname");
+        Set(varIndivSortDirection, "Ascending");
+        Set(varOrgSortField, "companyname");
+        Set(varOrgSortDirection, "Ascending");
+        
+        ClearCollect(MyBlankCollection, Defaults(Accounts));
+        ClearCollect(VISN, ShowColumns(Filter(Accounts, 'Account Type' = 100000002 && Status = 0), Name, 'Owning Business Unit'));
+        ClearCollect(VISNCol, MyBlankCollection, VISN);
+        Clear(VISN);
+        
+        ClearCollect(col_Commands, 
+            {
+                ItemKey:"addVolunteer",
+                ItemDisplayName:"New Lead",
+                ItemIconName:"Add",
+                ItemEnabled: true
+            }
+        );
+        
+        Set(
+            varSvgCheckmarkImage,
+            "data:image/svg+xml," & EncodeUrl(
+                "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+            <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+            <path fill='#76db91'
+        d='M1024 2048q141 0 272 -36.5t244.5 -103.5t207 -160.5t160.5 -207t103.5 -244.5t36.5 -272t-36.5 -272t-103.5 -244.5t-160.5 -207t-207 -160.5t-244.5 -103.5t-272 -36.5t-272 36.5t-244.5 103.5t-207 160.5t-160.5 207t-103.5 244.5t-36.5 272t36.5 272t103.5 244.5t160.5 207t207 160.5t244.5 103.5t272 36.5zM907 701q22 0 42 8.5t35 23.5l429 429q15 15 23 35t8 41q0 22 -8.5 42t-23 34.5t-34.5 23t-42 8.5q-21 0 -41.5 -8t-35.5 -23l-352 -352l-118 118q-32 32 -77 32q-22 0 -42 -8.5t-35 -23.5t-23.5 -34.5t-8.5 -41.5q0 -21 8.5 -41.5t23.5 -35.5l195 -195q15 -15 35.5 -23.5t41.5 -8.5z' />
+            </g>
+        </svg>"
+            )
+        );
+        
+        ClearCollect(col_GridColumns, 
+            {
+                ColName: "svg",
+                ColDisplayName: "",
+                ColCellType:"clickableimage",
+                ColWidth: 60,
+                ColVerticalAlign: "Center",
+                ColHorizontalAlign:"Center",
+                ColResizable:true
+            },
+            {
+                ColName:"FirstName",
+                ColDisplayName:"First Name",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColIsBold:true,
+                ColSortBy:"FirstName",
+                ColResizable: true,
+                ColCellType: "link"
+            },
+            {
+                ColName:"LastName",
+                ColDisplayName:"Last Name",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColIsBold:true,
+                ColSortBy:"LastName",
+                ColResizable: true,
+                ColCellType: "link"
+            },
+               {
+                ColName:"DateOfBirth",
+                ColDisplayName:"DOB",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColSortBy:"DateOfBirth",
+                ColResizable: true,
+                ColHorizontalAlign:"Center"
+            },
+             {
+                ColName:"Facility",
+                ColDisplayName:"Facility",
+                ColWidth:140,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColSortBy:"Facility",
+                ColResizable: false
+        
+            },
+            {
+                ColName:"Email",
+                ColDisplayName:"Email",
+                ColWidth:180,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColResizable: true
+            },
+            {
+                ColName:"HomePhone",
+                ColDisplayName:"Home Phone",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:false,
+                ColResizable: false,
+                ColHorizontalAlign:"Center"
+            },
+            {
+                ColName:"MobilePhone",
+                ColDisplayName:"Mobile",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:false,
+                ColResizable: false,
+                ColHorizontalAlign:"Center"
+            },
+            {
+                ColName:"Street",
+                ColDisplayName:"Street",
+                ColWidth:150,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColSortBy:"Street",
+                ColResizable: false
+            },
+            {
+                ColName:"City",
+                ColDisplayName:"City",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColSortBy:"City",
+                ColResizable: false,
+                ColVerticalAlign:"Center"
+            },
+           {
+                ColName:"State",
+                ColDisplayName:"State",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColSortBy:"State",
+                ColResizable: false,
+                ColVerticalAlign:"Center"
+            },
+           {
+                ColName:"Status",
+                ColDisplayName:"Status",
+                ColWidth:90,
+                ColRowHeader:true,
+                ColSortable:false,
+                ColResizable: false,
+                ColVerticalAlign:"Center"
+            }
+            
+        );
+        
+        ClearCollect(col_GridInactiveColumnsCol,  Filter(col_GridColumns, ColName <> "HomePhone" && ColName<>"MobilePhone") , {
+                ColName:"statuscode",
+                ColDisplayName:"Reason",
+                ColWidth:160,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColIsBold:false,
+                ColSortBy:"statuscode",
+                ColResizable: true
+        });
+        
+        ClearCollect(col_LeadColumns,
+            {
+                ColName:"FirstName",
+                ColDisplayName:"First Name",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColIsBold:true,
+                ColSortBy:"FirstName",
+                ColResizable: true,
+                ColCellType: "link"
+            },
+            {
+                ColName:"LastName",
+                ColDisplayName:"Last Name",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColIsBold:true,
+                ColSortBy:"LastName",
+                ColResizable: true,
+                ColCellType: "link"
+            },
+               {
+                ColName:"DateOfBirth",
+                ColDisplayName:"DOB",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColSortBy:"DateOfBirth",
+                ColResizable: true,
+                ColHorizontalAlign:"Center"
+            },
+             {
+                ColName:"Facility",
+                ColDisplayName:"Facility",
+                ColWidth:140,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColSortBy:"Facility",
+                ColResizable: false
+        
+            },
+            {
+                ColName:"Email",
+                ColDisplayName:"Email",
+                ColWidth:180,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColResizable: true
+            },
+            {
+                ColName:"HomePhone",
+                ColDisplayName:"Home Phone",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:false,
+                ColResizable: false,
+                ColHorizontalAlign:"Center"
+            },
+            {
+                ColName:"MobilePhone",
+                ColDisplayName:"Mobile",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:false,
+                ColResizable: false,
+                ColHorizontalAlign:"Center"
+            },
+            {
+                ColName:"Street",
+                ColDisplayName:"Street",
+                ColWidth:150,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColSortBy:"Street",
+                ColResizable: false
+            },
+            {
+                ColName:"City",
+                ColDisplayName:"City",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColSortBy:"City",
+                ColResizable: false,
+                ColVerticalAlign:"Center"
+            },
+           {
+                ColName:"State",
+                ColDisplayName:"State",
+                ColWidth:100,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColSortBy:"State",
+                ColResizable: false,
+                ColVerticalAlign:"Center"
+            },
+           {
+                ColName:"Status",
+                ColDisplayName:"Status",
+                ColWidth:90,
+                ColRowHeader:true,
+                ColSortable:false,
+                ColResizable: false,
+                ColVerticalAlign:"Center"
+            }
+            
+        );
+        
+        ClearCollect(col_LeadsGridInactiveColumnsCol,  Filter(col_LeadColumns, ColName <> "HomePhone" && ColName<>"MobilePhone") , {
+                ColName:"statuscode",
+                ColDisplayName:"Reason",
+                ColWidth:160,
+                ColRowHeader:true,
+                ColSortable:true,
+                ColIsBold:false,
+                ColSortBy:"statuscode",
+                ColResizable: true
+        });
+        
+        // Base global styles
+        Set(Colors, {
+            WarningRed: "#BB2C38",
+            WarningRedRGBA: RGBA(187,44,44, 1),
+            VABlueHex: "#005ea4",
+            VABlue: RGBA(0, 94, 164, 1),
+            PrimaryGreen: RGBA(46, 133, 64, 1),
+            LightGray: RGBA(151, 151, 151, 1),
+            DarkGray: RGBA(86, 92, 101, 1)
+        });
+        // Base global styles
+        Set(
+            Styles,
+            {
+                mainContainerPad: 20,
+                mainContainerGap: 12,
+                subContainerPadX: 20,
+                subContainerPadY: 15,
+                screenPadX: 16,
+                screenPadY: 16
+            }
+        );
+        // Text Input Styles
+        Set(
+            TextInput,
+            {height: 36}
+        );
+        // Button Styles
+        Set(
+            Button,{
+                height: 33,
+                width: 92, 
+                fontSize: 13
+             }
+        );
+        // Results Gallery Styles
+        Set(
+            VeteranResultsGalleryStyle,
+            {
+                buttonWidth: 60,
+                buttonHeight: 30,
+                galleryScrollPad: 40,
+                rowPadX: 15,
+                rowPadY: 15,
+                rowHeight: 40,
+                extraRowHeight: 10,
+                labelFontSize: 10,
+                fieldFontSize: 11,
+                fieldValueHeight: 20,
+                checkboxWidth: 23,
+                checkboxSize: 18
+            }
+        );
+        Set(CommandBarStyles, {
+            height: 42,
+            buttonHeight: 33,
+            buttonFontSize: 13,
+            returnIconX: 10,
+            returnIconY: 5,
+            returnIconWidth: 30,
+            returnIconHeight: 32,
+            returnIconPad: 3,
+            returnIconColor: RGBA(216, 216, 216, 1),
+            returnIconOverlayWidth: 15,
+            returnDividerColor: RGBA(209, 209, 209, 1)
+        });
+        
+        Set(
+            ShowAlternateSearch,
+            false
+        );
+        // Instantiate empty results 
+        Collect(
+            veteranProfileResults, Blank()
+        );
+        
+        // Declare the three search types (the first two define the FormTabList items container)
+        Set(EDIPI_Search_Key, "EDIPI_Search");
+        Set(PI_Search_Key, "PI_Search");
+        Set(Alt_Search_Key, "Alt_search");
+        
+        Set(SearchTypes, Table(
+            {Id: 1, Name: "Personal Identifier Search", Value: PI_Search_Key},
+            {Id: 2, Name: "EDIPI Search", Value: EDIPI_Search_Key },
+            {Id: 3, Name: "Alternate Search", Value: Alt_Search_Key }
+        ));
+        
+        // Set default search to EDIPI
+        Set(SearchTabDefault, Index(SearchTypes, 1));
+        Set(CurrentSearch, SearchTabDefault);
+        
+        // Set Form Validation properties, these will be patched through OnChange event of corresponding Input
+        Set(FormState, {
+            ssnErrors: true,
+            firstNameErrors: false,
+            lastNameErrors: true,
+            dobErrors: true,
+            edipiErrors: true,
+            dodErrors: false,
+            serviceStartDateErrors: false,
+            activeDutyEndDateErrors: false,
+            branchOfService: false
+        });
+        // Set mock data results for debug without flow
+        Set(MockVeteranSearchResults, Table(
+                    {
+                    id: "f33edf02-3ec8-4842-8522-88ce26d19f4c",
+                    ssn: "308885555",
+                    fileNumber: "308885555",
+                    ssnVerified: true,
+                    participantID: "1299393",
+                    lastName: "Zion",
+                    preferredLastName: "",
+                    lastNameVerified: true,
+                    firstName: "Jordan",
+                    preferredFirstName: "",
+                    firstNameVerified: true,
+                    dob: "08/25/2000",
+                    dobVerified: true,
+                    fnodFiled: "",
+                    characterOfDischarge: "Honorable",
+                    branchOfService: "Coast Guard",
+                    branchOfServiceVerified: true,
+                    streetAddress: "12345 Apple Street",
+                    city: "Indianapolis",
+                    state: "IN",
+                    zip: "25556",
+                    genderIdentity: "M",
+                    gender: "M",
+                    expanded: false,
+                    selected: false,
+                    source: "MVI",
+                    combinedServiceConnectedRatingPercentage: "",
+                    combinedNonServiceConnectedRatingPercentage: "",
+                    sensitivityLevel: 3
+            },
+            {
+                    id: "58372e17-634c-41ba-bb79-b17f74b3c890",
+                    ssn: "234234234",
+                    fileNumber: "23424115",
+                    participantID: "1299393",
+                    ssnVerified: true,
+                    lastName: "Zion",
+                    preferredLastName: "",
+                    lastNameVerified: true,
+                    firstName: "Jordan",
+                    preferredFirstName: "",
+                    firstNameVerified: true,
+                    dob: "03/21/1984",
+                    dobVerified: true,
+                    fnodFiled: "",
+                    characterOfDischarge: "Honorable",
+                    branchOfServiceVerified: true,
+                    branchOfService: "Coast Guard",
+                    streetAddress: "12345 Apple Street",
+                    city: "Indianapolis",
+                    state: "IN",
+                    zip: "25556",
+                    genderIdentity: "M",
+                    gender: "M",
+                    expanded: false,
+                    selected: false,
+                    combinedServiceConnectedRatingPercentage: "",
+                    combinedNonServiceConnectedRatingPercentage: "",
+                    source: "MVI",
+                    sensitivityLevel: 3
+            }
+        ));
+        
+    StartScreen: =
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

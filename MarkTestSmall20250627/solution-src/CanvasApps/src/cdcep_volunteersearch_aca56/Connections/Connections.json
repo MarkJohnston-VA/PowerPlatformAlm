@@ -1,0 +1,118 @@
+{
+  "15496897-3f4b-42b3-89ec-8f1ccd1605f7": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectorsiconsfairfax.z5.web.core.usgovcloudapi.net/releases/v1.0.1745/1.0.1745.4169/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "1a0fd382-6a2b-40db-b160-e426cfa1ba0e": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowDisplayName": {
+          "value": "CDCEP: Volunteer Search - Contacts"
+        },
+        "workflowEntityId": {
+          "value": "a643deea-6127-f011-8c4e-001dd8096189"
+        },
+        "workflowName": {
+          "value": "c13ca83b-215a-853d-f117-f68cd96dba1e"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "1a0fd382-6a2b-40db-b160-e426cfa1ba0e"
+        },
+        "workflowDisplayName": {
+          "value": "CDCEP: Volunteer Search - Contacts"
+        },
+        "workflowEntityId": {
+          "value": "a643deea-6127-f011-8c4e-001dd8096189"
+        },
+        "workflowName": {
+          "value": "c13ca83b-215a-853d-f117-f68cd96dba1e"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "CDCEP:VolunteerSearch-Contacts"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "1a0fd382-6a2b-40db-b160-e426cfa1ba0e"
+    },
+    "dependents": [],
+    "id": "15496897-3f4b-42b3-89ec-8f1ccd1605f7"
+  },
+  "1a0fd382-6a2b-40db-b160-e426cfa1ba0e": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "bypassConsent": true,
+      "displayName": "Microsoft Dataverse",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1735/1.0.1735.4099/commondataserviceforapps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "871ed52a-929a-444a-87f6-55b9d77714ca",
+      "15496897-3f4b-42b3-89ec-8f1ccd1605f7"
+    ],
+    "id": "1a0fd382-6a2b-40db-b160-e426cfa1ba0e"
+  },
+  "871ed52a-929a-444a-87f6-55b9d77714ca": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectorsiconsfairfax.z5.web.core.usgovcloudapi.net/releases/v1.0.1745/1.0.1745.4169/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "1a0fd382-6a2b-40db-b160-e426cfa1ba0e": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowDisplayName": {
+          "value": "CDCEP: Volunteer Search - Leads"
+        },
+        "workflowEntityId": {
+          "value": "d84f888f-e821-f011-998a-001dd806cf6f"
+        },
+        "workflowName": {
+          "value": "4f6bd4ba-cdde-3856-24cc-a350da5aa8b4"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "1a0fd382-6a2b-40db-b160-e426cfa1ba0e"
+        },
+        "workflowDisplayName": {
+          "value": "CDCEP: Volunteer Search - Leads"
+        },
+        "workflowEntityId": {
+          "value": "d84f888f-e821-f011-998a-001dd806cf6f"
+        },
+        "workflowName": {
+          "value": "4f6bd4ba-cdde-3856-24cc-a350da5aa8b4"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "CDCEP:VolunteerSearch-Leads"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "1a0fd382-6a2b-40db-b160-e426cfa1ba0e"
+    },
+    "dependents": [],
+    "id": "871ed52a-929a-444a-87f6-55b9d77714ca"
+  }
+}

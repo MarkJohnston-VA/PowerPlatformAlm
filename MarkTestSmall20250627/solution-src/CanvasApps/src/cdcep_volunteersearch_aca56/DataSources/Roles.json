@@ -1,0 +1,141 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cdcep_benefitingserviceroleses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cdcep_benefitingserviceroles",
+    "Name": "Roles",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cdcep_BenefitingServiceId": "Benefiting Service",
+      "cdcep_benefitingservicerole_vssid": "Benefiting Service Role VSSID",
+      "cdcep_benefitingserviceroles_AsyncOperations": "System Jobs",
+      "cdcep_benefitingserviceroles_BulkDeleteFailures": "Bulk Delete Failures",
+      "cdcep_benefitingserviceroles_DuplicateBaseRecord": "Duplicate Records (cdcep_benefitingserviceroles_DuplicateBaseRecord)",
+      "cdcep_benefitingserviceroles_DuplicateMatchingRecord": "Duplicate Records (cdcep_benefitingserviceroles_DuplicateMatchingRecord)",
+      "cdcep_benefitingserviceroles_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cdcep_benefitingserviceroles_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cdcep_benefitingserviceroles_ProcessSession": "Process Sessions",
+      "cdcep_benefitingserviceroles_SyncErrors": "Sync Errors",
+      "cdcep_benefitingservicerolesid": "Benefiting Service Role",
+      "cdcep_cdcep_benefitingserviceroles_cdcep_occasi": "Occasional Hours",
+      "cdcep_cdcep_benefitingserviceroles_cdcep_volunt": "Volunteer Assignments",
+      "cdcep_cdcep_benefitingserviceroles_lead": "Leads",
+      "cdcep_cdcep_bsr_cdcep_bsrr": "Service Role Requirements",
+      "cdcep_cdcep_role_cdcep_availableassignment": "Available Assignments",
+      "cdcep_contactemail": "Supervisor Email",
+      "cdcep_contactname": "Supervisor Name",
+      "cdcep_contactphone": "Supervisor Phone",
+      "cdcep_description": "Description",
+      "cdcep_FacilityId": "Facility",
+      "cdcep_name": "Role Name",
+      "cdcep_roles_adjustedhours": "Adjusted Hours",
+      "cdcep_roletype": "Role Type",
+      "cdcep_scope": "Scope",
+      "cdcep_ServiceRoleTemplateId": "Service Role Template",
+      "cdcep_ServiceTemplateId": "Service Template",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Roles",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Roles (Views)",
+    "Name": "_cdcep_benefitingserviceroles_views",
+    "RelatedEntityName": "Roles",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0151ee84-63d2-49e0-9e04-2bd057b60d8a": "Inactive Benefiting Service Roles",
+      "115e22c5-dead-412b-899b-579fc6182143": "Active Benefiting Service Roles",
+      "2ad26755-18ad-eb11-b1ac-001dd801f545": "Facility Benefiting Service Roles",
+      "a7b50c46-785a-49d1-95fd-c74fb98f59c7": "Benefiting Service Role Advanced Find View",
+      "ab08e3ea-8c0d-47eb-969e-324010815742": "Benefiting Service Role Lookup View",
+      "f786a3f3-681b-4fbd-8408-14244dece2c7": "Benefiting Service Role Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Roles)",
+    "Name": "cdcep_benefitingserviceroles_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Roles"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Roles",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Roles)",
+    "Name": "cdcep_benefitingserviceroles_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Roles"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Roles",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Benefiting Service Role Type",
+    "Name": "cdcep_benefitingserviceroletype",
+    "OptionSetInfoNameMapping": {
+      "100000001": "General",
+      "100000002": "Administrative/Clerical",
+      "100000003": "Advisory Committee",
+      "100000004": "Clinical / Patient Care",
+      "100000005": "Communications",
+      "100000006": "Driver",
+      "100000007": "Escort",
+      "100000008": "Faith-Based / Religious",
+      "100000009": "Food & Nutrition",
+      "100000010": "Information Technology",
+      "100000011": "Special Events",
+      "100000012": "Virtual"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cdcep_roletype",
+        "OptionSetReferenceEntityName": "Roles"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cdcep_roletype",
+    "RelatedEntityName": "Roles",
+    "Type": "OptionSetInfo"
+  }
+]

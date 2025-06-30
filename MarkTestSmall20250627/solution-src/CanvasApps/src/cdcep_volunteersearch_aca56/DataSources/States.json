@@ -1,0 +1,114 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cdcep_states",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cdcep_state",
+    "MaxGetRowsCount": 500,
+    "Name": "States",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cdcep_accountid": "Account",
+      "cdcep_cdcep_ackstate_cdcep_donationsummary": "Donation Summary (cdcep_cdcep_ackstate_cdcep_donationsummary)",
+      "cdcep_cdcep_state_account": "Accounts",
+      "cdcep_cdcep_state_cdcep_applicant_CollegeState": "Applicants (cdcep_cdcep_state_cdcep_applicant_CollegeState)",
+      "cdcep_cdcep_state_cdcep_applicant_State": "Applicants (cdcep_cdcep_state_cdcep_applicant_State)",
+      "cdcep_cdcep_state_cdcep_donationsummary": "Donation Summary (cdcep_cdcep_state_cdcep_donationsummary)",
+      "cdcep_cdcep_state_cdcep_nationalofficials": "National Officials",
+      "cdcep_cdcep_state_cdcep_parkingstickers": "Parking Stickers",
+      "cdcep_cdcep_state_cdcep_reportdonations_StateID": "Report Donations",
+      "cdcep_cdcep_state_contact": "Contacts",
+      "cdcep_cdcep_state_lead_ServiceState": "Leads (cdcep_cdcep_state_lead_ServiceState)",
+      "cdcep_CountryId": "Country",
+      "cdcep_fipscode": "FIPS Code",
+      "cdcep_iso2": "ISO2",
+      "cdcep_lead_state": "Leads (cdcep_lead_state)",
+      "cdcep_name": "State Name",
+      "cdcep_state_AsyncOperations": "System Jobs",
+      "cdcep_state_BulkDeleteFailures": "Bulk Delete Failures",
+      "cdcep_state_cdcep_donationlog": "E-Donations",
+      "cdcep_state_echotaps": "Echo Taps",
+      "cdcep_state_leie": "Exclusions",
+      "cdcep_state_location_email": "Location Emails",
+      "cdcep_state_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cdcep_state_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cdcep_state_ProcessSession": "Process Sessions",
+      "cdcep_state_SyncErrors": "Sync Errors",
+      "cdcep_state_volunteertraining": "Volunteer Trainings",
+      "cdcep_state_webcontact": "Web Contacts",
+      "cdcep_stateid": "State",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "States",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "States (Views)",
+    "Name": "_cdcep_state_views",
+    "RelatedEntityName": "States",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "339888c0-c8a9-47b1-9004-92f494d3be71": "State Lookup View",
+      "6cedf96e-cb69-440f-ab2e-400939b3587a": "Active States",
+      "abd60a2c-b1e8-4d0d-9423-2b3dfdd2cb1d": "State Associated View",
+      "cc16bbd8-8615-ec11-b6e6-001dd804ce6f": "US States",
+      "e4e69be9-1145-4a5f-994a-ffdf83d931e8": "Inactive States",
+      "e9929602-680a-49f7-a70d-c33b0ce91a80": "State Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (States)",
+    "Name": "cdcep_state_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "States"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "States",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (States)",
+    "Name": "cdcep_state_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "States"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "States",
+    "Type": "OptionSetInfo"
+  }
+]

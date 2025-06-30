@@ -1,0 +1,237 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "msnfp_items",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "msnfp_item",
+    "MaxGetRowsCount": 500,
+    "Name": "Items",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_msnfp_supplierid_value": "Facility",
+      "_ownerid_value": "Owner",
+      "cdcep_classification": "Classification",
+      "cdcep_email_address": "Email Address",
+      "cdcep_enddate": "End Date",
+      "cdcep_fac_email_volunteer_now_id": "Fac Email Volunteer Now Id",
+      "cdcep_includeonneedslist": "Include on Needs List?",
+      "cdcep_itemvalue": "Item Value",
+      "cdcep_itemvalue_base": "Item Value (Base)",
+      "cdcep_quantity": "Quantity",
+      "cdcep_size": "Size",
+      "cdcep_startdate": "Start Date",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "exchangerate": "Exchange Rate",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "msnfp_description": "Description",
+      "msnfp_georeference": "Geo-reference",
+      "msnfp_item_AsyncOperations": "System Jobs",
+      "msnfp_item_BulkDeleteFailures": "Bulk Delete Failures",
+      "msnfp_item_DuplicateBaseRecord": "Duplicate Records (msnfp_item_DuplicateBaseRecord)",
+      "msnfp_item_DuplicateMatchingRecord": "Duplicate Records (msnfp_item_DuplicateMatchingRecord)",
+      "msnfp_item_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "msnfp_item_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "msnfp_item_ProcessSession": "Process Sessions",
+      "msnfp_item_SyncErrors": "Sync Errors",
+      "msnfp_itemcode": "Item Code",
+      "msnfp_itemGroupId": "Item Group",
+      "msnfp_itemid": "Item",
+      "msnfp_itemname": "Item Name",
+      "msnfp_itemnumber": "Item Number",
+      "msnfp_itemstatus": "Item Status",
+      "msnfp_itemTypeId": "Item Type",
+      "msnfp_latitude": "Latitude",
+      "msnfp_longitude": "Longitude",
+      "msnfp_paymentAsssetId": "Payment Assset",
+      "msnfp_polygon": "Polygon",
+      "msnfp_purchasingcategorytype": "Purchasing Category",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "transactioncurrencyid": "Currency",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Items",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Items (Views)",
+    "Name": "_msnfp_item_views",
+    "RelatedEntityName": "Items",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0ce7158c-eb8a-424b-b2ac-bc8d26328914": "Item Advanced Find View",
+      "67693bac-da89-4c97-8faa-afeae015b634": "Active Items",
+      "9f8e9f0d-c99d-4934-a92f-ed6650bd6703": "Item Lookup View",
+      "bdcb549e-4f3a-496c-8665-c1eab4087f4c": "Item Associated View",
+      "e51769bf-b974-4877-babb-9e5d39f899a0": "Inactive Items",
+      "efd90290-728d-eb11-a812-001dd8016d9f": "Facility Needs"
+    }
+  },
+  {
+    "DisplayName": "Include on Needs List? (Items)",
+    "Name": "cdcep_msnfp_item_cdcep_includeonneedslist",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cdcep_includeonneedslist",
+        "OptionSetReferenceEntityName": "Items"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cdcep_includeonneedslist",
+    "RelatedEntityName": "Items",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Size (Items)",
+    "Name": "cdcep_msnfp_item_cdcep_size",
+    "OptionSetInfoNameMapping": {
+      "100000000": "Small",
+      "100000001": "Medium",
+      "100000002": "Large",
+      "100000003": "X-Large",
+      "100000004": "XX-Large",
+      "100000005": "XXX-Large"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cdcep_size",
+        "OptionSetReferenceEntityName": "Items"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cdcep_size",
+    "RelatedEntityName": "Items",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Items)",
+    "Name": "msnfp_item_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Items"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Items",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Items)",
+    "Name": "msnfp_item_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Items"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Items",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Item Purchasing Category",
+    "Name": "msnfp_itempurchasingcategory",
+    "OptionSetInfoNameMapping": {
+      "844060000": "Type 1",
+      "844060001": "Type 2",
+      "844060002": "Type 3"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msnfp_purchasingcategorytype",
+        "OptionSetReferenceEntityName": "Items"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msnfp_purchasingcategorytype",
+    "RelatedEntityName": "Items",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Item Status",
+    "Name": "msnfp_itemstatus",
+    "OptionSetInfoNameMapping": {
+      "844060000": "Stored",
+      "844060001": "In-Transit",
+      "844060002": "Deployed"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msnfp_itemstatus",
+        "OptionSetReferenceEntityName": "Items"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msnfp_itemstatus",
+    "RelatedEntityName": "Items",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Item Type Classifications",
+    "Name": "msnfp_itemtypeclassifications",
+    "OptionSetInfoNameMapping": {
+      "100000000": "Food Items",
+      "100000001": "Books, Music, Toys, Games",
+      "100000002": "Personal Care Items",
+      "100000003": "Linens/Household",
+      "100000004": "Kitchen",
+      "100000005": "Miscellaneous",
+      "100000006": "Gift Cards",
+      "844060000": "Women's Clothing",
+      "844060001": "Men's Clothing",
+      "844060002": "Infants"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cdcep_classification",
+        "OptionSetReferenceEntityName": "Items"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cdcep_classification",
+    "RelatedEntityName": "Items",
+    "Type": "OptionSetInfo"
+  }
+]

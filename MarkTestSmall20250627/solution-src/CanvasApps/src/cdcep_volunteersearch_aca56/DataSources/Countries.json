@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cdcep_countries",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cdcep_country",
+    "MaxGetRowsCount": 500,
+    "Name": "Countries",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cdcep_alpha3code": "Alpha3Code",
+      "cdcep_cdcep_country_cdcep_state": "States",
+      "cdcep_country_AsyncOperations": "System Jobs",
+      "cdcep_country_BulkDeleteFailures": "Bulk Delete Failures",
+      "cdcep_country_DuplicateBaseRecord": "Duplicate Records (cdcep_country_DuplicateBaseRecord)",
+      "cdcep_country_DuplicateMatchingRecord": "Duplicate Records (cdcep_country_DuplicateMatchingRecord)",
+      "cdcep_country_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cdcep_country_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cdcep_country_ProcessSession": "Process Sessions",
+      "cdcep_country_SyncErrors": "Sync Errors",
+      "cdcep_countryid": "Country",
+      "cdcep_fipscode": "FipsCode",
+      "cdcep_name": "Name",
+      "cdcep_numericcode": "Numeric Code",
+      "cdcep_postalname": "PostalName",
+      "cdcep_vssid": "VSS ID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Countries",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Countries (Views)",
+    "Name": "_cdcep_country_views",
+    "RelatedEntityName": "Countries",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "07c12c60-2aee-4b25-8c63-c99047fa75ad": "Country Advanced Find View",
+      "7c2a727f-069e-4529-a85b-8a9a5c45e118": "Country Associated View",
+      "dab0fc7b-afc7-4854-a31f-e3b49ddf0efa": "Country Lookup View",
+      "e92fdaaa-663d-41d8-ad52-7198bbdb7414": "Inactive Countries",
+      "f8514a0e-5b7d-4f05-8084-74d386b5e082": "Active Countries"
+    }
+  },
+  {
+    "DisplayName": "Status (Countries)",
+    "Name": "cdcep_country_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Countries"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Countries",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Countries)",
+    "Name": "cdcep_country_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Countries"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Countries",
+    "Type": "OptionSetInfo"
+  }
+]

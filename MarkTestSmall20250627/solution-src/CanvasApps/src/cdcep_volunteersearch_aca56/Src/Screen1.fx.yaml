@@ -1,0 +1,2206 @@
+"Screen1 As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =//individualResultsContainer.Visible=false
+        UpdateContext({ShowLeads: false});
+        UpdateContext({ShowContacts: true});
+        UpdateContext({selectedTab: {Value: "Volunteers"}})
+
+    searchContainer As groupContainer.manualLayoutContainer:
+        Height: =App.ActiveScreen.Height
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =false
+        Width: =App.ActiveScreen.Width*14%
+        ZIndex: =1
+
+        nameContainer As groupContainer.manualLayoutContainer:
+            Height: =Parent.Height-100
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+        searchFields As groupContainer.verticalAutoLayoutContainer:
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =2
+
+    ScreenContainer As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =2
+
+        AppContainer As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            MainContainer As groupContainer.horizontalAutoLayoutContainer:
+                LayoutGap: =Styles.mainContainerGap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowX: =LayoutOverflow.Scroll
+                PaddingBottom: =4
+                PaddingLeft: =4
+                PaddingRight: =Styles.screenPadX/2
+                PaddingTop: =4
+                ZIndex: =3
+
+                SearchPanel As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =240
+                    ZIndex: =1
+
+                    FormContainer As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =2.5
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =SearchPanel.Width
+                        LayoutMode: =LayoutMode.Auto
+                        LayoutOverflowY: =LayoutOverflow.Scroll
+                        PaddingBottom: =10
+                        PaddingRight: =4
+                        PaddingTop: =2
+                        ZIndex: =1
+
+                        PI_Form As groupContainer.verticalAutoLayoutContainer:
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =245
+                            LayoutMode: =LayoutMode.Auto
+                            LayoutOverflowY: =LayoutOverflow.Scroll
+                            PaddingBottom: =10
+                            PaddingLeft: =Styles.subContainerPadY-7
+                            PaddingRight: =4
+                            ZIndex: =4
+
+                            lblVISN As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: |
+                                    =36
+                                LineHeight: =0.8
+                                PaddingBottom: =0
+                                Size: =10
+                                Text: |-
+                                    ="VISN: "
+                                Width: =99
+                                Y: =4
+                                ZIndex: =1
+
+                            ddlVisn As Dropdown.pcfdataset:
+                                AccessibleLabel: ="VISN dropdown"
+                                DefaultSelectedItems: =
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =32
+                                Items: =VISNCol
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =320
+                                Width: =210
+                                X: =0
+                                Y: =0
+                                ZIndex: =2
+
+                                name1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                                    FieldDisplayName: ="name"
+                                    FieldName: ="name"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =1
+                                    ZIndex: =43
+
+                            lblVISN_1 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: |
+                                    =36
+                                LineHeight: =0.8
+                                PaddingBottom: =0
+                                Size: =10
+                                Text: |-
+                                    ="Facility: "
+                                Width: =99
+                                Y: =4
+                                ZIndex: =3
+
+                            cmbFacility As Combobox.pcfdataset:
+                                AccessibleLabel: ="Facility Combobox"
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =32
+                                InputTextPlaceholder: ="--- Please Select VISN --- "
+                                Items: =Sort(Filter(Accounts, 'Owning Business Unit'.'Business Unit' = ddlVisn.Selected.'Owning Business Unit'.'Business Unit' && 'Account Type' = 844060002 && Status = 0),Name)
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =320
+                                Width: =210
+                                X: =0
+                                Y: =0
+                                ZIndex: =4
+
+                                Name2 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+                                    FieldDisplayName: ="Name"
+                                    FieldName: ="name"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =1
+                                    ZIndex: =39
+
+                                "'Primary Phone2' As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn":
+                                    FieldDisplayName: ="Primary Phone"
+                                    FieldName: ="telephone1"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =2
+                                    ZIndex: =40
+
+                                City2 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+                                    FieldDisplayName: ="City"
+                                    FieldName: ="address1_city"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =3
+                                    ZIndex: =41
+
+                                "'Organization Donor2' As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField":
+                                    FieldDisplayName: ="Organization Donor"
+                                    FieldName: ="primarycontactid"
+                                    FieldType: ="E"
+                                    FieldVariantName: ="complexTypeColumn"
+                                    Order: =4
+                                    ZIndex: =42
+
+                            lblFirstName As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: =36
+                                Size: =10
+                                Text: |
+                                    ="First Name: "
+                                Tooltip: =Self.Text
+                                Width: =200
+                                X: =1
+                                Y: =4
+                                ZIndex: =5
+
+                            txtFirstName As text:
+                                AccessibleLabel: ="First Name text box"
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =RGBA(245, 245, 245, 1)
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: =If(rdVolunteerType.Selected.Value = "Anonymous", "Someone")
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                DisplayMode: =If(rdVolunteerType.Selected.Value="Anonymous", DisplayMode.Disabled)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =35
+                                HintText: =If(rdVolunteerType.Selected.Value="Organization", "Enter Organization/Branch Name", "Enter First Name")
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =4
+                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                PressedColor: =RGBA(50, 49, 48, 1)
+                                PressedFill: =RGBA(255, 255, 255, 1)
+                                RadiusBottomLeft: =0
+                                RadiusBottomRight: =0
+                                RadiusTopLeft: =0
+                                RadiusTopRight: =0
+                                Size: =11
+                                TabIndex: =3
+                                Width: =210
+                                Y: =165
+                                ZIndex: =6
+
+                            lblLastName As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: =36
+                                Size: =10
+                                Text: |-
+                                    ="Last Name:"
+                                Width: =99
+                                X: =1
+                                Y: =4
+                                ZIndex: =7
+
+                            txtLastName As text:
+                                AccessibleLabel: ="Lastname text box"
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =RGBA(245, 245, 245, 1)
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: =If(rdVolunteerType.Selected.Value = "Anonymous", "Anonymous")
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                DisplayMode: =If(rdVolunteerType.Selected.Value="Anonymous" Or rdVolunteerType.Selected.Value="Organization", DisplayMode.Disabled)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =36
+                                HintText: ="Enter Last Name"
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                LayoutMinHeight: =36
+                                PaddingLeft: =4
+                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                PressedColor: =RGBA(50, 49, 48, 1)
+                                PressedFill: =RGBA(255, 255, 255, 1)
+                                RadiusBottomLeft: =0
+                                RadiusBottomRight: =0
+                                RadiusTopLeft: =0
+                                RadiusTopRight: =0
+                                Size: =11
+                                TabIndex: =3
+                                Width: =210
+                                Y: =165
+                                ZIndex: =8
+
+                            lblStreet As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: |
+                                    =36
+                                LineHeight: =0.8
+                                PaddingBottom: =0
+                                Size: =10
+                                TabIndex: =2
+                                Text: |-
+                                    ="Street: "
+                                Width: =99
+                                Y: =169
+                                ZIndex: =9
+
+                            txtStreet As text:
+                                AccessibleLabel: ="Street Text box"
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =RGBA(245, 245, 245, 1)
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =35
+                                HintText: ="Enter Street"
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =4
+                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                PressedColor: =RGBA(50, 49, 48, 1)
+                                PressedFill: =RGBA(255, 255, 255, 1)
+                                RadiusBottomLeft: =0
+                                RadiusBottomRight: =0
+                                RadiusTopLeft: =0
+                                RadiusTopRight: =0
+                                Size: =11
+                                TabIndex: =3
+                                Width: =210
+                                Y: =169
+                                ZIndex: =10
+
+                            lblCity As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: |
+                                    =36
+                                LineHeight: =0.8
+                                PaddingBottom: =0
+                                Size: =10
+                                Text: |-
+                                    ="City: "
+                                Width: =99
+                                Y: =205
+                                ZIndex: =11
+
+                            txtCity As text:
+                                AccessibleLabel: ="City Text box"
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =RGBA(245, 245, 245, 1)
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =35
+                                HintText: ="Enter City"
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =4
+                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                PressedColor: =RGBA(50, 49, 48, 1)
+                                PressedFill: =RGBA(255, 255, 255, 1)
+                                RadiusBottomLeft: =0
+                                RadiusBottomRight: =0
+                                RadiusTopLeft: =0
+                                RadiusTopRight: =0
+                                Size: =11
+                                Width: =210
+                                Y: =205
+                                ZIndex: =12
+
+                            lblState As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: |
+                                    =36
+                                LineHeight: =0.8
+                                PaddingBottom: =0
+                                Size: =10
+                                Text: |-
+                                    ="State: "
+                                Width: =99
+                                Y: =22
+                                ZIndex: =13
+
+                            ddlState As dropdown:
+                                AccessibleLabel: ="State combo box"
+                                AllowEmptySelection: =true
+                                BorderColor: =RGBA(245, 245, 245, 1)
+                                ChevronBackground: =RGBA(245, 245, 245, 1)
+                                ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                                ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                                ChevronFill: =RGBA(50, 49, 48, 1)
+                                ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                                ChevronHoverFill: =RGBA(50, 49, 48, 1)
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: ="" 
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                Fill: =RGBA(245, 245, 245, 1)
+                                Font: =Font.'Segoe UI'
+                                Height: =32
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(245, 245, 245, 1)
+                                Items: =Sort(States, Country.Name, SortOrder.Descending)
+                                OnChange: =lblStateTemp.Text = ddlState.Selected.'State Name'
+                                OnSelect: =
+                                PaddingBottom: =5
+                                PaddingLeft: =4
+                                PaddingRight: =5
+                                PaddingTop: =5
+                                PressedBorderColor: =RGBA(16, 110, 190, 1)
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(0, 120, 212, 1)
+                                SelectionColor: =RGBA(50, 49, 48, 1)
+                                SelectionFill: =RGBA(0, 120, 212, 1)
+                                Tooltip: =
+                                Width: =210
+                                X: =13
+                                Y: =26
+                                ZIndex: =14
+
+                            lblZip As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: |
+                                    =36
+                                LineHeight: =0.8
+                                PaddingBottom: =0
+                                Size: =10
+                                Text: |-
+                                    ="Zip: "
+                                Width: =99
+                                Y: =315
+                                ZIndex: =15
+
+                            txtZip As text:
+                                AccessibleLabel: ="Zip Text box."
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =RGBA(245, 245, 245, 1)
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Format: =TextFormat.Number
+                                Height: =36
+                                HintText: ="Enter Zip"
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =4
+                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                PressedColor: =RGBA(50, 49, 48, 1)
+                                PressedFill: =RGBA(255, 255, 255, 1)
+                                RadiusBottomLeft: =0
+                                RadiusBottomRight: =0
+                                RadiusTopLeft: =0
+                                RadiusTopRight: =0
+                                Size: =11
+                                Width: =210
+                                Y: =315
+                                ZIndex: =16
+
+                            lblEmail As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: |
+                                    =36
+                                LineHeight: =0.8
+                                PaddingBottom: =0
+                                Size: =10
+                                Text: |-
+                                    ="Email: "
+                                Y: =462
+                                ZIndex: =17
+
+                            txtEmail As text:
+                                AccessibleLabel: ="Email Text Box"
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =RGBA(245, 245, 245, 1)
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =35
+                                HintText: ="Enter Email"
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =4
+                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                PressedColor: =RGBA(50, 49, 48, 1)
+                                PressedFill: =RGBA(255, 255, 255, 1)
+                                RadiusBottomLeft: =0
+                                RadiusBottomRight: =0
+                                RadiusTopLeft: =0
+                                RadiusTopRight: =0
+                                Size: =11
+                                Width: =210
+                                Y: =462
+                                ZIndex: =18
+
+                            lblPhone As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: |
+                                    =36
+                                LineHeight: =0.8
+                                PaddingBottom: =0
+                                Size: =10
+                                Text: |-
+                                    ="Phone: "
+                                Width: =99
+                                Y: =414
+                                ZIndex: =19
+
+                            txtPhone As text:
+                                AccessibleLabel: ="Phone text box."
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =RGBA(245, 245, 245, 1)
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Format: =TextFormat.Number
+                                Height: =35
+                                HintText: ="Enter Phone"
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =4
+                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                PressedColor: =RGBA(50, 49, 48, 1)
+                                PressedFill: =RGBA(255, 255, 255, 1)
+                                RadiusBottomLeft: =0
+                                RadiusBottomRight: =0
+                                RadiusTopLeft: =0
+                                RadiusTopRight: =0
+                                Size: =11
+                                Width: =210
+                                Y: =414
+                                ZIndex: =20
+
+                            lblContactStatus As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                ContentLanguage: =
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Bold
+                                Height: |
+                                    =36
+                                LineHeight: =0.8
+                                PaddingBottom: =0
+                                Size: =10
+                                Text: |-
+                                    ="Status: "
+                                Y: =4
+                                ZIndex: =21
+
+                            ddlContactStatus As dropdown:
+                                AccessibleLabel: ="Volunteer Status Dropdown"
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =RGBA(245, 245, 245, 1)
+                                ChevronBackground: =RGBA(245, 245, 245, 1)
+                                ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                                ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                                ChevronFill: =RGBA(50, 49, 48, 1)
+                                ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                                ChevronHoverFill: =RGBA(50, 49, 48, 1)
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: ="Active"
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                Fill: =RGBA(245, 245, 245, 1)
+                                Font: =Font.'Segoe UI'
+                                Height: =32
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(245, 245, 245, 1)
+                                Items: =["Active", "Inactive"]
+                                PaddingBottom: =5
+                                PaddingLeft: =4
+                                PaddingRight: =5
+                                PaddingTop: =5
+                                PressedBorderColor: =RGBA(16, 110, 190, 1)
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(0, 120, 212, 1)
+                                SelectionFill: =RGBA(0, 120, 212, 1)
+                                Width: =210
+                                Y: =360
+                                ZIndex: =22
+
+                    FormBtnContainer As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =Button.height+8
+                        LayoutAlignItems: =LayoutAlignItems.End
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =4
+                        PaddingLeft: =Styles.subContainerPadX
+                        ZIndex: =4
+
+                        SearchButton As Button:
+                            AccessibleLabel: ="Search Button"
+                            Align: =""
+                            AlignInContainer: =AlignInContainer.Center
+                            BasePaletteColor: =
+                            BorderColor: =
+                            BorderStyle: =""
+                            DisplayMode: |+
+                                =If(
+                                    IsBlank(txtFirstName.Text) && IsBlank(txtLastName.Text) && IsBlank(txtStreet.Text) && IsBlank(txtEmail.Text) && IsBlank(txtPhone.Text) && IsBlank(txtCity.Text) && IsBlank(txtZip.Text) && IsBlank(ddlState.Selected.'State Name') && IsBlank(cmbFacility.Selected.Account), DisplayMode.Disabled, DisplayMode.Edit
+                                )
+                                
+                            FontColor: =
+                            FontSize: =Button.fontSize
+                            FontWeight: =FontWeight.Normal
+                            Height: =32
+                            Icon: ="Search"
+                            IconRotation: =0
+                            IconStyle: ="Outline"
+                            Layout: ="Icon before"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |-
+                                =Set(varRecordCount, 0);
+                                //lblDonorId.Text = "";
+                                Set(varResultsLabel, "Searching...");
+                                Set(varStartSearch, true);
+                                Set(
+                                    VarSaveSpinner,
+                                    true
+                                );
+                                UpdateContext({validSearch: true});
+                                If(
+                                    IsBlank(txtFirstName.Text) && IsBlank(txtLastName.Text) && IsBlank(txtStreet.Text) && IsBlank(txtEmail.Text) && IsBlank(txtPhone.Text) && IsBlank(txtCity.Text) && IsBlank(txtZip.Text) && IsBlank(ddlState.Selected.'State Name') && IsBlank(cmbFacility.Selected.Account),
+                                    UpdateContext({validSearch: false})
+                                );
+                                
+                                If (
+                                    validSearch = true,
+                                
+                                    Set (
+                                        varFirstName,
+                                        If(
+                                            IsBlank(txtFirstName.Text),
+                                            "",
+                                            EncodeHTML(txtFirstName.Text)
+                                        )
+                                    );
+                                
+                                    Set (
+                                        varLastName,
+                                        If(
+                                            IsBlank(txtLastName.Text),
+                                            "",
+                                            EncodeHTML(txtLastName.Text)
+                                        )
+                                    );
+                                
+                                );
+                                    Set (
+                                        varAddress,
+                                        If(
+                                            IsBlank(txtStreet.Text),
+                                            "",
+                                            EncodeHTML(txtStreet.Text)
+                                        )
+                                    );
+                                
+                                    Set (
+                                        varEmail,
+                                        If(
+                                            IsBlank(txtEmail.Text),
+                                            "",
+                                            txtEmail.Text
+                                        )
+                                    );
+                                
+                                    Set (
+                                        varPhone,
+                                        If(
+                                            IsBlank(txtPhone.Text),
+                                            "",
+                                            txtPhone.Text
+                                        )
+                                    );
+                                
+                                    Set (
+                                        varCity,
+                                        If(
+                                            IsBlank(txtCity.Text),
+                                            "",
+                                            EncodeHTML(txtCity.Text)
+                                        )
+                                    );
+                                
+                                      Set (
+                                        varZip,
+                                        If(
+                                            IsBlank(txtZip.Text),
+                                            "",
+                                            txtZip.Text
+                                        )
+                                    );
+                                
+                                    Set(varVISN, If(IsBlank(ddlVisn.Selected.'Owning Business Unit'.Name), "", ddlVisn.Selected.'Owning Business Unit'.Name)    );
+                                    Set(varFacility, If(IsBlank(cmbFacility.Selected.Account), "", cmbFacility.Selected.Account));
+                                
+                                    //Switch(ddlStatus.Selected.Value, "Open", Set(varStatus, 0), "Qualified", Set(varStatus, 1), "Disqualified", Set(varStatus, 2));
+                                    Switch(ddlContactStatus.Selected.Value, "Active", Set(varStatus, 0), "Inactive", Set(varStatus, 1));
+                                
+                                    Set (
+                                        varState,
+                                        If(
+                                            IsBlank(ddlState.Selected.'State Name'),
+                                            "",
+                                            ddlState.Selected.State
+                                        )
+                                    );
+                                
+                                     Set(varSearchOptionsCount, 0);
+                                    If(Not IsBlank(varFacility), Set(varSearchOptionsCount, varSearchOptionsCount+1));
+                                    If(Not IsBlank(varFirstName), Set(varSearchOptionsCount, varSearchOptionsCount+1));
+                                    If(Not IsBlank(varLastName), Set(varSearchOptionsCount, varSearchOptionsCount+1));
+                                    If(Not IsBlank(varAddress), Set(varSearchOptionsCount, varSearchOptionsCount+1));
+                                    If(Not IsBlank(varCity), Set(varSearchOptionsCount, varSearchOptionsCount+1));
+                                    If(Not IsBlank(varState), Set(varSearchOptionsCount, varSearchOptionsCount+1));
+                                    If(Not IsBlank(varZip), Set(varSearchOptionsCount, varSearchOptionsCount+1));
+                                    If(Not IsBlank(varEmail), Set(varSearchOptionsCount, varSearchOptionsCount+1));
+                                    If(Not IsBlank(varPhone), Set(varSearchOptionsCount, varSearchOptionsCount+1));
+                                    If(Not IsBlank(varStatus), Set(varSearchOptionsCount, varSearchOptionsCount+1));
+                                
+                                    Set(colContacts,
+                                            'CDCEP:VolunteerSearch-Contacts'.Run(
+                                                varStatus,
+                                                {
+                                                    text_2: varAddress,
+                                                    text_3: varCity,
+                                                    text_4: varZip,
+                                                    text: varFirstName,
+                                                    text_7: varEmail,
+                                                    text_8: varPhone,
+                                                    text_9: varState,
+                                                    text_1:varFacility,
+                                                    text_5: varLastName
+                                                }
+                                            ).Leads
+                                    );
+                                
+                                    Set(colLeads,
+                                            'CDCEP:VolunteerSearch-Leads'.Run(
+                                                varStatus,
+                                                {
+                                                    text_2: varAddress,
+                                                    text_3: varCity,
+                                                    text_4: varZip,
+                                                    text: varFirstName,
+                                                    text_7: varEmail,
+                                                    text_8: varPhone,
+                                                    text_9: varState,
+                                                    text_1:varFacility,
+                                                    text_5: varLastName
+                                                }
+                                            ).Leads
+                                    );
+                                
+                                    
+                                    
+                                    Set(varRecordCount, CountRows(colContacts));
+                                    Set(varRecordContactCount, CountRows(colLeads));
+                                
+                                    If(
+                                        varRecordCount > 0,
+                                            Set(varResultsLabel, "Volunteer(s) found: " & varRecordCount);UpdateContext({ShowLeads: false});UpdateContext({ShowContacts: true});UpdateContext({ctxContactGridEvent:"LoadFirstPage" & Text(Rand())});UpdateContext({ctxGridEvent:"LoadFirstPage" & Text(Rand())}),
+                                        If(
+                                            validSearch,
+                                            Set(varResultsLabel, "No Records found; please modify your search criteria.")
+                                        )
+                                    );
+                                
+                                    Set(varShowAddButtonAfterSearch, true);
+                                
+                                    Set(
+                                        VarSaveSpinner,
+                                        false
+                                    );
+                                    
+                                    Set(varStartSearch, false);
+                            Text: ="Search"
+                            VerticalAlign: =""
+                            Width: =Button.width + 20
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        ButtonSpacer As groupContainer.manualLayoutContainer:
+                            AlignInContainer: =AlignInContainer.Center
+                            FillPortions: =0
+                            Height: =FormBtnContainer.Height - (Styles.subContainerPadY * 2)
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =250
+                            Width: =Styles.subContainerPadX - 10
+                            ZIndex: =2
+
+                        ResetButton As Button:
+                            AccessibleLabel: ="Reset Button"
+                            Align: =""
+                            AlignInContainer: =AlignInContainer.Center
+                            Appearance: ='ButtonCanvas.Appearance'.Secondary
+                            BasePaletteColor: =
+                            BorderColor: =
+                            BorderStyle: =""
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =
+                            FontSize: =Button.fontSize
+                            Height: =32
+                            Icon: ="ArrowClockwise"
+                            IconRotation: =0
+                            IconStyle: ="Outline"
+                            Layout: ="Icon before"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |-
+                                =Reset(rdVolunteerType); Reset(txtFirstName); Reset(txtLastName); Reset(txtStreet); Reset(txtCity); Reset(ddlState); Reset(txtZip); Reset(txtEmail); Reset(txtPhone); Reset(ddlVisn); Reset(cmbFacility); Reset(ddlContactStatus);UpdateContext({selectedTab: {Value: "Volunteers"}});
+                                Set(colLeads, Blank()); 
+                                Set(colContacts, Blank()); 
+                                Set(varResultsLabel, "Enter search criteria");
+                                UpdateContext({validSearch:false});
+                                Set(varShowAddButtonAfterSearch, false);
+                                UpdateContext({ShowLeads: false});
+                                UpdateContext({ShowContacts: true});
+                                //Select(btnSearch)
+                            Text: ="Reset"
+                            VerticalAlign: =""
+                            Width: =Button.width - 16   
+                            X: =0
+                            Y: =0
+                            ZIndex: =3
+
+                ResultsContainer As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =2.25
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =4
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =650
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingTop: =Styles.subContainerPadY / 2
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =2
+
+                    HeaderAndNewButtonContainer As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =32
+                        LayoutGap: =6
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =10
+                        PaddingRight: =10
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =1
+
+                        ResultsTitle As Label:
+                            AcceptsFocus: =false
+                            AlignInContainer: =AlignInContainer.Start
+                            AutoHeight: =false
+                            Color: =
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =1
+                            FontSize: =11
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Italic: =false
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            OnChange: =false
+                            PaddingStart: =Styles.subContainerPadX
+                            Strikethrough: =false
+                            Text: =varResultsLabel
+                            TextRole: ='Label.TextRole'.Heading3
+                            Underline: =false
+                            VerticalAlignment: =VerticalAlign.Top
+                            Visible: =true
+                            Width: =250
+                            Wrap: =false
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        lblTest As Label:
+                            AcceptsFocus: =false
+                            Color: =
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Italic: =false
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            OnChange: =false
+                            Strikethrough: =false
+                            Text: |-
+                                =//If(App.ActiveScreen.Size>3, "h", "w")
+                                //"type: " & IsBlank(cbAccountType) & "; scope: " & IsBlank(cbAccountScope) & "; type value: " & If(Trim(cbAccountType.Selected.Value) = "", "b", "nb")
+                            Underline: =false
+                            Visible: |-
+                                =//false
+                                true
+                            Width: =30
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                        lblStateTemp As Label:
+                            Color: =
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            OnChange: =false
+                            Text: =
+                            Width: =40
+                            X: =0
+                            Y: =0
+                            ZIndex: =3
+
+                        rdVolunteerType As Dropdown.pcfdataset:
+                            AccessibleLabel: =""
+                            DefaultSelectedItems: =["Leads and Volunteers"]
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Items: =["Leads Only", "Volunteers Only", "Leads and Volunteers"]
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Visible: =false
+                            Width: =225
+                            X: =40
+                            Y: =40
+                            ZIndex: =4
+
+                        btnAddNewVoluneer As Button:
+                            AccessibleLabel: ="New Volunteer Button"
+                            Appearance: ='ButtonCanvas.Appearance'.Primary
+                            BasePaletteColor: =
+                            BorderColor: =
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =
+                            Height: =32
+                            Icon: ="Person"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |-
+                                =Set(varURL, varCurrentEnvironmentURL & "main.aspx?appid=" & varAppId & "&forceUCI=1&newWindow=true&pagetype=entityrecord&etn=lead&viewid=00000000-0000-0000-00aa-000010001006&viewType=1039");
+                                If(validSearch && varRecordCount > 0 && varSearchOptionsCount >= 3 && !VarSaveSpinner && varShowAddButton, UpdateContext({showHideAcknowledgementDialog:true}), 
+                                Launch(varURL, { }, LaunchTarget.Replace));
+                                //Launch(varURL, { }, LaunchTarget.Replace);
+                                
+                                //https://dvagov-cdce-dev.crm9.dynamics.com/main.aspx?appid=f7d1b772-0345-4299-81c1-edb4860db52e&pagetype=entitylist&etn=lead&viewid=00000000-0000-0000-00aa-000010001006&viewType=1039
+                            Text: ="New Lead"
+                            Visible: =And(varShowAddButton, varShowAddButtonAfterSearch)
+                            Width: =120
+                            X: =0
+                            Y: =0
+                            ZIndex: =5
+
+                        btnAddNewLeadAndRedirect As Button:
+                            AccessibleLabel: ="New Volunteer Button"
+                            Appearance: ='ButtonCanvas.Appearance'.Primary
+                            BasePaletteColor: =
+                            BorderColor: =
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =
+                            Height: =32
+                            Icon: ="CheckmarkCircle"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |
+                                =Set(
+                                    VarSaveSpinner,
+                                    true
+                                );
+                                Set(varResultsLabel, "Please wait while we create a new Lead to volunteer activation...");
+                                Set(selectedContact, LookUp(Contacts, ThisRecord.Contact = GUID(flst_Contacts.Selected.ContactId)));
+                                //Set(Temp, selectedContact.'Primary Facility');
+                                
+                                Set(SourceLead, selectedContact.'Originating Lead');
+                                
+                                Navigate(
+                                Patch(Leads, Defaults(Leads), {
+                                        'Lead Type':  'Lead Type (Leads)'.Volunteer,
+                                        'Volunteer Type (cdcep_volunteer_type)':'Volunteer Type (Leads)'.Individual,
+                                        'Onboard Existing Inactive Volunteer?': 'Onboard Existing Inactive Volunteer? (Leads)'.Yes,
+                                        'Parent Contact for lead': selectedContact,
+                                        'Service State': SourceLead.'Service State',
+                                        Facility: selectedContact.'Primary Facility',
+                                        'Benefiting Service':SourceLead.'Benefiting Service',
+                                        Role: SourceLead.Role,
+                                        'Self-Reported Affiliation': SourceLead.'Self-Reported Affiliation',
+                                        'Veteran Service Organization affiliation': SourceLead.'Veteran Service Organization affiliation',
+                                        'Volunteer Morning List': SourceLead.'Volunteer Morning List',
+                                        'Volunteer Afternoon List': SourceLead.'Volunteer Afternoon List',
+                                        'Volunteer Evening List':SourceLead.'Volunteer Evening List',
+                                        'Schedule Note': SourceLead.'Schedule Note',
+                                        'First Name': selectedContact.'First Name', 
+                                        'Last Name': selectedContact.'Last Name',
+                                        'Date of Birth': selectedContact.Birthday,
+                                        'Middle Name': selectedContact.'Middle Name',
+                                        NickName: SourceLead.NickName,
+                                        'Enter Address Manually': SourceLead.'Enter Address Manually',
+                                        'Street Address': selectedContact.'Street Address',
+                                        'Apt/Suite/Other': selectedContact.'Apt/Suite/Other',
+                                        City:selectedContact.'Address 1: City',
+                                        State: selectedContact.cdcep_state_id,
+                                        'ZIP/Postal Code': selectedContact.'Address 1: ZIP/Postal Code',
+                                        'Address 1: County': selectedContact.'Address 1: Country/Region',
+                                        'Preferred Phone Number': selectedContact.'Preferred Phone Number',
+                                        'Address 1: Telephone 2': selectedContact.'Home Phone',
+                                        'Address 1: Telephone 1': selectedContact.'Work Phone',
+                                        'Mobile Phone':selectedContact.'Mobile Phone',
+                                        Email: selectedContact.Email,
+                                        'Preferred Method of Contact': SourceLead.'Preferred Method of Contact',
+                                        Topic: "",
+                                        Description:selectedContact.Description
+                                        })); 
+                                
+                                Set(
+                                    VarSaveSpinner,
+                                    false
+                                );
+                            Text: ="Re-onboard"
+                            Visible: |-
+                                =//And(varShowAddButton, varShowAddButtonAfterSearch)
+                                If(CountRows(flst_Contacts.SelectedItems) > 0 && flst_Contacts.Selected.Status= "Inactive" && varSearchOptionsCount >=3  && flst_Contacts.Selected.statuscode <> "Terminated with cause", true, false)
+                            Width: =140
+                            X: =0
+                            Y: =0
+                            ZIndex: =6
+
+                    ContainerLeadsFilter As groupContainer.horizontalAutoLayoutContainer:
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =1
+                        Fill: =RGBA(0, 120, 212, 0.5)
+                        FillPortions: =0
+                        Height: =55
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =10
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMinHeight: =40
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =10
+                        RadiusBottomLeft: =1
+                        RadiusBottomRight: =1
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        ZIndex: =3
+
+                        "TabResults As 'Tab list'.pcfdataset":
+                            AccessibleLabel: ="Volunteer or Leads Tab Control"
+                            Alignment: ='TabList.Alignment'.Horizontal
+                            DefaultSelectedItems: =selectedTab
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =1
+                            FontColor: =RGBA(0, 0, 0, 1)
+                            FontItalic: =false
+                            FontSize: =16
+                            FontWeight: =FontWeight.Semibold
+                            Height: =55
+                            Items: =[ "Volunteers","Leads"]
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =280
+                            OnChange: |-
+                                =Switch(Self.Selected.Value, "Leads", UpdateContext({ShowLeads: true});UpdateContext({ShowContacts: false});Set(varResultsLabel, "Lead(s) found: " & CountRows(colLeads));, "Volunteers", UpdateContext({ShowLeads: false});UpdateContext({ShowContacts: true});Set(varResultsLabel, "Volunteer(s) found: " & CountRows(colContacts)));
+                            OnSelect: |-
+                                =UpdateContext({selectedTab: Self.Selected});
+                            Size: ='TabList.Size'.Large
+                            Width: =280
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        btnFilter As Button:
+                            AccessibleLabel: ="Filter Leads Button"
+                            Appearance: ='ButtonCanvas.Appearance'.Secondary
+                            BasePaletteColor: =
+                            BorderColor: =
+                            DisplayMode: =If(CountRows(colLeads) > 0, DisplayMode.Edit, DisplayMode.Disabled)
+                            FontColor: =
+                            Height: =32
+                            Icon: ="Filter"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |-
+                                =UpdateContext({showFilters: !showFilters});
+                            Text: ="Filters"
+                            Visible: =false
+                            Width: =96
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                        "LeadsSearch As 'Fluent SearchBox (1.1.34) Preview'":
+                            AccessibilityLabel: ="Search from Leads Results"
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            Tooltip: ="Enter Text to Search for Leads from all columns."
+                            Visible: =ShowLeads
+                            Width: =200
+                            X: =0
+                            Y: =0
+                            ZIndex: =4
+
+                        "ContactSearch As 'Fluent SearchBox (1.1.34) Preview'":
+                            AccessibilityLabel: ="Search Volunteers from Result Text box"
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            Tooltip: ="Enter Text to Search for Contact from all columns."
+                            Visible: =ShowContacts
+                            Width: =200
+                            X: =0
+                            Y: =0
+                            ZIndex: =5
+
+                    GridContainerLeads As groupContainer.verticalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        FillPortions: =0
+                        Height: =Parent.Height - PagingContainer.Height - ContainerLeadsFilter.Height - 10
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Visible: =ShowLeads
+                        ZIndex: =4
+
+                        "flst_Leads As 'Fluent Details List (1.1.34)'.pcfdataset":
+                            AccessibilityLabel: ="Lead Search Results"
+                            AlignInContainer: =AlignInContainer.Stretch
+                            columns_Items: |-
+                                =//If(ddlContactStatus.Selected.Value = "Inactive", col_LeadsGridInactiveColumnsCol, col_LeadColumns)
+                                Table(
+                                    {
+                                        ColName:"FirstName",
+                                        ColDisplayName:"First Name",
+                                        ColWidth:100,
+                                        ColRowHeader:true,
+                                        ColSortable:true,
+                                        ColIsBold:true,
+                                        ColSortBy:"FirstName",
+                                        ColResizable: true,
+                                        ColCellType: "link"
+                                    },
+                                    {
+                                        ColName:"LastName",
+                                        ColDisplayName:"Last Name",
+                                        ColWidth:100,
+                                        ColRowHeader:true,
+                                        ColSortable:true,
+                                        ColIsBold:true,
+                                        ColSortBy:"LastName",
+                                        ColResizable: true,
+                                        ColCellType: "link"
+                                    },
+                                       {
+                                        ColName:"DateOfBirth",
+                                        ColDisplayName:"DOB",
+                                        ColWidth:100,
+                                        ColRowHeader:true,
+                                        ColSortable:true,
+                                        ColSortBy:"DateOfBirth",
+                                        ColResizable: true,
+                                        ColHorizontalAlign:"Center"
+                                    },
+                                     {
+                                        ColName:"Facility",
+                                        ColDisplayName:"Facility",
+                                        ColWidth:140,
+                                        ColRowHeader:true,
+                                        ColSortable:true,
+                                        ColSortBy:"Facility",
+                                        ColResizable: false
+                                
+                                    },
+                                    {
+                                        ColName:"Email",
+                                        ColDisplayName:"Email",
+                                        ColWidth:180,
+                                        ColRowHeader:true,
+                                        ColSortable:true,
+                                        ColResizable: true
+                                    },
+                                    {
+                                        ColName:"HomePhone",
+                                        ColDisplayName:"Home Phone",
+                                        ColWidth:100,
+                                        ColRowHeader:true,
+                                        ColSortable:false,
+                                        ColResizable: false,
+                                        ColHorizontalAlign:"Center"
+                                    },
+                                    {
+                                        ColName:"MobilePhone",
+                                        ColDisplayName:"Mobile",
+                                        ColWidth:100,
+                                        ColRowHeader:true,
+                                        ColSortable:false,
+                                        ColResizable: false,
+                                        ColHorizontalAlign:"Center"
+                                    },
+                                    {
+                                        ColName:"Street",
+                                        ColDisplayName:"Street",
+                                        ColWidth:150,
+                                        ColRowHeader:true,
+                                        ColSortable:true,
+                                        ColSortBy:"Street",
+                                        ColResizable: false
+                                    },
+                                    {
+                                        ColName:"City",
+                                        ColDisplayName:"City",
+                                        ColWidth:100,
+                                        ColRowHeader:true,
+                                        ColSortable:true,
+                                        ColSortBy:"City",
+                                        ColResizable: false,
+                                        ColVerticalAlign:"Center"
+                                    },
+                                   {
+                                        ColName:"State",
+                                        ColDisplayName:"State",
+                                        ColWidth:100,
+                                        ColRowHeader:true,
+                                        ColSortable:true,
+                                        ColSortBy:"State",
+                                        ColResizable: false,
+                                        ColVerticalAlign:"Center"
+                                    },
+                                   {
+                                        ColName:"Status",
+                                        ColDisplayName:"Status",
+                                        ColWidth:90,
+                                        ColRowHeader:true,
+                                        ColSortable:false,
+                                        ColResizable: false,
+                                        ColVerticalAlign:"Center"
+                                    }
+                                    
+                                )
+                            Compact: =false
+                            CurrentSortColumn: =SortCol
+                            CurrentSortDirection: =If(SortAsc, 'PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending, 'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending)
+                            DisplayMode: =DisplayMode.Edit
+                            HeaderVisible: =true
+                            Height: =Parent.Height - PagingContainer.Height
+                            InputEvent: =ctxGridEvent
+                            Items: |-
+                                =//SortByColumns(colLeads, SortCol, If(SortAsc, 'PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending, 'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending))
+                                Filter(
+                                        Search(SortByColumns(colLeads, SortCol, If(SortAsc, SortOrder.Ascending, SortOrder.Descending)), LeadsSearch.SearchText, FirstName, LastName, DateOfBirth, Email, Street, City, State, Facility),
+                                        IsBlank(cmbFirstNameFilter.Selected.Value) || ThisRecord.FirstName = cmbFirstNameFilter.Selected.Value,
+                                        IsBlank(cmbLastNameFilter.Selected.Value)|| ThisRecord.LastName = cmbLastNameFilter.Selected.Value
+                                )
+                            LargeDatasetPaging: =true
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =Parent.Width
+                            OnChange: |-
+                                =If(
+                                    Self.EventName = "Sort",
+                                    UpdateContext(
+                                        {
+                                            SortCol: Self.SortEventColumn,
+                                            SortAsc: !SortAsc
+                                        }
+                                    );
+                                );
+                                
+                                //https://dvagov-cdce-dev.crm9.dynamics.com/main.aspx?appid=f7d1b772-0345-4299-81c1-edb4860db52e&pagetype=entityrecord&etn=lead&id=ddad4c39-ec0f-f011-a4de-001dd8064dc0
+                                If(Self.EventName = "CellAction", 
+                                    //Notify("Cell Clicked" & Self.EventColumn & " " & Self.EventRowKey)
+                                    Launch(varCurrentEnvironmentURL & "main.aspx?appid=" & varAppId & "&forceUCI=1&newWindow=true&pagetype=entityrecord&etn=lead&id=" & Self.EventRowKey & "&viewType=1039", { }, LaunchTarget.Replace);
+                                );
+                            OnSelect: =
+                            PageSize: =15
+                            RecordKey: ="LeadId"
+                            SelectionAlwaysVisible: =true
+                            SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.None
+                            Tooltip: ="All leads based on search criteria."
+                            Visible: =true
+                            Width: =200
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                            "City1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="City"
+                                FieldName: ="City"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =1
+                                ZIndex: =44
+
+                            "DateOfBirth1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="DateOfBirth"
+                                FieldName: ="DateOfBirth"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =2
+                                ZIndex: =45
+
+                            "Email1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="Email"
+                                FieldName: ="Email"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =3
+                                ZIndex: =46
+
+                            "FirstName1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="FirstName"
+                                FieldName: ="FirstName"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =4
+                                ZIndex: =47
+
+                            "HomePhone1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="HomePhone"
+                                FieldName: ="HomePhone"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =5
+                                ZIndex: =48
+
+                            "LastName1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="LastName"
+                                FieldName: ="LastName"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =6
+                                ZIndex: =49
+
+                            "MobilePhone1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="MobilePhone"
+                                FieldName: ="MobilePhone"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =7
+                                ZIndex: =50
+
+                            "State1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="State"
+                                FieldName: ="State"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =8
+                                ZIndex: =51
+
+                            "Status1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="Status"
+                                FieldName: ="Status"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =9
+                                ZIndex: =52
+
+                            "Street1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="Street"
+                                FieldName: ="Street"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =10
+                                ZIndex: =53
+
+                            "WorkPhone1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="WorkPhone"
+                                FieldName: ="WorkPhone"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =12
+                                ZIndex: =55
+
+                            "ZipCode1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="ZipCode"
+                                FieldName: ="ZipCode"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =13
+                                ZIndex: =56
+
+                            "LeadId1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="LeadId"
+                                FieldName: ="LeadId"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =14
+                                ZIndex: =57
+
+                            "Facility1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="Facility"
+                                FieldName: ="Facility"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =15
+                                ZIndex: =58
+
+                            "statuscode1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="statuscode"
+                                FieldName: ="statuscode"
+                                FieldType: ="n"
+                                FieldVariantName: ="textualColumn"
+                                Order: =15
+                                ZIndex: =60
+
+                        PagingContainer As groupContainer.horizontalAutoLayoutContainer:
+                            FillPortions: =0
+                            Height: =34
+                            LayoutAlignItems: =LayoutAlignItems.End
+                            LayoutGap: =4
+                            LayoutJustifyContent: =LayoutJustifyContent.End
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingBottom: =8
+                            PaddingRight: =20
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =2
+
+                            "Icon1_1 As 'Fluent Icon (1.1.34)'":
+                                AccessibilityLabel: ="Lead First Page"
+                                DisplayMode: =If(flst_Leads.HasPreviousPage,DisplayMode.Edit,DisplayMode.Disabled)
+                                Height: =24
+                                IconName: ="Previous"
+                                IconSize: =0
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                OnChange: |-
+                                    =UpdateContext({ctxGridEvent:"LoadFirstPage" & Text(Rand())})
+                                Width: =24
+                                X: =40
+                                Y: =1
+                                ZIndex: =2
+
+                            "Icon1 As 'Fluent Icon (1.1.34)'":
+                                AccessibilityLabel: ="Lead Previous Page"
+                                DisplayMode: =If(flst_Leads.HasPreviousPage,DisplayMode.Edit,DisplayMode.Disabled)
+                                Height: =24
+                                IconName: ="CaretSolidLeft"
+                                IconSize: =0
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                OnChange: |-
+                                    =UpdateContext({ctxGridEvent:"LoadPreviousPage" & Text(Rand())})
+                                Width: =24
+                                X: =40
+                                Y: =1
+                                ZIndex: =3
+
+                            TextCanvas1 As Text:
+                                Align: ='TextCanvas.Align'.Center
+                                AlignInContainer: =AlignInContainer.Center
+                                AutoHeight: =false
+                                BorderColor: =
+                                DisplayMode: =DisplayMode.Edit
+                                Fill: =
+                                FontColor: =
+                                Height: =24
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                Size: =12
+                                Text: =$"Page {flst_Leads.PageNumber}"
+                                VerticalAlign: =VerticalAlign.Middle
+                                Width: =70
+                                X: =0
+                                Y: =0
+                                ZIndex: =4
+
+                            "Next As 'Fluent Icon (1.1.34)'":
+                                AccessibilityLabel: ="Lead Next Page"
+                                DisplayMode: =If(flst_Leads.HasNextPage,DisplayMode.Edit,DisplayMode.Disabled)
+                                Height: =24
+                                IconName: ="CaretSolidRight"
+                                IconSize: =0
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                OnChange: |-
+                                    =UpdateContext({ctxGridEvent:"LoadNextPage" & Text(Rand())})
+                                Width: =24
+                                X: =40
+                                Y: =1
+                                ZIndex: =5
+
+                    GridContainerContacts As groupContainer.verticalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        FillPortions: =0
+                        Height: =Parent.Height - PagingContainerContacts.Height - ContainerLeadsFilter.Height - 10
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Visible: =ShowContacts
+                        ZIndex: =5
+
+                        "flst_Contacts As 'Fluent Details List (1.1.34)'.pcfdataset":
+                            AccessibilityLabel: ="Volunteers Search Results Grid"
+                            AlignInContainer: =AlignInContainer.Stretch
+                            columns_Items: =If(ddlContactStatus.Selected.Value = "Inactive", col_GridInactiveColumnsCol, col_GridColumns)
+                            Compact: =false
+                            CurrentSortColumn: =SortContactColumn
+                            CurrentSortDirection: =If(SortContactAsc, 'PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending, 'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending)
+                            DisplayMode: =DisplayMode.Edit
+                            HeaderVisible: =true
+                            Height: =Parent.Height - PagingContainerContacts.Height
+                            InputEvent: =ctxContactGridEvent
+                            Items: |-
+                                =//SortByColumns(colLeads, SortCol, If(SortAsc, 'PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending, 'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending))
+                                Filter(
+                                        Search(SortByColumns(colContacts, SortContactColumn, If(SortContactAsc, SortOrder.Ascending, SortOrder.Descending)), ContactSearch.SearchText, FirstName, LastName, DateOfBirth, Email, Street, City, State, Facility),
+                                        IsBlank(cmbFirstNameFilter.Selected.Value) || ThisRecord.FirstName = cmbFirstNameFilter.Selected.Value,
+                                        IsBlank(cmbLastNameFilter.Selected.Value)|| ThisRecord.LastName = cmbLastNameFilter.Selected.Value
+                                )
+                            LargeDatasetPaging: =true
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =Parent.Width
+                            OnChange: |+
+                                =If(
+                                    Self.EventName = "Sort",
+                                    UpdateContext(
+                                        {
+                                            SortContactColumn: Self.SortEventColumn,
+                                            SortContactAsc: !SortContactAsc
+                                        }
+                                    );
+                                );
+                                
+                                //https://dvagov-cdce-dev.crm9.dynamics.com/main.aspx?appid=f7d1b772-0345-4299-81c1-edb4860db52e&forceUCI=1&pagetype=entityrecord&etn=contact&id=00002000-0002-0000-0000-000000686134&formid=56b2d9d6-1249-4711-8b6a-d561665b551d
+                                If(Self.EventName = "CellAction", 
+                                    //Notify("Cell Clicked" & Self.EventColumn & " " & Self.EventRowKey)
+                                    Launch(varCurrentEnvironmentURL & "main.aspx?appid=" & varAppId & "&forceUCI=1&newWindow=true&pagetype=entityrecord&etn=contact&id=" & Self.EventRowKey & "&viewType=1039", { }, LaunchTarget.Replace);
+                                );
+                                
+                            OnSelect: =false
+                            PageSize: =15
+                            RecordKey: ="ContactId"
+                            SelectionAlwaysVisible: =true
+                            SelectionType: =If(ddlContactStatus.Selected.Value = "Inactive",  'PowerCAT.FluentDetailsList.SelectionType'.Single, 'PowerCAT.FluentDetailsList.SelectionType'.None)
+                            SelectRowsOnFocus: =true
+                            Tooltip: ="All Contacts based on search criteria."
+                            Visible: =true
+                            Width: =200
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                            "City1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="City"
+                                FieldName: ="City"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =1
+                                ZIndex: =44
+
+                            "DateOfBirth1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="DateOfBirth"
+                                FieldName: ="DateOfBirth"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =2
+                                ZIndex: =45
+
+                            "Email1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="Email"
+                                FieldName: ="Email"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =3
+                                ZIndex: =46
+
+                            "FirstName1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="FirstName"
+                                FieldName: ="FirstName"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =4
+                                ZIndex: =47
+
+                            "HomePhone1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="HomePhone"
+                                FieldName: ="HomePhone"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =5
+                                ZIndex: =48
+
+                            "LastName1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="LastName"
+                                FieldName: ="LastName"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =6
+                                ZIndex: =49
+
+                            "MobilePhone1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="MobilePhone"
+                                FieldName: ="MobilePhone"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =7
+                                ZIndex: =50
+
+                            "State1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="State"
+                                FieldName: ="State"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =8
+                                ZIndex: =51
+
+                            "Status1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="Status"
+                                FieldName: ="Status"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =9
+                                ZIndex: =52
+
+                            "Street1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="Street"
+                                FieldName: ="Street"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =10
+                                ZIndex: =53
+
+                            "statuscode1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="statuscode"
+                                FieldName: ="statuscode"
+                                FieldType: ="n"
+                                FieldVariantName: ="textualColumn"
+                                Order: =11
+                                ZIndex: =54
+
+                            "WorkPhone1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="WorkPhone"
+                                FieldName: ="WorkPhone"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =12
+                                ZIndex: =55
+
+                            "ZipCode1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="ZipCode"
+                                FieldName: ="ZipCode"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =13
+                                ZIndex: =56
+
+                            "Facility1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="Facility"
+                                FieldName: ="Facility"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =15
+                                ZIndex: =58
+
+                            "ContactId1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="ContactId"
+                                FieldName: ="ContactId"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =15
+                                ZIndex: =59
+
+                            "Accountid1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="Accountid"
+                                FieldName: ="Accountid"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =16
+                                ZIndex: =61
+
+                        PagingContainerContacts As groupContainer.horizontalAutoLayoutContainer:
+                            FillPortions: =0
+                            Height: =34
+                            LayoutAlignItems: =LayoutAlignItems.End
+                            LayoutGap: =4
+                            LayoutJustifyContent: =LayoutJustifyContent.End
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingBottom: =8
+                            PaddingRight: =20
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =2
+
+                            "Icon1_2 As 'Fluent Icon (1.1.34)'":
+                                AccessibilityLabel: ="Volunteer First Page"
+                                DisplayMode: =If(flst_Contacts.HasPreviousPage,DisplayMode.Edit,DisplayMode.Disabled)
+                                Height: =24
+                                IconName: ="Previous"
+                                IconSize: =0
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                OnChange: |-
+                                    =UpdateContext({ctxContactGridEvent:"LoadFirstPage" & Text(Rand())})
+                                Width: =24
+                                X: =40
+                                Y: =1
+                                ZIndex: =2
+
+                            "Icon1_3 As 'Fluent Icon (1.1.34)'":
+                                AccessibilityLabel: ="Volunteer Previous Page"
+                                DisplayMode: =If(flst_Contacts.HasPreviousPage,DisplayMode.Edit,DisplayMode.Disabled)
+                                Height: =24
+                                IconName: ="CaretSolidLeft"
+                                IconSize: =0
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                OnChange: |-
+                                    =UpdateContext({ctxContactGridEvent:"LoadPreviousPage" & Text(Rand())})
+                                Width: =24
+                                X: =40
+                                Y: =1
+                                ZIndex: =3
+
+                            TextCanvas1_1 As Text:
+                                Align: ='TextCanvas.Align'.Center
+                                AlignInContainer: =AlignInContainer.Center
+                                AutoHeight: =false
+                                BorderColor: =
+                                DisplayMode: =DisplayMode.Edit
+                                Fill: =
+                                FontColor: =
+                                Height: =24
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                Size: =12
+                                Text: =$"Page {flst_Contacts.PageNumber}" // of {flst_Contacts.TotalPages}"
+                                VerticalAlign: =VerticalAlign.Middle
+                                Width: =70
+                                X: =0
+                                Y: =0
+                                ZIndex: =4
+
+                            "Next_1 As 'Fluent Icon (1.1.34)'":
+                                AccessibilityLabel: ="Volunteer Next Page"
+                                DisplayMode: =If(flst_Contacts.HasNextPage,DisplayMode.Edit,DisplayMode.Disabled)
+                                Height: =24
+                                IconName: ="CaretSolidRight"
+                                IconSize: =0
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                OnChange: |-
+                                    =UpdateContext({ctxContactGridEvent:"LoadNextPage" & Text(Rand())})
+                                Width: =24
+                                X: =40
+                                Y: =1
+                                ZIndex: =5
+
+        ColorControlComponent_1 As ColorControlComponent:
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            ZIndex: =2
+
+        ButtonStyleComponent_1 As ButtonStyleComponent:
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            ZIndex: =3
+
+        FormStyleComponent_1 As FormStyleComponent:
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            ZIndex: =4
+
+        ContainerComponent_1 As ContainerComponent:
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            ZIndex: =5
+
+    FilterPanel As Panel:
+        Fill: =Color.Transparent
+        Height: =App.Height-30
+        OnButtonSelect: |-
+            =UpdateContext({showFilters: !showFilters});
+        OnCloseSelect: |-
+            =UpdateContext({showFilters: !showFilters});
+        OverlayColor: =
+        Subtitle: ="Use this section to filter results"
+        Title: ="Filter"
+        Visible: =showFilters
+        Width: =Parent.Width
+        ZIndex: =4
+
+    FiltersContainer As groupContainer.verticalAutoLayoutContainer:
+        Height: =FilterPanel.ContentHeight
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =FilterPanel.Visible
+        Width: =FilterPanel.ContentWidth
+        X: =FilterPanel.ContentX
+        Y: =FilterPanel.ContentY
+        ZIndex: =5
+
+        FirstNameContainer As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Start
+            FillPortions: =0
+            Height: =100
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
+            PaddingTop: =20
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =3
+
+            "'FirstName-Controls' As groupContainer.horizontalAutoLayoutContainer":
+                AlignInContainer: =AlignInContainer.Start
+                FillPortions: =0
+                Height: =32
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width
+                ZIndex: =1
+
+                ResultsTitle_2 As Label:
+                    AcceptsFocus: =false
+                    AlignInContainer: =AlignInContainer.Center
+                    AutoHeight: =true
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =11
+                    FontWeight: =FontWeight.Semibold
+                    Height: =36
+                    Italic: =false
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    OnChange: =false
+                    PaddingStart: =0
+                    Strikethrough: =false
+                    Text: |-
+                        ="First Name:"
+                    TextRole: ='Label.TextRole'.Default
+                    Underline: =false
+                    VerticalAlignment: =VerticalAlign.Top
+                    Visible: =true
+                    Width: =225
+                    Wrap: =false
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                ButtonCanvas2 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Transparent
+                    BasePaletteColor: =
+                    BorderColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =
+                    Height: =32
+                    Icon: ="DismissCircle"
+                    Layout: ='ButtonCanvas.Layout'.IconAfter
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnSelect: =Reset(cmbFirstNameFilter);
+                    Text: ="Clear"
+                    Width: =96
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+            "cmbFirstNameFilter As 'Combo box'.pcfdataset":
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Items: |-
+                    =Table({Value: Blank()}, Distinct(colLeads, ThisRecord.FirstName))
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Width: =320
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+                Value1 As Microsoft_CoreControls_ComboBoxTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Value"
+                    FieldName: ="Value"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =34
+
+        LastNameContainer As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Start
+            FillPortions: =0
+            Height: =100
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
+            PaddingTop: =20
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =4
+
+            "'FirstName-Controls_1' As groupContainer.horizontalAutoLayoutContainer":
+                AlignInContainer: =AlignInContainer.Start
+                FillPortions: =0
+                Height: =32
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width
+                ZIndex: =1
+
+                ResultsTitle_3 As Label:
+                    AcceptsFocus: =false
+                    AlignInContainer: =AlignInContainer.Center
+                    AutoHeight: =true
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =11
+                    FontWeight: =FontWeight.Semibold
+                    Height: =36
+                    Italic: =false
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    OnChange: =false
+                    PaddingStart: =0
+                    Strikethrough: =false
+                    Text: |-
+                        ="Last Name:"
+                    TextRole: ='Label.TextRole'.Default
+                    Underline: =false
+                    VerticalAlignment: =VerticalAlign.Top
+                    Visible: =true
+                    Width: =225
+                    Wrap: =false
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                ButtonCanvas2_1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Transparent
+                    BasePaletteColor: =
+                    BorderColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =
+                    Height: =32
+                    Icon: ="DismissCircle"
+                    Layout: ='ButtonCanvas.Layout'.IconAfter
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnSelect: =Reset(cmbLastNameFilter);
+                    Text: ="Clear"
+                    Width: =96
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+            "cmbLastNameFilter As 'Combo box'.pcfdataset":
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Items: |-
+                    =Table({Value: Blank()}, Distinct(colLeads, ThisRecord.LastName))
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Width: =320
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+                Value1_1 As Microsoft_CoreControls_ComboBoxTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Value"
+                    FieldName: ="Value"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =34
+
+    AcknowledgementDialogContainer As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.2)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =showHideAcknowledgementDialog
+        Width: =Parent.Width
+        ZIndex: =6
+
+        AcknowledgementDialog As Dialog:
+            Buttons: |-
+                =Table({Label: "Cancel", ButtonType:'Button.ButtonType'.Standard, HasBorder: true }, {Label: "OK", ButtonType:'Button.ButtonType'.Primary, HasBorder: true })
+            Description: =Self.SubTitle
+            DialogHeight: =200
+            Fill: =AcknowledgementDialog.OverlayColor
+            Height: =768
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            OnButtonSelect: |-
+                =If( Self.SelectedButton.Label = "OK",
+                Set(varURL, varCurrentEnvironmentURL & "main.aspx?appid=" & varAppId & "&forceUCI=1&newWindow=true&pagetype=entityrecord&etn=lead&viewid=00000000-0000-0000-00aa-000010001006&viewType=1039");Launch(varURL, { }, LaunchTarget.Replace));
+                If( Self.SelectedButton.Label = "Cancel", UpdateContext({showHideAcknowledgementDialog:false}));
+            OnCloseSelect: |
+                =
+            OverlayColor: =Color.Transparent
+            SubTitle: ="I have reviewed the list of potential matches and confirm that no match has been found."
+            Title: ="Acknowledgement"
+            Visible: =showHideAcknowledgementDialog
+            Width: =1366
+            ZIndex: =1
+
+    LoadingContainer As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.2)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =VarSaveSpinner
+        Width: =Parent.Width
+        ZIndex: =7
+
+        ImageSpinner As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0.0)
+            Height: =App.ActiveScreen.Height
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =BlueSpinner
+            ImagePosition: =ImagePosition.Center
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Visible: =VarSaveSpinner
+            Width: =App.ActiveScreen.Width*85%
+            X: =App.ActiveScreen.Width*15%
+            ZIndex: =1
+

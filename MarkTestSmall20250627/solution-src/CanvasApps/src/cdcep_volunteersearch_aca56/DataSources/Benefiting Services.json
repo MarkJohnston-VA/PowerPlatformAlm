@@ -1,0 +1,132 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cdcep_benefitingservices",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cdcep_benefitingservice",
+    "MaxGetRowsCount": 500,
+    "Name": "Benefiting Services",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cdcep_abbreviation": "Abbreviation",
+      "cdcep_activevolunteer": "Active Volunteer",
+      "cdcep_activevolunteer_date": "Active Volunteer (Last Updated On)",
+      "cdcep_activevolunteer_state": "Active Volunteer (State)",
+      "cdcep_benefitingservice_adjustedhours": "Adjusted Hours",
+      "cdcep_benefitingservice_AsyncOperations": "System Jobs",
+      "cdcep_benefitingservice_BulkDeleteFailures": "Bulk Delete Failures",
+      "cdcep_benefitingservice_DuplicateBaseRecord": "Duplicate Records (cdcep_benefitingservice_DuplicateBaseRecord)",
+      "cdcep_benefitingservice_DuplicateMatchingRecord": "Duplicate Records (cdcep_benefitingservice_DuplicateMatchingRecord)",
+      "cdcep_benefitingservice_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cdcep_benefitingservice_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cdcep_benefitingservice_ProcessSession": "Process Sessions",
+      "cdcep_benefitingservice_SyncErrors": "Sync Errors",
+      "cdcep_benefitingservice_vssid": "Benefiting Service VSSID",
+      "cdcep_benefitingserviceid": "Benefiting Service",
+      "cdcep_BeneftServiceTemplateId": "Benefiting Service Template",
+      "cdcep_cdcep_benefitingservice_cdcep_availableas": "Available Assignments",
+      "cdcep_cdcep_benefitingservice_cdcep_benefitings": "Roles",
+      "cdcep_cdcep_benefitingservice_cdcep_occasionalh": "Occasional Hours",
+      "cdcep_cdcep_benefitingservice_cdcep_volunteeras": "Volunteer Assignments",
+      "cdcep_cdcep_benefitingservice_lead": "Leads",
+      "cdcep_cdcep_bs_cdcep_bsrr": "Service Role Requirements",
+      "cdcep_FacilityId": "Facility",
+      "cdcep_isgamesrelated": "Is Games Related",
+      "cdcep_scope": "Scope",
+      "cdcep_servicename": "Service Name",
+      "cdcep_subdivision": "Sub Division",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Benefiting Services",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Benefiting Services (Views)",
+    "Name": "_cdcep_benefitingservice_views",
+    "RelatedEntityName": "Benefiting Services",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0a4b7a3e-fde1-4f08-acef-4351f6891a65": "Benefiting Service Associated View",
+      "599d4de1-ebaf-408d-95ec-d66968b8d2ed": "Inactive Benefiting Services",
+      "7b313401-15ad-eb11-b1ac-001dd801f545": "Facility Benefiting Services",
+      "87985291-145c-4498-8522-3803f8759700": "Benefiting Service Lookup View",
+      "8bdb7c77-3cb8-472a-8c76-4e7a33cee24b": "Benefiting Service Advanced Find View",
+      "e8b1c24b-38af-4a41-9b1f-217b663422cd": "Active Benefiting Services"
+    }
+  },
+  {
+    "DisplayName": "Is Games Related (Benefiting Services)",
+    "Name": "cdcep_benefitingservice_cdcep_isgamesrelated",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cdcep_isgamesrelated",
+        "OptionSetReferenceEntityName": "Benefiting Services"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cdcep_isgamesrelated",
+    "RelatedEntityName": "Benefiting Services",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Benefiting Services)",
+    "Name": "cdcep_benefitingservice_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Benefiting Services"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Benefiting Services",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Benefiting Services)",
+    "Name": "cdcep_benefitingservice_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Benefiting Services"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Benefiting Services",
+    "Type": "OptionSetInfo"
+  }
+]
