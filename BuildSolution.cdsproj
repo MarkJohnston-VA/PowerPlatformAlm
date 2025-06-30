@@ -2,11 +2,23 @@
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <!--To be passed in by command line: dotnet build ThisFile.cdsproj -p:SolutionName=YourSolution-->
+    <!--To be passed in by command line: dotnet build BuildSolution.cdsproj -p:SolutionName=YourSolution-->
     <SolutionName />
   </PropertyGroup>
 
-  <Target Name="NpmRunBuildWebResources" BeforeTargets="Restore" Condition="'$(Configuration)' == 'Release'">
+  <Target Name="PackCanvasApps" BeforeTargets="Restore">
+    <Message Text="Packing Canvas Apps" Importance="high" />
+    <Message Text="Solution Name: $(SolutionName)" Importance="high" />
+    <Message Text="Working Directory: $(MSBuildThisFileDirectory)" Importance="high" />
+    <Message Text="Script Path: $(MSBuildThisFileDirectory)tools\PackCanvasApps.ps1" Importance="high" />
+
+    <Exec Command="powershell.exe -ExecutionPolicy Bypass -NoProfile -Command &quot;&amp; { &amp;&apos;$(MSBuildThisFileDirectory)tools\PackCanvasApps.ps1&apos; -solutionPath &apos;solution-src/$(SolutionName)&apos; -dryRun &apos;$false&apos;} &quot;"
+          ContinueOnError="false" 
+          WorkingDirectory="$(MSBuildThisFileDirectory)"
+          IgnoreExitCode="false" />
+  </Target>
+
+  <Target Name="NpmRunBuildWebResources" BeforeTargets="Restore" Condition="'$(Configuration)' == 'Release'" DependsOnTargets="PackCanvasApps">
     <Exec Command="npm --prefix webresource-src run build"/>
   </Target>
 
