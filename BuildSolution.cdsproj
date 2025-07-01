@@ -75,6 +75,10 @@
     <ProjectReference Include="plugin-src\CDCEP.D365.Plugins\CDCEP.D365.Plugins.csproj" />
   </ItemGroup>
 
+    <ItemGroup>
+    <PackageReference Include="XrmCIFramework" Version="9.1.0.18" />
+  </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets')" />
 
