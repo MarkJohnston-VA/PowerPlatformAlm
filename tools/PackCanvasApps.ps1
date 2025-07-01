@@ -10,8 +10,11 @@
     The script uses the Power Platform CLI (pac) to pack Canvas App source files into .msapp files,
     making them ready for solution import and deployment to Power Platform environments.
 
+    This assumes the folder naming convention used by the Microsoft tooling, specifically that a child
+    folder named CanvasApps\src contains the source files for each Canvas App.
+
 .PARAMETER solutionPath
-    The path to the solution directory containing Canvas App source directories to pack.
+    The physical path to the solution directory containing Solution source files to pack.
     This should be the root directory of your Power Platform solution.
 
 .PARAMETER dryRun
@@ -19,19 +22,19 @@
     performing the packing operation. Set to $false to perform the actual packing.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -solutionPath "MarkTestSmall20250627" -dryRun $true
+    .\PackCanvasApps.ps1 -solutionPath "C:\Repos\VA\CDCEP\Release202503" -dryRun $true
     
-    Performs a dry run to show which Canvas App sources would be packed without actually packing them.
+    Performs a dry run to show which Solution source files would be packed without actually packing them.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -solutionPath "MarkTestSmall20250627" -dryRun $false
+    .\PackCanvasApps.ps1 -solutionPath "C:\Repos\VA\CDCEP\Release202503" -dryRun $false
     
     Packs all Canvas App source directories found in the specified solution path to .msapp files.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -solutionPath "C:\Solutions\MyPowerPlatformSolution"
+    .\PackCanvasApps.ps1 -solutionPath C:\Repos\VA\CDCEP\Release202503"
     
-    Performs a dry run (default behavior) for Canvas App sources in the specified absolute path.
+    Performs a dry run (default behavior) for Solution source files in the specified absolute path.
 
 .NOTES
     Author: Mark Johnston
@@ -50,7 +53,7 @@
 #>
 
 param(
-    [Parameter(Mandatory = $true, HelpMessage = "Path to the solution directory containing Canvas App sources")]
+    [Parameter(Mandatory = $true, HelpMessage = "Path to the solution directory containing the Solution source files")]
     [ValidateScript({Test-Path $_ -PathType Container})]
     [string]$solutionPath,
     
@@ -58,39 +61,68 @@ param(
     [bool]$dryRun = $true
 )
 
-Write-Host "Starting Canvas App packing process..." -ForegroundColor Cyan
-Write-Host "Solution Path: $solutionPath" -ForegroundColor White
-Write-Host "Dry Run Mode: $dryRun" -ForegroundColor White
-Write-Host ""
+function PackCanvasApps {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$solutionPath,
+        
+        [Parameter(Mandatory = $false)]
+        [bool]$dryRun = $true
+    )
 
-# Construct the path to Canvas Apps source directories
-$canvasAppsParentFolder = Join-Path -Path $solutionPath -ChildPath "src/CanvasApps"
-$canvasAppSourcePath = Join-Path -Path $canvasAppsParentFolder -ChildPath "src"
-
-# Validate that the Canvas Apps source path exists
-if (-not (Test-Path $canvasAppSourcePath -PathType Container)) {
-    Write-Warning "Canvas Apps source directory not found: $canvasAppSourcePath"
-    Write-Host "This typically means Canvas Apps haven't been extracted yet. Run ExtractCanvasApps.ps1 first." -ForegroundColor Yellow
-    exit 0
-}
-
-# Find all Canvas App source directories
-Write-Host "Searching for Canvas App source directories..." -ForegroundColor Yellow
-$canvasAppSourceFolders = Get-ChildItem -Path $canvasAppSourcePath -Directory
-
-if ($canvasAppSourceFolders.Count -eq 0) {
-    Write-Warning "No Canvas App source directories found in: $canvasAppSourcePath"
-    Write-Host "This typically means Canvas Apps haven't been extracted yet. Run ExtractCanvasApps.ps1 first." -ForegroundColor Yellow
-    exit 0
-}
-
-Write-Host "Found $($canvasAppSourceFolders.Count) Canvas App source director(ies) to process:" -ForegroundColor Green
-$canvasAppSourceFolders | ForEach-Object { Write-Host "  - $($_.Name)" -ForegroundColor White }
-Write-Host ""
-
-# Process each Canvas App source directory
-foreach ($canvasAppSourceFolder in $canvasAppSourceFolders) {
+    # Validate that pac CLI is available
+    $pacAvailable = $false
     try {
+        $null = & pac --version 2>$null
+        if ($LASTEXITCODE -eq 0) {
+            $pacVersion = & pac --version
+            Write-Host "Using Power Platform CLI: $pacVersion" -ForegroundColor Green
+            $pacAvailable = $true
+        }
+    }
+    catch {
+        # PAC CLI not available
+    }
+    
+    if (-not $pacAvailable) {
+        Write-Host "Power Platform CLI (pac) is required but not found. Please install the Power Platform CLI." -ForegroundColor Red
+        return $false
+    }
+
+    Write-Host "Starting Canvas App packing process..." -ForegroundColor Cyan
+    Write-Host "Solution Path: $solutionPath" -ForegroundColor White
+    Write-Host "Dry Run Mode: $dryRun" -ForegroundColor White
+    Write-Host ""
+
+    # Construct the path to Canvas Apps source directories
+    $canvasAppsParentFolder = Join-Path -Path $solutionPath -ChildPath "src\CanvasApps"
+    $canvasAppSourcePath = Join-Path -Path $canvasAppsParentFolder -ChildPath "src"
+
+    # Validate that the Canvas Apps source path exists
+    if (-not (Test-Path $canvasAppSourcePath -PathType Container)) {
+        Write-Warning "Canvas Apps source directory not found: $canvasAppSourcePath"
+        Write-Host "This typically means Canvas Apps haven't been extracted yet. Run ExtractCanvasApps.ps1 first." -ForegroundColor Yellow
+        return $true  # Not an error condition, just nothing to do
+    }
+
+    # Find all Canvas App source directories
+    Write-Host "Searching for Canvas App source directories..." -ForegroundColor Yellow
+    $canvasAppSourceFolders = Get-ChildItem -Path $canvasAppSourcePath -Directory
+
+    if ($canvasAppSourceFolders.Count -eq 0) {
+        Write-Warning "No Canvas App source directories found in: $canvasAppSourcePath"
+        Write-Host "This typically means Canvas Apps haven't been extracted yet. Run ExtractCanvasApps.ps1 first." -ForegroundColor Yellow
+        return $true  # Not an error condition, just nothing to do
+    }
+
+    Write-Host "Found $($canvasAppSourceFolders.Count) Canvas App source director(ies) to process:" -ForegroundColor Green
+    $canvasAppSourceFolders | ForEach-Object { Write-Host "  - $($_.Name)" -ForegroundColor White }
+    Write-Host ""
+
+    $hasErrors = $false
+
+    # Process each Canvas App source directory
+    foreach ($canvasAppSourceFolder in $canvasAppSourceFolders) {
         # Construct the output .msapp file path
         $canvasAppMsAppFileName = Join-Path -Path $canvasAppsParentFolder -ChildPath ($canvasAppSourceFolder.Name + "_DocumentUri.msapp")
 
@@ -105,7 +137,7 @@ foreach ($canvasAppSourceFolder in $canvasAppSourceFolders) {
             # Ensure the target directory exists
             $targetDirectory = Split-Path $canvasAppMsAppFileName -Parent
             if (-not (Test-Path $targetDirectory)) {
-                New-Item -Path $targetDirectory -ItemType Directory -Force | Out-Null
+                $null = New-Item -Path $targetDirectory -ItemType Directory -Force
                 Write-Host "  Created directory: $targetDirectory" -ForegroundColor Green
             }
             
@@ -118,43 +150,57 @@ foreach ($canvasAppSourceFolder in $canvasAppSourceFolders) {
             
             # Execute the pac canvas pack command
             Write-Host "  Packing Canvas App..." -ForegroundColor Yellow
-            $pacResult = pac canvas pack --msapp $canvasAppMsAppFileName --sources $canvasAppSourceFolder.FullName 2>&1
+            
+            # Use cmd.exe to execute pac command for better compatibility
+            $pacCommand = "pac canvas pack --msapp `"$canvasAppMsAppFileName`" --sources `"$($canvasAppSourceFolder.FullName)`""
+            $pacResult = cmd.exe /c $pacCommand 2>&1
             
             if ($LASTEXITCODE -eq 0) {
-                Write-Host "  ✓ Successfully packed Canvas App" -ForegroundColor Green
+                Write-Host "  Successfully packed Canvas App" -ForegroundColor Green
                 
                 # Display file size information
                 if (Test-Path $canvasAppMsAppFileName) {
                     $fileSize = (Get-Item $canvasAppMsAppFileName).Length
                     $fileSizeKB = [math]::Round($fileSize / 1KB, 2)
-                    Write-Host "  📦 Created .msapp file ($fileSizeKB KB)" -ForegroundColor Green
+                    Write-Host "  Created .msapp file ($fileSizeKB KB)" -ForegroundColor Green
                 }
             }
             else {
-                Write-Error "  ✗ Failed to pack Canvas App: $pacResult"
+                Write-Host "  Failed to pack Canvas App: $pacResult" -ForegroundColor Red
+                $hasErrors = $true
             }
         }
         Write-Host ""
     }
-    catch {
-        Write-Error "Error processing Canvas App $($canvasAppSourceFolder.Name): $($_.Exception.Message)"
-    }
-}
 
-if ($dryRun) {
-    Write-Host "Dry run completed. Use -dryRun `$false to perform actual packing." -ForegroundColor Yellow
-}
-else {
-    Write-Host "Canvas App packing process completed." -ForegroundColor Green
-    
-    # Summary of created files
-    $createdMsAppFiles = Get-ChildItem -Path $canvasAppsParentFolder -Filter "*_DocumentUri.msapp" -ErrorAction SilentlyContinue
-    if ($createdMsAppFiles.Count -gt 0) {
-        Write-Host ""
-        Write-Host "Created .msapp files:" -ForegroundColor Green
-        $createdMsAppFiles | ForEach-Object { 
-            $fileSize = [math]::Round($_.Length / 1KB, 2)
-            Write-Host "  - $($_.Name) ($fileSize KB)" -ForegroundColor White 
+    if ($dryRun) {
+        Write-Host "Dry run completed. Use -dryRun `$false to perform actual packing." -ForegroundColor Yellow
+    }
+    else {
+        Write-Host "Canvas App packing process completed." -ForegroundColor Green
+        
+        # Summary of created files
+        $createdMsAppFiles = Get-ChildItem -Path $canvasAppsParentFolder -Filter "*_DocumentUri.msapp" -ErrorAction SilentlyContinue
+        if ($createdMsAppFiles -and $createdMsAppFiles.Count -gt 0) {
+            Write-Host ""
+            Write-Host "Created .msapp files:" -ForegroundColor Green
+            $createdMsAppFiles | ForEach-Object { 
+                $fileSize = [math]::Round($_.Length / 1KB, 2)
+                Write-Host "  - $($_.Name) ($fileSize KB)" -ForegroundColor White 
+            }
         }
     }
+
+    return -not $hasErrors
+}
+
+# Call the function with the provided parameters
+$success = PackCanvasApps -solutionPath $solutionPath -dryRun $dryRun
+
+# Exit with appropriate code
+if (-not $success) {
+    exit 1
+}
+else {
+    exit 0
 }

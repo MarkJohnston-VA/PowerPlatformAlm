@@ -12,7 +12,7 @@
     <Message Text="Working Directory: $(MSBuildThisFileDirectory)" Importance="high" />
     <Message Text="Script Path: $(MSBuildThisFileDirectory)tools\PackCanvasApps.ps1" Importance="high" />
 
-    <Exec Command="powershell.exe -ExecutionPolicy Bypass -NoProfile -Command &quot;&amp; { &amp;&apos;$(MSBuildThisFileDirectory)tools\PackCanvasApps.ps1&apos; -solutionPath &apos;solution-src/$(SolutionName)&apos; -dryRun &apos;$false&apos;} &quot;"
+    <Exec Command="powershell.exe -NonInteractive -ExecutionPolicy Bypass -NoProfile -Command &quot;&amp; { &amp;&apos;$(MSBuildThisFileDirectory)tools\PackCanvasApps.ps1&apos; -solutionPath &apos;$(MSBuildThisFileDirectory)\solution-src\$(SolutionName)&apos; -dryRun $false} &quot;"
           ContinueOnError="false" 
           WorkingDirectory="$(MSBuildThisFileDirectory)"
           IgnoreExitCode="false" />
