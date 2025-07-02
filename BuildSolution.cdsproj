@@ -19,7 +19,7 @@
   </Target>
 
   <Target Name="NpmRunBuildWebResources" BeforeTargets="Restore" Condition="'$(Configuration)' == 'Release'" DependsOnTargets="PackCanvasApps">
-    <Exec Command="npm --prefix webresource-src run build"/>
+    <Exec Command="npm --prefix src/WebResources run build"/>
   </Target>
 
   <PropertyGroup>
