@@ -12,7 +12,7 @@
     <Message Text="Working Directory: $(MSBuildThisFileDirectory)" Importance="high" />
     <Message Text="Script Path: $(MSBuildThisFileDirectory)tools\PackCanvasApps.ps1" Importance="high" />
 
-    <Exec Command="powershell.exe -NonInteractive -ExecutionPolicy Bypass -NoProfile -Command &quot;&amp; { &amp;&apos;$(MSBuildThisFileDirectory)tools\PackCanvasApps.ps1&apos; -solutionPath &apos;$(MSBuildThisFileDirectory)\solution-src\$(SolutionName)&apos; -dryRun $false} &quot;"
+    <Exec Command="powershell.exe -NonInteractive -ExecutionPolicy Bypass -NoProfile -Command &quot;&amp; { &amp;&apos;$(MSBuildThisFileDirectory)tools\PackCanvasApps.ps1&apos; -solutionPath &apos;$(MSBuildThisFileDirectory)\src\Solutions\$(SolutionName)&apos; -dryRun $false} &quot;"
           ContinueOnError="false" 
           WorkingDirectory="$(MSBuildThisFileDirectory)"
           IgnoreExitCode="false" />
@@ -35,7 +35,7 @@
     <!--Remove TargetFramework when this is available in 16.1-->
     <TargetFramework>net462</TargetFramework>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <SolutionRootPath>solution-src\$(SolutionName)\src</SolutionRootPath>
+    <SolutionRootPath>src\Solutions\$(SolutionName)\src</SolutionRootPath>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
@@ -46,7 +46,7 @@
   <PropertyGroup>
     <SolutionPackageType>Unmanaged</SolutionPackageType>
     <SolutionPackageEnableLocalization>false</SolutionPackageEnableLocalization>
-    <SolutionPackageMapFilePath>solution-src\$(SolutionName)\map.xml</SolutionPackageMapFilePath>
+    <SolutionPackageMapFilePath>src\Solutions\$(SolutionName)\map.xml</SolutionPackageMapFilePath>
   </PropertyGroup>
  
 
@@ -72,7 +72,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="plugin-src\CDCEP.D365.Plugins\CDCEP.D365.Plugins.csproj" />
+    <ProjectReference Include="src\Plugins\CDCEP.D365.Plugins\CDCEP.D365.Plugins.csproj" />
   </ItemGroup>
 
     <ItemGroup>

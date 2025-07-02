@@ -10,8 +10,8 @@
       "request": "launch",
       "script": "${file}",
       "args": [
-        "solution-src/MarkTestSmall20250627",
-        "$false"
+        "src/Solutions/MarkTestSmall20250627",
+        "$true"
       ]
     },
     {
@@ -20,29 +20,29 @@
       "request": "launch",
       "script": "${file}",
       "args": [
-        "solution-src/MarkTestSmall20250627",
-        "$false"
+        "src/Solutions/MarkTestSmall20250627",
+        "$true"
       ]
     },
     {
-      "name": "Powershell: Package Reference Data - Common",
+      "name": "Powershell: Pack Reference Data - Common",
       "type": "PowerShell",
       "request": "launch",
       "script": "${file}",
       "args": [
-        ".\\ReferenceData",
+        ".\\src\\ReferenceData",
         "Common",
         "$true"
       ]
     },
     {
-      "name": "Powershell: Package Reference Data - INT",
+      "name": "Powershell: Pack Reference Data - INT",
       "type": "PowerShell",
       "request": "launch",
       "script": "${file}",
       "args": [
-        ".\\ReferenceData",
-        "Common",
+        ".\\src\\ReferenceData",
+        "INT",
         "$true"
       ]
     },
@@ -53,9 +53,9 @@
       "script": "${file}",
       "args": [
         "C:\\Users\\OITLOUJohnsM\\Downloads\\CDCE\\ReferenceDataDEV_20250630.zip",
-        ".\\ReferenceData",
+        ".\\src\\ReferenceData",
         "Common",
-        "$false"
+        "$true"
       ]
     },
   ]

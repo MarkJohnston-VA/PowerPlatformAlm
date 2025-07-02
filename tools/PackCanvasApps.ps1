@@ -70,25 +70,6 @@ function PackCanvasApps {
         [bool]$dryRun = $true
     )
 
-    # Validate that pac CLI is available
-    $pacAvailable = $false
-    try {
-        $null = & pac --version 2>$null
-        if ($LASTEXITCODE -eq 0) {
-            $pacVersion = & pac --version
-            Write-Host "Using Power Platform CLI: $pacVersion" -ForegroundColor Green
-            $pacAvailable = $true
-        }
-    }
-    catch {
-        # PAC CLI not available
-    }
-    
-    if (-not $pacAvailable) {
-        Write-Host "Power Platform CLI (pac) is required but not found. Please install the Power Platform CLI." -ForegroundColor Red
-        return $false
-    }
-
     Write-Host "Starting Canvas App packing process..." -ForegroundColor Cyan
     Write-Host "Solution Path: $solutionPath" -ForegroundColor White
     Write-Host "Dry Run Mode: $dryRun" -ForegroundColor White
