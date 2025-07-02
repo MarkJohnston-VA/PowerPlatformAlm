@@ -1,0 +1,68 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"launch": {
+			"version": "0.2.0",
+			"configurations": [
+				{
+					"name": "Powershell: Extract Canvas Apps",
+					"type": "PowerShell",
+					"request": "launch",
+					"script": "${file}",
+					"args": [
+						"src/Solutions/MarkTestSmall20250627",
+						"$true"
+					]
+				},
+				{
+					"name": "Powershell: Pack Canvas Apps",
+					"type": "PowerShell",
+					"request": "launch",
+					"script": "${file}",
+					"args": [
+						"src/Solutions/MarkTestSmall20250627",
+						"$true"
+					]
+				},
+				{
+					"name": "Powershell: Pack Reference Data - Common",
+					"type": "PowerShell",
+					"request": "launch",
+					"script": "${file}",
+					"args": [
+						".\\src\\ReferenceData",
+						"Common",
+						"$true"
+					]
+				},
+				{
+					"name": "Powershell: Pack Reference Data - INT",
+					"type": "PowerShell",
+					"request": "launch",
+					"script": "${file}",
+					"args": [
+						".\\src\\ReferenceData",
+						"INT",
+						"$true"
+					]
+				},
+				{
+					"name": "Powershell: Extract Reference Data - Common",
+					"type": "PowerShell",
+					"request": "launch",
+					"script": "${file}",
+					"args": [
+						"C:\\Users\\OITLOUJohnsM\\Downloads\\CDCE\\ReferenceDataDEV_20250630.zip",
+						".\\src\\ReferenceData",
+						"Common",
+						"$true"
+					]
+				},
+			]
+		}
+	},
+}
