@@ -107,11 +107,12 @@ function ExtractReferenceData {
     }
 
     # Create packages directory if it doesn't exist
-    $packagesPath = ".\packages"
-    if (-not (Test-Path $packagesPath)) {
-        $null = New-Item -Path $packagesPath -ItemType Directory -Force
-        Write-Host "Created packages directory: $packagesPath" -ForegroundColor Green
+    $packagesRelativePath = ".\packages"
+    if (-not (Test-Path $packagesRelativePath)) {
+        $null = New-Item -Path $packagesRelativePath -ItemType Directory -Force
+        Write-Host "Created packages directory: $packagesRelativePath" -ForegroundColor Green
     }
+    $packagesPath = Resolve-Path $packagesRelativePath
 
     try {
         # Install XrmCIFramework
@@ -134,9 +135,9 @@ function ExtractReferenceData {
         }
 
         # Ensure extract folder exists
-        $extractPath = Join-Path -Path $dataRelativePath -ChildPath $environment
+        $extractPath = Join-Path -Path (Resolve-Path $dataRelativePath) -ChildPath $environment
         if (-not (Test-Path $extractPath)) {
-            $null = New-Item -Path $extractPath -ItemType Directory -Force -Recurse
+            $null = New-Item -Path $extractPath -ItemType Directory -Force
             Write-Host "Created extract directory: $extractPath" -ForegroundColor Green
         }
 
@@ -171,7 +172,7 @@ function ExtractReferenceData {
             Write-Host "Cleaning up temporary files..." -ForegroundColor Yellow
             Uninstall-Package XrmCIFramework -Scope CurrentUser -Destination $packagesPath -Force -ErrorAction SilentlyContinue
             if (Test-Path $packagesPath) {
-                Remove-Item -Path $packagesPath -Recurse -Force -ErrorAction SilentlyContinue
+                Remove-Item -Path $packagesPath -Recurse -Force -ErrorAction SilentlyContinue 
                 Write-Host "Cleaned up packages directory" -ForegroundColor Green
             }
         }
