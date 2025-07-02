@@ -48,7 +48,14 @@
     <SolutionPackageEnableLocalization>false</SolutionPackageEnableLocalization>
     <SolutionPackageMapFilePath>src\Solutions\$(SolutionName)\map.xml</SolutionPackageMapFilePath>
   </PropertyGroup>
- 
+
+  <!--This is a custom target to update the solution package zip file name, so it will match the SolutionName and not the build file name-->
+  <Target Name="UpdateSolutionPackageZipFileName" AfterTargets="CopyCdsSolutionContent">
+    <PropertyGroup>
+      <SolutionPackageZipFile>$(SolutionName).zip</SolutionPackageZipFile>
+      <SolutionPackageZipFilePath>$(OutputPath)$(SolutionName).zip</SolutionPackageZipFilePath>
+    </PropertyGroup>
+  </Target>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.PowerApps.MSBuild.Solution" Version="1.*" />
