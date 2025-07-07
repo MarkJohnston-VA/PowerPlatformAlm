@@ -8,7 +8,7 @@ The initial test solution was created from the CDCE DEV instance.
 
 - **src** - The main folder where all source lives
   - **EnvironmentVariables** - JSON files containing the (NON-SENSITIVE) environment variable values for each environment
-  - **PCFControls** - TBD - Contains all PCF Controls projects
+  - **PCFControls** - Contains all PCF Controls projects
   - **Plugins** - Contains all Plugin project folders
   - **Portal** - Contains exported Portal Files, including the deployment profiles
   - **ReferenceData** - Contains data files for generic data required to support the system, this includes subfolders for each environment (and one for Common)
