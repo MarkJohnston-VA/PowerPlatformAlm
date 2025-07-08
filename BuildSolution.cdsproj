@@ -6,6 +6,10 @@
     <SolutionName />
   </PropertyGroup>
 
+  <Target Name="CheckSolutionNameProperty" BeforeTargets="PackCanvasApps">
+    <Error Condition="'$(SolutionName)' == '*Undefined*'" Text="SolutionName property must be set. Use -p:SolutionName=YourSolution when building the project." />
+  </Target>
+
   <Target Name="PackCanvasApps" BeforeTargets="Restore">
     <Message Text="Packing Canvas Apps" Importance="high" />
     <Message Text="Solution Name: $(SolutionName)" Importance="high" />
