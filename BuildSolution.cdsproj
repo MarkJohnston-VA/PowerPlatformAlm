@@ -2,12 +2,17 @@
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <!--To be passed in by command line: dotnet build BuildSolution.cdsproj -p:SolutionName=YourSolution-->
+    <!--To be passed in by command line: dotnet build BuildSolution.cdsproj -p:SolutionName=YourSolution -p:Version=VersionEnvironmentVariable-->
     <SolutionName />
+    <Version>$(RELEASE_VERSION_NUMBER)</Version>
   </PropertyGroup>
 
   <Target Name="CheckSolutionNameProperty" BeforeTargets="PackCanvasApps">
     <Error Condition="'$(SolutionName)' == '*Undefined*'" Text="SolutionName property must be set. Use -p:SolutionName=YourSolution when building the project." />
+  </Target>
+
+  <Target Name="CheckVersionProperty" BeforeTargets="PackCanvasApps">
+    <Error Condition="'$(Version)' == '*Undefined*'" Text="Version property must be set. Use -p:Version=YourVersion when building the project." />
   </Target>
 
   <Target Name="PackCanvasApps" BeforeTargets="Restore">
@@ -17,6 +22,16 @@
     <Message Text="Script Path: $(MSBuildThisFileDirectory)tools\PackCanvasApps.ps1" Importance="high" />
 
     <Exec Command="powershell.exe -NonInteractive -ExecutionPolicy Bypass -NoProfile -Command &quot;&amp; { &amp;&apos;$(MSBuildThisFileDirectory)tools\PackCanvasApps.ps1&apos; -solutionPath &apos;$(MSBuildThisFileDirectory)\src\Solutions\$(SolutionName)&apos; -dryRun $false} &quot;"
+          ContinueOnError="false" 
+          WorkingDirectory="$(MSBuildThisFileDirectory)"
+          IgnoreExitCode="false" />
+  </Target>
+
+  <Target Name="UpdateVersion" BeforeTargets="Restore">
+    <Message Text="Updating Version Number to $(Version)" Importance="high" />
+    <Message Text="Script Path: $(MSBuildThisFileDirectory)tools\UpdateVersion.ps1" Importance="high" />
+
+    <Exec Command="powershell.exe -NonInteractive -ExecutionPolicy Bypass -NoProfile -Command &quot;&amp; { &amp;&apos;$(MSBuildThisFileDirectory)tools\UpdateVersion.ps1&apos; -SolutionPath &apos;$(MSBuildThisFileDirectory)src\Solutions\$(SolutionName)\src\Other\Solution.xml&apos; -PluginAssembliesPath &apos;$(MSBuildThisFileDirectory)src\Solutions\$(SolutionName)\src\PluginAssemblies&apos; -VersionNumber &apos;$(Version)&apos;} &quot;"
           ContinueOnError="false" 
           WorkingDirectory="$(MSBuildThisFileDirectory)"
           IgnoreExitCode="false" />
