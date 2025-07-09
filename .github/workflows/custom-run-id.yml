@@ -1,0 +1,12 @@
+name: Custom Run ID Example
+on:
+  workflow_dispatch:
+
+jobs:
+  custom-run-id:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set custom run ID
+        run: echo "CUSTOM_RUN_ID=$(date +%Y).$(date +%m).$(date +%d).$(GITHUB_RUN_NUMBER)" >> $GITHUB_ENV
+      - name: Use custom run ID
+        run: echo "Your custom run ID is $CUSTOM_RUN_ID"
