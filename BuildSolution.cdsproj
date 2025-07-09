@@ -31,7 +31,7 @@
     <Message Text="Updating Version Number to $(Version)" Importance="high" />
     <Message Text="Script Path: $(MSBuildThisFileDirectory)tools\UpdateVersion.ps1" Importance="high" />
 
-    <Exec Command="powershell.exe -NonInteractive -ExecutionPolicy Bypass -NoProfile -Command &quot;&amp; { &amp;&apos;$(MSBuildThisFileDirectory)tools\UpdateVersion.ps1&apos; -SolutionPath &apos;$(MSBuildThisFileDirectory)src\Solutions\$(SolutionName)\src\Other\Solution.xml&apos; -PluginAssembliesPath &apos;$(MSBuildThisFileDirectory)src\Solutions\$(SolutionName)\src\PluginAssemblies&apos; -VersionNumber &apos;$(Version)&apos;} &quot;"
+    <Exec Command="powershell.exe -NonInteractive -ExecutionPolicy Bypass -NoProfile -Command &quot;&amp; { &amp;&apos;$(MSBuildThisFileDirectory)tools\UpdateVersion.ps1&apos; -SolutionName &apos;$(SolutionName)&apos; -VersionNumber &apos;$(Version)&apos;} &quot;"
           ContinueOnError="false" 
           WorkingDirectory="$(MSBuildThisFileDirectory)"
           IgnoreExitCode="false" />
