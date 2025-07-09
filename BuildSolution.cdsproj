@@ -12,7 +12,7 @@
   </Target>
 
   <Target Name="CheckVersionProperty" BeforeTargets="PackCanvasApps">
-    <Error Condition="'$(Version)' == '*Undefined*'" Text="Version property must be set. Use -p:Version=YourVersion when building the project." />
+    <Error Condition="'$(Version)' == ''" Text="Version property must be set. Use -p:Version=YourVersion when building the project, or set as an environment variable (RELEASE_VERSION_NUMBER)." />
   </Target>
 
   <Target Name="PackCanvasApps" BeforeTargets="Restore">

@@ -164,6 +164,60 @@ if ($pluginXmlFiles.Count -eq 0) {
     }
 }
 
+# Update PCF ControlManifest.Input.xml files
+Write-Host "`n--- Updating PCF Control Manifest Files ---" -ForegroundColor Cyan
+
+$pcfPath = ".\src\PCF"
+if (Test-Path $pcfPath) {
+    $controlManifestFiles = Get-ChildItem -Path $pcfPath -Recurse -Filter "ControlManifest.Input.xml" -ErrorAction SilentlyContinue
+    
+    if ($controlManifestFiles.Count -eq 0) {
+        Write-Host "No PCF ControlManifest.Input.xml files found in: $pcfPath" -ForegroundColor Yellow
+    } else {
+        foreach ($manifestFile in $controlManifestFiles) {
+            Write-Host "Processing PCF manifest file: $($manifestFile.FullName)" -ForegroundColor Cyan
+            
+            try {
+                # Read the file as text to preserve formatting
+                $manifestContent = Get-Content $manifestFile.FullName | Out-String
+                $originalContent = $manifestContent
+                
+                # Update ONLY the version attribute in the control element (not other version attributes)
+                # Use a more specific pattern that only matches within the control element
+                $lines = $manifestContent -split "`n"
+                $updatedLines = @()
+                $controlElementFound = $false
+                
+                foreach ($line in $lines) {
+                    if ($line -match '<control\s+.*version="[0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?".*>') {
+                        $line = $line -replace 'version="[0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?"', "version=`"$VersionNumber`""
+                        $controlElementFound = $true
+                    }
+                    $updatedLines += $line
+                }
+                
+                if ($controlElementFound) {
+                    $manifestContent = $updatedLines -join "`n"
+                    Write-Host "  Updated control version attribute" -ForegroundColor Green
+                }
+                
+                # Only write the file if there were actual changes
+                if ($manifestContent -ne $originalContent) {
+                    Set-Content -Path $manifestFile.FullName -Value $manifestContent -Encoding UTF8
+                    Write-Host "  PCF manifest file updated successfully" -ForegroundColor Green
+                } else {
+                    Write-Host "  No version updates needed in this file" -ForegroundColor Yellow
+                }
+            } catch {
+                Write-Host "  ERROR: Failed to process file - $($_.Exception.Message)" -ForegroundColor Red
+                $overallSuccess = $false
+            }
+        }
+    }
+} else {
+    Write-Host "PCF directory not found: $pcfPath" -ForegroundColor Yellow
+}
+
 Write-Host "============================================" -ForegroundColor Cyan
 if ($overallSuccess) {
     Write-Host "All version updates completed successfully!" -ForegroundColor Green
