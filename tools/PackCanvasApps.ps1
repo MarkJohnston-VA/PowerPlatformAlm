@@ -13,26 +13,26 @@
     This assumes the folder naming convention used by the Microsoft tooling, specifically that a child
     folder named CanvasApps\src contains the source files for each Canvas App.
 
-.PARAMETER solutionPath
+.PARAMETER SolutionPath
     The physical path to the solution directory containing Solution source files to pack.
     This should be the root directory of your Power Platform solution.
 
-.PARAMETER dryRun
+.PARAMETER DryRun
     When set to $true (default), the script will only display what would be packed without actually
     performing the packing operation. Set to $false to perform the actual packing.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -solutionPath "C:\Repos\VA\CDCEP\Release202503" -dryRun $true
+    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\VA\CDCEP\Release202503" -DryRun $true
     
     Performs a dry run to show which Solution source files would be packed without actually packing them.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -solutionPath "C:\Repos\VA\CDCEP\Release202503" -dryRun $false
+    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\VA\CDCEP\Release202503" -DryRun $false
     
     Packs all Canvas App source directories found in the specified solution path to .msapp files.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -solutionPath C:\Repos\VA\CDCEP\Release202503"
+    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\VA\CDCEP\Release202503"
     
     Performs a dry run (default behavior) for Solution source files in the specified absolute path.
 
@@ -55,28 +55,28 @@
 param(
     [Parameter(Mandatory = $true, HelpMessage = "Path to the solution directory containing the Solution source files")]
     [ValidateScript({Test-Path $_ -PathType Container})]
-    [string]$solutionPath,
+    [string]$SolutionPath,
     
     [Parameter(Mandatory = $false, HelpMessage = "Set to false to perform actual packing, true for dry run")]
-    [bool]$dryRun = $true
+    [bool]$DryRun = $true
 )
 
 function PackCanvasApps {
     param(
         [Parameter(Mandatory = $true)]
-        [string]$solutionPath,
+        [string]$SolutionPath,
         
         [Parameter(Mandatory = $false)]
-        [bool]$dryRun = $true
+        [bool]$DryRun = $true
     )
 
     Write-Host "Starting Canvas App packing process..." -ForegroundColor Cyan
-    Write-Host "Solution Path: $solutionPath" -ForegroundColor White
-    Write-Host "Dry Run Mode: $dryRun" -ForegroundColor White
+    Write-Host "Solution Path: $SolutionPath" -ForegroundColor White
+    Write-Host "Dry Run Mode: $DryRun" -ForegroundColor White
     Write-Host ""
 
     # Construct the path to Canvas Apps source directories
-    $canvasAppsParentFolder = Join-Path -Path $solutionPath -ChildPath "src\CanvasApps"
+    $canvasAppsParentFolder = Join-Path -Path $SolutionPath -ChildPath "src\CanvasApps"
     $canvasAppSourcePath = Join-Path -Path $canvasAppsParentFolder -ChildPath "src"
 
     # Validate that the Canvas Apps source path exists
@@ -111,7 +111,7 @@ function PackCanvasApps {
         Write-Host "  Source directory: $($canvasAppSourceFolder.FullName)" -ForegroundColor Gray
         Write-Host "  Target .msapp file: $canvasAppMsAppFileName" -ForegroundColor Gray
         
-        if ($dryRun) {
+        if ($DryRun) {
             Write-Host "  [DRY RUN] Would pack to: $canvasAppMsAppFileName" -ForegroundColor Yellow
         }
         else {
@@ -154,7 +154,7 @@ function PackCanvasApps {
         Write-Host ""
     }
 
-    if ($dryRun) {
+    if ($DryRun) {
         Write-Host "Dry run completed. Use -dryRun `$false to perform actual packing." -ForegroundColor Yellow
     }
     else {
@@ -176,7 +176,7 @@ function PackCanvasApps {
 }
 
 # Call the function with the provided parameters
-$success = PackCanvasApps -solutionPath $solutionPath -dryRun $dryRun
+$success = PackCanvasApps -SolutionPath $SolutionPath -DryRun $DryRun
 
 # Exit with appropriate code
 if (-not $success) {

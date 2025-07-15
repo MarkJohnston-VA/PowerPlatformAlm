@@ -10,22 +10,22 @@
     The script uses the Power Platform CLI (pac) to unpack Canvas Apps into their constituent source files,
     making them suitable for version control, collaborative development, and CI/CD pipelines.
 
-.PARAMETER solutionPath
+.PARAMETER SolutionPath
     The path to the solution directory containing Canvas Apps (.msapp files) to extract.
     This should be the root directory of your Power Platform solution.
 
-.PARAMETER dryRun
+.PARAMETER DryRun
     When set to $true (default), the script will only display what would be extracted without actually
     performing the extraction. Set to $false to perform the actual extraction.
 
 .EXAMPLE
-    .\ExtractCanvasApps.ps1 -solutionPath "MarkTestSmall20250627" -dryRun $true
-    
+    .\ExtractCanvasApps.ps1 -SolutionPath "MarkTestSmall20250627" -DryRun $true
+
     Performs a dry run to show which Canvas Apps would be extracted without actually extracting them.
 
 .EXAMPLE
-    .\ExtractCanvasApps.ps1 -solutionPath "MarkTestSmall20250627" -dryRun $false
-    
+    .\ExtractCanvasApps.ps1 -SolutionPath "MarkTestSmall20250627" -DryRun $false
+
     Extracts all Canvas Apps found in the specified solution path to their respective source directories.
 
 .NOTES
@@ -46,23 +46,23 @@
 param(
     [Parameter(Mandatory = $true, HelpMessage = "Path to the solution directory containing Canvas Apps")]
     [ValidateScript({Test-Path $_ -PathType Container})]
-    [string]$solutionPath,
+    [string]$SolutionPath,
     
     [Parameter(Mandatory = $false, HelpMessage = "Set to false to perform actual extraction, true for dry run")]
-    [bool]$dryRun = $true
+    [bool]$DryRun = $true
 )
 
 Write-Host "Starting Canvas App extraction process..." -ForegroundColor Cyan
-Write-Host "Solution Path: $solutionPath" -ForegroundColor White
-Write-Host "Dry Run Mode: $dryRun" -ForegroundColor White
+Write-Host "Solution Path: $SolutionPath" -ForegroundColor White
+Write-Host "Dry Run Mode: $DryRun" -ForegroundColor White
 Write-Host ""
 
 # Find all Canvas App (.msapp) files in the solution directory
 Write-Host "Searching for Canvas Apps (.msapp files)..." -ForegroundColor Yellow
-$canvasApps = Get-ChildItem -Path $solutionPath -Recurse -Include *.msapp
+$canvasApps = Get-ChildItem -Path $SolutionPath -Recurse -Include *.msapp
 
 if ($canvasApps.Count -eq 0) {
-    Write-Warning "No Canvas Apps (.msapp files) found in the specified path: $solutionPath"
+    Write-Warning "No Canvas Apps (.msapp files) found in the specified path: $SolutionPath"
     exit 0
 }
 
@@ -87,7 +87,7 @@ foreach ($app in $canvasApps) {
         Write-Host "  Source file: $($app.FullName)" -ForegroundColor Gray
         Write-Host "  Extract path: $canvasAppExtractPath" -ForegroundColor Gray
         
-        if ($dryRun) {
+        if ($DryRun) {
             Write-Host "  [DRY RUN] Would extract to: $canvasAppExtractPath" -ForegroundColor Yellow
         }
         else {
@@ -103,6 +103,15 @@ foreach ($app in $canvasApps) {
             
             if ($LASTEXITCODE -eq 0) {
                 Write-Host "  ✓ Successfully extracted Canvas App" -ForegroundColor Green
+                
+                # Delete the MSAPP file after successful extraction
+                try {
+                    Remove-Item -Path $app.FullName -Force
+                    Write-Host "  ✓ Deleted original MSAPP file: $($app.Name)" -ForegroundColor Green
+                }
+                catch {
+                    Write-Warning "  ⚠ Failed to delete MSAPP file: $($_.Exception.Message)"
+                }
             }
             else {
                 Write-Error "  ✗ Failed to extract Canvas App: $pacResult"
@@ -115,7 +124,7 @@ foreach ($app in $canvasApps) {
     }
 }
 
-if ($dryRun) {
+if ($DryRun) {
     Write-Host "Dry run completed. Use -dryRun `$false to perform actual extraction." -ForegroundColor Yellow
 }
 else {

@@ -10,36 +10,36 @@
     The script temporarily installs XrmCIFramework, extracts the data, and then cleans up
     the temporary installation to avoid polluting the workspace.
 
-.PARAMETER dataFile
+.PARAMETER DataFile
     The path to the compressed data file (.zip) containing reference data to extract.
     This file is typically exported from a Power Platform environment.
 
-.PARAMETER dataRelativePath
+.PARAMETER DataRelativePath
     The relative path where extracted XML files will be stored.
-    Default is ".\ReferenceData".
+    Default is ".\src\ReferenceData".
 
-.PARAMETER environment
+.PARAMETER Environment
     The target environment name used to organize extracted data into subfolders.
     Valid values: DEV, INT, QA, PreProd, Prod, Hotfix, Training, Common.
     Default is "Common".
 
-.PARAMETER dryRun
+.PARAMETER DryRun
     When set to $true (default), the script will show what would be extracted without
     actually performing the extraction. Set to $false to perform the actual extraction.
 
 .EXAMPLE
-    .\ExtractReferenceData.ps1 -dataFile ".\data\ReferenceData.zip" -environment "DEV"
-    
+    .\ExtractReferenceData.ps1 -DataFile ".\data\ReferenceData.zip" -Environment "DEV"
+
     Performs a dry run extraction of reference data for the DEV environment.
 
 .EXAMPLE
-    .\ExtractReferenceData.ps1 -dataFile ".\data\ReferenceData.zip" -environment "Common" -dryRun $false
-    
+    .\ExtractReferenceData.ps1 -DataFile ".\data\ReferenceData.zip" -Environment "Common" -DryRun $false
+
     Extracts reference data into the Common environment folder.
 
 .EXAMPLE
-    .\ExtractReferenceData.ps1 -dataFile "C:\Data\Export.zip" -dataRelativePath ".\CustomData" -environment "QA" -dryRun $false
-    
+    .\ExtractReferenceData.ps1 -DataFile "C:\Data\Export.zip" -DataRelativePath ".\CustomData" -Environment "QA" -DryRun $false
+
     Extracts reference data to a custom path for the QA environment.
 
 .NOTES
@@ -65,44 +65,44 @@
 param(
     [Parameter(Mandatory = $true, HelpMessage = "The path of the data file to extract")]
     [ValidateScript({Test-Path $_ -PathType Leaf})]
-    [string]$dataFile,
+    [string]$DataFile,
 
     [Parameter(Mandatory = $false, HelpMessage = "The relative path of data.xml to create/update")]
-    [string]$dataRelativePath = ".\ReferenceData",
+    [string]$DataRelativePath = ".\src\ReferenceData",
 
     [Parameter(Mandatory = $false, HelpMessage = "Environment: DEV, INT, QA, PreProd, Prod, Hotfix, Training, Common")]
     [ValidateSet("DEV", "INT", "QA", "PreProd", "Prod", "Hotfix", "Training", "Common")]
-    [string]$environment = "Common",
+    [string]$Environment = "Common",
     
     [Parameter(Mandatory = $false, HelpMessage = "Set to false to perform actual extraction, true for dry run")]
-    [bool]$dryRun = $true
+    [bool]$DryRun = $true
 )
 
 function ExtractReferenceData {
     param(
-        [string]$dataFile,
-        [string]$dataRelativePath,
-        [string]$environment,
-        [bool]$dryRun
+        [string]$DataFile,
+        [string]$DataRelativePath,
+        [string]$Environment,
+        [bool]$DryRun
     )
 
     Write-Host "Starting reference data extraction process..." -ForegroundColor Cyan
-    Write-Host "Data File: $dataFile" -ForegroundColor White
-    Write-Host "Extract Path: $dataRelativePath\$environment" -ForegroundColor White
-    Write-Host "Environment: $environment" -ForegroundColor White
-    Write-Host "Dry Run Mode: $dryRun" -ForegroundColor White
+    Write-Host "Data File: $DataFile" -ForegroundColor White
+    Write-Host "Extract Path: $DataRelativePath\$Environment" -ForegroundColor White
+    Write-Host "Environment: $Environment" -ForegroundColor White
+    Write-Host "Dry Run Mode: $DryRun" -ForegroundColor White
     Write-Host ""
 
-    if ($dryRun) {
-        Write-Host "[DRY RUN] Would extract reference data from: $dataFile" -ForegroundColor Yellow
-        Write-Host "[DRY RUN] Would create files in: $dataRelativePath\$environment" -ForegroundColor Yellow
+    if ($DryRun) {
+        Write-Host "[DRY RUN] Would extract reference data from: $DataFile" -ForegroundColor Yellow
+        Write-Host "[DRY RUN] Would create files in: $DataRelativePath\$Environment" -ForegroundColor Yellow
         Write-Host "[DRY RUN] Data would be split into individual entity files" -ForegroundColor Yellow
         return $true
     }
 
     # Validate input file exists
-    if (-not (Test-Path $dataFile -PathType Leaf)) {
-        Write-Host "Error: Data file not found: $dataFile" -ForegroundColor Red
+    if (-not (Test-Path $DataFile -PathType Leaf)) {
+        Write-Host "Error: Data file not found: $DataFile" -ForegroundColor Red
         return $false
     }
 
@@ -135,7 +135,7 @@ function ExtractReferenceData {
         }
 
         # Ensure extract folder exists
-        $extractPath = Join-Path -Path (Resolve-Path $dataRelativePath) -ChildPath $environment
+        $extractPath = Join-Path -Path (Resolve-Path $DataRelativePath) -ChildPath $Environment
         if (-not (Test-Path $extractPath)) {
             $null = New-Item -Path $extractPath -ItemType Directory -Force
             Write-Host "Created extract directory: $extractPath" -ForegroundColor Green
@@ -143,11 +143,11 @@ function ExtractReferenceData {
 
         # Run the ExtractCMData script from XrmCIFramework
         Write-Host "Extracting reference data..." -ForegroundColor Yellow
-        Write-Host "  Source: $dataFile" -ForegroundColor Gray
+        Write-Host "  Source: $DataFile" -ForegroundColor Gray
         Write-Host "  Destination: $extractPath" -ForegroundColor Gray
         Write-Host "  Split data: $splitExtractedData" -ForegroundColor Gray
         
-        & $scriptPath -dataFile $dataFile -extractFolder $extractPath -sortExtractedData $sortExtractedData -splitExtractedData $splitExtractedData
+        & $scriptPath -dataFile $DataFile -extractFolder $extractPath -sortExtractedData $sortExtractedData -splitExtractedData $splitExtractedData
         Write-Host "Successfully extracted reference data" -ForegroundColor Green
         
         # Show summary of extracted files
@@ -183,9 +183,9 @@ function ExtractReferenceData {
 }
 
 # Execute the extraction
-$success = ExtractReferenceData -dataFile $dataFile -dataRelativePath $dataRelativePath -environment $environment -dryRun $dryRun
+$success = ExtractReferenceData -dataFile $DataFile -dataRelativePath $DataRelativePath -environment $Environment -dryRun $DryRun
 
-if ($dryRun) {
+if ($DryRun) {
     Write-Host "Dry run completed. Use -dryRun `$false to perform actual extraction." -ForegroundColor Yellow
 }
 elseif ($success) {

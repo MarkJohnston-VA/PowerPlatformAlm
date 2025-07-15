@@ -7,11 +7,15 @@
 # MSBuild Binary and Structured Log
 *.binlog
 
-
 .vs
 
 **/node_modules
+packages
 
 .env
 
-packages
+# We don't want to save the binaries in the repo, since they'll 
+#  have source files that will allow us to package them at build time.
+*.msapp
+*.dll
+*.nupkg

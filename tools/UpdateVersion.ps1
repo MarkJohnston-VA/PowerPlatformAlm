@@ -55,24 +55,31 @@ if ($VersionNumber -notmatch '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$') {
 # Convert relative paths to absolute paths
 Write-Host "Validating file paths..." -ForegroundColor Cyan
 
-$SolutionPath = Resolve-Path ".\src\Solutions\$SolutionName\src\Other\Solution.xml"
-$PluginAssembliesPath = Resolve-Path ".\src\Solutions\$SolutionName\src\PluginAssemblies"
+# Convert relative paths to absolute paths
+Write-Host "Validating file paths..." -ForegroundColor Cyan
 
-if (Test-Path $SolutionPath) {
-    $SolutionPath = (Resolve-Path $SolutionPath).Path
-    Write-Host "Solution file found: $SolutionPath" -ForegroundColor Green
+$SolutionRelativePath = ".\src\Solutions\$SolutionName\src\Other\Solution.xml"
+$PluginAssembliesRelativePath = ".\src\Solutions\$SolutionName\src\PluginAssemblies"
+$SdkMessageProcessingStepsRelativePath = ".\src\Solutions\$SolutionName\src\SdkMessageProcessingSteps"
+
+# Check Solution.xml path
+if (Test-Path $SolutionRelativePath) {
+    $SolutionPath = (Resolve-Path $SolutionRelativePath).Path
 } else {
-    Write-Host "ERROR: Solution.xml file not found at the specified path: $SolutionPath" -ForegroundColor Red
+    Write-Host "ERROR: Solution.xml file not found at: $SolutionRelativePath" -ForegroundColor Red
     exit 1
 }
 
-if (Test-Path $PluginAssembliesPath) {
-    $PluginAssembliesPath = (Resolve-Path $PluginAssembliesPath).Path
-    Write-Host "Plugin assemblies path found: $PluginAssembliesPath" -ForegroundColor Green
-} else {
-    Write-Host "WARNING: Plugin assemblies path not found: $PluginAssembliesPath" -ForegroundColor Yellow
-    Write-Host "Will only update Solution.xml file." -ForegroundColor Yellow
-    $PluginAssembliesPath = $null
+# Check Plugin Assemblies path
+$PluginAssembliesPath = $null
+if (Test-Path $PluginAssembliesRelativePath) {
+    $PluginAssembliesPath = (Resolve-Path $PluginAssembliesRelativePath).Path
+}
+
+# Check SdkMessageProcessingSteps path
+$SdkMessageProcessingStepsPath = $null
+if (Test-Path $SdkMessageProcessingStepsRelativePath) {
+    $SdkMessageProcessingStepsPath = (Resolve-Path $SdkMessageProcessingStepsRelativePath).Path
 }
 
 Write-Host "============================================" -ForegroundColor Cyan
@@ -82,6 +89,14 @@ Write-Host "Solution file: $SolutionPath" -ForegroundColor Cyan
 if ($PluginAssembliesPath) {
     Write-Host "Plugin assemblies path: $PluginAssembliesPath" -ForegroundColor Cyan
 }
+else {
+    Write-Host "WARNING: Plugin assemblies path not found: $PluginAssembliesRelativePath" -ForegroundColor Yellow
+}
+if ($SdkMessageProcessingStepsPath) {
+    Write-Host "SdkMessageProcessingSteps path: $SdkMessageProcessingStepsPath" -ForegroundColor Cyan
+} else {
+    Write-Host "WARNING: SdkMessageProcessingSteps path not found: $SdkMessageProcessingStepsRelativePath" -ForegroundColor Yellow
+}
 Write-Host "New version number: $VersionNumber" -ForegroundColor Green
 Write-Host "============================================" -ForegroundColor Cyan
 
@@ -90,8 +105,8 @@ $overallSuccess = $true
 # Update Solution.xml
 Write-Host "`n--- Updating Solution.xml ---" -ForegroundColor Cyan
 
-# Read the file as text to preserve formatting
-$solutionContent = Get-Content $SolutionPath | Out-String
+# Read the file as text to preserve formatting - use -Raw to get exact content
+$solutionContent = Get-Content $SolutionPath -Raw
 
 # Use compatible regex pattern for Windows PowerShell
 $versionPattern = '<Version>([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)</Version>'
@@ -110,8 +125,8 @@ if (-not $versionMatch.Success) {
     # Verify the replacement was successful
     $verificationMatch = [regex]::Match($newSolutionContent, '<Version>([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)</Version>')
     if ($verificationMatch.Success -and $verificationMatch.Groups[1].Value -eq $VersionNumber) {
-        # Write the updated content back to the file
-        Set-Content -Path $SolutionPath -Value $newSolutionContent -Encoding UTF8
+        # Write the updated content back to the file without adding extra newlines
+        [System.IO.File]::WriteAllText($SolutionPath, $newSolutionContent, [System.Text.Encoding]::UTF8)
         Write-Host "Solution.xml version successfully updated from $oldVersion to $VersionNumber" -ForegroundColor Green
     } else {
         Write-Host "ERROR: Version replacement verification failed" -ForegroundColor Red
@@ -119,49 +134,225 @@ if (-not $versionMatch.Success) {
     }
 }
 
-# Update Plugin Assembly XML files
-Write-Host "`n--- Updating Plugin Assembly Files ---" -ForegroundColor Cyan
+# Update Plugin Assembly Versions in Solution.xml RootComponents
+Write-Host "`n--- Updating Plugin Assembly Versions in Solution.xml RootComponents ---" -ForegroundColor Cyan
 
-# Find all XML files in the plugin assemblies directory
-$pluginXmlFiles = Get-ChildItem -Path $PluginAssembliesPath -Recurse -Filter "*.xml" -ErrorAction SilentlyContinue
-
-if ($pluginXmlFiles.Count -eq 0) {
-    Write-Host "No plugin assembly XML files found in: $PluginAssembliesPath" -ForegroundColor Yellow
-} else {
-    foreach ($xmlFile in $pluginXmlFiles) {
-        Write-Host "Processing plugin assembly file: $($xmlFile.FullName)" -ForegroundColor Cyan
+try {
+    # Read the Solution.xml as text to preserve formatting
+    $solutionContent = Get-Content $SolutionPath -Raw
+    $originalContent = $solutionContent
+    $updatedContent = $originalContent
+    
+    # Use regex to find and update only the version number within schemaName for type="91" components
+    # Pattern matches: <RootComponent type="91" ... schemaName="AssemblyName, Version=x.x.x.x, Culture..." ... />
+    # Excludes entries where schemaName contains "PublicKeyToken=null"
+    $pattern = '(<RootComponent[^>]*type="91"[^>]*schemaName="(?!.*PublicKeyToken=null)[^"]*Version=)([\d\.]+)([^"]*"[^>]*/>)'
+    
+    # Find all matches first, then process them
+    $regexMatches = [regex]::Matches($updatedContent, $pattern)
+    foreach ($match in $regexMatches) {
+        $prefix = $match.Groups[1].Value
+        $currentVersion = $match.Groups[2].Value
+        $suffix = $match.Groups[3].Value
         
-        try {
-            # Read the file as text to preserve formatting
-            $pluginContent = Get-Content $xmlFile.FullName | Out-String
-            $originalContent = $pluginContent
+        # Split versions into parts with error checking
+        $currentParts = $currentVersion -split '\.'
+        $newParts = $VersionNumber -split '\.'
+        
+        # Ensure both versions have 4 parts
+        if ($currentParts.Count -ge 4 -and $newParts.Count -ge 4) {
+            # Combine: first two parts from current version + first two parts from new version
+            $combinedVersion = "$($currentParts[0]).$($currentParts[1]).$($newParts[0]).$($newParts[1])"
+        } else {
+            # Fallback to using the full new version if parsing fails
+            $combinedVersion = $VersionNumber
+        }
+        
+        $replacement = "$prefix$combinedVersion$suffix"
+        $updatedContent = $updatedContent.Replace($match.Value, $replacement)
+    }
+    
+    # Check if any changes were made
+    if ($updatedContent -ne $originalContent) {
+        Write-Host "Updated plugin assembly version(s) in Solution.xml RootComponents (text-based replacement)" -ForegroundColor Green
+    } else {
+        Write-Host "No plugin assembly components (type=91) with version found in Solution.xml RootComponents" -ForegroundColor Yellow
+    }
+    
+    # Write the updated content back to the file
+    [System.IO.File]::WriteAllText($SolutionPath, $updatedContent, [System.Text.Encoding]::UTF8)
+} catch {
+    Write-Host "WARNING: Failed to update plugin assembly versions in Solution.xml RootComponents - $($_.Exception.Message)" -ForegroundColor Yellow
+    $overallSuccess = $false
+}
+
+if($null -ne $PluginAssembliesPath) {
+    # Update Plugin Assembly XML files
+    Write-Host "`n--- Updating Plugin Assembly Files ---" -ForegroundColor Cyan
+    
+    # Find all XML files in the plugin assemblies directory
+    $pluginXmlFiles = Get-ChildItem -Path $PluginAssembliesPath -Recurse -Filter "*.xml" -ErrorAction SilentlyContinue
+
+    if ($pluginXmlFiles.Count -eq 0) {
+        Write-Host "No plugin assembly XML files found in: $PluginAssembliesPath" -ForegroundColor Yellow
+    } else {
+        foreach ($xmlFile in $pluginXmlFiles) {
+            Write-Host "Processing plugin assembly file: $($xmlFile.FullName)" -ForegroundColor Cyan
             
-            # Use simple string replacement instead of complex regex
-            
-            # Update FullName attribute
-            if ($pluginContent -match 'FullName=') {
-                $pluginContent = $pluginContent -replace 'Version=[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+', "Version=$VersionNumber"
-                Write-Host "  Updated FullName attribute" -ForegroundColor Green
+            try {
+                # Read the file as text to preserve formatting - use -Raw to get exact content
+                $pluginContent = Get-Content $xmlFile.FullName -Raw
+                $originalContent = $pluginContent
+                
+                # Use simple string replacement instead of complex regex
+                
+                # Update FullName attribute
+                if ($pluginContent -match 'FullName=') {
+                    # Use manual regex processing to avoid script block variable scope issues
+                    $versionPattern = '(Version=)([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)'
+                    $regexMatches = [regex]::Matches($pluginContent, $versionPattern)
+                    foreach ($match in $regexMatches) {
+                        $prefix = $match.Groups[1].Value
+                        $currentVersion = $match.Groups[2].Value
+                        
+                        # Split versions into parts with error checking
+                        $currentParts = $currentVersion -split '\.'
+                        $newParts = $VersionNumber -split '\.'
+                        
+                        # Ensure both versions have 4 parts
+                        if ($currentParts.Count -ge 4 -and $newParts.Count -ge 4) {
+                            # Combine: first two parts from current version + first two parts from new version
+                            $combinedVersion = "$($currentParts[0]).$($currentParts[1]).$($newParts[0]).$($newParts[1])"
+                        } else {
+                            # Fallback to using the full new version if parsing fails
+                            $combinedVersion = $VersionNumber
+                        }
+                        
+                        $replacement = "$prefix$combinedVersion"
+                        $pluginContent = $pluginContent.Replace($match.Value, $replacement)
+                    }
+                    Write-Host "  Updated FullName attribute" -ForegroundColor Green
+                }
+
+                # Update FileName
+                if ($pluginContent -match 'FullName="([^,]+),.*Version=[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+') {
+                    $assemblyName = $matches[1]
+                    # Update the FileName element to use the correct assembly name from FullName
+                    # Pattern: <FileName>/PluginAssemblies/.../SomeAssemblyName.dll</FileName>
+                    # Replace the final DLL name with the assembly name from FullName
+                    $fileNamePattern = '(<FileName>[^<]*/)[^/]+\.dll(</FileName>)'
+                    $fileNameReplacement = "`${1}$assemblyName.dll`$2"
+                    
+                    if ($pluginContent -match $fileNamePattern) {
+                        $pluginContent = $pluginContent -replace $fileNamePattern, $fileNameReplacement
+                        Write-Host "  Updated FileName to use assembly name: $assemblyName.dll" -ForegroundColor Green
+                    }
+                }
+                
+                # Update AssemblyQualifiedName attributes  
+                if ($pluginContent -match 'AssemblyQualifiedName=') {
+                    # Use manual regex processing to avoid script block variable scope issues
+                    $versionPattern = '(Version=)([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)'
+                    $regexMatches = [regex]::Matches($pluginContent, $versionPattern)
+                    foreach ($match in $regexMatches) {
+                        $prefix = $match.Groups[1].Value
+                        $currentVersion = $match.Groups[2].Value
+                        
+                        # Split versions into parts with error checking
+                        $currentParts = $currentVersion -split '\.'
+                        $newParts = $VersionNumber -split '\.'
+                        
+                        # Ensure both versions have 4 parts
+                        if ($currentParts.Count -ge 4 -and $newParts.Count -ge 4) {
+                            # Combine: first two parts from current version + first two parts from new version
+                            $combinedVersion = "$($currentParts[0]).$($currentParts[1]).$($newParts[0]).$($newParts[1])"
+                        } else {
+                            # Fallback to using the full new version if parsing fails
+                            $combinedVersion = $VersionNumber
+                        }
+                        
+                        $replacement = "$prefix$combinedVersion"
+                        $pluginContent = $pluginContent.Replace($match.Value, $replacement)
+                    }
+                    Write-Host "  Updated AssemblyQualifiedName attributes" -ForegroundColor Green
+                }
+                
+                # Only write the file if there were actual changes
+                if ($pluginContent -ne $originalContent) {
+                    [System.IO.File]::WriteAllText($xmlFile.FullName, $pluginContent, [System.Text.Encoding]::UTF8)
+                    Write-Host "  Plugin assembly file updated successfully" -ForegroundColor Green
+                } else {
+                    Write-Host "  No version updates needed in this file" -ForegroundColor Yellow
+                }
+            } catch {
+                Write-Host "  ERROR: Failed to process file - $($_.Exception.Message)" -ForegroundColor Red
+                $overallSuccess = $false
             }
-            
-            # Update AssemblyQualifiedName attributes  
-            if ($pluginContent -match 'AssemblyQualifiedName=') {
-                $pluginContent = $pluginContent -replace 'Version=[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+', "Version=$VersionNumber"
-                Write-Host "  Updated AssemblyQualifiedName attributes" -ForegroundColor Green
-            }
-            
-            # Only write the file if there were actual changes
-            if ($pluginContent -ne $originalContent) {
-                Set-Content -Path $xmlFile.FullName -Value $pluginContent -Encoding UTF8
-                Write-Host "  Plugin assembly file updated successfully" -ForegroundColor Green
-            } else {
-                Write-Host "  No version updates needed in this file" -ForegroundColor Yellow
-            }
-        } catch {
-            Write-Host "  ERROR: Failed to process file - $($_.Exception.Message)" -ForegroundColor Red
-            $overallSuccess = $false
         }
     }
+}
+
+# Update SdkMessageProcessingSteps XML files
+Write-Host "`n--- Updating SdkMessageProcessingSteps XML Files ---" -ForegroundColor Cyan
+if($null -ne $SdkMessageProcessingStepsPath) {
+    # Find all XML files in the SdkMessageProcessingSteps directory
+    $sdkStepXmlFiles = Get-ChildItem -Path $SdkMessageProcessingStepsPath -Recurse -Filter "*.xml" -ErrorAction SilentlyContinue
+
+    if ($sdkStepXmlFiles.Count -eq 0) {
+        Write-Host "No SdkMessageProcessingStep XML files found in: $SdkMessageProcessingStepsPath" -ForegroundColor Yellow
+    } else {
+        foreach ($xmlFile in $sdkStepXmlFiles) {
+            Write-Host "Processing SdkMessageProcessingStep file: $($xmlFile.FullName)" -ForegroundColor Cyan
+            
+            try {
+                # Read the file as text to preserve formatting - use -Raw to get exact content
+                $stepContent = Get-Content $xmlFile.FullName -Raw
+                $originalContent = $stepContent
+                
+                # Update PluginTypeName elements that contain version information
+                # Pattern matches: <PluginTypeName>AssemblyName.ClassName, AssemblyName, Version=x.x.x.x, Culture=..., PublicKeyToken=...</PluginTypeName>
+                if ($stepContent -match '<PluginTypeName>') {
+                    # Use manual regex processing to avoid script block variable scope issues
+                    $versionPattern = '(Version=)([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)'
+                    $regexMatches = [regex]::Matches($stepContent, $versionPattern)
+                    foreach ($match in $regexMatches) {
+                        $prefix = $match.Groups[1].Value
+                        $currentVersion = $match.Groups[2].Value
+                        
+                        # Split versions into parts with error checking
+                        $currentParts = $currentVersion -split '\.'
+                        $newParts = $VersionNumber -split '\.'
+                        
+                        # Ensure both versions have 4 parts
+                        if ($currentParts.Count -ge 4 -and $newParts.Count -ge 4) {
+                            # Combine: first two parts from current version + first two parts from new version
+                            $combinedVersion = "$($currentParts[0]).$($currentParts[1]).$($newParts[0]).$($newParts[1])"
+                        } else {
+                            # Fallback to using the full new version if parsing fails
+                            $combinedVersion = $VersionNumber
+                        }
+                        
+                        $replacement = "$prefix$combinedVersion"
+                        $stepContent = $stepContent.Replace($match.Value, $replacement)
+                    }
+                    Write-Host "  Updated PluginTypeName version references" -ForegroundColor Green
+                }
+                
+                # Only write the file if there were actual changes
+                if ($stepContent -ne $originalContent) {
+                    [System.IO.File]::WriteAllText($xmlFile.FullName, $stepContent, [System.Text.Encoding]::UTF8)
+                    Write-Host "  SdkMessageProcessingStep file updated successfully" -ForegroundColor Green
+                } else {
+                    Write-Host "  No version updates needed in this file" -ForegroundColor Yellow
+                }
+            } catch {
+                Write-Host "  ERROR: Failed to process file - $($_.Exception.Message)" -ForegroundColor Red
+                $overallSuccess = $false
+            }
+        }
+    }
+} else {
+    Write-Host "SdkMessageProcessingSteps directory not found, skipping step updates" -ForegroundColor Yellow
 }
 
 # Update PCF ControlManifest.Input.xml files
@@ -178,11 +369,15 @@ if (Test-Path $pcfPath) {
             Write-Host "Processing PCF manifest file: $($manifestFile.FullName)" -ForegroundColor Cyan
             
             try {
-                # Read the file as text to preserve formatting
-                $manifestContent = Get-Content $manifestFile.FullName | Out-String
+                # Read the file as text to preserve formatting - use -Raw to get exact content
+                $manifestContent = Get-Content $manifestFile.FullName -Raw
                 $originalContent = $manifestContent
                 
                 # Update ONLY the version attribute in the control element (not other version attributes)
+                # Use only the first 3 parts of the version number for PCF controls
+                $pcfVersionParts = $VersionNumber -split '\.'
+                $pcfVersion = "$($pcfVersionParts[0]).$($pcfVersionParts[1]).$($pcfVersionParts[2])"
+                
                 # Use a more specific pattern that only matches within the control element
                 $lines = $manifestContent -split "`n"
                 $updatedLines = @()
@@ -190,7 +385,7 @@ if (Test-Path $pcfPath) {
                 
                 foreach ($line in $lines) {
                     if ($line -match '<control\s+.*version="[0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?".*>') {
-                        $line = $line -replace 'version="[0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?"', "version=`"$VersionNumber`""
+                        $line = $line -replace 'version="[0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?"', "version=`"$pcfVersion`""
                         $controlElementFound = $true
                     }
                     $updatedLines += $line
@@ -198,12 +393,12 @@ if (Test-Path $pcfPath) {
                 
                 if ($controlElementFound) {
                     $manifestContent = $updatedLines -join "`n"
-                    Write-Host "  Updated control version attribute" -ForegroundColor Green
+                    Write-Host "  Updated control version attribute to $pcfVersion" -ForegroundColor Green
                 }
                 
                 # Only write the file if there were actual changes
                 if ($manifestContent -ne $originalContent) {
-                    Set-Content -Path $manifestFile.FullName -Value $manifestContent -Encoding UTF8
+                    [System.IO.File]::WriteAllText($manifestFile.FullName, $manifestContent, [System.Text.Encoding]::UTF8)
                     Write-Host "  PCF manifest file updated successfully" -ForegroundColor Green
                 } else {
                     Write-Host "  No version updates needed in this file" -ForegroundColor Yellow

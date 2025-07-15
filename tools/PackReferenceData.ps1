@@ -11,31 +11,31 @@
     The script temporarily installs XrmCIFramework, packages the data, and then cleans up
     the temporary installation to avoid polluting the workspace.
 
-.PARAMETER dataRelativePath
+.PARAMETER DataRelativePath
     The relative path containing XML files to package.
-    Default is ".\ReferenceData".
+    Default is ".\src\ReferenceData".
 
-.PARAMETER environment
+.PARAMETER Environment
     The source environment name used to locate XML files in subfolders.
     Valid values: DEV, INT, QA, PreProd, Prod, Hotfix, Training, Common.
     Default is "Common".
 
-.PARAMETER dryRun
+.PARAMETER DryRun
     When set to $true (default), the script will show what would be packaged without
     actually performing the packaging. Set to $false to perform the actual packaging.
 
 .EXAMPLE
-    .\PackageReferenceData.ps1 -environment "DEV"
+    .\PackageReferenceData.ps1 -Environment "DEV"
     
     Performs a dry run packaging of reference data from the DEV environment folder.
 
 .EXAMPLE
-    .\PackageReferenceData.ps1 -environment "Common" -dryRun $false
+    .\PackageReferenceData.ps1 -Environment "Common" -DryRun $false
     
     Packages reference data from the Common environment folder into a data file.
 
 .EXAMPLE
-    .\PackageReferenceData.ps1 -dataRelativePath ".\CustomData" -environment "QA" -dryRun $false
+    .\PackageReferenceData.ps1 -DataRelativePath ".\CustomData" -Environment "QA" -DryRun $false
     
     Packages reference data from a custom path for the QA environment.
 
@@ -55,8 +55,8 @@
     3. Create a compressed data file in .\bin\Data_{environment}.zip
     4. Clean up temporary files and uninstall the package
     
-    Input files are expected at: {dataRelativePath}\{environment}\*.xml
-    Output file is created at: .\bin\Data_{environment}.zip
+    Input files are expected at: {DataRelativePath}\{Environment}\*.xml
+    Output file is created at: .\bin\Data_{Environment}.zip
 
 .LINK
     https://github.com/WaelHamze/xrm-ci-framework
@@ -64,34 +64,34 @@
 
 param(
     [Parameter(Mandatory = $false, HelpMessage = "The relative path containing XML files to package")]
-    [string]$dataRelativePath = ".\ReferenceData",
+    [string]$DataRelativePath = ".\src\ReferenceData",
 
     [Parameter(Mandatory = $false, HelpMessage = "Environment: DEV, INT, QA, PreProd, Prod, Hotfix, Training, Common")]
     [ValidateSet("DEV", "INT", "QA", "PreProd", "Prod", "Hotfix", "Training", "Common")]
-    [string]$environment = "Common",
+    [string]$Environment = "Common",
     
     [Parameter(Mandatory = $false, HelpMessage = "Set to false to perform actual packaging, true for dry run")]
-    [bool]$dryRun = $true
+    [bool]$DryRun = $true
 )
 
 function PackageReferenceData {
     param(
-        [string]$dataRelativePath,
-        [string]$environment,
-        [bool]$dryRun
+        [string]$DataRelativePath,
+        [string]$Environment,
+        [bool]$DryRun
     )
 
     Write-Host "Starting reference data packaging process..." -ForegroundColor Cyan
-    Write-Host "Source Path: $dataRelativePath\$environment" -ForegroundColor White
-    Write-Host "Environment: $environment" -ForegroundColor White
-    Write-Host "Dry Run Mode: $dryRun" -ForegroundColor White
+    Write-Host "Source Path: $DataRelativePath\$Environment" -ForegroundColor White
+    Write-Host "Environment: $Environment" -ForegroundColor White
+    Write-Host "Dry Run Mode: $DryRun" -ForegroundColor White
     Write-Host ""
 
     # Construct paths
-    $sourcePath = Join-Path -Path $dataRelativePath -ChildPath $environment
-    $dataFile = ".\bin\Data_$environment.zip"
+    $sourcePath = Join-Path -Path $DataRelativePath -ChildPath $Environment
+    $dataFile = ".\bin\Data_$Environment.zip"
 
-    if ($dryRun) {
+    if ($DryRun) {
         Write-Host "[DRY RUN] Would package XML files from: $sourcePath" -ForegroundColor Yellow
         Write-Host "[DRY RUN] Would create data file: $dataFile" -ForegroundColor Yellow
         Write-Host "[DRY RUN] XML files would be combined into single data package" -ForegroundColor Yellow
@@ -208,9 +208,9 @@ function PackageReferenceData {
 }
 
 # Execute the packaging
-$success = PackageReferenceData -dataRelativePath $dataRelativePath -environment $environment -dryRun $dryRun
+$success = PackageReferenceData -DataRelativePath $DataRelativePath -Environment $Environment -DryRun $DryRun
 
-if ($dryRun) {
+if ($DryRun) {
     Write-Host "Dry run completed. Use -dryRun `$false to perform actual packaging." -ForegroundColor Yellow
 }
 elseif ($success) {
