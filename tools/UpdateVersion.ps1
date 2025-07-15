@@ -12,6 +12,7 @@
     - Plugin assembly versions in Solution.xml RootComponents (excluding PublicKeyToken=null entries)
     - Plugin assembly XML files (.data.xml) with FullName, FileName, and AssemblyQualifiedName attributes
     - SdkMessageProcessingStep XML files with PluginTypeName version references
+    - version element in pluginpackage.xml files for all Plugin Packages
     - PCF control manifest files (ControlManifest.Input.xml) using first 3 parts of version only
     
     Version Merging Logic:
@@ -389,6 +390,65 @@ if($null -ne $SdkMessageProcessingStepsPath) {
     }
 } else {
     Write-Host "SdkMessageProcessingSteps directory not found, skipping step updates" -ForegroundColor Yellow
+}
+
+# Update Plugin Package XML files
+Write-Host "`n--- Updating Plugin Package XML Files ---" -ForegroundColor Cyan
+
+$pluginPackagesRelativePath = ".\src\Solutions\$SolutionName\src\pluginpackages"
+if (Test-Path $pluginPackagesRelativePath) {
+    $pluginPackagesPath = (Resolve-Path $pluginPackagesRelativePath).Path
+    Write-Host "Plugin packages path: $pluginPackagesPath" -ForegroundColor Cyan
+    
+    # Find all pluginpackage.xml files in the plugin packages directory
+    $pluginPackageXmlFiles = Get-ChildItem -Path $pluginPackagesPath -Recurse -Filter "pluginpackage.xml" -ErrorAction SilentlyContinue
+
+    if ($pluginPackageXmlFiles.Count -eq 0) {
+        Write-Host "No pluginpackage.xml files found in: $pluginPackagesPath" -ForegroundColor Yellow
+    } else {
+        foreach ($xmlFile in $pluginPackageXmlFiles) {
+            Write-Host "Processing plugin package file: $($xmlFile.FullName)" -ForegroundColor Cyan
+            
+            try {
+                # Read the file as text to preserve formatting - use -Raw to get exact content
+                $packageContent = Get-Content $xmlFile.FullName -Raw
+                $originalContent = $packageContent
+                
+                # Update Version element
+                # Pattern matches: <version>x.x.x</version> or <version>x.x.x.x</version>
+                $versionPattern = '<version>([0-9]+\.[0-9]+\.[0-9]+(?:\.[0-9]+)?)</version>'
+                $versionMatch = [regex]::Match($packageContent, $versionPattern)
+                
+                if ($versionMatch.Success) {
+                    $oldVersion = $versionMatch.Groups[1].Value
+                    Write-Host "  Current version: $oldVersion" -ForegroundColor Yellow
+                    
+                    # Use only the first 3 parts of the version number for plugin packages (major.minor.patch)
+                    $versionParts = $VersionNumber -split '\.'
+                    $pluginPackageVersion = "$($versionParts[0]).$($versionParts[1]).$($versionParts[2])"
+                    
+                    # Replace the version with the truncated version number
+                    $packageContent = $packageContent -replace $versionPattern, "<version>$pluginPackageVersion</version>"
+                    Write-Host "  Updated Version element from $oldVersion to $pluginPackageVersion" -ForegroundColor Green
+                } else {
+                    Write-Host "  WARNING: Version element not found in plugin package file" -ForegroundColor Yellow
+                }
+                
+                # Only write the file if there were actual changes
+                if ($packageContent -ne $originalContent) {
+                    [System.IO.File]::WriteAllText($xmlFile.FullName, $packageContent, [System.Text.Encoding]::UTF8)
+                    Write-Host "  Plugin package file updated successfully" -ForegroundColor Green
+                } else {
+                    Write-Host "  No version updates needed in this file" -ForegroundColor Yellow
+                }
+            } catch {
+                Write-Host "  ERROR: Failed to process file - $($_.Exception.Message)" -ForegroundColor Red
+                $overallSuccess = $false
+            }
+        }
+    }
+} else {
+    Write-Host "Plugin packages directory not found: $pluginPackagesRelativePath" -ForegroundColor Yellow
 }
 
 # Update PCF ControlManifest.Input.xml files

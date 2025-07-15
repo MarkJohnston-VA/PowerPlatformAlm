@@ -214,6 +214,10 @@ if (-not (Test-Path $configFilePath)) {
                 Set-Location $solutionFolderPath.Path
                 Write-Host "Working directory set to: $($solutionFolderPath.Path)" -ForegroundColor Yellow
 
+                # Use only the first 3 parts of the version number for plugin packages (major.minor.patch)
+                $versionParts = $VersionNumber -split '\.'
+                $pluginPackageVersion = "$($versionParts[0]).$($versionParts[1]).$($versionParts[2])"
+
                 foreach ($package in $configContent.pluginPackages) {
                     $shortName = $package.shortName
                     $projectFolder = $package.projectFolder
@@ -225,7 +229,7 @@ if (-not (Test-Path $configFilePath)) {
  <PropertyGroup>
   <LinkedProject>..\..\$projectFolder\$($projectName).csproj</LinkedProject>
   <$($shortName)Target>src\pluginpackages\$($packageName)\package\$($packageName).nupkg</$($shortName)Target>
-  <$($shortName)Source>..\..\$($projectFolder)\bin\`$(Configuration)\$($projectName).1.0.0.nupkg</$($shortName)Source>
+  <$($shortName)Source>..\..\$($projectFolder)\bin\`$(Configuration)\$($projectName).$($pluginPackageVersion).nupkg</$($shortName)Source>
  </PropertyGroup>
  <MSBuild Projects="`$(LinkedProject)" Targets="Clean;Build;Pack">
  </MSBuild>
@@ -268,23 +272,26 @@ if (-not (Test-Path $configFilePath)) {
                                 }
                             }
                             
-                            # Check if the target already exists to avoid duplicates
-                            if ($projectContent -notmatch "<Target Name=`"$targetName`">") {
-                                # Find the closing </Project> tag and insert the new target before it
-                                $insertionPoint = $projectContent.LastIndexOf("</Project>")
-                                if ($insertionPoint -gt 0) {
-                                    # Insert the new target with proper indentation
-                                    $indentedTarget = $newTarget -replace '^', '  ' -replace '\n', "`n  "
-                                    $projectContent = $projectContent.Substring(0, $insertionPoint) + 
-                                                    "`n" + $indentedTarget + "`n" + 
-                                                    $projectContent.Substring($insertionPoint)
-                                    
-                                    Write-Host "Successfully injected target '$targetName' into project file" -ForegroundColor Green
-                                } else {
-                                    Write-Host "WARNING: Could not find </Project> tag in project file" -ForegroundColor Yellow
-                                }
+                            # Always replace the target block, even if it already exists
+                            if ($projectContent -match "<Target Name=`"$targetName`">") {
+                                # Target exists, remove the existing one first
+                                $targetPattern = "(?s)<Target Name=`"$targetName`">.*?</Target>"
+                                $projectContent = $projectContent -replace $targetPattern, ""
+                                Write-Host "Removed existing target '$targetName' from project file" -ForegroundColor Yellow
+                            }
+                            
+                            # Find the closing </Project> tag and insert the new target before it
+                            $insertionPoint = $projectContent.LastIndexOf("</Project>")
+                            if ($insertionPoint -gt 0) {
+                                # Insert the new target with proper indentation
+                                $indentedTarget = $newTarget -replace '^', '  ' -replace '\n', "`n  "
+                                $projectContent = $projectContent.Substring(0, $insertionPoint) + 
+                                                "`n" + $indentedTarget + "`n" + 
+                                                $projectContent.Substring($insertionPoint)
+                                
+                                Write-Host "Successfully injected target '$targetName' into project file" -ForegroundColor Green
                             } else {
-                                Write-Host "Target '$targetName' already exists in project file, skipping target injection" -ForegroundColor Yellow
+                                Write-Host "WARNING: Could not find </Project> tag in project file" -ForegroundColor Yellow
                             }
                             
                             # Write the updated content back to the file (includes DefaultTargets changes)
