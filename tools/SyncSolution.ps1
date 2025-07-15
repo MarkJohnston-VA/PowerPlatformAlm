@@ -1,19 +1,22 @@
 <#
 .SYNOPSIS
-    Syncs a Power Platform solution and extracts Canvas Apps to source-friendly format.
+    Syncs a Power Platform solution from environment, extracts Canvas Apps, and cleans plugin DLL files.
 
 .DESCRIPTION
-    This script automates the process of syncing a Power Platform solution from the environment
-    and then extracting any Canvas Apps to their source-friendly format for version control.
+    This script automates the complete solution synchronization process from a Power Platform environment
+    with post-sync cleanup and optimization. It performs the following comprehensive steps:
     
-    The script performs the following steps:
-    1. Runs 'pac solution sync' to sync the solution from the Power Platform environment
-    2. Calls ExtractCanvasApps.ps1 to extract any Canvas Apps found in the synced solution
+    1. Runs 'pac solution sync' to sync the solution from the Power Platform environment (with optional mapping file)
+    2. Calls ExtractCanvasApps.ps1 to extract Canvas Apps to source-friendly format and delete .msapp files
+    3. Cleans up plugin assembly DLL files from the PluginAssemblies directory (removes binary files from source control)
+    
+    This provides a complete solution sync workflow optimized for source control, removing binary files
+    that should not be version controlled while preserving all source-friendly formats.
 
 .PARAMETER SolutionName
     The name of the Power Platform solution to sync. This should match the solution name 
     in your Power Platform environment and the folder name under src\Solutions\.
-    Example: "MarkTestSmall20250627"
+    Example: "TestRelease_20250801"
 
 .PARAMETER MapFileName
     Optional. The name of the mapping file to use for solution sync. If specified, this file
@@ -23,33 +26,40 @@
 .EXAMPLE
     .\SyncSolution.ps1 -SolutionName "TestRelease_20250801"
     
-    Syncs the TestRelease_20250801 solution without a mapping file and extracts any Canvas Apps found.
+    Syncs the TestRelease_20250801 solution without a mapping file, extracts Canvas Apps to source format,
+    deletes .msapp files, and cleans up plugin DLL files.
 
 .EXAMPLE
     .\SyncSolution.ps1 -SolutionName "TestRelease_20250801" -MapFileName "map.xml"
     
-    Syncs the TestRelease_20250801 solution using the map.xml mapping file and extracts any Canvas Apps found.
+    Syncs the TestRelease_20250801 solution using the map.xml mapping file, extracts Canvas Apps,
+    and performs complete cleanup of binary files.
 
 .EXAMPLE
     .\SyncSolution.ps1 -SolutionName "MyCustomSolution" -MapFileName "custom-map.xml"
     
-    Syncs the MyCustomSolution using a custom mapping file and extracts any Canvas Apps found.
+    Syncs MyCustomSolution using a custom mapping file with full post-sync processing.
 
 .NOTES
     File Name      : SyncSolution.ps1
-    Author         : Power Platform ALM Team
+    Author         : Mark Johnston (with GitHub Copilot) - Mark.Johnston@va.gov
     Prerequisite   : PowerShell 5.1+, Power Platform CLI (pac)
     
     Dependencies:
-    - Power Platform CLI must be installed and authenticated
+    - Power Platform CLI must be installed and authenticated to target environment
     - ExtractCanvasApps.ps1 must be in the same tools directory
     - Solution must exist in the connected Power Platform environment
+    
+    Post-Sync Processing:
+    - Canvas Apps: Extracted to src/CanvasApps/src/{AppName} directories, .msapp files deleted
+    - Plugin Assemblies: All .dll files removed from src/PluginAssemblies directory tree
+    - Source Control Optimization: Only source-friendly files remain after processing
     
     Exit Codes:
     - 0: Success
     - 1: Solution folder not found
     - 2: pac solution sync failed
-    - 3: Canvas app extraction failed
+    - 3: Canvas app extraction failed (sync still completed)
 
 .LINK
     Power Platform ALM Documentation: https://docs.microsoft.com/power-platform/alm/

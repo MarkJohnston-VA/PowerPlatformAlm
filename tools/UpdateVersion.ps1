@@ -1,29 +1,65 @@
 <#
 .SYNOPSIS
-    Updates version numbers in Power Platform solution XML files using an environment variable.
+    Updates version numbers across Power Platform solution components with advanced version merging logic.
 
 .DESCRIPTION
-    This script updates version numbers in Solution.xml files and Plugin Assembly XML files
-    to use the value from the RELEASE_VERSION_NUMBER environment variable. This allows version 
-    numbers to be dynamically set during build/deployment processes.
+    This script comprehensively updates version numbers across all Power Platform solution components 
+    using advanced version merging logic. It preserves the current major.minor version while applying 
+    the new build.revision numbers, ensuring version consistency without breaking existing references.
     
-    The script updates:
-    - Version element in Solution.xml files
-    - FullName attribute in PluginAssembly elements
-    - AssemblyQualifiedName attributes in PluginType elements
+    The script updates the following components:
+    - Solution.xml version element (full 4-part version)
+    - Plugin assembly versions in Solution.xml RootComponents (excluding PublicKeyToken=null entries)
+    - Plugin assembly XML files (.data.xml) with FullName, FileName, and AssemblyQualifiedName attributes
+    - SdkMessageProcessingStep XML files with PluginTypeName version references
+    - PCF control manifest files (ControlManifest.Input.xml) using first 3 parts of version only
+    
+    Version Merging Logic:
+    - For existing version A.B.C.D and new version X.Y.Z.W
+    - Result will be A.B.Z.W (preserves current major.minor, uses new build.revision)
+    - This prevents breaking changes while updating build information
 
 .PARAMETER SolutionName
-    The name of the solution (without file extension) to update.
-    This parameter is required.
+    The name of the Power Platform solution to update. This should match the folder name under src\Solutions\.
+    Example: "TestRelease_20250801"
 
 .PARAMETER VersionNumber
-    The version number to set. If not provided, will use the RELEASE_VERSION_NUMBER environment variable.
-    If neither is provided, the script will exit with an error.
-
+    The version number in x.x.x.x format. If not provided, uses the RELEASE_VERSION_NUMBER environment variable.
+    The version merging logic will be applied to preserve existing major.minor versions.
+    Example: "1.0.5.23"
 
 .EXAMPLE
-    .\UpdateVersion.ps1 -SolutionName "MySolution" -VersionNumber "1.0.0.0"
-    Updates the version in a specific solution file.
+    .\UpdateVersion.ps1 -SolutionName "TestRelease_20250801" -VersionNumber "1.0.5.23"
+    
+    Updates all components in TestRelease_20250801 solution. If existing version is 2.1.3.4, 
+    the result will be 2.1.5.23 (preserving 2.1, using 5.23 from new version).
+
+.EXAMPLE
+    $env:RELEASE_VERSION_NUMBER = "1.2.0.15"
+    .\UpdateVersion.ps1 -SolutionName "MyCustomSolution"
+    
+    Updates all components using the environment variable version with merging logic applied.
+
+.NOTES
+    File Name      : UpdateVersion.ps1
+    Author         : Mark Johnston (with GitHub Copilot) - Mark.Johnston@va.gov
+    Prerequisite   : PowerShell 5.1+
+    
+    Features:
+    - Advanced version merging (preserves major.minor, updates build.revision)
+    - Regex exclusion of PublicKeyToken=null entries
+    - Manual regex processing to avoid PowerShell script block variable scope issues
+    - Text-based file updates preserving original formatting
+    - PCF control version handling (3-part version format)
+    - Comprehensive error handling and validation
+    
+    Exit Codes:
+    - 0: Success
+    - 1: Invalid or missing version number
+
+.LINK
+    Power Platform ALM Documentation: https://docs.microsoft.com/power-platform/alm/
+
 #>
 
 param(

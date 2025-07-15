@@ -1,14 +1,15 @@
 ﻿<#
 .SYNOPSIS
-    Extracts Power Platform Canvas Apps from .msapp files to source-friendly format.
+    Extracts Power Platform Canvas Apps from .msapp files to source-friendly format and deletes original files.
 
 .DESCRIPTION
     This script searches for Canvas App .msapp files within a specified solution path and extracts them
-    into separate source directories. This allows Canvas Apps to be stored in source control in an 
-    editable format rather than as binary .msapp files.
+    into separate source directories, then deletes the original .msapp files. This allows Canvas Apps 
+    to be stored in source control in an editable format rather than as binary .msapp files.
     
     The script uses the Power Platform CLI (pac) to unpack Canvas Apps into their constituent source files,
-    making them suitable for version control, collaborative development, and CI/CD pipelines.
+    making them suitable for version control, collaborative development, and CI/CD pipelines. After successful
+    extraction, the original .msapp files are automatically deleted to avoid storing binary files in source control.
 
 .PARAMETER SolutionPath
     The path to the solution directory containing Canvas Apps (.msapp files) to extract.
@@ -16,28 +17,38 @@
 
 .PARAMETER DryRun
     When set to $true (default), the script will only display what would be extracted without actually
-    performing the extraction. Set to $false to perform the actual extraction.
+    performing the extraction. Set to $false to perform the actual extraction and deletion.
 
 .EXAMPLE
-    .\ExtractCanvasApps.ps1 -SolutionPath "MarkTestSmall20250627" -DryRun $true
+    .\ExtractCanvasApps.ps1 -SolutionPath "C:\MyProject\src\Solutions\TestRelease_20250801" -DryRun $true
 
-    Performs a dry run to show which Canvas Apps would be extracted without actually extracting them.
+    Performs a dry run to show which Canvas Apps would be extracted without actually extracting them or deleting files.
 
 .EXAMPLE
-    .\ExtractCanvasApps.ps1 -SolutionPath "MarkTestSmall20250627" -DryRun $false
+    .\ExtractCanvasApps.ps1 -SolutionPath "C:\MyProject\src\Solutions\TestRelease_20250801" -DryRun $false
 
-    Extracts all Canvas Apps found in the specified solution path to their respective source directories.
+    Extracts all Canvas Apps found in the specified solution path to their respective source directories
+    and deletes the original .msapp files after successful extraction.
 
 .NOTES
-    Author: Mark Johnston
-    Date: June 30, 2025
+    File Name      : ExtractCanvasApps.ps1
+    Author         : Mark Johnston (with GitHub Copilot) - Mark.Johnston@va.gov
+    Date           : Updated 2025
     
     Prerequisites:
     - Power Platform CLI (pac) must be installed and available in the system PATH
     - Appropriate permissions to read .msapp files and write to the solution directory
+    - Appropriate permissions to delete .msapp files after extraction
     
-    The script creates a 'src' subdirectory for each Canvas App, using the app name 
-    (extracted before the '_DocumentUri' suffix) as the folder name.
+    Processing:
+    - Creates a 'src' subdirectory for each Canvas App, using the app name (extracted before the '_DocumentUri' suffix)
+    - Extracts Canvas App source files using 'pac canvas unpack'
+    - Deletes original .msapp files after successful extraction
+    - Provides detailed progress feedback and error handling
+    
+    File Naming Convention:
+    - Expected format: {AppName}_DocumentUri.msapp
+    - Output directory: src/{AppName}/
 
 .LINK
     https://docs.microsoft.com/en-us/power-platform/developer/cli/reference/canvas

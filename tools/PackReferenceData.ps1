@@ -40,7 +40,7 @@
     Packages reference data from a custom path for the QA environment.
 
 .NOTES
-    Author: Mark Johnston (Mark.Johnston@va.gov)
+    Author: Mark Johnston (with GitHub Copilot) - Mark.Johnston@va.gov
     Date: July 2, 2025
     
     Prerequisites:

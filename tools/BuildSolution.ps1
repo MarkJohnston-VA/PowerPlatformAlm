@@ -1,28 +1,37 @@
 <#
 .SYNOPSIS
-    Builds a Power Platform solution by packing canvas apps, updating version numbers, and compiling the solution.
+    Builds a Power Platform solution with comprehensive automation including plugin packaging and MSBuild integration.
 
 .DESCRIPTION
-    This script automates the complete build process for a Power Platform solution by performing the following steps:
-    1. Validates the provided version number format
-    2. Packs any canvas apps in the solution using PackCanvasApps.ps1
-    3. Updates version numbers in Solution.xml, plugin assemblies, and PCF controls using UpdateVersion.ps1
-    4. Builds the solution using dotnet build with the specified version
+    This script provides complete build automation for Power Platform solutions with advanced features including:
+    1. Validates the provided version number format (x.x.x.x semantic versioning)
+    2. Packs Canvas Apps using PackCanvasApps.ps1 and deletes source .msapp files after extraction
+    3. Updates version numbers across all solution components using UpdateVersion.ps1 with advanced version merging
+    4. Adds project references from SolutionBuildConfiguration.json
+    5. Injects plugin package build targets into MSBuild project files with proper DefaultTargets management
+    6. Builds the solution using dotnet build with Release configuration
+
+    Advanced Features:
+    - Plugin Package Integration: Automatically injects MSBuild targets for plugin packages defined in configuration
+    - DefaultTargets Management: Handles semicolon-separated MSBuild targets with malformed target detection and correction
+    - Project Reference Automation: Adds both plugin projects and PCF controls from configuration file
+    - Canvas App Automation: Packs apps and cleans up source files for deployment readiness
 
     The script expects a specific folder structure:
     - Solution source files in: src\Solutions\{SolutionName}\
-    - Build tools in: tools\ directory
+    - Build tools in: tools\ directory  
     - Solution project file: {SolutionName}.cdsproj
+    - Configuration file: src\SolutionBuildConfiguration.json
 
 .PARAMETER SolutionName
     The name of the Power Platform solution to build. This should match the folder name under src\Solutions\.
-    Example: "MarkTestSmall20250627"
+    Example: "TestRelease_20250801"
 
 .PARAMETER VersionNumber
     The version number to apply to the solution in x.x.x.x format (semantic versioning with build number).
-    This version will be applied to:
-    - Solution.xml (full 4-part version)
-    - Plugin assembly files (full 4-part version)
+    This version will be applied using advanced merging logic:
+    - Solution.xml (full 4-part version with merging applied)
+    - Plugin assembly files (full 4-part version with merging applied)  
     - PCF controls (first 3 parts only, e.g., x.x.x)
     
     Example: "2.1.0.0"
@@ -30,22 +39,34 @@
 .EXAMPLE
     .\BuildSolution.ps1 -SolutionName "TestRelease_20250801" -VersionNumber "2.1.0.0"
 
-    Builds the TestRelease_20250801 solution with version 2.1.0.0
+    Builds the TestRelease_20250801 solution with version 2.1.0.0, including:
+    - Canvas app packing and cleanup
+    - Version updating with merging logic  
+    - Plugin package build target injection
+    - Project reference addition
+    - Complete MSBuild compilation
 
 .EXAMPLE
     .\BuildSolution.ps1 -SolutionName "MyCustomSolution" -VersionNumber "1.0.5.23"
     
-    Builds the MyCustomSolution with version 1.0.5.23
+    Builds MyCustomSolution with plugin packaging automation and version 1.0.5.23
 
 .NOTES
     File Name      : BuildSolution.ps1
-    Author         : Power Platform ALM Team
-    Prerequisite   : PowerShell 5.1+, .NET SDK, Power Platform CLI (if canvas apps present)
+    Author         : Mark Johnston (with GitHub Copilot) - Mark.Johnston@va.gov
+    Prerequisite   : PowerShell 5.1+, .NET SDK, Power Platform CLI (for canvas apps)
     
     Dependencies:
-    - PackCanvasApps.ps1 (for canvas app packaging)
-    - UpdateVersion.ps1 (for version number updates)
-    - {SolutionName}.cdsproj (solution project file)
+    - PackCanvasApps.ps1 (for canvas app packaging and cleanup)
+    - UpdateVersion.ps1 (for comprehensive version updating with merging logic)
+    - SolutionBuildConfiguration.json (for project references and plugin packages)
+    - {SolutionName}.cdsproj (MSBuild solution project file)
+    
+    Plugin Package Features:
+    - Automatic MSBuild target injection for each plugin package
+    - DefaultTargets attribute management with semicolon separation
+    - Malformed target detection and correction
+    - Plugin project building, packing, and copying to solution
     
     Exit Codes:
     - 0: Success

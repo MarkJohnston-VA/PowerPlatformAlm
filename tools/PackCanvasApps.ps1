@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Packs Power Platform Canvas Apps from source files back to .msapp format.
+    Packs Power Platform Canvas Apps from source files back to .msapp format for deployment.
 
 .DESCRIPTION
     This script searches for Canvas App source directories within a specified solution path and packs them
@@ -8,13 +8,13 @@
     to convert their source-controlled Canvas App files back to the binary format required for deployment.
     
     The script uses the Power Platform CLI (pac) to pack Canvas App source files into .msapp files,
-    making them ready for solution import and deployment to Power Platform environments.
+    making them ready for solution build and deployment to Power Platform environments.
 
-    This assumes the folder naming convention used by the Microsoft tooling, specifically that a child
-    folder named CanvasApps\src contains the source files for each Canvas App.
+    This follows the Microsoft tooling folder convention where Canvas App source files are stored in
+    src/CanvasApps/src/{AppName}/ directories and packed to src/CanvasApps/{AppName}_DocumentUri.msapp files.
 
 .PARAMETER SolutionPath
-    The physical path to the solution directory containing Solution source files to pack.
+    The physical path to the solution directory containing Canvas App source files to pack.
     This should be the root directory of your Power Platform solution.
 
 .PARAMETER DryRun
@@ -22,31 +22,39 @@
     performing the packing operation. Set to $false to perform the actual packing.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\VA\CDCEP\Release202503" -DryRun $true
+    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\Personal\PowerPlatformAlm\src\Solutions\TestRelease_20250801" -DryRun $true
     
-    Performs a dry run to show which Solution source files would be packed without actually packing them.
+    Performs a dry run to show which Canvas App source directories would be packed without actually packing them.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\VA\CDCEP\Release202503" -DryRun $false
+    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\Personal\PowerPlatformAlm\src\Solutions\TestRelease_20250801" -DryRun $false
     
-    Packs all Canvas App source directories found in the specified solution path to .msapp files.
+    Packs all Canvas App source directories found in the specified solution path to .msapp files ready for deployment.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\VA\CDCEP\Release202503"
+    .\PackCanvasApps.ps1 -SolutionPath "C:\MyProject\src\Solutions\MyCustomSolution"
     
-    Performs a dry run (default behavior) for Solution source files in the specified absolute path.
+    Performs a dry run (default behavior) for Canvas App source files in the specified absolute path.
 
 .NOTES
-    Author: Mark Johnston
-    Date: June 30, 2025
+    File Name      : PackCanvasApps.ps1
+    Author         : Mark Johnston (with GitHub Copilot) - Mark.Johnston@va.gov
+    Date           : Updated 2025
     
     Prerequisites:
     - Power Platform CLI (pac) must be installed and available in the system PATH
     - Canvas App source directories must exist (typically created by ExtractCanvasApps.ps1)
     - Appropriate permissions to read source directories and write .msapp files
     
-    The script looks for Canvas App source directories in the 'src/CanvasApps/src' path structure
-    and creates corresponding .msapp files with '_DocumentUri.msapp' suffix.
+    Folder Structure Expected:
+    - Input: {SolutionPath}/src/CanvasApps/src/{AppName}/ (source files)
+    - Output: {SolutionPath}/src/CanvasApps/{AppName}_DocumentUri.msapp (packed file)
+    
+    Features:
+    - Validates source directories exist before packing
+    - Provides detailed file size information for created .msapp files
+    - Comprehensive error handling and progress reporting
+    - Integration with Power Platform build processes
 
 .LINK
     https://docs.microsoft.com/en-us/power-platform/developer/cli/reference/canvas
