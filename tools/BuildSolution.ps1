@@ -274,8 +274,8 @@ if (-not (Test-Path $configFilePath)) {
                             
                             # Always replace the target block, even if it already exists
                             if ($projectContent -match "<Target Name=`"$targetName`">") {
-                                # Target exists, remove the existing one first
-                                $targetPattern = "(?s)<Target Name=`"$targetName`">.*?</Target>"
+                                # Target exists, remove the existing one first (including surrounding whitespace)
+                                $targetPattern = "(?s)\s*<Target Name=`"$targetName`">.*?</Target>\s*"
                                 $projectContent = $projectContent -replace $targetPattern, ""
                                 Write-Host "Removed existing target '$targetName' from project file" -ForegroundColor Yellow
                             }
@@ -283,11 +283,13 @@ if (-not (Test-Path $configFilePath)) {
                             # Find the closing </Project> tag and insert the new target before it
                             $insertionPoint = $projectContent.LastIndexOf("</Project>")
                             if ($insertionPoint -gt 0) {
-                                # Insert the new target with proper indentation
+                                # Ensure there's no trailing whitespace before </Project>
+                                $beforeProject = $projectContent.Substring(0, $insertionPoint).TrimEnd()
+                                $afterProject = $projectContent.Substring($insertionPoint)
+                                
+                                # Insert the new target with proper indentation, single newline before </Project>
                                 $indentedTarget = $newTarget -replace '^', '  ' -replace '\n', "`n  "
-                                $projectContent = $projectContent.Substring(0, $insertionPoint) + 
-                                                "`n" + $indentedTarget + "`n" + 
-                                                $projectContent.Substring($insertionPoint)
+                                $projectContent = $beforeProject + "`n`n" + $indentedTarget + "`n" + $afterProject
                                 
                                 Write-Host "Successfully injected target '$targetName' into project file" -ForegroundColor Green
                             } else {
