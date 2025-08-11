@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{d4b5cd61-4caf-43ec-850a-a3b9341a4f3e}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_name" select="1" icon="1" preview="1">
+        <row name="result" id="bah_interactionsid">
+          <cell name="createdon" width="125" />
+          <cell name="createdby" width="125" />
+          <cell name="hrc_interactionno_text" width="100" />
+          <cell name="hrc_lobid" width="125" />
+          <cell name="bah_interactionsource_code" width="125" />
+          <cell name="bah_interactedwith_code" width="125" />
+          <cell name="vhacrm_typeintersectionid" width="100" />
+          <cell name="vhacrm_interactionpurposeid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="vhacrm_interactionsubpurposeid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="bah_veteranid" width="150" />
+          <cell name="ccwf_providerfacility_text" width="125" />
+          <cell name="ccwf_tin_text" width="100" />
+          <cell name="bah_facilityid" width="150" />
+          <cell name="bah_visnid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="bah_interactions">
+          <attribute name="createdon" />
+          <attribute name="bah_facilityid" />
+          <attribute name="bah_veteranid" />
+          <attribute name="hrc_lobid" />
+          <attribute name="createdby" />
+          <attribute name="hrc_interactionno_text" />
+          <attribute name="bah_visnid" />
+          <attribute name="vhacrm_typeintersectionid" />
+          <attribute name="bah_interactionsource_code" />
+          <attribute name="bah_interactedwith_code" />
+          <attribute name="ccwf_tin_text" />
+          <attribute name="ccwf_providerfacility_text" />
+          <order attribute="createdon" descending="true" />
+          <attribute name="vhacrm_interactionsubpurposeid" />
+          <attribute name="vhacrm_interactionpurposeid" />
+          <attribute name="bah_interactionsid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Interactions Advanced Find View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

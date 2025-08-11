@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c3536ae1-ab57-4ab0-8152-ddd00415e61a}</formid>
+    <IntroducedVersion>2020.09.30.01</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{21fca6e0-d676-4552-b5cc-9a499caaaa11}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{9888bce9-543b-44e6-bfbd-36161514b810}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c921a468-aecb-5c49-61a9-26aa127d5a41}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Interaction" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_interaction" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_interaction" disabled="true" uniqueid="{82965033-2032-5c76-4a76-09a983a52990}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{93626DC6-5E42-4130-BC6A-EF606E3644D7}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0588762e-89e7-8674-1b02-cc8ab245b146}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="PATS-R Case" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_patsrcase" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_patsrcase" disabled="true" uniqueid="{5185d88a-5081-6054-ea38-c79a9c4bca44}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{81dc33ac-07ac-0d01-dd1c-c3264378c189}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Request" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_request" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_request" disabled="true" uniqueid="{66ac9abe-2aee-40b3-5502-ec187d30a947}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{9AC51863-58C7-49A0-ADCC-AFD9A4C3EE59}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="AdminTab" id="{6996a7a3-0c4a-d7a0-2413-0893c6660ecb}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Administration" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="AdminSection" showlabel="false" showbar="false" locklevel="0" id="{de98d378-7d81-7362-b193-ce1d9e9a2bb4}" IsUserDefined="0" layout="varwidth" columns="111" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Administration" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a1a7748a-b641-7924-8c13-24c1325e6a43}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created By" languagecode="1033" />
+                        </labels>
+                        <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                      </cell>
+                      <cell id="{3a0c1e52-dbeb-c6a0-00c0-bd2059e79b57}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Modified By" languagecode="1033" />
+                        </labels>
+                        <control id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="false" />
+                      </cell>
+                      <cell id="{06d3602c-614a-5d45-b28e-c7b7a4551dc7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Status" languagecode="1033" />
+                        </labels>
+                        <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{59de17be-d78b-d680-b4e5-ac6ac2633ad3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created On" languagecode="1033" />
+                        </labels>
+                        <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                      </cell>
+                      <cell id="{8355d831-d350-3a88-4691-d88a56a38953}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Modified On" languagecode="1033" />
+                        </labels>
+                        <control id="modifiedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="false" />
+                      </cell>
+                      <cell id="{1762734a-6200-2b41-8a61-2e5bbac4ec0d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Status Reason" languagecode="1033" />
+                        </labels>
+                        <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{59237688-9e0d-b64d-4152-dcd22908bb99}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="PATS-R Case GUID" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_patsrcaseguid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_patsrcaseguid" disabled="true" uniqueid="{aa5b9d07-6b52-bdce-6478-44c7cb4b3548}" />
+                      </cell>
+                      <cell id="{6e51a9ec-fe56-4526-9658-cede510ae66e}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                      <cell id="{b2b06a42-b253-4a61-8a26-f84d628ac81c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" uniqueid="{b8222518-b3d5-403c-1238-982dda6261b8}" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="PATS-R Case" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

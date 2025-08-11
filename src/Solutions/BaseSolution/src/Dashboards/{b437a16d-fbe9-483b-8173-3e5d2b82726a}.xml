@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="R&amp;R Lead Dashboard" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{b437a16d-fbe9-483b-8173-3e5d2b82726a}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{21f4d2bb-9e1c-452b-a81d-ea5f34d75734}" labelid="{cd748cb6-af28-4067-af46-6c6193b40235}">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="1111" id="{0b3c5c3a-986f-4abd-bce6-6f4fcee368ad}" labelid="{e45932a5-486b-444f-9e0b-3abc23d8724f}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell id="{3aa334c9-c5a3-178b-205b-632e56c4437a}" showlabel="false" colspan="4" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Task" languagecode="1033" />
+                          </labels>
+                          <control id="Component5334829" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{aa76b33c-18dd-e5b9-2554-bdedd3d83888}">
+                            <parameters>
+                              <ViewId>{E4ADF6F2-04C4-E711-8118-1458D04EABA0}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>task</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <ViewIds>{8F7DE7C6-03C4-E711-8118-1458D04EABA0},{60B3BB95-04C4-E711-8118-1458D04EABA0},{AEF654B9-04C4-E711-8118-1458D04EABA0},{E4ADF6F2-04C4-E711-8118-1458D04EABA0}</ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{54E34604-EDC3-E711-8118-1458D04EABA0}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell colspan="2" rowspan="12" showlabel="false" id="{820e154d-b088-4bb9-9d26-e425970085d6}" auto="false" labelid="{f60fca2e-2abb-4b1c-849e-e3db9bcae3f2}">
+                          <labels>
+                            <label description="Queue Items" languagecode="1033" />
+                          </labels>
+                          <control id="Component4fb97e1" uniqueid="{8ce2a21e-49be-1126-3a65-8ce2e0adce0c}" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>queueitem</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <ViewId>{802EEEEA-2BC3-E711-811F-1458D04EF938}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{818C6CD6-9EF0-EB11-BACB-001DD8018ADE},{802EEEEA-2BC3-E711-811F-1458D04EF938},{DF960708-34C3-E711-811F-1458D04EF938},{8CF2D430-34C3-E711-811F-1458D04EF938}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{475E6F02-32AE-4081-8CB8-E3E24A9FBC0F}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                              <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="2" rowspan="12" showlabel="false" id="{453f1c58-67ec-474b-8cde-7c430bf7dd7f}" auto="false" labelid="{bb8631e3-7d74-4765-89ea-03fade6cc1dd}">
+                          <labels>
+                            <label description="Urgent Tasks" languagecode="1033" />
+                          </labels>
+                          <control id="Component985c3a8" uniqueid="{873c0cb2-5a6e-b0c1-8998-cb722bb4c37d}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>task</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <ViewId>{42A0B7CE-05C4-E711-8118-1458D04EABA0}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{28182A57-DAC3-E711-8118-1458D04EABA0},{42A0B7CE-05C4-E711-8118-1458D04EABA0}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{752FC8A8-ECC3-E711-8118-1458D04EABA0}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                              <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell id="{e37bdb1c-d87d-9eb3-bdb6-9749bde309a9}" showlabel="false" colspan="4" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Re-Route Histories" languagecode="1033" />
+                          </labels>
+                          <control id="Component3737432" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{65275dc7-2be6-8502-4641-1e6882456e74}">
+                            <parameters>
+                              <ViewId>{86909BD7-295F-EA11-A99F-001DD800951B}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>mcs_reroutehistory</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <ViewIds>{A42A0103-8801-EB11-A815-001DD801DF87},{86909BD7-295F-EA11-A99F-001DD800951B}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId />
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+        <controlDescriptions>
+          <controlDescription forControl="{8ce2a21e-49be-1126-3a65-8ce2e0adce0c}">
+            <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="0">
+              <parameters>
+                <TargetEntityType>queueitem</TargetEntityType>
+                <ChartGridMode>Grid</ChartGridMode>
+                <EnableQuickFind>false</EnableQuickFind>
+                <EnableViewPicker>true</EnableViewPicker>
+                <EnableJumpBar>true</EnableJumpBar>
+                <RecordsPerPage>8</RecordsPerPage>
+                <ViewId>{802EEEEA-2BC3-E711-811F-1458D04EF938}</ViewId>
+                <IsUserView>false</IsUserView>
+                <ViewIds>{818C6CD6-9EF0-EB11-BACB-001DD8018ADE},{802EEEEA-2BC3-E711-811F-1458D04EF938},{DF960708-34C3-E711-811F-1458D04EF938},{8CF2D430-34C3-E711-811F-1458D04EF938}</ViewIds>
+                <AutoExpand>Fixed</AutoExpand>
+                <VisualizationId>{475E6F02-32AE-4081-8CB8-E3E24A9FBC0F}</VisualizationId>
+                <IsUserChart>false</IsUserChart>
+                <EnableChartPicker>false</EnableChartPicker>
+                <RelationshipName />
+                <HeaderColorCode>#F5F6F8</HeaderColorCode>
+              </parameters>
+            </customControl>
+            <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="1">
+              <parameters>
+                <TargetEntityType>queueitem</TargetEntityType>
+                <ChartGridMode>Grid</ChartGridMode>
+                <EnableQuickFind>false</EnableQuickFind>
+                <EnableViewPicker>true</EnableViewPicker>
+                <EnableJumpBar>true</EnableJumpBar>
+                <RecordsPerPage>8</RecordsPerPage>
+                <ViewId>{802EEEEA-2BC3-E711-811F-1458D04EF938}</ViewId>
+                <IsUserView>false</IsUserView>
+                <ViewIds>{818C6CD6-9EF0-EB11-BACB-001DD8018ADE},{802EEEEA-2BC3-E711-811F-1458D04EF938},{DF960708-34C3-E711-811F-1458D04EF938},{8CF2D430-34C3-E711-811F-1458D04EF938}</ViewIds>
+                <AutoExpand>Fixed</AutoExpand>
+                <VisualizationId>{475E6F02-32AE-4081-8CB8-E3E24A9FBC0F}</VisualizationId>
+                <IsUserChart>false</IsUserChart>
+                <EnableChartPicker>false</EnableChartPicker>
+                <RelationshipName />
+                <HeaderColorCode>#F5F6F8</HeaderColorCode>
+              </parameters>
+            </customControl>
+            <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="2">
+              <parameters>
+                <TargetEntityType>queueitem</TargetEntityType>
+                <ChartGridMode>Grid</ChartGridMode>
+                <EnableQuickFind>false</EnableQuickFind>
+                <EnableViewPicker>true</EnableViewPicker>
+                <EnableJumpBar>true</EnableJumpBar>
+                <RecordsPerPage>8</RecordsPerPage>
+                <ViewId>{802EEEEA-2BC3-E711-811F-1458D04EF938}</ViewId>
+                <IsUserView>false</IsUserView>
+                <ViewIds>{818C6CD6-9EF0-EB11-BACB-001DD8018ADE},{802EEEEA-2BC3-E711-811F-1458D04EF938},{DF960708-34C3-E711-811F-1458D04EF938},{8CF2D430-34C3-E711-811F-1458D04EF938}</ViewIds>
+                <AutoExpand>Fixed</AutoExpand>
+                <VisualizationId>{475E6F02-32AE-4081-8CB8-E3E24A9FBC0F}</VisualizationId>
+                <IsUserChart>false</IsUserChart>
+                <EnableChartPicker>false</EnableChartPicker>
+                <RelationshipName />
+                <HeaderColorCode>#F5F6F8</HeaderColorCode>
+              </parameters>
+            </customControl>
+            <customControl name="MscrmControls.Grid.ReadOnlyGrid" formFactor="-1">
+              <parameters>
+                <data-set name="Grid">
+                  <ViewId>{802EEEEA-2BC3-E711-811F-1458D04EF938}</ViewId>
+                  <IsUserView>false</IsUserView>
+                  <TargetEntityType>queueitem</TargetEntityType>
+                  <EnableViewPicker>true</EnableViewPicker>
+                  <FilteredViewIds>{818C6CD6-9EF0-EB11-BACB-001DD8018ADE},{802EEEEA-2BC3-E711-811F-1458D04EF938},{DF960708-34C3-E711-811F-1458D04EF938},{8CF2D430-34C3-E711-811F-1458D04EF938}</FilteredViewIds>
+                </data-set>
+                <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+                <EnableEditing static="true" type="Enum">no</EnableEditing>
+                <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+                <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+                <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+                <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+                <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+              </parameters>
+            </customControl>
+          </controlDescription>
+        </controlDescriptions>
+        <DisplayConditions>
+          <Role Id="{DA494801-E41E-E711-942D-0050568D1C17}" />
+          <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+          <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+        </DisplayConditions>
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

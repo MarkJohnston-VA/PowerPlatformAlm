@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{20e0d446-a387-e711-948b-0050568d63d9}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="fullname" select="1" preview="1" icon="1">
+        <row name="result" id="systemuserid">
+          <cell name="fullname" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="systemuser">
+          <attribute name="fullname" />
+          <order attribute="fullname" descending="false" />
+          <filter type="and">
+            <condition attribute="systemuserid" operator="in">
+              <value uiname="Laundy, Nancy J. (CBOPC)" uitype="systemuser">{5D3AA17D-F4DB-E511-942B-0050568DD32B}</value>
+              <value uiname="Poll, Melissa" uitype="systemuser">{1493BEB0-CDDF-E511-943E-0050568D63D9}</value>
+              <value uiname="Borrego, Luke" uitype="systemuser">{05C41697-F0DB-E511-942B-0050568DD32B}</value>
+              <value uiname="Beatty, Paul" uitype="systemuser">{431B7D77-E2DB-E511-942B-0050568DD32B}</value>
+              <value uiname="Martinez, Adrian" uitype="systemuser">{50C01163-76EF-E511-942D-0050568DD32B}</value>
+              <value uiname="Maddux, Randi" uitype="systemuser">{C9F4BCEA-E1DB-E511-942B-0050568DD32B}</value>
+              <value uiname="Dhariwal, Vikram" uitype="systemuser">{DE99ED1F-0867-E711-9474-0050568DD32B}</value>
+              <value uiname="Reza, Mamun" uitype="systemuser">{CC2226EB-7305-E611-9433-0050568DD32B}</value>
+            </condition>
+          </filter>
+          <attribute name="systemuserid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.6.0.2</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Emailed Users" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

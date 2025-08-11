@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{f60a471e-b320-4272-966e-3a989fee4cb8}</formid>
+    <IntroducedVersion>2018.11.13.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{f9532418-79f6-4841-b2f3-c573c072ed2b}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{2ed24dce-22e4-4b7f-8841-56a19563d4a4}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ee110b03-b096-4474-831f-d3cd4fba65d9}">
+                        <labels>
+                          <label description="Call Center IVR" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{66929052-548e-4246-a63b-195e3a7506cc}" showlabel="true" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{b828ba9e-8096-1975-c9c0-7a956cdd079a}" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b4534239-7180-e21e-50b7-7bec5d35713d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Phone Number" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_phonenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_phonenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3ee8e85e-9539-473d-866e-0ee88a518d03}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="DNIS" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_dnis" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_dnis" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{89e8ce3d-838b-d16b-dca2-9b54c09bc87c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Line of Business" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_lineofbusinessid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_lineofbusinessid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ae326c4b-c3b2-d36b-545d-9da679de6c2a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Program Type" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_programtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_programtypeid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

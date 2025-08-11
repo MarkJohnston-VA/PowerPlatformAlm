@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{47082357-d7cf-400c-8d6d-a1c19670e22f}</formid>
+    <IntroducedVersion>2020.12.30.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1920">
+      <tabs>
+        <tab id="{79312498-726f-4da1-93b8-a670c6d9826a}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{91c89ab6-6cda-45cc-bdbe-4c8e987d6036}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{491e8b76-b300-970a-7ec9-e84e16da30e1}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Subject" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" disabled="false" uniqueid="{c39de5ec-d65a-0ad6-52b7-48e0c2867147}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e831cb59-c42b-4556-bc10-d30af2585870}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Assign This Item to Multiple Executive Directorates?" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_assigntomultipleexecutivedirectorates" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="mcs_assigntomultipleexecutivedirectorates" disabled="false" uniqueid="{e09dc29d-2697-4099-b592-46dd9ff8a8bf}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{31dedd42-d16c-89e8-66ae-de24732548ab}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Executive Directorate" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_executivedirectorateteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_executivedirectorateteam" disabled="false" uniqueid="{24921c81-8202-595d-7b91-64ec7c9b0b8e}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>true</DisableQuickFind>
+                            <DisableViewPicker>true</DisableViewPicker>
+                            <DefaultViewId>{04577956-E16B-EB11-A812-001DD800A64F}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                            <AvailableViewIds>{57E39843-404C-48E5-B1D9-1889098FB65C}</AvailableViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a6f2eb9c-0922-40fc-98be-3eccc51fc2bd}" locklevel="0" colspan="1" rowspan="1" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Executive Directorates" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_executivedirectorates" classid="{4AA28AB7-9C13-4F57-A73D-AD894D048B5F}" datafieldname="mcs_executivedirectorates" disabled="false" uniqueid="{5ec02db0-d431-36e9-8a1e-59c4d6085031}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7d7c20dc-b186-3d2b-54a8-b4b5a219581b}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Requestor Group" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_requestorgroup" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_requestorgroup" disabled="false" uniqueid="{92ad5b98-bb06-aa57-1acb-e78247c0e7d4}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{F1BC97FB-FA1D-41BC-9A28-A0473A160924}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6574bd49-dce3-9048-161a-5b8ce39cd4ea}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Due Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_duedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_duedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{24361496-a73a-4205-823c-26706a1bb7b2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Priority" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_priority" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="mcs_priority" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1317ee17-9c4e-3826-941e-195965b8ee12}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Approval Level Needed" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_approvallevelneeded" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="mcs_approvallevelneeded" disabled="false" uniqueid="{e91604c8-0820-1182-c79e-ed82be3282ed}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6620d988-4d78-32a3-99d5-92a96d1bcb90}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Action Item" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_actionitem" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_actionitem" disabled="false" uniqueid="{d6d1b47e-22e0-dd08-4a09-aace9cb9a6e5}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{FFE42BBF-806B-4B6E-94AA-5156234DF8B6}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{0d681b0f-0fda-4588-b664-fdb2026b57fd}" name="Description" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Top">
+                  <labels>
+                    <label description="Description" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c1338d31-dc5d-8c7d-c217-891458830bbd}" showlabel="true" locklevel="0" rowspan="5">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="mcs_description" disabled="false" uniqueid="{b8254712-2dba-4685-51c6-b8e13b535cce}" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{71094013-ffcd-4304-9694-55ceb998cb60}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{68153c6b-5267-a3d9-ae35-8b22c87925eb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Internal" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_internal" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="mcs_internal" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{26028ab0-6b28-48ab-355a-567cb38a2cd9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Veteran" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_veteran" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_veteran" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <controlDescriptions>
+        <controlDescription forControl="{b8254712-2dba-4685-51c6-b8e13b535cce}">
+          <customControl id="{E0DECE4B-6FC8-4a8f-A065-082708572369}">
+            <parameters>
+              <datafieldname>mcs_description</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value>mcs_description</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value>mcs_description</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value>mcs_description</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{e09dc29d-2697-4099-b592-46dd9ff8a8bf}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>mcs_assigntomultipleexecutivedirectorates</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">mcs_assigntomultipleexecutivedirectorates</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">mcs_assigntomultipleexecutivedirectorates</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">mcs_assigntomultipleexecutivedirectorates</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{744a8211-cd91-9745-5787-deb2d2a2ec46}" />
+        <Library name="mcs_Tasker.js" libraryUniqueId="{1aa8e4b1-d568-cc2b-9697-9647ce813a12}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CommCare.Tasker.Global.OnLoad" libraryName="mcs_Tasker.js" handlerUniqueId="{8e8ac11c-5c8d-835b-45d0-3930c7056b64}" enabled="true" parameters="&quot;quickcreate&quot;" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Tasker" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

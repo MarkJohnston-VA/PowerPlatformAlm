@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{818c6cd6-9ef0-eb11-bacb-001dd8018ade}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" preview="1" icon="1">
+        <row name="result" id="objectid" multiobjectidfield="objecttypecode">
+          <cell name="queueitemid" ishidden="1" width="150" />
+          <cell name="aa.subject" width="125" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="aa.hac_teamid" width="125" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="aa.hac__user_workedbyid" width="125" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="aa.hac_assigneddate" width="125" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="aa.hac_latest_note_txt" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="aa.hac_status_code" width="125" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="aa.mcs_customer" width="200" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="aa.regardingobjectid" width="125" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="aa.mcs_tags" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="queueitem">
+          <attribute name="queueitemid" />
+          <attribute name="objecttypecode" />
+          <order attribute="createdon" descending="false" />
+          <attribute name="createdon" />
+          <link-entity name="task" from="activityid" to="objectid" alias="aa">
+            <filter type="and">
+              <condition attribute="hac_status_code" operator="not-in">
+                <value>806860000</value>
+                <value>806860001</value>
+                <value>806860011</value>
+                <value>803750000</value>
+                <value>803750001</value>
+                <value>803750003</value>
+                <value>803750004</value>
+              </condition>
+              <condition attribute="ownerid" operator="in">
+                <value uiname="R&amp;R Suspense 1" uitype="team">{D978F892-3504-E711-9429-0050568D1C17}</value>
+                <value uiname="R&amp;R Suspense 2" uitype="team">{21239801-3604-E711-9429-0050568D1C17}</value>
+                <value uiname="R&amp;R Suspense 3" uitype="team">{4BAAD812-3604-E711-9429-0050568D1C17}</value>
+                <value uiname="R&amp;R Suspense 4" uitype="team">{279D001D-3604-E711-9429-0050568D1C17}</value>
+                <value uiname="R&amp;R Suspense 5" uitype="team">{15285E23-670A-E711-8167-1200A26D3DA3}</value>
+                <value uiname="R&amp;R Suspense 6" uitype="team">{BC0D7B41-E0A3-E911-A97D-001DD80081AD}</value>
+              </condition>
+              <condition attribute="statuscode" operator="not-in">
+                <value>806860000</value>
+                <value>806860006</value>
+              </condition>
+              <condition attribute="hac_priority" operator="eq" value="806860000" />
+            </filter>
+            <attribute name="subject" />
+            <attribute name="hac_status_code" />
+            <attribute name="hac_teamid" />
+            <attribute name="regardingobjectid" />
+            <attribute name="hac_latest_note_txt" />
+            <attribute name="hac__user_workedbyid" />
+            <attribute name="hac_assigneddate" />
+            <attribute name="mcs_tags" />
+            <attribute name="mcs_customer" />
+          </link-entity>
+          <attribute name="objectid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.07.28.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="R&amp;R Team Urgent Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

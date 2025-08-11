@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{7850675f-01c4-e711-8118-1458d04eaba0}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="subject" select="1" preview="1" icon="1">
+        <row name="result" id="activityid">
+          <cell name="subject" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_bc767e26bab5e71181db1458d04e1b18.ticketnumber" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="100" />
+          <cell name="hac_status_code" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="task">
+          <attribute name="subject" />
+          <attribute name="hac_status_code" />
+          <attribute name="createdon" />
+          <order attribute="subject" descending="false" />
+          <filter type="and">
+            <condition attribute="hac_status_code" operator="not-in">
+              <value>806860000</value>
+              <value>806860001</value>
+              <value>806860011</value>
+              <value>803750000</value>
+              <value>803750001</value>
+              <value>803750003</value>
+              <value>803750004</value>
+            </condition>
+            <condition attribute="ownerid" operator="in">
+              <value uiname="FM Team A" uitype="team">{20AF11F3-6615-E711-8168-1200A26D3DA3}</value>
+              <value uiname="FM Team B" uitype="team">{8F16ABFA-6615-E711-8168-1200A26D3DA3}</value>
+            </condition>
+            <condition attribute="statuscode" operator="not-in">
+              <value>806860000</value>
+              <value>806860006</value>
+            </condition>
+          </filter>
+          <link-entity name="incident" from="incidentid" to="hac_issuetotaskid" visible="false" link-type="outer" alias="a_bc767e26bab5e71181db1458d04e1b18">
+            <attribute name="ticketnumber" />
+          </link-entity>
+          <attribute name="activityid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Debt Management Team Open Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{eba84f92-c33c-4df0-924c-a8ac26b250d7}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="hac_name" select="1" icon="1" preview="1">
+        <row name="result" id="hac_claimlineitempprid">
+          <cell name="hac_pprdetailtype" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_dxpxndcpl" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_unitquantity" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_totalcharge" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_totalaa" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_medicaidamount" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_additionalohipaid" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_ohiprbalance" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_deductiblecostshareamount" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_paymentsamount" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_ai" width="75" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_reason" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="hac_claimlineitemppr">
+          <order attribute="hac_pprdetailtype" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="hac_unitquantity" />
+          <attribute name="hac_totalcharge" />
+          <attribute name="hac_totalaa" />
+          <attribute name="hac_reason" />
+          <attribute name="hac_pprdetailtype" />
+          <attribute name="hac_paymentsamount" />
+          <attribute name="hac_ohiprbalance" />
+          <attribute name="hac_additionalohipaid" />
+          <attribute name="hac_medicaidamount" />
+          <attribute name="hac_dxpxndcpl" />
+          <attribute name="hac_deductiblecostshareamount" />
+          <attribute name="hac_ai" />
+          <attribute name="hac_claimlineitempprid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Line Item PPR" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

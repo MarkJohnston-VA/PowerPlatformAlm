@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{d34914e9-976b-ef11-a671-001dd80a9f48}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" icon="1" preview="1">
+        <row name="result" id="queueitemid">
+          <cell name="a_49b0e9a963284c7fb244d2f04b38f926.createdon" width="155" />
+          <cell name="enteredon" width="150" />
+          <cell name="queueid" width="150" />
+          <cell name="mcs_tasktitle" width="300" />
+          <cell name="hac_priority" width="100" />
+          <cell name="a_49b0e9a963284c7fb244d2f04b38f926.bah_purpose" width="136" />
+          <cell name="a_49b0e9a963284c7fb244d2f04b38f926.bah_purposedetail" width="173" />
+          <cell name="a_49b0e9a963284c7fb244d2f04b38f926.bah_patient" width="180" />
+          <cell name="workerid" width="150" />
+          <cell name="statuscode" width="119" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="queueitem">
+          <attribute name="queueitemid" />
+          <attribute name="statuscode" />
+          <attribute name="enteredon" />
+          <attribute name="queueid" />
+          <attribute name="mcs_tasktitle" />
+          <order attribute="enteredon" descending="true" />
+          <filter type="and">
+            <condition attribute="queueid" operator="eq" value="{a800188e-2f6a-ef11-a671-001dd8029de0}" uiname="&lt;CRAM Task Team&gt;" uitype="queue" />
+          </filter>
+          <link-entity alias="a_49b0e9a963284c7fb244d2f04b38f926" name="bah_customentity" to="objectid" from="bah_customentityid" link-type="outer" visible="false">
+            <attribute name="bah_patient" />
+            <attribute name="bah_purpose" />
+            <attribute name="bah_purposedetail" />
+            <attribute name="createdon" />
+          </link-entity>
+          <attribute name="hac_priority" />
+          <attribute name="workerid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="CRAM Tasks - All Items" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

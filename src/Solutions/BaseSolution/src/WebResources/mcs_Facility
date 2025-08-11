@@ -1,0 +1,61 @@
+/// <reference path="CommCareShared.min.js"/>
+
+if (typeof CommCare == 'undefined')
+{ CommCare = { __namespace: true }; }
+
+if (typeof (CommCare.Facility) == "undefined") {
+    CommCare.Facility = {
+        __namespace: true
+    };
+}
+
+
+if (typeof (CommCare.Facility.Global) == "undefined") {
+    CommCare.Facility.Global = {
+        __namespace: true
+    };
+}
+
+if (typeof (CommCare.Facility.Constants) == "undefined") {
+    CommCare.Facility.Constants = {
+        __namespace: true
+    };
+}
+
+CommCare.Facility.Global = (function () {
+    return {
+        OnLoad: onLoad
+    }
+
+    function onLoad(context) {
+        CommCare.Shared.GetFormContext(context);
+        var fetchXml = "<fetch><entity name='role'><attribute name='name'/><attribute name='roleid'/><filter type='and'><condition attribute='name' operator='eq' value='system administrator'/></filter></entity></fetch>";
+        
+        CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+        CommCare.Shared.CrmCommonJS.WebApi.RetrieveByFetchXml("roles", fetchXml).then(function (role) {
+            if (role.value.length > 0) {
+                var isAdmin = false
+                var adminRoleId = role.value[0].roleid;
+                var userRoles = Xrm.Utility.getGlobalContext().userSettings.securityRoles;
+                for (var i = 0; i < userRoles.length; i++) {
+                    if (userRoles[i].toUpperCase() == adminRoleId.toUpperCase()) {
+                        isAdmin = true;
+                        break;
+                    }
+                }
+
+                var fieldList = ["vhacrm_facilityonboarded_bool", "vhacrm_appointmentmanagementqueueid", "vhacrm_authorizationsreferralsqueueid", "vhacrm_facilityteamid"];
+                setReadOnlyOnMultipleFields(fieldList, !isAdmin);
+            }
+
+        }).catch(function (error) {
+            console.log("Error in Getting System Administrator Role: " + error.message);
+        });
+    }
+
+    function setReadOnlyOnMultipleFields(fieldList, bool) {
+        for (var i = 0; i < fieldList.length; i++) {
+            CommCare.Shared.SetReadOnly(fieldList[i], bool);
+        }
+    }
+})();

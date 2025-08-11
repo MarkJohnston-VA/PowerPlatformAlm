@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b84e32db-faa7-ed11-aad1-001dd8072538}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" preview="1" icon="1">
+        <row name="result" id="objectid" multiobjectidfield="objecttypecode">
+          <cell name="queueitemid" ishidden="1" width="150" />
+          <cell name="a_573636116ea1ed11aad0001dd8072538.mcs_name" width="200" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_description" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_573636116ea1ed11aad0001dd8072538.mcs_veteran" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_duedate" width="100" imageproviderfunctionname="CommCare.Grid.Global.DaysRemainingQueueItem" imageproviderwebresource="$webresource:mcs_GridScripts.js" />
+          <cell name="hac_priority" width="100" />
+          <cell name="a_573636116ea1ed11aad0001dd8072538.mcs_requestorgroup" width="100" disableSorting="1" />
+          <cell name="mcs_daysremaining" width="100" />
+          <cell name="queueid" width="100" />
+          <cell name="workerid" width="100" />
+          <cell name="workeridmodifiedon" width="100" />
+          <cell name="a_573636116ea1ed11aad0001dd8072538.mcs_requesttopicconcatenation" width="100" disableSorting="1" />
+          <cell name="createdon" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="queueitem">
+          <attribute name="queueitemid" />
+          <attribute name="mcs_duedate" />
+          <attribute name="createdon" />
+          <attribute name="hac_priority" />
+          <attribute name="objecttypecode" />
+          <attribute name="mcs_description" />
+          <attribute name="queueid" />
+          <attribute name="mcs_daysremaining" />
+          <order attribute="hac_priority" descending="true" />
+          <order attribute="mcs_duedate" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="workerid" />
+          <attribute name="workeridmodifiedon" />
+          <link-entity name="mcs_tracker" from="mcs_trackerid" to="objectid" alias="a_573636116ea1ed11aad0001dd8072538">
+            <attribute name="mcs_veteran" />
+            <attribute name="mcs_name" />
+            <attribute name="mcs_requestorgroup" />
+            <filter type="and">
+              <condition attribute="statecode" operator="eq" value="0" />
+            </filter>
+            <attribute name="mcs_requesttopicconcatenation" />
+          </link-entity>
+          <attribute name="objectid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.02.08.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Action Items" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

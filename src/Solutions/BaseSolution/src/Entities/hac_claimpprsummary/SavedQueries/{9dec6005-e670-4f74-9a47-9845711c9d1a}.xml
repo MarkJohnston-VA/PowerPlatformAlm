@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{9dec6005-e670-4f74-9a47-9845711c9d1a}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="hac_name" select="1" icon="1" preview="1">
+        <row name="result" id="hac_claimpprsummaryid">
+          <cell name="hac_claimtype" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_pdinumber" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_programtype" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_amountappliedtodeductible" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_calculatedallowableamount" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_costsharecreditedtocatcap" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_drgmethodofpayment" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_medicaidamount" width="100" />
+          <cell name="hac_patientresponsibilityamount" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="hac_claimpprsummary">
+          <order attribute="hac_claimtype" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="hac_programtype" />
+          <attribute name="hac_pdinumber" />
+          <attribute name="hac_patientresponsibilityamount" />
+          <attribute name="hac_medicaidamount" />
+          <attribute name="hac_drgmethodofpayment" />
+          <attribute name="hac_amountappliedtodeductible" />
+          <attribute name="hac_costsharecreditedtocatcap" />
+          <attribute name="hac_claimtype" />
+          <attribute name="hac_calculatedallowableamount" />
+          <attribute name="hac_claimpprsummaryid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Claim PPR Summary" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

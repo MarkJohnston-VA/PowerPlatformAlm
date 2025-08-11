@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b827ec03-10e2-ec11-a7b4-001dd8033eac}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" icon="1" preview="1">
+        <row name="result" id="incidentid">
+          <cell name="createdon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="ticketnumber" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="bah_interactionstorequestid" width="150" />
+          <cell name="mcs_fmpriority" width="125" />
+          <cell name="ccwf_assignedtoid" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="vhacrm_typeintersectionid" width="100" />
+          <cell name="vhacrm_areaintersectionid" width="200" />
+          <cell name="vhacrm_subareaintersectionid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="vhacrm_actionintersectionid" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="customerid" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="vhacrm_visnid" width="100" />
+          <cell name="ccwf_providerfacility_text" width="150" />
+          <cell name="ccwf_tin_text" width="100" />
+          <cell name="ccwf_programid" width="100" />
+          <cell name="statecode" width="125" />
+          <cell name="vhacrm_resolutionintersectionid" width="150" />
+        </row>
+        <controlDescriptions />
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="incident">
+          <attribute name="createdon" />
+          <attribute name="ticketnumber" />
+          <attribute name="vhacrm_visnid" />
+          <attribute name="customerid" />
+          <attribute name="ccwf_tin_text" />
+          <attribute name="vhacrm_resolutionintersectionid" />
+          <attribute name="ccwf_providerfacility_text" />
+          <attribute name="ccwf_programid" />
+          <attribute name="ccwf_assignedtoid" />
+          <attribute name="statecode" />
+          <attribute name="vhacrm_actionintersectionid" />
+          <attribute name="bah_interactionstorequestid" />
+          <attribute name="vhacrm_typeintersectionid" />
+          <attribute name="vhacrm_subareaintersectionid" />
+          <attribute name="vhacrm_areaintersectionid" />
+          <order attribute="createdon" descending="false" />
+          <attribute name="mcs_fmpriority" />
+          <attribute name="incidentid" />
+          <filter type="and">
+            <condition attribute="ownerid" operator="eq-userid" />
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="vhacrm_areaintersectionid" operator="in">
+              <value uiname="Billing Concern" uitype="vhacrm_areaintersection">{450cc7e4-4e8f-ec11-8d20-001dd801f2a8}</value>
+              <value uiname="Billing Concern" uitype="vhacrm_areaintersection">{95121a83-46b7-eb11-8236-001dd80216dc}</value>
+            </condition>
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2022.05.20.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="My Active Billing Concern Requests" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

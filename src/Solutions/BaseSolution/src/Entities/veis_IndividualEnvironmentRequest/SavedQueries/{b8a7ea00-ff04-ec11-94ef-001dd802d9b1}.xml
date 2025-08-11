@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b8a7ea00-ff04-ec11-94ef-001dd802d9b1}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="veis_name" select="1" icon="1" preview="1">
+        <row name="result" id="veis_individualenvironmentrequestid">
+          <cell name="createdon" width="125" />
+          <cell name="veis_automationuserbulkrequest" width="130" />
+          <cell name="veis_application" width="114" />
+          <cell name="a_5c111efd162046a3ad682b7b5e2a8e86.ownerid" width="133" />
+          <cell name="veis_useremail" width="172" />
+          <cell name="veis_userfullname" width="168" />
+          <cell name="veis_environment" width="154" />
+          <cell name="veis_userlicensestatus" width="157" />
+          <cell name="veis_userupdatestatus" width="153" />
+          <cell name="a_5c111efd162046a3ad682b7b5e2a8e86.veis_platformteamticketnumber" width="138" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="veis_individualenvironmentrequest">
+          <attribute name="veis_individualenvironmentrequestid" />
+          <attribute name="createdon" />
+          <attribute name="veis_environment" />
+          <attribute name="veis_useremail" />
+          <attribute name="veis_userlicensestatus" />
+          <attribute name="veis_userupdatestatus" />
+          <attribute name="veis_automationuserbulkrequest" />
+          <attribute name="veis_userfullname" />
+          <attribute name="veis_application" />
+          <order attribute="veis_automationuserbulkrequest" descending="true" />
+          <order attribute="veis_useremail" descending="false" />
+          <order attribute="veis_environment" descending="false" />
+          <link-entity alias="a_5c111efd162046a3ad682b7b5e2a8e86" name="veis_automationuserbulkrequest" to="veis_automationuserbulkrequest" from="veis_automationuserbulkrequestid" link-type="outer" visible="false">
+            <attribute name="ownerid" />
+            <attribute name="veis_platformteamticketnumber" />
+          </link-entity>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.08.20.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All User Updates" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

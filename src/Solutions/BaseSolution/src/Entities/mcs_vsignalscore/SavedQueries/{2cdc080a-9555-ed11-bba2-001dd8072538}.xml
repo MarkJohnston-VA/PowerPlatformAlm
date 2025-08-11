@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{2cdc080a-9555-ed11-bba2-001dd8072538}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_vsignalscoreid">
+          <cell name="mcs_question" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_answer" width="100" disableSorting="1" />
+          <cell name="mcs_responsecategorizationnotes" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_vsignalscore">
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_answer" />
+          <attribute name="mcs_question" />
+          <attribute name="mcs_responsecategorizationnotes" />
+          <attribute name="mcs_vsignalscoreid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2022.10.26.3</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="V-Signal Scores SubGrid (FM)" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

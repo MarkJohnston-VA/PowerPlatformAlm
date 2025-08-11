@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{1cb6ea2c-8016-4a59-9e79-1862baf544b3}</savedqueryid>
+    <layoutxml>
+      <grid name="mcs_patsrcases" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="mcs_patsrcase" id="mcs_patsrcaseid">
+          <cell name="mcs_patsrcase" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_patsrcase">
+          <order attribute="mcs_patsrcase" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_patsrcase" />
+          <attribute name="mcs_patsrcaseid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2020.09.30.01</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="PATS-R Case Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

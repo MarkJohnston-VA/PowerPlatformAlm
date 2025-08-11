@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "hac_queueitemassociatedworkers",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "hac_queueitemassociatedworker",
+    "Name": "Queue Item Associated Workers",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdbyname": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfbyname": "Created By (Delegate)",
+      "hac_hac_queueitemassociatedworker_incident": "Requests",
+      "hac_hac_queueitemassociatedworker_queueitem": "Queue Items",
+      "hac_hac_queueitemassociatedworker_task": "Tasks",
+      "hac_name": "Name",
+      "hac_queueid": "Queue",
+      "hac_queueitemassociatedworker_AsyncOperations": "System Jobs",
+      "hac_queueitemassociatedworker_BulkDeleteFailures": "Bulk Delete Failures",
+      "hac_queueitemassociatedworker_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "hac_queueitemassociatedworker_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "hac_queueitemassociatedworker_ProcessSession": "Process Sessions",
+      "hac_queueitemassociatedworker_SyncErrors": "Sync Errors",
+      "hac_queueitemassociatedworkerid": "Queue Item Associated Worker",
+      "hac_type_text": "Type",
+      "hac_user_workedbyid": "Assign To",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedbyname": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfbyname": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Queue Item Associated Workers",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Queue Item Associated Workers (Views)",
+    "Name": "_hac_queueitemassociatedworker_views",
+    "RelatedEntityName": "Queue Item Associated Workers",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "18ad9677-ff95-4728-97a1-e6b01464dfad": "Queue Item Associated Worker Associated View",
+      "2f18699c-4ae5-45a5-acf4-1d4329770386": "Inactive Queue Item Associated Workers",
+      "9c548d08-fd9b-4c4f-8a3e-154c07b10b8b": "Queue Item Associated Worker Lookup View",
+      "f523a0cf-bf9d-4e12-a679-474760c957b8": "Active Queue Item Associated Workers",
+      "fd446a48-5b77-462f-8aac-a525241860f2": "Queue Item Associated Worker Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Queue Item Associated Workers)",
+    "Name": "hac_queueitemassociatedworker_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Queue Item Associated Workers"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Queue Item Associated Workers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Queue Item Associated Workers)",
+    "Name": "hac_queueitemassociatedworker_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Queue Item Associated Workers"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Queue Item Associated Workers",
+    "Type": "OptionSetInfo"
+  }
+]

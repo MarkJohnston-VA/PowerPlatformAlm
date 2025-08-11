@@ -1,0 +1,564 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "0ed9c0b0-0876-4b44-8bc0-72c7c240d4c2"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ICN_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                },
+                "ActionItemId_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                },
+                "OrgDomain_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                }
+              },
+              "required": [
+                "ICN_Value",
+                "ActionItemId_Value",
+                "OrgDomain_Value"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "ICN": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "3fe28eda-123e-4607-8240-5f8de4d690f3"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ICN",
+                "type": "string",
+                "value": "@{triggerBody()['ICN_Value']}"
+              }
+            ]
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "Apply_to_each": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "23ca5c39-b51c-4ea5-b6ed-c24e05205973"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "body": "@outputs('GetPersons')?['body/value']",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "@@odata.type": {
+                    "type": "string"
+                  },
+                  "@@odata.id": {
+                    "type": "string"
+                  },
+                  "@@odata.editLink": {
+                    "type": "string"
+                  },
+                  "crme_personid@odata.type": {
+                    "type": "string"
+                  },
+                  "crme_personid": {
+                    "type": "string"
+                  },
+                  "crme_siteid": {
+                    "type": "string"
+                  },
+                  "crme_dobstring": {
+                    "type": "string"
+                  },
+                  "crme_mvidobstring": {
+                    "type": "string"
+                  },
+                  "crme_firstname": {
+                    "type": "string"
+                  },
+                  "crme_lastname": {
+                    "type": "string"
+                  },
+                  "crme_patientmviidentifier": {
+                    "type": "string"
+                  },
+                  "crme_patientid": {
+                    "type": "string"
+                  },
+                  "crme_ssn": {
+                    "type": "string"
+                  },
+                  "createdbyname@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "createdbyname@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "createdonbehalfbyname@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "createdonbehalfbyname@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "modifiedbyname@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "modifiedbyname@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "modifiedonbehalfbyname@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "modifiedonbehalfbyname@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "owninguser@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "owninguser@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "owningteam@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "owningteam@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "ownerid@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "ownerid@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "owningbusinessunit@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "owningbusinessunit@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_SyncErrors@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_SyncErrors@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_AsyncOperations@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_AsyncOperations@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_MailboxTrackingFolders@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_MailboxTrackingFolders@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_UserEntityInstanceDatas@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_UserEntityInstanceDatas@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_ProcessSession@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_ProcessSession@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_BulkDeleteFailures@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_BulkDeleteFailures@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_PrincipalObjectAttributeAccesses@odata.associationLink": {
+                    "type": "string"
+                  },
+                  "crme_person_PrincipalObjectAttributeAccesses@odata.navigationLink": {
+                    "type": "string"
+                  },
+                  "crme_filenumber": {
+                    "type": "string"
+                  },
+                  "crme_veteransensitivitylevel": {
+                    "type": "string"
+                  }
+                },
+                "required": []
+              }
+            }
+          }
+        },
+        "GetPersons": {
+          "runAfter": {
+            "ActionItemId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b18a55d8-d580-4566-b7b6-92179b520120"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "crme_persons",
+              "$filter": "crme_icn eq '@{triggerBody()['ICN_Value']}' and crme_searchtype eq 'SelectedPersonSearch'"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "ContactId": {
+          "runAfter": {
+            "ICN": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ed9d4b3e-b95b-49ab-a26a-93d3e92f98f4"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ContactId",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "ActionItemId": {
+          "runAfter": {
+            "ContactId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "70c1ae69-c8b1-482a-a79c-57dc746134b0"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ActionItemId",
+                "type": "string",
+                "value": "@{triggerBody()['ActionItemId_Value']}"
+              }
+            ]
+          }
+        },
+        "ReturnObject": {
+          "runAfter": {
+            "DOB": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5dbc8679-a0a6-4b31-b912-34c28ce9f6bd"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "returnObject",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@outputs('GetPersons')?['body/value']",
+          "actions": {
+            "Condition": {
+              "actions": {
+                "Condition_2": {
+                  "actions": {
+                    "Set_variable": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "d98fd6f3-736a-4456-86f0-aa695b471edc"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "ContactId",
+                        "value": "@{first(outputs('GetSelectedPerson')?['body/value'])?['contactid']}"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "GetSelectedPerson": [
+                      "Succeeded"
+                    ]
+                  },
+                  "else": {
+                    "actions": {
+                      "Create_a_new_row": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "d80786a5-4040-4fc9-875b-b8135f5340de"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps",
+                            "operationId": "CreateRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "contacts",
+                            "item/firstname": "@items('Apply_to_each')?['crme_firstname']",
+                            "item/lastname": "@items('Apply_to_each')?['crme_lastname']",
+                            "item/bah_dob_date": "@variables('DOB')",
+                            "item/bah_ssn_text": "@items('Apply_to_each')?['crme_ssn']"
+                          },
+                          "authentication": {
+                            "type": "Raw",
+                            "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                          }
+                        }
+                      },
+                      "Set_variable_2": {
+                        "runAfter": {
+                          "Create_a_new_row": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "0b91846a-80d7-43e3-a3c8-f2aeb37f70a8"
+                        },
+                        "type": "SetVariable",
+                        "inputs": {
+                          "name": "ContactId",
+                          "value": "@outputs('Create_a_new_row')?['body/contactid']"
+                        }
+                      }
+                    }
+                  },
+                  "expression": {
+                    "equals": [
+                      "@length(outputs('GetSelectedPerson')?['body/value'])",
+                      1
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "ee379080-1bcf-4350-b33e-8640c4170910"
+                  },
+                  "type": "If"
+                },
+                "Relate_rows": {
+                  "runAfter": {
+                    "Condition_2": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "3f3e315a-542a-4ef1-993b-edfe0b47befb"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "AssociateEntities",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "mcs_trackers",
+                      "recordId": "@variables('ActionItemId')",
+                      "associationEntityRelationship": "mcs_tracker_Contact_Contact",
+                      "item/@odata.id": "@{variables('OrgDomain')}/api/data/v9.1/contacts(@{variables('ContactId')})"
+                    },
+                    "authentication": {
+                      "type": "Raw",
+                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                    }
+                  }
+                },
+                "DOB_Update": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "d3a4c095-9df5-4674-9a51-ecb47cee66ed"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "DOB",
+                    "value": "@{substring(formatDateTime(items('Apply_to_each')?['crme_dobstring']), 0, 10) }"
+                  }
+                },
+                "GetSelectedPerson": {
+                  "runAfter": {
+                    "DOB_Update": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "d5522b09-59fa-4006-886d-7b6319172331"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "contacts",
+                      "$filter": "bah_searchtype_text eq 'CREATEUPDATEMVI' and bah_ssn_text eq '@{items('Apply_to_each')?['crme_ssn']}' and firstname eq '@{items('Apply_to_each')?['crme_firstname']}' and lastname eq '@{items('Apply_to_each')?['crme_lastname']}'  and bah_source_text eq 'MVI'  and statecode eq 0 and bah_dob_date eq @{variables('DOB')}",
+                      "$orderby": "createdon desc"
+                    },
+                    "authentication": {
+                      "type": "Raw",
+                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                    }
+                  }
+                },
+                "Write_ICN_to_Action_Item": {
+                  "runAfter": {
+                    "Relate_rows": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "c2acb3e4-3e93-406d-b24a-47c8e68b4745"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "mcs_trackers",
+                      "recordId": "@variables('ActionItemId')",
+                      "item/mcs_icn": "@variables('ICN')",
+                      "item/mcs_Veteran@odata.bind": "contacts(@{variables('ContactId')})"
+                    },
+                    "authentication": {
+                      "type": "Raw",
+                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                    }
+                  }
+                }
+              },
+              "runAfter": {},
+              "expression": {
+                "equals": [
+                  "@items('Apply_to_each')?['crme_siteid']",
+                  "200M"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "f3fd4b1f-d0a1-4026-95eb-51fb34792c78"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "OrgDomain": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a39e90e1-fde0-4ca4-9b3f-2ca0fdf76893"
+          },
+          "type": "Foreach"
+        },
+        "DOB": {
+          "runAfter": {
+            "GetPersons": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8efc6ae2-dc64-41b4-a13c-e07777167bae"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DOB",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "OrgDomain": {
+          "runAfter": {
+            "ReturnObject": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ad9da060-b4ee-4b9e-94e7-2e0f6f8a09d6"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "OrgDomain",
+                "type": "string",
+                "value": "@{triggerBody()['OrgDomain_Value']}"
+              }
+            ]
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{ab8e638a-b406-4970-abb4-1b1f03478ed1}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_vethomevirpregistrantid">
+          <cell name="mcs_name" width="300" />
+          <cell name="mcs_email" width="100" />
+          <cell name="mcs_birthdate_date" width="100" />
+          <cell name="mcs_registrationstatus" width="100" />
+          <cell name="mcs_registrantid" width="100" />
+          <cell name="mcs_edipi" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_vethomevirpregistrant">
+          <attribute name="mcs_vethomevirpregistrantid" />
+          <attribute name="mcs_name" />
+          <order attribute="mcs_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="mcs_name" operator="like" value="{0}" />
+            <condition attribute="mcs_email" operator="like" value="{0}" />
+            <condition attribute="mcs_registrantid" operator="like" value="{0}" />
+            <condition attribute="mcs_edipi" operator="like" value="{0}" />
+          </filter>
+          <attribute name="mcs_email" />
+          <attribute name="mcs_edipi" />
+          <attribute name="mcs_registrantid" />
+          <attribute name="mcs_registrationstatus" />
+          <attribute name="mcs_birthdate_date" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.1.17.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active VET-HOME VIRP Registrants" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

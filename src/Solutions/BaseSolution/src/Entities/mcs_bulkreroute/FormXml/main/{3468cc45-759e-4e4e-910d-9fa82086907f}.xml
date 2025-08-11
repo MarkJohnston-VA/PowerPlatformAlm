@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3468cc45-759e-4e4e-910d-9fa82086907f}</formid>
+    <IntroducedVersion>2021.10.07.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{c601d47d-5f80-4c6f-83a4-a62ad20a84cb}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{d89a04d8-7a6f-440a-b658-67452a14c067}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{01837c7a-8480-c267-c4c6-57bade6eb3bc}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Route Action" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_routeaction" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_routeaction" disabled="false" uniqueid="{b01714a5-701e-b094-c53b-e036bc4bb4bd}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{B9AED0F8-E165-4DC9-BC78-D10D6EF7914C}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{439a88a3-e651-ead9-e24c-d3915b6c9365}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Records JSON" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_recordsjson" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="mcs_recordsjson" disabled="false" uniqueid="{084a1c5c-d1e6-7019-d9d2-6e1a059dd498}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1e71abd6-b5ba-938b-a9dc-8d7b492b209a}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Owning Team" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_owningteam" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_owningteam" disabled="false" uniqueid="{dd9716b2-a270-2a03-2d0b-e5ac790a8731}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{98bfa3f9-40e4-426c-9813-f0bb58496d05}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" uniqueid="{7e3137e8-b363-4d20-9964-5e40e1290991}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{28da5930-7141-4ef9-8bc3-219eac3c9932}" showlabel="true" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{ad4d833a-175b-5d8c-a841-d5a5559a4512}" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{67c4508a-2178-3102-b0ad-9d6c836d0e95}" />
+        <Library name="mcs_BulkReRoute.js" libraryUniqueId="{24e6dd5a-3cda-2cdd-0576-775e784485d9}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CommCare.BulkReRoute.Global.OnLoad" libraryName="mcs_BulkReRoute.js" handlerUniqueId="{7406c545-bc89-56ed-9b1b-a206084356d0}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

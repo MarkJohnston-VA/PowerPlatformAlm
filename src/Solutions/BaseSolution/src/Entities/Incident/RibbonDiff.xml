@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="mcs.incident.AdditionalRequest.Button.CustomAction" Location="Mscrm.Form.incident.MainTab.Collaborate.Controls._children" Sequence="36">
+      <CommandUIDefinition>
+        <Button Command="mcs.incident.AdditionalRequest.Command" Id="mcs.incident.AdditionalRequest.Button" LabelText="$LocLabels:mcs.incident.AdditionalRequest.Button.LabelText" Sequence="36" TemplateAlias="o2" ModernImage="$webresource:mcs_/Icons/CreateChildCase_16.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.incident.AssociatePerson.Button.CustomAction" Location="Mscrm.Form.incident.MainTab.Save.Controls._children" Sequence="51">
+      <CommandUIDefinition>
+        <Button Command="mcs.incident.AssociatePerson.Command" CommandValueId="" Id="mcs.incident.AssociatePerson.Button" Image32by32="/_imgs/ribbon/Assign_32.png" Image16by16="/_imgs/ribbon/Assign_16.png" LabelText="$LocLabels:mcs.incident.AssociatePerson.Button.LabelText" Sequence="51" TemplateAlias="o1" ModernImage="$webresource:mcs_/Buttons/AssociatePersonIcon.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.incident.C4ResourcesHTML.Button.CustomAction" Location="Mscrm.Form.incident.MainTab.Save.Controls._children" Sequence="74">
+      <CommandUIDefinition>
+        <Button Command="mcs.incident.C4ResourcesHTML.Command" Id="mcs.incident.C4ResourcesHTML.Button" LabelText="$LocLabels:mcs.incident.C4ResourcesHTML.Button.LabelText" Sequence="74" TemplateAlias="o2" ToolTipDescription="$LocLabels:mcs.incident.C4ResourcesHTML.Button.ToolTipDescription" ModernImage="$webresource:mcs_/Buttons/VAResources2.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.incident.FMResourcesHTML.Button.CustomAction" Location="Mscrm.Form.incident.MainTab.Save.Controls._children" Sequence="76">
+      <CommandUIDefinition>
+        <Button Command="mcs.incident.FMResourcesHTML.Command" Id="mcs.incident.FMResourcesHTML.Button" LabelText="$LocLabels:mcs.incident.FMResourcesHTML.Button.LabelText" Sequence="76" TemplateAlias="o2" ToolTipDescription="$LocLabels:mcs.incident.FMResourcesHTML.Button.ToolTipDescription" ModernImage="$webresource:mcs_/Buttons/VAResources2.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.incident.PPMS.Button.CustomAction" Location="Mscrm.Form.incident.MainTab.Collaborate.Controls._children" Sequence="38">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:mcs.incident.PPMS.Button.Alt" Command="mcs.incident.LaunchPPMS.Command" Id="mcs.incident.PPMS.Button" Image16by16="/_imgs/Ribbon/Entity16_1028.png" LabelText="$LocLabels:mcs.incident.PPMS.Button.LabelText" Sequence="38" TemplateAlias="o2" ToolTipTitle="$LocLabels:mcs.incident.PPMS.Button.ToolTipTitle" ModernImage="$webresource:mcs_/Buttons/PPMSIcon.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.incident.ReactivateRequest.Button.CustomAction" Location="Mscrm.Form.incident.MainTab.Save.Controls._children" Sequence="47">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:mcs.incident.ReactivateRequest.Button.Alt" Command="mcs.incident.ReactivateRequest.Command" Id="mcs.incident.ReactivateRequest.Button" Image32by32="$webresource:Service/_imgs/ribbon/ReactivateCase_32.png" Image16by16="$webresource:Service/_imgs/ribbon/ReactivateCase_16.png" LabelText="$LocLabels:mcs.incident.ReactivateRequest.Button.LabelText" Sequence="47" TemplateAlias="o1" ToolTipTitle="$LocLabels:mcs.incident.ReactivateRequest.Button.ToolTipTitle" ToolTipDescription="$LocLabels:mcs.incident.ReactivateRequest.Button.ToolTipDescription" ModernImage="ReactivateCase" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.incident.SubmitInteraction.Button.CustomAction" Location="Mscrm.Form.incident.MainTab.Collaborate.Controls._children" Sequence="36">
+      <CommandUIDefinition>
+        <Button Command="mcs.incident.SubmitInteraction.Command" Id="mcs.incident.SubmitInteraction.Button" Image32by32="$webresource:mcs_SubmitButton_32" Image16by16="$webresource:mcs_SubmitButton_16" LabelText="$LocLabels:mcs.incident.SubmitInteraction.Button.LabelText" Sequence="36" TemplateAlias="o2" ToolTipDescription="$LocLabels:mcs.incident.SubmitInteraction.Button.ToolTipDescription" ModernImage="$webresource:mcs_SubmitButtonIcon" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.AddToQueue.Hide" Location="Mscrm.Form.incident.AddToQueue" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.Assign.Hide" Location="Mscrm.Form.incident.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.Cancel.Hide" Location="Mscrm.Form.incident.Cancel" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.Close.Hide" Location="Mscrm.Form.incident.Close" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.Convert.Opportunity.Hide" Location="Mscrm.Form.incident.Convert.Opportunity" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.ConvertTo.Hide" Location="Mscrm.Form.incident.ConvertTo" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.CreateChildcase.Hide" Location="Mscrm.Form.incident.CreateChildcase" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.DoNotDecrementEntitlementTerms.Hide" Location="Mscrm.Form.incident.DoNotDecrementEntitlementTerms" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.NewRecord.Hide" Location="Mscrm.Form.incident.NewRecord" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.NewRecordForBPFEntity.Hide" Location="Mscrm.Form.incident.NewRecordForBPFEntity" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.Permissions.Grant.Hide" Location="Mscrm.Form.incident.Permissions.Grant" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.Permissions.Sharing.Hide" Location="Mscrm.Form.incident.Permissions.Sharing" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.PromoteToResponse.Hide" Location="Mscrm.Form.incident.PromoteToResponse" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.QueueItemDetail.Hide" Location="Mscrm.Form.incident.QueueItemDetail" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.Reactivate.Hide" Location="Mscrm.Form.incident.Reactivate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.Reports.Hide" Location="Mscrm.Form.incident.Reports" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.Resolve.Hide" Location="Mscrm.Form.incident.Resolve" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.RunRoutingRule.Hide" Location="Mscrm.Form.incident.RunRoutingRule" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.RunScript.Hide" Location="Mscrm.Form.incident.RunScript" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.RunWorkflow.Hide" Location="Mscrm.Form.incident.RunWorkflow" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.SaveAndClose.Hide" Location="Mscrm.Form.incident.SaveAndClose" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.SaveAndNew.Hide" Location="Mscrm.Form.incident.SaveAndNew" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.SaveAndRunRoutingRule.Hide" Location="Mscrm.Form.incident.SaveAndRunRoutingRule" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.SaveAsComplete.Hide" Location="Mscrm.Form.incident.SaveAsComplete" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.incident.WordTemplate.Hide" Location="Mscrm.Form.incident.WordTemplate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.incident.AddToQueue.Hide" Location="Mscrm.HomepageGrid.incident.AddToQueue" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.incident.Cancel.Hide" Location="Mscrm.HomepageGrid.incident.Cancel" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.incident.CaseFlow.Hide" Location="Mscrm.HomepageGrid.incident.CaseFlow" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.incident.DoNotDecrementEntitlementTerms.Hide" Location="Mscrm.HomepageGrid.incident.DoNotDecrementEntitlementTerms" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.incident.MBPF.ConvertTo.Hide" Location="Mscrm.HomepageGrid.incident.MBPF.ConvertTo" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.incident.NewRecord.Hide" Location="Mscrm.HomepageGrid.incident.NewRecord" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.incident.Resolve.Hide" Location="Mscrm.HomepageGrid.incident.Resolve" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.incident.RunReport.Hide" Location="Mscrm.HomepageGrid.incident.RunReport" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.incident.RunRoutingRule.Hide" Location="Mscrm.HomepageGrid.incident.RunRoutingRule" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.incident.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.incident.AddExistingAssoc" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.incident.AddExistingStandard.Hide" Location="Mscrm.SubGrid.incident.AddExistingStandard" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.incident.AddNewStandard.Hide" Location="Mscrm.SubGrid.incident.AddNewStandard" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.incident.AddToQueue.Hide" Location="Mscrm.SubGrid.incident.AddToQueue" />
+    <CustomAction Id="mcs.Mscrm.SubGrid.incident.SendSelected.CustomAction" Location="Mscrm.SubGrid.incident.MainTab.Collaborate.Controls._children" Sequence="58">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:Mscrm.SubGrid.incident.SendSelected.Alt" Command="Mscrm.SendShortcutSelected" Id="Mscrm.SubGrid.incident.SendSelected" LabelText="$LocLabels:Mscrm.SubGrid.incident.SendSelected.LabelText" Sequence="58" TemplateAlias="o4" ToolTipTitle="$LocLabels:Mscrm.SubGrid.incident.SendSelected.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.SubGrid.incident.SendSelected.ToolTipDescription" ModernImage="EmailLink" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.vhacrm.ApplicationRibbon.Button28.Button.CustomAction" Location="Mscrm.HomepageGrid.incident.MainTab.Collaborate.Controls._children" Sequence="60">
+      <CommandUIDefinition>
+        <Button Command="vhacrm.ApplicationRibbon.SuicideKBArticle.Command" Description="Emergency" Id="vhacrm.ApplicationRibbon.Button28.Button" Image32by32="$webresource:vhacrm_/SuicideHotline/png/ribbon_SuicideHotlineButton_32.png" Image16by16="$webresource:vhacrm_/SuicideHotline/png/ribbon_SuicideHotlineButton_16.png" LabelText="$LocLabels:vhacrm.ApplicationRibbon.Button28.Button.LabelText" Sequence="60" TemplateAlias="o2" ModernImage="$webresource:mcs_/Icons/SuicideHotlineUCI.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.vhacrm.ApplicationRibbon.Button29.Button.CustomAction" Location="Mscrm.Form.incident.MainTab.Collaborate.Controls._children" Sequence="35">
+      <CommandUIDefinition>
+        <Button Command="vhacrm.ApplicationRibbon.SuicideKBArticle.Command" Description="Emergency" Id="vhacrm.ApplicationRibbon.Button29.Button" Image32by32="$webresource:vhacrm_/SuicideHotline/png/ribbon_SuicideHotlineButton_32.png" Image16by16="$webresource:vhacrm_/SuicideHotline/png/ribbon_SuicideHotlineButton_16.png" LabelText="$LocLabels:vhacrm.ApplicationRibbon.Button29.Button.LabelText" Sequence="35" TemplateAlias="o2" ModernImage="$webresource:mcs_/Icons/SuicideHotlineUCI.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="mcs.incident.AdditionalRequest.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.incident.AdditionalRequest.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="CommCare.Request.Global.AdditionalRequestButton" Library="$webresource:vhacrm_/scripts/entity_request.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.incident.AssociatePerson.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.incident.AssociatePerson.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="showMviFromRibbon" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.incident.C4ResourcesHTML.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openC4Resources" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.incident.DailyClaimStatus.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="https://vaww.va.gov/COMMUNITYCARE/deliveryops/Customer-Experience.asp" WinMode="0" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.incident.FindDebtor.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.incident.IsOCCFM.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="CallDCUGetDebtorNameFromKNumberActionFromRibbon" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.incident.FMResourcesHTML.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openFMResources" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.incident.FullSearch.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.incident.IsOCCFM.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="launchDebtorSearchFromRibbon" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.incident.GeneratePQIForm.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.incident.GeneratePQIForm.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="CommCare.Request.Global.GeneratePQIForm" Library="$webresource:vhacrm_/scripts/entity_request.js">
+          <StringParameter Value="mcs_RequestGeneratePotentialQualityIssuePQIForm" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.incident.OpenBill.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.incident.IsOCCFM.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="OpenBillFromKNumber" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.incident.ReactivateRequest.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.incident.EnableReactivateButton.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="requestReactivateButton" Library="$webresource:vhacrm_/WebResources/ribbon.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.incident.SubmitInteraction.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.incident.EnableSubmitInteraction.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="submitInteractionFromChildEntity" Library="$webresource:vhacrm_/WebResources/ribbon.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="vhacrm.incident.MonthLocator.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openLocator" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules>
+      <EnableRule Id="mcs.incident.AdditionalRequest.EnableRule">
+        <CustomRule FunctionName="enableAdditionalRequestButton" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="false">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="mcs.incident.AssociatePerson.EnableRule">
+        <CustomRule FunctionName="enableAssociatePersonButton" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="false" />
+      </EnableRule>
+      <EnableRule Id="mcs.incident.CheckRoleForSupervisor.EnableRule">
+        <CustomRule FunctionName="showActivateButton" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="true" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="mcs.incident.EnableCreateRequestButton.EnableRule">
+        <CustomRule FunctionName="showCreateRequestButton" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="true" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="mcs.incident.EnableReactivateButton.EnableRule">
+        <CustomRule FunctionName="showReactivateButton" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="false">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="mcs.incident.EnableSubmitInteraction.EnableRule">
+        <CustomRule FunctionName="showHideSubmitInteraction" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="false">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="mcs.incident.GeneratePQIForm.EnableRule">
+        <CustomRule FunctionName="showOptumPQIButton" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </EnableRule>
+      <EnableRule Id="mcs.incident.IsOCCFM.EnableRule">
+        <CustomRule FunctionName="showDCUSearchButtons" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="false" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="mcs.incident.PPMS.EnableRule">
+        <CustomRule FunctionName="CheckC6Team" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="mcs.incident.AdditionalRequest.Button.LabelText">
+      <Titles>
+        <Title description="Additional Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.AssociatePerson.Button.LabelText">
+      <Titles>
+        <Title description="Associate Person" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.C4ResourcesHTML.Button.LabelText">
+      <Titles>
+        <Title description="C4 Resources" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.C4ResourcesHTML.Button.ToolTipDescription">
+      <Titles>
+        <Title description="C4 Resources" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.FMResourcesHTML.Button.LabelText">
+      <Titles>
+        <Title description="FM Resources" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.FMResourcesHTML.Button.ToolTipDescription">
+      <Titles>
+        <Title description="FM Resources" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.PPMS.Button.Alt">
+      <Titles>
+        <Title description="PPMS" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.PPMS.Button.LabelText">
+      <Titles>
+        <Title description="PPMS" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.PPMS.Button.ToolTipTitle">
+      <Titles>
+        <Title description="PPMS" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.ReactivateRequest.Button.Alt">
+      <Titles>
+        <Title description="Reactivate Case" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.ReactivateRequest.Button.LabelText">
+      <Titles>
+        <Title description="Reactivate Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.ReactivateRequest.Button.ToolTipDescription">
+      <Titles>
+        <Title description="reactivate this case. &lt;br&gt;&lt;br&gt;Do this if additional actions are required for the case." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.ReactivateRequest.Button.ToolTipTitle">
+      <Titles>
+        <Title description="ReactivateCase" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.SubmitInteraction.Button.LabelText">
+      <Titles>
+        <Title description="Submit" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.incident.SubmitInteraction.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Submit Interaction" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.SubGrid.incident.SendSelected.Alt">
+      <Titles>
+        <Title description="Email a Link" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.SubGrid.incident.SendSelected.LabelText">
+      <Titles>
+        <Title description="Email a Link" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.SubGrid.incident.SendSelected.ToolTipDescription">
+      <Titles>
+        <Title description="Email a Link" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.SubGrid.incident.SendSelected.ToolTipTitle">
+      <Titles>
+        <Title description="Email a Link" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="vhacrm.ApplicationRibbon.Button28.Button.LabelText">
+      <Titles>
+        <Title description="Emergency" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="vhacrm.ApplicationRibbon.Button29.Button.LabelText">
+      <Titles>
+        <Title description="Emergency" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

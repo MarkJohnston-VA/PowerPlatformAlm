@@ -1,0 +1,81 @@
+{
+	"defaultSupportedProps": {
+		"allowedContent": "*",
+		"allowedIframeDomains": [],
+		"autoGrow_onStartup": true,
+		"basicEntities": true,
+		"browserContextMenuOnCtrl": true,
+		"copyFormatting_allowRules": true,
+		"customConfig": "",
+		"dialog_backgroundCoverColor": "black",
+		"disallowedContent": "*",
+		"disableNativeSpellChecker": false,
+		"enterMode": 2,
+		"extraPlugins": "",
+		"fillEmptyBlocks": true,
+		"font_defaultLabel": "Segoe UI",
+		"font_names": "sans-serif;Segoe UI/'Segoe UI', 'Helvetica Neue",
+		"fontSize_defaultLabel": "9",
+		"fontSize_sizes": "11/11pt;12/12pt;",
+        "forcePasteAsPlainText": true,
+		"height": 185,
+		"keystrokes": [],
+		"linkDefaultProtocol": "https://",
+		"listStylePosition": "inside",
+		"pasteAzureBlobImageAsBase64": false,
+		"qtCellBorderColor": "rgb(171, 171, 171)",
+		"qtCellBorderStyle": "solid",
+		"qtCellBorderWidth": "1px",
+		"qtCellPadding": "1",
+		"qtCellSpacing": "0",
+		"qtCellWith": "120px",
+		"pasteFilter": null,
+		"qtColumns": 8,
+		"qtRows": 6,
+		"qtStyle": {
+			"border-collapse": "collapse",
+			"font-size": "9pt"
+		},
+		"removeDialogTabs": "flash:Upload;link:upload",
+		"removePlugins": "a11yhelp,codemirror,magicline,scayt,showborders,contextmenu,liststyle,openlink,tableresize,tableselection,tabletools",
+		"shiftEnterMode": 2,
+		"skin": "superowa",
+		"stickyStyle": {
+			"font-size": "11pt",
+			"font-family": "'Segoe UI'"
+		},
+		"stickyStyles_defaultTag": "div",
+		"superimageImageMaxSize": 5,
+        "toolbar": [],
+		"toolbarcollapser_enableResizer": true,
+		"toolbarLocation": "bottom",
+		"uploadRecordId": []
+	},
+	"disableContentSanitization": true,
+	"disableDefaultImageProcessing": false,
+	"disableImages": true,
+	"imageEntity": {
+		"imageEntityName": "msdyn_richtextfiles",
+		"imageFileAttributeName": "msdyn_imageblob",
+		"parentEntityIdField": "msdyn_parentid"
+	},
+	"attachmentEntity": {
+		"name": "msdyn_richtextfiles",
+		"fileAttributeName": "msdyn_fileblob",
+		"parentEntityIdField": "msdyn_parentid"
+	},
+	"showAsTabControl": false,
+	"showFullScreenExpander": false,
+	"showHtml": false,
+	"showPreview": false,
+	"showPreviewHeaderWarning": false,
+	"sanitizerAllowlist": {
+		"attributes": [],
+		"cssProperties": [],
+		"domains": [],
+		"protocols": [],
+		"tags": []
+	},
+	"readOnlySettings": {},
+	"disallowUserPersonalization": false
+}

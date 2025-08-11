@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{6d1cca4b-702f-499d-bdf2-25440773f06b}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="vhacrm_name" select="1" icon="1" preview="1">
+        <row name="result" id="vhacrm_actionintersectionid">
+          <cell name="vhacrm_name" width="300" />
+          <cell name="vhacrm_lineofbusiness" width="100" />
+          <cell name="vhacrm_typeintersectionid" width="100" />
+          <cell name="hac_owner_teamid" width="100" />
+          <cell name="vhacrm_areaintersectionid" width="100" />
+          <cell name="vhacrm_subareaintersectionid" width="100" />
+          <cell name="hac_routetype_code" width="100" />
+          <cell name="hac_route_teamid" width="100" />
+          <cell name="vhacrm_actionid" width="100" />
+          <cell name="ownerid" width="200" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="vhacrm_actionintersection">
+          <attribute name="vhacrm_name" />
+          <order attribute="hac_owner_teamid" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="vhacrm_typeintersectionid" />
+          <attribute name="hac_owner_teamid" />
+          <attribute name="vhacrm_subareaintersectionid" />
+          <attribute name="hac_routetype_code" />
+          <attribute name="hac_route_teamid" />
+          <attribute name="vhacrm_areaintersectionid" />
+          <attribute name="vhacrm_lineofbusiness" />
+          <attribute name="vhacrm_actionid" />
+          <attribute name="vhacrm_actionintersectionid" />
+          <attribute name="ownerid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Action Intersections" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b6595840-e3d4-4a59-a1a7-52511082fbf3}</formid>
+    <IntroducedVersion>2020.08.14.01</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920" headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{3d9d124a-5b4f-4109-9898-28ae6721cd53}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{b1f72806-8cb3-4720-9d16-f56d1afe7390}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a5c9a611-e7cb-41e4-b850-703c92a08c44}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8229bb79-46b5-10d4-1aa5-68336e3b7b6d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Route To" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_routeto" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="mcs_routeto" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ac1072c1-5cfb-4573-8358-17471f506043}" showlabel="true" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{5a1dbe80-87a6-59a2-aa75-4a8bd57a02b1}" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="{3d9d124a-5b4f-4109-9898-28ae6721cd53}_section_2" showlabel="false" showbar="false" locklevel="0" id="{bbd2e567-0d41-84ca-cda9-806d9e016394}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b66b932e-4171-a24d-9502-4e7596dec174}" showlabel="true" colspan="1" auto="false" rowspan="15">
+                        <labels>
+                          <label description="V-Signals Survey Questions" languagecode="1033" />
+                        </labels>
+                        <control id="VSignalsSurveyQuestions" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{2160e3a8-77cd-8b8d-640a-11bb6c60badb}">
+                          <parameters>
+                            <ViewId>{F1FACAE1-7D18-4CBC-9346-9A6A4AD6135C}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>mcs_mcs_vsignalssurveytype_mcs_vsignalssurveyquestion_VSignalsSurveyType</RelationshipName>
+                            <TargetEntityType>mcs_vsignalssurveyquestion</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{F1FACAE1-7D18-4CBC-9346-9A6A4AD6135C}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>12</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions>
+        <controlDescription forControl="{2160e3a8-77cd-8b8d-640a-11bb6c60badb}">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <ViewId>{F1FACAE1-7D18-4CBC-9346-9A6A4AD6135C}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>mcs_mcs_vsignalssurveytype_mcs_vsignalssurveyquestion_VSignalsSurveyType</RelationshipName>
+              <TargetEntityType>mcs_vsignalssurveyquestion</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{F1FACAE1-7D18-4CBC-9346-9A6A4AD6135C}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>All</ChartGridMode>
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>true</EnableChartPicker>
+              <RecordsPerPage>12</RecordsPerPage>
+              <HeaderColorCode>#F5F6F8</HeaderColorCode>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{F1FACAE1-7D18-4CBC-9346-9A6A4AD6135C}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>mcs_mcs_vsignalssurveytype_mcs_vsignalssurveyquestion_VSignalsSurveyType</RelationshipName>
+                <TargetEntityType>mcs_vsignalssurveyquestion</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{F1FACAE1-7D18-4CBC-9346-9A6A4AD6135C}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{F1FACAE1-7D18-4CBC-9346-9A6A4AD6135C}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>mcs_mcs_vsignalssurveytype_mcs_vsignalssurveyquestion_VSignalsSurveyType</RelationshipName>
+                <TargetEntityType>mcs_vsignalssurveyquestion</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{F1FACAE1-7D18-4CBC-9346-9A6A4AD6135C}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{F1FACAE1-7D18-4CBC-9346-9A6A4AD6135C}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>mcs_mcs_vsignalssurveytype_mcs_vsignalssurveyquestion_VSignalsSurveyType</RelationshipName>
+                <TargetEntityType>mcs_vsignalssurveyquestion</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{F1FACAE1-7D18-4CBC-9346-9A6A4AD6135C}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <header id="{38f24233-2b4c-4697-837f-1be5b5035e14}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{0d1a7687-d8ab-46c8-ace5-b90912364f95}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4e26f220-9a66-4a0b-ae45-c70d21145cb3}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{fddbe93b-261f-47b4-af3a-df9a99e37299}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{c3266e4c-9c9a-4a14-b3b1-f207824b94ca}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{59978397-0f38-4f96-b7cf-b40962fb897e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1d149ccb-f7c1-43d9-91d8-832710b9bf90}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f4cb0279-37b0-494e-9d9b-e1c0c147c760}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="V-Signals Survey Type" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

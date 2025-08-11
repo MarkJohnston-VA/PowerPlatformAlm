@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{2b5f5a5d-2d23-4fe7-aa58-e77995368ae7}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="subject" select="1" preview="1" icon="1">
+        <row name="result" id="activityid">
+          <cell name="createdon" width="100" />
+          <cell name="subject" width="250" />
+          <cell name="regardingobjectid" width="100" />
+          <cell name="ownerid" width="150" />
+          <cell name="a_67a273bcd42949af89cf5b3670167882.ccwf_issuerequestor_code" width="100" />
+          <cell name="hac_priority" width="100" />
+          <cell name="scheduledend" width="100" />
+          <cell name="statuscode" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="task">
+          <attribute name="subject" />
+          <attribute name="ownerid" />
+          <attribute name="regardingobjectid" />
+          <attribute name="scheduledend" />
+          <attribute name="statuscode" />
+          <attribute name="hac_priority" />
+          <filter type="and">
+            <condition attribute="statecode" operator="not-null" />
+            <condition attribute="ownerid" operator="ne" uiname="CSC Trainer" uitype="team" value="{AF368EE1-2421-E711-942E-0050568D1C17}" />
+          </filter>
+          <attribute name="activityid" />
+          <link-entity alias="a_67a273bcd42949af89cf5b3670167882" name="incident" to="regardingobjectid" from="incidentid" link-type="outer" visible="false">
+            <attribute name="ccwf_issuerequestor_code" />
+          </link-entity>
+          <attribute name="createdon" />
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

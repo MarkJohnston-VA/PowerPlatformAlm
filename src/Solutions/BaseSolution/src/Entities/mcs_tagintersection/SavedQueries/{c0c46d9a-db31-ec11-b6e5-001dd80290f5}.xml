@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{c0c46d9a-db31-ec11-b6e5-001dd80290f5}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" preview="1" icon="1">
+        <row name="result" id="mcs_tagintersectionid">
+          <cell name="mcs_task" width="250" />
+          <cell name="mcs_taskcreatedon" width="150" />
+          <cell name="a_ed1b60fbb531ec11b6e5001dd80290f5.hac_teamid" width="150" disableSorting="1" />
+          <cell name="a_ed1b60fbb531ec11b6e5001dd80290f5.hac__user_workedbyid" width="125" />
+          <cell name="a_ed1b60fbb531ec11b6e5001dd80290f5.hac_assigneddate" width="100" disableSorting="1" />
+          <cell name="a_ed1b60fbb531ec11b6e5001dd80290f5.hac_priority" width="100" disableSorting="1" />
+          <cell name="a_ed1b60fbb531ec11b6e5001dd80290f5.hac_status_code" width="100" disableSorting="1" />
+          <cell name="a_ed1b60fbb531ec11b6e5001dd80290f5.mcs_customer" width="100" disableSorting="1" />
+          <cell name="a_ed1b60fbb531ec11b6e5001dd80290f5.regardingobjectid" width="100" disableSorting="1" />
+          <cell name="a_ed1b60fbb531ec11b6e5001dd80290f5.hac_latest_note_txt" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="mcs_tagintersection">
+          <attribute name="mcs_task" />
+          <link-entity alias="a_ed1b60fbb531ec11b6e5001dd80290f5" name="task" from="activityid" to="mcs_task" link-type="outer" visible="false">
+            <attribute name="hac_status_code" />
+            <attribute name="hac_teamid" />
+            <attribute name="regardingobjectid" />
+            <attribute name="hac_priority" />
+            <attribute name="hac_latest_note_txt" />
+            <attribute name="mcs_customer" />
+            <attribute name="hac_assigneddate" />
+            <attribute name="hac__user_workedbyid" />
+          </link-entity>
+          <attribute name="mcs_tagintersectionid" />
+          <attribute name="mcs_taskcreatedon" />
+          <order attribute="mcs_taskcreatedon" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.10.15.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Tag Intersection SubGrid" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

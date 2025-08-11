@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{66633104-ceb6-49f3-8866-e4514f0d45f5}</formid>
+    <IntroducedVersion>0.0.1.5</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{557ab31e-febc-4f20-84e7-153f21aebde1}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{55270097-b69f-498c-8f25-9f020a9719ed}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1c198659-6bcc-ddcb-5364-84a54222c3a9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Application" languagecode="1033" />
+                        </labels>
+                        <control id="veis_application" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="veis_application" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0cedf2d4-acfb-4e56-b08d-3d5f61510ed3}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="veis_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="veis_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a29b8517-5262-4ed8-9065-3b58e1288222}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Known Occurrences" languagecode="1033" />
+                        </labels>
+                        <control id="veis_knownoccurrences" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="veis_knownoccurrences" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{73991ba1-466d-cd34-2a56-1b2c83400921}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="Aggregate Parent" languagecode="1033" />
+                        </labels>
+                        <control id="AggregateParent" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="veis_parentid" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="veis_automationsystemalertaggregate"&gt;9c17048b-fd3d-4a87-8222-ad082e27995e&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9747b9a5-0105-9629-4678-d01074605521}" showlabel="true" locklevel="0" rowspan="7">
+                        <labels>
+                          <label description="Exception Message" languagecode="1033" />
+                        </labels>
+                        <control id="veis_exceptionmessage" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="veis_exceptionmessage" disabled="false" uniqueid="{be9dbde3-e855-6157-a625-72e525117668}" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row></row>
+                    <row>
+                      <cell id="{8b893e46-0437-820b-7461-b9acdba0b8e1}" showlabel="true" locklevel="0" rowspan="7">
+                        <labels>
+                          <label description="Stack Trace" languagecode="1033" />
+                        </labels>
+                        <control id="veis_stacktrace" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="veis_stacktrace" disabled="false" uniqueid="{b974984a-1b61-7c21-0591-a0d07edadc61}" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="{ac8a0dc0-d3a4-3866-080b-6457bbccd747}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Exceptions" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{c6ebe63e-5853-719a-63b0-e1c871da6cc5}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c1263e12-8281-451e-30d0-6d67d3a5dbaa}" showlabel="true" rowspan="15" auto="false" colspan="1" locklevel="0">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" uniqueid="{300b3c53-113a-86be-e5a3-8293103835e3}" disabled="false">
+                          <parameters>
+                            <UClientUniqueName>Exceptions</UClientUniqueName>
+                            <UClientModules>Notes</UClientModules>
+                            <UClientDefaultModuleForCreateExperience>Notes</UClientDefaultModuleForCreateExperience>
+                            <UClientShowFilterPane>true</UClientShowFilterPane>
+                            <UClientExpandFilterPane>false</UClientExpandFilterPane>
+                            <UClientOrderBy>descending</UClientOrderBy>
+                            <UClientRecordPerPage>10</UClientRecordPerPage>
+                            <UClientEnableWhatsNewFilter>false</UClientEnableWhatsNewFilter>
+                            <DefaultTabId>ActivitiesTab</DefaultTabId>
+                            <EmailConversationView>true</EmailConversationView>
+                            <ShowArticleTab>false</ShowArticleTab>
+                            <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{495aa903-b3cc-42c8-8f15-a3791fca7fa1}" columns="111">
+        <rows>
+          <row>
+            <cell id="{28b634fa-537e-4d7d-908f-ccbd84a34648}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{cd07960e-6271-43d5-bacf-80c30d44359a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{33678eb9-66bd-c9e7-944a-aca7c24266e7}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Modified On" languagecode="1033" />
+              </labels>
+              <control id="header_modifiedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="false" uniqueid="{0ce7a289-48e9-8e75-02b2-ab1de2eb1862}" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

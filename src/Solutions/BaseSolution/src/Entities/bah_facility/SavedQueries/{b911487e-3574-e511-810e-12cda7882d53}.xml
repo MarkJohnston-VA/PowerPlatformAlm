@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b911487e-3574-e511-810e-12cda7882d53}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_name" select="1" preview="1" icon="1">
+        <row name="result" id="bah_facilityid">
+          <cell name="bah_name" width="300" />
+          <cell name="vhacrm_facilityabbreviation_text" width="300" />
+          <cell name="bah_stationsuffix_text" width="125" />
+          <cell name="bah_visnid" width="100" />
+          <cell name="bah_previousfacilityname_text" width="200" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="bah_facility">
+          <attribute name="bah_name" />
+          <attribute name="bah_stationsuffix_text" />
+          <attribute name="bah_previousfacilityname_text" />
+          <order attribute="bah_name" descending="false" />
+          <filter type="and">
+            <filter type="and">
+              <condition attribute="statecode" operator="eq" value="0" />
+              <condition attribute="bah_visnid" operator="eq" uiname="VISN 16" uitype="bah_visn" value="{EC3705D5-9393-E511-940E-00155D14F3B4}" />
+            </filter>
+          </filter>
+          <attribute name="bah_visnid" />
+          <attribute name="vhacrm_facilityabbreviation_text" />
+          <attribute name="bah_facilityid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="VISN 16 Facilities" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

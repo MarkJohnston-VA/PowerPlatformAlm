@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{d3c8cc58-fba6-ed11-aad1-001dd80724a2}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="subject" select="1" icon="1" preview="1">
+        <row name="result" id="activityid">
+          <cell name="subject" width="296" />
+          <cell name="description" width="300" />
+          <cell name="from" width="143" />
+          <cell name="to" width="147" />
+          <cell name="statuscode" width="100" />
+          <cell name="modifiedon" width="129" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="email">
+          <attribute name="subject" />
+          <attribute name="activityid" />
+          <attribute name="from" />
+          <attribute name="to" />
+          <attribute name="statuscode" />
+          <attribute name="modifiedon" />
+          <order attribute="modifiedon" descending="true" />
+          <attribute name="description" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.02.03.2</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="VET-HOME Related Emails" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

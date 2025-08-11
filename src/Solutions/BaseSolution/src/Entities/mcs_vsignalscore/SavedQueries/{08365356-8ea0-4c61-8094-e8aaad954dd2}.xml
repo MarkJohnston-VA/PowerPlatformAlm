@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{08365356-8ea0-4c61-8094-e8aaad954dd2}</savedqueryid>
+    <layoutxml>
+      <grid name="mcs_vsignalscores" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="mcs_vsignalscore" id="mcs_vsignalscoreid">
+          <cell name="mcs_name" width="300" />
+          <cell name="mcs_driver" width="100" />
+          <cell name="mcs_answer" width="100" disableSorting="1" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_vsignalscore">
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <order attribute="mcs_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_driver" />
+          <attribute name="mcs_answer" />
+          <attribute name="mcs_vsignalscoreid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2020.09.23.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="V-Signal Score Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{571ab441-9236-e711-812a-1289a8fdd3da}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="vhacrm_name" select="1" preview="1" icon="1">
+        <row name="result" id="vhacrm_areaintersectionid">
+          <cell name="vhacrm_name" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="vhacrm_areaintersection">
+          <attribute name="vhacrm_name" />
+          <order attribute="vhacrm_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="vhacrm_areaintersectionid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.5.0.2</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Interaction Purpose View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

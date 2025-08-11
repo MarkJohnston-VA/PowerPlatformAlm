@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="PMD Lead Dashboard" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{0b592336-1a85-4a81-83de-0c933f901d35}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{21f4d2bb-9e1c-452b-a81d-ea5f34d75734}" labelid="{32181c43-8aaf-4f22-9ee2-730f791ff37e}">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="1111" id="{0b3c5c3a-986f-4abd-bce6-6f4fcee368ad}" labelid="{34cff9bf-f547-43fb-bdf0-979cd32fba63}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="2" rowspan="12" showlabel="false" id="{66120b7d-0911-4ddf-abac-4b4c9c267b13}" auto="false" labelid="{c7ecca93-8d7f-442e-821e-3aec79912883}">
+                          <labels>
+                            <label description="Task" languagecode="1033" />
+                          </labels>
+                          <control id="Component7cb944c" uniqueid="{6167a910-037b-8c13-aa34-9bbb6aa390ca}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>task</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <ViewId>{90FD23AE-02C4-E711-8118-1458D04EABA0}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{90FD23AE-02C4-E711-8118-1458D04EABA0}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{DC4E8CF3-ECC3-E711-8118-1458D04EABA0}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{363c2047-217d-b928-3b32-1db549089eea}" showlabel="false" colspan="2" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Re-Route Histories" languagecode="1033" />
+                          </labels>
+                          <control id="Component7871861" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{b8db6458-4085-381e-4525-d9565870de32}">
+                            <parameters>
+                              <ViewId>{FE2CE7F5-295F-EA11-A99F-001DD800951B}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>mcs_reroutehistory</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <ViewIds>{86909BD7-295F-EA11-A99F-001DD800951B},{FE2CE7F5-295F-EA11-A99F-001DD800951B}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId />
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell colspan="2" rowspan="12" showlabel="false" id="{820e154d-b088-4bb9-9d26-e425970085d6}" auto="false" labelid="{6f59b322-a299-4c19-896f-52bfac5410da}">
+                          <labels>
+                            <label description="Queue Items" languagecode="1033" />
+                          </labels>
+                          <control id="Component4fb97e1" uniqueid="{8ce2a21e-49be-1126-3a65-8ce2e0adce0c}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>queueitem</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <ViewId>{802EEEEA-2BC3-E711-811F-1458D04EF938}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{802EEEEA-2BC3-E711-811F-1458D04EF938},{DF960708-34C3-E711-811F-1458D04EF938},{8CF2D430-34C3-E711-811F-1458D04EF938}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{475E6F02-32AE-4081-8CB8-E3E24A9FBC0F}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="2" rowspan="12" showlabel="false" id="{453f1c58-67ec-474b-8cde-7c430bf7dd7f}" auto="false" labelid="{55f86570-5c62-4bcd-8cd6-f00fcdaa522c}">
+                          <labels>
+                            <label description="My Tasks" languagecode="1033" />
+                          </labels>
+                          <control id="Component985c3a8" uniqueid="{873c0cb2-5a6e-b0c1-8998-cb722bb4c37d}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>task</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <ViewId>{6CF285AA-EB20-4277-925A-3E9735411FF0}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{28182A57-DAC3-E711-8118-1458D04EABA0},{42A0B7CE-05C4-E711-8118-1458D04EABA0},{6CF285AA-EB20-4277-925A-3E9735411FF0}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{752FC8A8-ECC3-E711-8118-1458D04EABA0}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+        <controlDescriptions />
+        <DisplayConditions>
+          <Role Id="{C3DFF2C3-5D20-E711-942D-0050568D1C17}" />
+          <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+          <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+        </DisplayConditions>
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

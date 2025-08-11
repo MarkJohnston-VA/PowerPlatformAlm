@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{35d07ff8-d96a-4049-b7ea-17174a7a3593}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{e189f36c-0ad3-4f38-838e-b08da0974304}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{4786312a-d289-440c-a70d-c1a1ca508d90}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d0033028-1e1e-2964-5281-6cea4a1ebb03}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Beneficiary" languagecode="1033" />
+                        </labels>
+                        <control id="hac_beneficiaryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="hac_beneficiaryid" disabled="false" />
+                      </cell>
+                      <cell id="{81aac855-3bb9-b62e-de33-ad1a052c7798}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Eligibility Type" languagecode="1033" />
+                        </labels>
+                        <control id="hac_eligibilitytype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_eligibilitytype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{446e7286-ee03-c195-5e86-e3053bb2452c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Beginning Date" languagecode="1033" />
+                        </labels>
+                        <control id="hac_begindate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_begindate" disabled="false" />
+                      </cell>
+                      <cell id="{e351d2cd-474c-3057-b6eb-956aede27a0a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Ending Date" languagecode="1033" />
+                        </labels>
+                        <control id="hac_enddate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_enddate" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="hiddenFieldsTab" id="{787e084d-5d15-6c22-5915-4b6888ade6a4}" IsUserDefined="0" locklevel="0" showlabel="false" visible="false" expanded="true">
+          <labels>
+            <label description="Hidden Fields" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{bed4c514-674e-152e-394a-ed08445e24e4}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{63ffe67f-08dd-47f7-859e-c041f5c076d3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="hac_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_name" disabled="true" />
+                      </cell>
+                      <cell id="{5487f298-5a4e-4905-b28d-0f666422b964}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <footer id="{e12eb561-64c0-4b95-8492-e9b623fd1e5d}">
+        <rows>
+          <row>
+            <cell id="{65637b2d-3911-4420-9649-f8583d9ff2a3}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+              <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Processes" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

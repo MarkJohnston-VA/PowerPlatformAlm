@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{dba004f4-e1de-435d-99be-0553d290c993}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_previousduedatesid">
+          <cell name="mcs_name" width="300" />
+          <cell name="mcs_previousduedate" width="100" />
+          <cell name="mcs_relatedactionitemid" width="100" />
+          <cell name="mcs_relatedtaskerid" width="100" />
+          <cell name="mcs_relateddirectoratetaskid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_previousduedates">
+          <attribute name="mcs_name" />
+          <order attribute="mcs_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_relatedtaskerid" />
+          <attribute name="mcs_relateddirectoratetaskid" />
+          <attribute name="mcs_relatedactionitemid" />
+          <attribute name="mcs_previousduedate" />
+          <attribute name="mcs_previousduedatesid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.04.05.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Previous Due Dates" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

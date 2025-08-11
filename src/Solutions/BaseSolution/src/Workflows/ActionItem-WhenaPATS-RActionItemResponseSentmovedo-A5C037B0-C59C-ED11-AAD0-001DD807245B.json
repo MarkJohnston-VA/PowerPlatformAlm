@@ -1,0 +1,616 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "mcs_D365ConnectionReference01"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedsharepointonline_c670e"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      },
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "mcs_D365ConnectionReference01"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_an_action_is_performed": {
+          "metadata": {
+            "operationMetadataId": "2b5f5486-dc83-4d86-914a-d3a6f73c569e"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "BusinessEventsTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "catalog": "allcatalog",
+              "category": "allcategory",
+              "subscriptionRequest/entityname": "mcs_tracker",
+              "subscriptionRequest/sdkmessagename": "mcs_MoveDocumentsFromSharePointToNotesAttachments"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Initialize_Flow_ID_variable": {
+          "runAfter": {
+            "Flow_Start_Time": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1a62cdfd-7f5e-4e18-baa7-73b027bd1af5"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow ID",
+                "type": "string",
+                "value": "@{workflow()?['name']}"
+              }
+            ]
+          },
+          "description": "Creates Flow ID Variable used to track Flow Status"
+        },
+        "Flow_Start_Time": {
+          "runAfter": {
+            "Get_a_row_by_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "44e6921c-b92a-4be5-9c1c-524379af6ce6"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Initialize_Flow_Display_Name_variable": {
+          "runAfter": {
+            "Initialize_Flow_ID_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8fc33c19-cade-46ad-89a3-53fdab5e521b"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow Display Name",
+                "type": "string",
+                "value": "@{workflow()?['tags']['flowDisplayName']}"
+              }
+            ]
+          },
+          "description": "Creates Flow Display Name Variable used to track Flow Status"
+        },
+        "Initialize_Flow_URL_variable": {
+          "runAfter": {
+            "Initialize_Flow_Display_Name_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4497aee6-086f-4c9d-a3fe-72016645c169"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow URL",
+                "type": "string",
+                "value": "@{concat('https://gov.flow.microsoft.us/manage/environments/', workflow()?['tags']['environmentName'], '/flows/', workflow()?['name'], '/runs/', workflow()?['run']['name'])}"
+              }
+            ]
+          },
+          "description": "Creates Flow URL variable used to Track Flow Status"
+        },
+        "Initialize_Run_ID_variable": {
+          "runAfter": {
+            "Initialize_Flow_URL_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "77d837a7-6dfa-4956-a256-01829fa71bd2"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Run ID",
+                "type": "string",
+                "value": "@{workflow()?['run']['name']}"
+              }
+            ]
+          },
+          "description": "Creates flow Run ID variable used to track Run ID"
+        },
+        "Create_new_Flow_Activity_Status_Morning": {
+          "runAfter": {
+            "Initialize_SharePoint_URL": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "173fdd54-0742-433d-8539-7bb349f79dde"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "item/mcs_flowname": "@variables('Flow Display Name')",
+              "item/mcs_flowexecutionurl": "@variables('Flow URL')",
+              "item/mcs_flowid": "@variables('Flow ID')",
+              "item/statuscode": 1,
+              "item/mcs_runid": "@variables('Run ID')",
+              "item/mcs_startdatetime": "@body('Flow_Start_Time')",
+              "item/statecode": 0
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Creates new record in Flow Activity Statuses entity to track flow runs."
+        },
+        "Scope": {
+          "actions": {
+            "Get_Document_Location_records_associated_with_Action_Item": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "978932b2-eccb-4042-807a-cae8d2b15e1c"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "sharepointdocumentlocations",
+                  "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\">\n  <entity name=\"sharepointdocumentlocation\">\n    <attribute name=\"relativeurl\" />\n    <attribute name=\"regardingobjectid\" />\n    <attribute name=\"parentsiteorlocation\" />\n    <attribute name=\"absoluteurl\" />\n    <attribute name=\"name\" />\n    <attribute name=\"sharepointdocumentlocationid\" />\n    <order attribute=\"name\" descending=\"false\" />\n    <filter type=\"and\">\n      <condition attribute=\"statecode\" operator=\"eq\" value=\"0\" />\n      <condition attribute=\"locationtype\" operator=\"eq\" value=\"0\" />\n      <condition attribute=\"servicetype\" operator=\"eq\" value=\"0\" />\n    </filter>\n    <link-entity name=\"mcs_tracker\" from=\"mcs_trackerid\" to=\"regardingobjectid\" link-type=\"inner\" alias=\"av\">\n      <filter type=\"and\">\n        <condition attribute=\"mcs_trackerid\" operator=\"eq\" uiname=\"@{outputs('Get_a_row_by_ID')?['body/mcs_name']}\" uitype=\"mcs_tracker\" value=\"{@{outputs('Get_a_row_by_ID')?['body/mcs_trackerid']}}\" />\n      </filter>\n    </link-entity>\n  </entity>\n</fetch>"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Apply_to_each": {
+              "foreach": "@outputs('Get_Document_Location_records_associated_with_Action_Item')?['body/value']",
+              "actions": {
+                "Apply_to_each_2": {
+                  "foreach": "@outputs('Get_SharePoint_files_(properties_only)')?['body/value']",
+                  "actions": {
+                    "Get_file_content_using_path": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "492a8150-bdc5-4fa5-9620-66af280d154b"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_sharepointonline",
+                          "operationId": "GetFileContentByPath",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                        },
+                        "parameters": {
+                          "dataset": "@variables('SharePointURL')",
+                          "path": "@items('Apply_to_each_2')?['{FullPath}']",
+                          "inferContentType": true
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Get_file_metadata_using_path": {
+                      "runAfter": {
+                        "Get_file_content_using_path": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "7e12c00a-32d5-4f2c-81fb-594f33daa0ca"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_sharepointonline",
+                          "operationId": "GetFileMetadataByPath",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                        },
+                        "parameters": {
+                          "dataset": "@variables('SharePointURL')",
+                          "path": "@items('Apply_to_each_2')?['{FullPath}']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Create_Note_record": {
+                      "runAfter": {
+                        "Get_file_metadata_using_path": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "c23cef7c-84e0-45f0-af15-35b35c23ffd2"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "annotations",
+                          "item/subject": "@outputs('Get_file_metadata_using_path')?['body/DisplayName']",
+                          "item/isdocument": true,
+                          "item/documentbody": "@base64(outputs('Get_file_content_using_path')?['body'])",
+                          "item/filename": "@outputs('Get_file_metadata_using_path')?['body/DisplayName']",
+                          "item/mimetype": "@outputs('Get_file_metadata_using_path')?['body/MediaType']",
+                          "item/objectid_mcs_tracker@odata.bind": "/mcs_trackers(@{outputs('Get_a_row_by_ID')?['body/mcs_trackerid']})"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Get_SharePoint_files_(properties_only)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "afa73c99-a52f-4ecb-98e3-75cf12afee1a"
+                  },
+                  "type": "Foreach"
+                },
+                "Get_SharePoint_files_(properties_only)": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "559db4e4-f8a8-45ed-838c-dd15b99d442b"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_sharepointonline",
+                      "operationId": "GetFileItems",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                    },
+                    "parameters": {
+                      "dataset": "@variables('SharePointURL')",
+                      "table": "Action Item",
+                      "folderPath": "/mcs_tracker/@{items('Apply_to_each')?['relativeurl']}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Set_SharePoint_site": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "33406066-e869-4af7-8f0b-ed2e159d4d73"
+              },
+              "type": "Foreach"
+            },
+            "Get_default_SharePoint_site": {
+              "runAfter": {
+                "Get_Document_Location_records_associated_with_Action_Item": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "b9ab2817-efd4-4de7-acd9-4ff0d31e2ebc"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "sharepointsites",
+                  "$filter": "isdefault eq true"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Set_SharePoint_site": {
+              "foreach": "@outputs('Get_default_SharePoint_site')?['body/value']",
+              "actions": {
+                "Set_SharePoint_URL": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "492949bc-c7e8-48a0-861f-c961f8cac43f"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "SharePointURL",
+                    "value": "@items('Set_SharePoint_site')?['absoluteurl']"
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_default_SharePoint_site": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c541bc02-a53b-4e37-b411-efdb8a90eff3"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Create_new_Flow_Activity_Status_Morning": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "af3aef12-c159-4d66-b994-a1b0d5a5415f"
+          },
+          "type": "Scope"
+        },
+        "Current_time_Failed": {
+          "runAfter": {
+            "Scope": [
+              "Skipped",
+              "Failed",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d873a0ad-0c99-4341-a515-554b7948c7da"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Update_with_Success_Status": {
+          "runAfter": {
+            "Current_time_Successful": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "90751a53-eaf5-4203-bd2a-0de603453eb2"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "recordId": "@outputs('Create_new_Flow_Activity_Status_Morning')?['body/mcs_flowactivitystatusid']",
+              "item/mcs_enddatetime": "@body('Current_time_Successful')",
+              "item/statuscode": 153190007
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Update the corresponding Flow Activity Status record depending on if Scope step completed successfully.  Update the End Date Time with current time, Flow Run Status to Success.."
+        },
+        "Current_time_Successful": {
+          "runAfter": {
+            "Scope": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b41e3bd9-edcd-463e-9371-7026ac9d298a"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Filter_Error_Array": {
+          "runAfter": {
+            "Current_time_Failed": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8fd80e3d-b708-463c-a4d1-239eca4a7d83"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@result('Scope')",
+            "where": "@equals(item()?['status'], string('Failed'))"
+          },
+          "description": "Filter workflow object based on Failed Status to retrieve Error Message."
+        },
+        "Flow_Error_Message": {
+          "runAfter": {
+            "Filter_Error_Array": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "49924d66-db09-45ad-a544-ce5300b477d5"
+          },
+          "type": "Compose",
+          "inputs": "@body('Filter_Error_Array')[0]?['outputs']?['body']?['error/message']",
+          "description": "Obtain Error Message from workflow object"
+        },
+        "Update_a_row_with_Failed_Status": {
+          "runAfter": {
+            "Flow_Error_Message": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "04a53181-61c9-40b9-b54d-5a666255e4b7"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "recordId": "@outputs('Create_new_Flow_Activity_Status_Morning')?['body/mcs_flowactivitystatusid']",
+              "item/mcs_enddatetime": "@body('Current_time_Failed')",
+              "item/mcs_errormessage": "@string(outputs('Flow_Error_Message'))",
+              "item/statuscode": 153190004
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Update the corresponding Flow Activity Status record due to one or more steps failing in the Scope above.   Update the Start Date field to Current time, Flow Run Status to Error and the Error Message field with the error retrieved from previous step."
+        },
+        "Initialize_SharePoint_URL": {
+          "runAfter": {
+            "Initialize_Run_ID_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c4ef181e-1302-4cce-acf3-f4ad5850b567"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "SharePointURL",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Compose_-_Get_Action_Body": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "ab8af7ac-8c16-486d-a5d8-3f48231265c0"
+          },
+          "type": "Compose",
+          "inputs": "@triggerOutputs()?['body']"
+        },
+        "Parse_JSON": {
+          "runAfter": {
+            "Compose_-_Get_Action_Body": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1b467e57-4056-4157-a99d-a583d4797695"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@triggerOutputs()?['body']",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "InputParameters": {
+                  "type": "object",
+                  "properties": {
+                    "Target": {
+                      "type": "object",
+                      "properties": {
+                        "Id": {
+                          "type": "string"
+                        },
+                        "LogicalName": {
+                          "type": "string"
+                        },
+                        "Name": {},
+                        "KeyAttributes": {
+                          "type": "array"
+                        },
+                        "RowVersion": {}
+                      }
+                    },
+                    "x-ms-app-name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "OutputParameters": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "ItemInternalId": {
+                  "type": "string"
+                },
+                "SdkMessage": {
+                  "type": "string"
+                },
+                "RunAsSystemUserId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Get_a_row_by_ID": {
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ad799731-c483-4625-84cc-42c2a568eef6"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_trackers",
+              "recordId": "@body('Parse_JSON')?['InputParameters']?['Target']?['Id']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

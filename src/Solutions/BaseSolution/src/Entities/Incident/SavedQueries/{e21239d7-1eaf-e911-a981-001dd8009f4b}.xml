@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{e21239d7-1eaf-e911-a981-001dd8009f4b}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" icon="1" preview="1">
+        <row name="result" id="incidentid">
+          <cell name="createdon" width="150" />
+          <cell name="createdby" width="150" />
+          <cell name="title" width="200" />
+          <cell name="statuscode" width="150" />
+          <cell name="ccwf_issuerequestor_code" width="150" />
+          <cell name="vhacrm_firstname_text" width="150" />
+          <cell name="vhacrm_areaintersectionid" width="125" />
+          <cell name="vhacrm_subareaintersectionid" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="incident">
+          <attribute name="createdon" />
+          <attribute name="vhacrm_subareaintersectionid" />
+          <attribute name="vhacrm_areaintersectionid" />
+          <attribute name="incidentid" />
+          <attribute name="title" />
+          <attribute name="createdby" />
+          <attribute name="statuscode" />
+          <attribute name="ccwf_issuerequestor_code" />
+          <attribute name="vhacrm_firstname_text" />
+          <order attribute="createdon" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Related Requests (FM)" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,61 @@
+/// <reference path="CommCareShared.min.js"/>
+
+if (typeof CommCare == 'undefined')
+{ CommCare = { __namespace: true }; }
+
+if (typeof (CommCare.Visn) == "undefined") {
+    CommCare.Visn = {
+        __namespace: true
+    };
+}
+
+
+if (typeof (CommCare.Visn.Global) == "undefined") {
+    CommCare.Visn.Global = {
+        __namespace: true
+    };
+}
+
+if (typeof (CommCare.Visn.Constants) == "undefined") {
+    CommCare.Visn.Constants = {
+        __namespace: true
+    };
+}
+
+CommCare.Visn.Global = (function () {
+    return {
+        OnLoad: onLoad
+    }
+
+    function onLoad(context) {
+        CommCare.Shared.GetFormContext(context);
+        var fetchXml = "<fetch><entity name='role'><attribute name='name'/><attribute name='roleid'/><filter type='and'><condition attribute='name' operator='eq' value='system administrator'/></filter></entity></fetch>";
+
+        CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+        CommCare.Shared.CrmCommonJS.WebApi.RetrieveByFetchXml("roles", fetchXml).then(function (role) {
+            if (role.value.length > 0) {
+                var isAdmin = false
+                var adminRoleId = role.value[0].roleid;
+                var userRoles = Xrm.Utility.getGlobalContext().userSettings.roles["_collection"];
+                for (const roleId in userRoles) {
+                    if (roleId.toUpperCase() == adminRoleId.toUpperCase()) {
+                        isAdmin = true;
+                        break;
+                    }
+                }
+
+                var fieldList = ["vhacrm_visnonboarded_bool"];
+                setReadOnlyOnMultipleFields(fieldList, !isAdmin);
+            }
+
+        }).catch(function (error) {
+            console.log("Error in Getting System Administrator Role: " + error.message);
+        });
+    }
+
+    function setReadOnlyOnMultipleFields(fieldList, bool) {
+        for (var i = 0; i < fieldList.length; i++) {
+            CommCare.Shared.SetReadOnly(fieldList[i], bool);
+        }
+    }
+})();

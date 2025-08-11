@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{1d6aea94-bd03-47d5-b7ff-ae4140c16144}</formid>
+    <IntroducedVersion>2018.07.13.01</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1900">
+      <tabs>
+        <tab verticallayout="true" id="{726e5af8-d17e-42b7-a5bb-a68e3fd9596f}" IsUserDefined="1" labelid="{76cf58f0-c75e-4402-930a-ec58b9201a30}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{881fe500-fe5d-452b-a426-daeddc227e3a}" labelid="{a49d32fb-15db-4106-9cee-4f381fc51274}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{124a9aa2-f047-4f22-9fc8-79df5fc2785c}" labelid="{02ad335f-1cad-445e-86c0-31a585c20b2e}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{867c1973-e344-c199-164b-932ac0b7e8a6}" showlabel="true" locklevel="0" labelid="{6fe7448c-c904-4a76-ba2c-b7be6136364a}">
+                        <labels>
+                          <label description="Beneficiary Plugin" languagecode="1033" />
+                        </labels>
+                        <control id="hac_beneficiaryplugin" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="hac_beneficiaryplugin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4d563da1-5885-0dec-2061-6bd78bc35052}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Claim PPR Line Detail Plugin" languagecode="1033" />
+                        </labels>
+                        <control id="hac_claimpprlinedetailplugin" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="hac_claimpprlinedetailplugin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eddcae19-a3b0-1160-e3c6-0e4590bd1651}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Household Plugin" languagecode="1033" />
+                        </labels>
+                        <control id="hac_householdplugin" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="hac_householdplugin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{83e1580d-1dd4-895a-c947-4605bc7591e7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Sponsor Plugin" languagecode="1033" />
+                        </labels>
+                        <control id="hac_sponsorplugin" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="hac_sponsorplugin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9134a033-d5a9-e175-ed71-e2c4db04b44d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="SSO Credential Plugin" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_ssocredentialplugin" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="mcs_ssocredentialplugin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8e0a8fe2-d183-4dd0-bece-1580a31148c6}" labelid="{288a75b8-5bb8-4104-8fc9-e62241944400}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Diagnostics" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

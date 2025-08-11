@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{7bf92da8-3eb7-eb11-8236-001dd80216dc}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_name" select="1" preview="1" icon="1">
+        <row name="result" id="bah_interactionsid">
+          <cell name="bah_visnid" width="100" />
+          <cell name="bah_facilityid" width="150" />
+          <cell name="createdon" width="150" />
+          <cell name="createdby" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hrc_interactionno_text" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="bah_interactionsource_code" width="100" />
+          <cell name="bah_interactedwith_code" width="150" />
+          <cell name="vhacrm_interactionpurposeid" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="bah_veteranid" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="ccwf_tin_text" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="bah_interactions">
+          <filter type="and">
+            <condition attribute="createdon" operator="last-seven-days" />
+            <condition attribute="bah_programtypeid" operator="eq" value="{D970695D-C0C5-E911-A984-001DD800BA25}" uiname="C3" uitype="bah_program" />
+            <condition attribute="hrc_lobid" operator="ne" value="{b74f8eab-e865-ed11-9562-001dd8070aa7}" uiname="VET-HOME" uitype="hrc_lob" />
+          </filter>
+          <link-entity name="bah_facility" from="bah_facilityid" to="bah_facilityid" alias="aa" link-type="inner">
+            <filter type="and">
+              <condition attribute="mcs_acceptingrequests" operator="eq" value="1" />
+            </filter>
+          </link-entity>
+          <attribute name="createdon" />
+          <attribute name="createdby" />
+          <attribute name="hrc_interactionno_text" />
+          <attribute name="bah_interactionsource_code" />
+          <attribute name="bah_interactedwith_code" />
+          <attribute name="vhacrm_interactionpurposeid" />
+          <attribute name="bah_veteranid" />
+          <attribute name="ccwf_tin_text" />
+          <attribute name="bah_visnid" />
+          <attribute name="bah_facilityid" />
+          <order attribute="bah_visnid" descending="false" />
+          <order attribute="bah_facilityid" descending="false" />
+          <attribute name="bah_interactionsid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.05.14.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Interactions Created by VISN/VAMC" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

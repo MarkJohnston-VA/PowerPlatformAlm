@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{02bec2da-b13e-456c-81d5-5b8c8cb02abe}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_cramsubject" select="1" icon="1" preview="1">
+        <row name="result" id="bah_customentityid">
+          <cell name="bah_cramsubject" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="createdby" width="104" />
+          <cell name="bah_source" width="100" />
+          <cell name="bah_contactingentity" width="140" />
+          <cell name="bah_purpose" width="100" />
+          <cell name="bah_purposedetail" width="123" />
+          <cell name="statuscode" width="119" />
+          <cell name="bah_workedby" width="104" />
+          <cell name="modifiedby" width="112" />
+          <cell name="modifiedon" width="113" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="bah_customentity">
+          <attribute name="bah_customentityid" />
+          <attribute name="bah_cramsubject" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <order attribute="createdon" descending="true" />
+          <attribute name="createdby" />
+          <attribute name="modifiedon" />
+          <attribute name="bah_source" />
+          <attribute name="bah_purpose" />
+          <attribute name="bah_purposedetail" />
+          <attribute name="statuscode" />
+          <attribute name="bah_contactingentity" />
+          <attribute name="modifiedby" />
+          <attribute name="bah_workedby" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active CRAM Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

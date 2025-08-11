@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{863df6de-d609-ed11-bb3a-001dd803ea40}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="name" select="1" preview="1" icon="1">
+        <row name="result" id="teamid">
+          <cell name="name" width="150" />
+          <cell name="mcs_abbreviation" width="100" />
+          <cell name="mcs_emailsubject" width="100" />
+          <cell name="mcs_trackerteamtype" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="team">
+          <attribute name="name" />
+          <attribute name="mcs_abbreviation" />
+          <attribute name="mcs_emailsubject" />
+          <attribute name="mcs_trackerteamtype" />
+          <order attribute="name" descending="false" />
+          <filter type="and">
+            <condition attribute="mcs_trackerteamtype" operator="null" />
+            <condition attribute="mcs_provisionteamtype" operator="eq" value="803750000" />
+            <condition attribute="teamid" operator="ne" uiname="16 IVC Front Office" uitype="team" value="{2D9AD717-246A-EB11-A812-001DD800A140}" />
+          </filter>
+          <attribute name="teamid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2022.07.19.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Deprecated Executive, Directorate, and Sub Directorate Teams" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

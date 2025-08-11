@@ -1,0 +1,31 @@
+Screen1 As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    "PersistedWebPageContainer1 As 'Persisted web page container'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =708
+        urlValue: =url
+        Width: =Screen1.Width
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+    Label3 As Label:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Text: |-
+            =Concatenate("appId:", appId, ", formId:", formId, ", recordId: ", recordId)
+        Width: =799
+        X: =20
+        Y: =730
+        ZIndex: =2
+
+    Label4 As Label:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Text: =url
+        Width: =516
+        X: =850
+        Y: =730
+        ZIndex: =3
+

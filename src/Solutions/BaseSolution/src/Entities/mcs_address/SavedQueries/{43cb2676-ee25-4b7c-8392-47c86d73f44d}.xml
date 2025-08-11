@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{43cb2676-ee25-4b7c-8392-47c86d73f44d}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_addressid">
+          <cell name="mcs_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_address" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_city" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_stateprov" width="100" />
+          <cell name="mcs_zip" width="100" />
+          <cell name="mcs_country" width="100" />
+          <cell name="mcs_county" width="100" />
+          <cell name="mcs_effectivedate" width="100" />
+          <cell name="mcs_enddate" width="100" />
+          <cell name="mcs_changesource" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_badaddress" width="100" />
+          <cell name="mcs_confidential" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_address">
+          <attribute name="mcs_name" />
+          <attribute name="mcs_zip" />
+          <attribute name="mcs_stateprov" />
+          <attribute name="mcs_enddate" />
+          <attribute name="mcs_effectivedate" />
+          <attribute name="mcs_county" />
+          <attribute name="mcs_country" />
+          <attribute name="mcs_confidential" />
+          <attribute name="mcs_city" />
+          <attribute name="mcs_changesource" />
+          <attribute name="mcs_badaddress" />
+          <attribute name="mcs_address" />
+          <attribute name="mcs_addressid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.04.24.01</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Addresses" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

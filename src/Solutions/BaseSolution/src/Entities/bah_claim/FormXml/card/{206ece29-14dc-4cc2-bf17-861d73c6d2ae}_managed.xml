@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{206ece29-14dc-4cc2-bf17-861d73c6d2ae}</formid>
+    <IntroducedVersion>2022.05.09.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab IsUserDefined="0" id="{1703089d-6bf7-463f-8e2d-6c6f8050e050}">
+          <labels>
+            <label description="Card" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="25%">
+              <sections>
+                <section name="Color Strip" showlabel="false" showbar="false" IsUserDefined="0" columns="1" id="{41c581f8-66f7-4ea0-95fb-64bc5553aff1}">
+                  <labels>
+                    <label description="Color Strip" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{aad7224f-7fd2-4b97-8484-611822145087}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="75%">
+              <sections>
+                <section name="CardHeader" showlabel="false" showbar="false" IsUserDefined="0" columns="111" id="{f27abd02-e95d-43c1-a53e-5b150a58bf4b}">
+                  <labels>
+                    <label description="Header" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b1868a69-c252-8171-255d-95d97b48a75a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Start Date of Service" languagecode="1033" />
+                        </labels>
+                        <control id="ccwf_dateofservice_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="ccwf_dateofservice_date" disabled="false" uniqueid="{b2b0a81b-1ac2-93bd-b29c-2a33a9bb7015}" />
+                      </cell>
+                      <cell id="{1a1078b5-32b4-2ca9-476c-95d68064721b}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{eed8648a-945b-99c7-77ab-015e560c6e0d}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="CardDetails" showlabel="false" showbar="false" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" id="{d102106b-c6f3-4dfa-9302-6333c9d668fb}">
+                  <labels>
+                    <label description="Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{86400324-7ba6-ec27-cd33-6158712c25a5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Patient" languagecode="1033" />
+                        </labels>
+                        <control id="ccwf_veteranid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ccwf_veteranid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{088942c1-1526-9528-e6d6-942ecc701b8e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Claim Number" languagecode="1033" />
+                        </labels>
+                        <control id="bah_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_name" disabled="false" uniqueid="{694d87e8-e522-3895-234e-8212822e64ed}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{85833e6c-5e64-651b-85ac-c990eaac448b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Claim Source" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_claimsource" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="mcs_claimsource" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8b1b1c8e-2947-d2ca-89a3-7bc45c48d386}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Billed Amount" languagecode="1033" />
+                        </labels>
+                        <control id="ccwf_billedamount_currency" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="ccwf_billedamount_currency" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="CardFooter" showlabel="false" showbar="false" IsUserDefined="0" columns="1111" id="{8ea79ee4-0a69-4144-9ccc-98ea7370c34c}">
+                  <labels>
+                    <label description="Footer" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{481ac517-7076-e584-769a-705b66b6b367}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{a13eb64e-be41-431b-83f0-fe63fd358a7a}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{16461239-ee99-4361-b742-ae5388b1b904}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{c77725f6-03a6-4708-b8da-c9a7b44da5ae}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Claim Card Form" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

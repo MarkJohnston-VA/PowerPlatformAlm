@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{51605094-1ba6-e811-8128-1458d04d2848}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_name" select="1" preview="1" icon="1">
+        <row name="result" id="bah_interactionsid">
+          <cell name="hrc_interactionno_text" width="100" />
+          <cell name="mcs_prrtreceiveremailaddress" width="100" />
+          <cell name="bah_interactedwith_code" width="100" />
+          <cell name="createdon" width="100" />
+          <cell name="bah_programtypeid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="bah_interactions">
+          <attribute name="bah_programtypeid" />
+          <attribute name="hrc_interactionno_text" />
+          <attribute name="createdon" />
+          <attribute name="bah_interactedwith_code" />
+          <attribute name="mcs_prrtreceiveremailaddress" />
+          <order attribute="createdon" descending="false" />
+          <attribute name="bah_interactionsid" />
+          <filter type="and">
+            <condition attribute="hrc_lobid" operator="ne" value="{b74f8eab-e865-ed11-9562-001dd8070aa7}" uiname="VET-HOME" uitype="hrc_lob" />
+            <filter type="and">
+              <condition attribute="bah_programtypeid" operator="eq" value="{274158A0-3FA5-E811-812C-1458D04D78B8}" uiname="PRRT" uitype="bah_program" />
+              <condition attribute="mcs_prrtreceiveremailaddress" operator="not-null" />
+            </filter>
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="PRRT Reciever Email Address" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

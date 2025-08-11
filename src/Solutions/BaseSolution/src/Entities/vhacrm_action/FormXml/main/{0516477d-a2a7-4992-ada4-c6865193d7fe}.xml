@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{0516477d-a2a7-4992-ada4-c6865193d7fe}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{d91fa574-7641-460e-b6df-947c6f3e2347}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{a5ac9b33-6d64-47a4-abf6-69d6e88f6240}" height="auto">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e66dc915-46fa-4303-9a9b-7d3ee95718b8}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4becc4aa-6ab5-4cb2-9be9-7156525cc784}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{595efd64-e02b-49f8-9488-fa8e1e72ecad}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Default LOB" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_defaultlob" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_defaultlob" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9596f460-a677-4de5-89f5-ada73e85cbf9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Default Type" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_defaulttype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_defaulttype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{944dd1da-510e-1360-c6ac-072ed57cb70d}" showlabel="true" colspan="1" auto="true" rowspan="5">
+                        <labels>
+                          <label description="Action Intersections (Action)" languagecode="1033" />
+                        </labels>
+                        <control id="action_intersections" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{b9d1d815-9450-007c-53c9-6261a3e128e9}" indicationOfSubgrid="true">
+                          <parameters>
+                            <ViewId>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>vhacrm_vhacrm_action_vhacrm_actionintersection_actionid</RelationshipName>
+                            <TargetEntityType>vhacrm_actionintersection</TargetEntityType>
+                            <AutoExpand>Auto</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>20</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Admin" id="03f7b189-1eb6-4e27-8361-de5c5c40fc4d" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Admin" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" id="dcddf1a0-9c04-4d99-aea2-92532f7676f4" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{932e175e-f826-40d8-854d-2c8b84ac2114}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_description" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="mcs_description" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions>
+        <controlDescription forControl="{b9d1d815-9450-007c-53c9-6261a3e128e9}">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <ViewId>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>vhacrm_vhacrm_action_vhacrm_actionintersection_actionid</RelationshipName>
+              <TargetEntityType>vhacrm_actionintersection</TargetEntityType>
+              <AutoExpand>Auto</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>All</ChartGridMode>
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>true</EnableChartPicker>
+              <RecordsPerPage>20</RecordsPerPage>
+              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>vhacrm_vhacrm_action_vhacrm_actionintersection_actionid</RelationshipName>
+                <TargetEntityType>vhacrm_actionintersection</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>vhacrm_vhacrm_action_vhacrm_actionintersection_actionid</RelationshipName>
+                <TargetEntityType>vhacrm_actionintersection</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>vhacrm_vhacrm_action_vhacrm_actionintersection_actionid</RelationshipName>
+                <TargetEntityType>vhacrm_actionintersection</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <header id="{0cbb27bc-f89f-4f17-9675-b5a3fdbabe54}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{0ee2da5e-4fcf-4e24-9370-a83169a165c6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f20c3082-2a92-4ddd-ba7b-9cc7c23216a5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d9664727-5154-4420-b75f-62a5fcd228fa}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{5d70f65f-78af-4387-9e38-a61a577cf64d}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{5e9e7647-2304-4069-8ad0-ee6760fa8bdf}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{41a0bf57-e933-4a82-9000-db11933b41d0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{42e7750c-6a2e-4f6d-a296-7e268178ff04}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

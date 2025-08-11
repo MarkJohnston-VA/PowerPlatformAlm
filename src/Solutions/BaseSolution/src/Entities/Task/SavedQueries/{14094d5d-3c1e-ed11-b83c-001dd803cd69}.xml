@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{14094d5d-3c1e-ed11-b83c-001dd803cd69}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="subject" select="1" preview="1" icon="1">
+        <row name="result" id="activityid">
+          <cell name="subject" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="100" />
+          <cell name="actualend" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_priority" width="100" />
+          <cell name="hac_status_code" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_resolvedby" width="100" />
+          <cell name="regardingobjectid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_customer" width="100" />
+          <cell name="hac_resolutionreason_code" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="task">
+          <attribute name="subject" />
+          <attribute name="hac_status_code" />
+          <attribute name="createdon" />
+          <attribute name="hac_priority" />
+          <attribute name="actualend" />
+          <attribute name="hac_resolutionreason_code" />
+          <attribute name="regardingobjectid" />
+          <attribute name="mcs_customer" />
+          <attribute name="mcs_resolvedby" />
+          <order attribute="actualend" descending="true" />
+          <filter type="and">
+            <condition attribute="hac_status_code" operator="in">
+              <value>806860000</value>
+              <value>803750000</value>
+              <value>803750001</value>
+              <value>803750003</value>
+              <value>803750009</value>
+              <value>803750010</value>
+              <value>803750007</value>
+              <value>803750008</value>
+            </condition>
+            <condition attribute="ownerid" operator="in">
+              <value uiname="R&amp;R Suspense 3" uitype="team">{4BAAD812-3604-E711-9429-0050568D1C17}</value>
+              <value uiname="HCR" uitype="team">{F8220CC6-4C04-E711-9429-0050568D1C17}</value>
+              <value uiname="ChampVA Foreign" uitype="team">{CA020300-4CD5-EC11-A7B4-001DD8035197}</value>
+            </condition>
+            <condition attribute="actualend" operator="last-x-months" value="1" />
+          </filter>
+          <attribute name="activityid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="HCR Team Tasks Completed Past Month" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

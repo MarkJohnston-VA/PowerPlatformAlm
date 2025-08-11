@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{7b83a150-b173-e711-812d-1289a8fdd3da}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_name" select="1" icon="1" preview="1">
+        <row name="result" id="bah_interactionsid">
+          <cell name="createdon" width="150" />
+          <cell name="hrc_interactionno_text" width="175" />
+          <cell name="vhacrm_usernamecvhdid" width="150" />
+          <cell name="bah_firstname_text" width="125" />
+          <cell name="bah_lastname_text" width="125" />
+          <cell name="vhacrm_homefacilitycvhdid" width="125" />
+          <cell name="statecode" width="100" />
+          <cell name="modifiedby" width="125" />
+          <cell name="modifiedon" width="125" />
+          <cell name="vhacrm_typeintersectionid" width="125" />
+          <cell name="vhacrm_interactionpurposeid" width="150" />
+          <cell name="vhacrm_interactionsubpurposeid" width="150" />
+          <cell name="vhacrm_actionintersectionid" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="bah_interactions">
+          <attribute name="createdon" />
+          <attribute name="hrc_interactionno_text" />
+          <attribute name="vhacrm_typeintersectionid" />
+          <attribute name="vhacrm_usernamecvhdid" />
+          <attribute name="statecode" />
+          <attribute name="modifiedon" />
+          <attribute name="modifiedby" />
+          <attribute name="bah_lastname_text" />
+          <attribute name="vhacrm_homefacilitycvhdid" />
+          <attribute name="bah_firstname_text" />
+          <attribute name="vhacrm_actionintersectionid" />
+          <order attribute="createdon" descending="true" />
+          <attribute name="vhacrm_interactionsubpurposeid" />
+          <attribute name="vhacrm_interactionpurposeid" />
+          <attribute name="bah_interactionsid" />
+          <filter type="and">
+            <condition attribute="hrc_lobid" operator="ne" value="{b74f8eab-e865-ed11-9562-001dd8070aa7}" uiname="VET-HOME" uitype="hrc_lob" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.6.0.2</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="CVHD Caller History" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

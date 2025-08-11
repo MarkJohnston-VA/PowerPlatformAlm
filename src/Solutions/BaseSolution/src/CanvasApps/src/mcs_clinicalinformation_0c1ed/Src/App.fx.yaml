@@ -1,0 +1,5 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(url, Concatenate("https://dvagov-commcare-sandbox.crm9.dynamics.com/WebResources/vhacrm_/ESRParts/VeteranSidebar.htm?preview=1", If(!IsBlank(Param("recordId")), Param("recordId"), "")));
+

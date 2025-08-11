@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{5df48577-c958-49c6-8714-daa49d833923}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_alertlandingpageid">
+          <cell name="mcs_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_alertlandingpage">
+          <attribute name="mcs_alertlandingpageid" />
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <order attribute="mcs_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.06.13.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Alert Landing Pages" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

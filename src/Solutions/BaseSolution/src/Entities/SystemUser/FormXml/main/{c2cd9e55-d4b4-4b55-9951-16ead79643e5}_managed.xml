@@ -1,0 +1,1296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c2cd9e55-d4b4-4b55-9951-16ead79643e5}</formid>
+    <IntroducedVersion>6.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form showImage="true" headerdensity="HighWithControls" shownavigationbar="true" maxWidth="1920" solutionaction="Modified">
+      <tabs>
+        <tab name="VirtualAgentSummaryTab" id="{8d3421d6-e285-462e-a984-b8281d842d74}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false" ordinalvalue="1" solutionaction="Modified" />
+        <tab name="VirtualAgentDetailsTab" id="{32d147e7-95f0-4497-b93b-d96b3a056afd}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false" ordinalvalue="4" solutionaction="Modified" />
+        <tab name="SUMMARY_TAB" id="{33c4221d-ccb0-4a92-853e-369d2d0adb85}" IsUserDefined="0" showlabel="true" expanded="true" locklevel="0" ordinalvalue="0" solutionaction="Modified">
+          <columns>
+            <column width="33%" id="0">
+              <sections>
+                <section name="onpremise account information" showlabel="true" showbar="true" id="{a89a591d-8259-4e19-8bc4-514f3312928f}" IsUserDefined="0" locklevel="0" ordinalvalue="0">
+                  <labels>
+                    <label description="ACCOUNT INFORMATION" languagecode="1033" solutionaction="Modified" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{260074a5-5be0-4304-a223-91a242bc79e7}" ordinalvalue="10000">
+                        <labels>
+                          <label description="User Name" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eb0b6473-319d-1c90-62ba-28313a500ced}" showlabel="true" locklevel="0" ordinalvalue="10001" solutionaction="Added">
+                        <labels>
+                          <label description="Last Login Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_lastlogindate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_lastlogindate" disabled="true" uniqueid="{e4b3c37d-ae12-a494-64c7-ad45bb357909}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{acb61297-0c9d-7a0e-b233-d67c1ba6139d}" showlabel="true" locklevel="0" ordinalvalue="10002" solutionaction="Added">
+                        <labels>
+                          <label description="Days Since Last Login" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_dayssincelastlogin" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="mcs_dayssincelastlogin" disabled="true" uniqueid="{da251785-615c-44c3-887e-042ecd9ee7b6}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="online account information" showlabel="true" showbar="true" id="{50c53b90-8e97-4da4-8069-041d6a58aa05}" IsUserDefined="0" locklevel="0" ordinalvalue="1">
+                  <labels>
+                    <label description="ACCOUNT INFORMATION" languagecode="1033" solutionaction="Modified" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{78ba55b2-173e-42c9-b579-84f96926059f}" ordinalvalue="10000">
+                        <labels>
+                          <label description="Windows Live ID" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{8b90bd6f-0038-4faf-82c2-ca8990c47409}" ordinalvalue="10001">
+                        <labels>
+                          <label description="Invitation Status" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="user information" showlabel="true" showbar="true" id="{9b914e4e-027c-4e9c-90d7-59daed00fd53}" IsUserDefined="0" locklevel="0" ordinalvalue="2">
+                  <labels>
+                    <label description="USER INFORMATION" languagecode="1033" solutionaction="Modified" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{798b6bcb-5447-4b57-b416-7c7420311f98}" ordinalvalue="10000">
+                        <labels>
+                          <label description="Full Name" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{34693a7e-3bc8-b55e-18e3-b188e1250753}" showlabel="true" locklevel="0" ordinalvalue="10001">
+                        <labels>
+                          <label description="Nickname" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f605c7f9-5bff-49f3-8508-419d37ced40e}" ordinalvalue="10002">
+                        <labels>
+                          <label description="Title" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5075ae56-ccfb-4f74-94b8-71e66b8e3b81}" ordinalvalue="10003">
+                        <labels>
+                          <label description="Primary Email" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6a2a2dea-f57b-4caf-bbc7-2273741f6b5a}" ordinalvalue="10004">
+                        <labels>
+                          <label description="Mobile Phone" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3c70013b-3945-b22c-61d0-a152a115e215}" showlabel="true" locklevel="0" ordinalvalue="10005" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{953c66e5-c67b-47c5-9b28-c5e01257e0e1}" ordinalvalue="10005" solutionaction="Modified">
+                        <labels>
+                          <label description="Main Phone" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="organization information" showlabel="true" showbar="true" id="{81278426-fb20-424e-91bd-7ceb5a6248d2}" IsUserDefined="0" locklevel="0" ordinalvalue="3" solutionaction="Added">
+                  <labels>
+                    <label description="Organization Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{80d99dcb-d1e5-482f-b588-ba8524834bd0}" ordinalvalue="10000">
+                        <labels>
+                          <label description="Site" languagecode="1033" />
+                        </labels>
+                        <control id="siteid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="siteid" disabled="false" uniqueid="{9d22a0b9-8e3b-a888-2d2a-38abe8110083}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ac68a5d4-f211-47ec-ae05-e7d4c271a41d}" ordinalvalue="10001">
+                        <labels>
+                          <label description="Territory" languagecode="1033" />
+                        </labels>
+                        <control id="territoryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="territoryid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9d2ce97f-7bcc-4e5c-842b-465d803feb7c}" ordinalvalue="10002">
+                        <labels>
+                          <label description="Business Unit" languagecode="1033" />
+                        </labels>
+                        <control id="businessunitid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="businessunitid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{09dc8a22-4e40-4911-8576-a5f10d6ee7d1}" ordinalvalue="10003">
+                        <labels>
+                          <label description="Manager" languagecode="1033" />
+                        </labels>
+                        <control id="parentsystemuserid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentsystemuserid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5d84e90b-6b5f-419c-8bfd-a7e4f21ab1bb}" ordinalvalue="10004">
+                        <labels>
+                          <label description="Position" languagecode="1033" />
+                        </labels>
+                        <control id="positionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="positionid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2a60273a-ec9b-4a97-9f28-b20899b1231c}" colspan="1" ordinalvalue="10005">
+                        <labels>
+                          <label description="Default Queue" languagecode="1033" />
+                        </labels>
+                        <control id="queueid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="queueid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a5a33c3a-0a4a-e44a-842d-37e793353ab9}" showlabel="true" locklevel="0" ordinalvalue="10006">
+                        <labels>
+                          <label description="Street 1" languagecode="1033" />
+                        </labels>
+                        <control id="address1_line1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_line1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a8e56144-ce6e-4d6c-0160-75378c7c947b}" showlabel="true" locklevel="0" ordinalvalue="10007">
+                        <labels>
+                          <label description="Station Number" languagecode="1033" />
+                        </labels>
+                        <control id="va_stationnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="va_stationnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{813ad9ac-284c-d617-b78e-9ba9e8d20e28}" showlabel="true" locklevel="0" ordinalvalue="10008">
+                        <labels>
+                          <label description="VISN" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_visnid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_visnid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{120dbc10-1d99-c30b-e47a-426370eaca18}" showlabel="true" locklevel="0" ordinalvalue="10009">
+                        <labels>
+                          <label description="Facility Site Id" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_facilitysiteid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_facilitysiteid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{069c1205-c8c2-8a01-6a31-96bc797b4a35}" showlabel="true" locklevel="0" ordinalvalue="10010">
+                        <labels>
+                          <label description="Unified Service Desk Configuration" languagecode="1033" />
+                        </labels>
+                        <control id="msdyusd_usdconfigurationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msdyusd_usdconfigurationid" disabled="false" uniqueid="{913481c5-769a-7271-b780-0009e68e691b}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="42%" id="1">
+              <sections>
+                <section name="SOCIAL_PANE_TAB" showlabel="false" showbar="false" id="{ddd9570e-c22b-4fd9-84c0-84bb2b594766}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" locklevel="0" celllabelalignment="Left" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{f3367a48-b751-496b-9641-abd402e6be4a}" showlabel="false" rowspan="20" auto="false" colspan="1" locklevel="0" ordinalvalue="10000" solutionaction="Modified">
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" disabled="false" uniqueid="{77e6121d-2d90-9cc1-b772-9789bcb1a828}" solutionaction="Modified">
+                          <parameters solutionaction="Added">
+                            <UClientUniqueName>Timeline</UClientUniqueName>
+                            <UClientModules>Posts</UClientModules>
+                            <UClientShowFilterPane>true</UClientShowFilterPane>
+                            <UClientExpandFilterPane>false</UClientExpandFilterPane>
+                            <UClientOrderBy>descending</UClientOrderBy>
+                            <UClientRecordPerPage>10</UClientRecordPerPage>
+                            <UClientEnableWhatsNewFilter>false</UClientEnableWhatsNewFilter>
+                            <DefaultTabId>ActivitiesTab</DefaultTabId>
+                            <EmailConversationView>true</EmailConversationView>
+                            <ShowArticleTab>false</ShowArticleTab>
+                            <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="25%" id="2">
+              <sections>
+                <section name="teams information" showlabel="false" showbar="false" id="{bba8f882-2050-4d63-ba78-071401809ad5}" IsUserDefined="0" locklevel="0" columns="1" labelwidth="130" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="0" solutionaction="Modified">
+                  <labels>
+                    <label description="Teams" languagecode="1033" solutionaction="Added" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{21dbb018-6a86-a856-7070-e7d9160ccd36}" showlabel="true" colspan="1" auto="false" rowspan="6" ordinalvalue="10000" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{9e4266ea-8187-ba68-14e7-b967576187ad}" showlabel="true" colspan="1" auto="false" rowspan="7" ordinalvalue="10000" solutionaction="Added">
+                        <labels>
+                          <label description="Teams" languagecode="1033" />
+                        </labels>
+                        <control id="Teams" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{BABB1B18-94BC-964C-7D14-2838763443AD}">
+                          <parameters>
+                            <ViewId>{00000000-0000-0000-00AA-000010001024}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>teammembership_association</RelationshipName>
+                            <TargetEntityType>team</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{00000000-0000-0000-00AA-000010001024}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="organization information" showlabel="true" showbar="true" id="{81278426-fb20-424e-91bd-7ceb5a6248d2}" IsUserDefined="0" locklevel="0" ordinalvalue="1" solutionaction="Removed" />
+                <section name="queue selection" showlabel="true" showbar="true" locklevel="0" id="{11aec2bb-ecbc-4d53-a409-f4b849f03e6e}" IsUserDefined="0" ordinalvalue="2" solutionaction="Removed" />
+                <section name="queue information" showlabel="false" showbar="false" id="{8b91768d-1e89-41e2-a9df-d9ef9e5adfaa}" IsUserDefined="0" locklevel="0" columns="1" labelwidth="130" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="1" solutionaction="Added">
+                  <labels>
+                    <label description="Queues" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{24bcd9b1-1184-a0c6-ebd4-bcddd7c7e5e3}" showlabel="true" colspan="1" auto="false" rowspan="7" ordinalvalue="10000">
+                        <labels>
+                          <label description="Queues I am a Member Of" languagecode="1033" />
+                        </labels>
+                        <control id="Queues" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{D4CC2E54-0552-21D1-0826-1658579E59E1}">
+                          <parameters>
+                            <ViewId>{7AEDACA8-95FE-E611-8126-127B25DCBDE7}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>queuemembership_association</RelationshipName>
+                            <TargetEntityType>queue</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{3A8191C3-D94E-4FD4-AF8B-5BF29568A563},{7AEDACA8-95FE-E611-8126-127B25DCBDE7}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="SUMMARY_TAB_section_8" showlabel="false" showbar="false" locklevel="0" id="{c1c24970-5767-76d3-268d-80bbbe273ed8}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="2" solutionaction="Added">
+                  <labels>
+                    <label description="My Lines of Business" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a946131c-a887-a697-67ed-597232eda4bc}" showlabel="true" colspan="1" auto="false" rowspan="7" ordinalvalue="10000">
+                        <labels>
+                          <label description="Lines of Business" languagecode="1033" />
+                        </labels>
+                        <control id="linesofbusiness" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{BC20A8A6-C528-D267-307D-A75C44097268}">
+                          <parameters>
+                            <ViewId>{8841FC5D-4B0B-E811-81E4-1458D04E1B18}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>vhacrm_hrc_lob_systemuser</RelationshipName>
+                            <TargetEntityType>hrc_lob</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{16E9AA39-C204-4B32-8D85-1AD8A5484B38},{8841FC5D-4B0B-E811-81E4-1458D04E1B18}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="DETAILS_TAB" id="{4feff6ea-5874-4746-aa30-353a3da2bd8c}" IsUserDefined="0" showlabel="true" expanded="false" ordinalvalue="5" solutionaction="Modified">
+          <columns>
+            <column width="34%" id="0" solutionaction="Modified">
+              <sections>
+                <section name="user information_2" showlabel="true" showbar="true" id="{807e902f-4627-49fc-9a26-01c226a2738c}" IsUserDefined="0" locklevel="0" ordinalvalue="0">
+                  <labels>
+                    <label description="USER INFORMATION" languagecode="1033" solutionaction="Modified" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{41d6e8a4-1976-42ed-8b28-394d785fd4f1}" ordinalvalue="10000">
+                        <labels>
+                          <label description="Home Phone" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e1206dcc-62ee-4fd4-8ff8-1cb1929ff172}" ordinalvalue="10001">
+                        <labels>
+                          <label description="Other Phone" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{77cd9aa1-1632-42ac-a8f5-ad2bb9b7b185}" ordinalvalue="10002">
+                        <labels>
+                          <label description="Email 2" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{af75bb6f-4788-4208-be39-4ac3f97814ad}" ordinalvalue="10003">
+                        <labels>
+                          <label description="Preferred Phone" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3da30b5e-1134-4592-a50e-666ec71c5682}" ordinalvalue="10004">
+                        <labels>
+                          <label description="Mobile Alert Email" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b62f991d-a0d3-47ca-b5f7-3ff45b4d10ba}" ordinalvalue="10005">
+                        <labels>
+                          <label description="Pager" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%" id="1">
+              <sections>
+                <section name="mailing address" showlabel="true" showbar="true" id="{9cce3064-bdb7-4bfd-ac2b-83eeaa9a34c7}" IsUserDefined="0" ordinalvalue="0">
+                  <labels>
+                    <label description="ADDRESS" languagecode="1033" solutionaction="Modified" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{f9d3aefa-2658-4540-82a1-27a5d0ddfd82}" ordinalvalue="10000">
+                        <labels>
+                          <label description="Preferred Address" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{543b4949-cc63-0d88-4812-6808255d6acc}" ordinalvalue="10001">
+                        <labels>
+                          <label description="Address" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{707b1593-85b0-0000-3ead-b6cc4715e1d1}" ordinalvalue="10002">
+                        <labels>
+                          <label description="Other Address" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="ADMINISTRATION_TAB" id="{cdb4e61c-1e67-48ae-a26b-2b6852eedc86}" IsUserDefined="0" showlabel="true" expanded="false" ordinalvalue="6" solutionaction="Modified">
+          <columns>
+            <column width="100%" id="0" solutionaction="Modified">
+              <sections>
+                <section name="administration" showlabel="true" showbar="true" locklevel="0" id="{b003567f-dfc2-4d62-8099-d6ceeca69e88}" IsUserDefined="0" layout="varwidth" columns="11" ordinalvalue="0" solutionaction="Modified">
+                  <labels>
+                    <label description="CLIENT ACCESS LICENSE (CAL) INFORMATION" languagecode="1033" solutionaction="Modified" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{4f9ae15e-74b8-4902-80fb-b09da583467b}" ordinalvalue="10000" solutionaction="Modified">
+                        <labels>
+                          <label description="Access Mode" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                        <control id="accessmode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="accessmode" disabled="false" solutionaction="Modified" />
+                      </cell>
+                      <cell id="{73f8f4f0-7849-48c6-989b-62717068a6eb}" ordinalvalue="20001" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{90c4f2cf-5933-4338-a791-119227fc1df1}" ordinalvalue="10002" solutionaction="Modified">
+                        <labels>
+                          <label description="License Type" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                        <control id="caltype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="caltype" disabled="false" solutionaction="Modified" />
+                      </cell>
+                      <cell id="{ee0041a4-2a3c-48a9-8174-531766071077}" ordinalvalue="20003" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell showlabel="true" colspan="1" id="{04277ce1-f208-4e5c-9f54-8c29eac9dc48}" ordinalvalue="20001" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" colspan="1" id="{9438e1c1-f30b-43eb-8204-59996ef65dd0}" ordinalvalue="20003" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%" id="1">
+              <sections>
+                <section name="e-mail configuration" showlabel="true" showbar="true" locklevel="0" id="{213541fd-4665-46d1-b0a3-095de74a8f17}" IsUserDefined="0" ordinalvalue="0" solutionaction="Modified">
+                  <labels>
+                    <label description="EMAIL CONFIGURATION" languagecode="1033" solutionaction="Modified" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3e67f0f2-9ade-4d0f-88e5-e437f8648c9a}" ordinalvalue="10000">
+                        <labels>
+                          <label description="Mailbox" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                      <cell id="{b3b46549-ebac-4fae-95f7-2642890136ec}" ordinalvalue="20001" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{04b782b3-7edf-4df2-88a7-d9a9434ef872}" showlabel="false" ordinalvalue="20001" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="MobileOfflineProfile_TAB" id="{4624aa3e-fb33-42e7-87c2-ca7b810a81c1}" IsUserDefined="0" visible="false" ordinalvalue="5" solutionaction="Removed" />
+        <tab id="{c4e0b8aa-677d-7ec7-c122-395b7a7cb297}" name="tab_6" expanded="true" showlabel="true" IsUserDefined="0" locklevel="0" ordinalvalue="7" solutionaction="Modified">
+          <columns>
+            <column width="34%" id="0">
+              <sections>
+                <section id="{505a3c80-c780-c391-c55b-be4ede01c339}" name="tab_6_section_2" showlabel="true" IsUserDefined="0" columns="1" locklevel="0" showbar="true" celllabelalignment="Left" celllabelposition="Left" labelwidth="115" layout="varwidth" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{db84c82c-4940-260e-1ace-a6d8d235555c}" showlabel="true" locklevel="0" ordinalvalue="10000">
+                        <labels>
+                          <label description="Capacity" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3d2d10dc-dd37-c959-5ed2-48660e5983b4}" showlabel="true" locklevel="0" ordinalvalue="10001">
+                        <labels>
+                          <label description="Default Presence" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="UserProvisions" id="{164391e4-2c1d-55e5-32d7-5b4883379e24}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" ordinalvalue="2" solutionaction="Added">
+          <labels>
+            <label description="User Provisions" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section name="UserProvisions" showlabel="false" showbar="false" locklevel="0" id="{0e5d55e6-da17-4011-a0d1-993d72da8718}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="0">
+                  <labels>
+                    <label description="User Provisions" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{cd765e09-1750-6c48-ec43-7a967447cb63}" showlabel="false" colspan="1" auto="false" rowspan="27" ordinalvalue="10000">
+                        <labels>
+                          <label description="User Provisions" languagecode="1033" />
+                        </labels>
+                        <control id="UserProvisions" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{a2a58a5d-90e3-b281-eced-b2a16920e1cc}">
+                          <parameters>
+                            <ViewId>{57A67A06-A3E9-E611-8126-127B25DCBDE7}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>vhacrm_systemuser_vhacrm_userprovision</RelationshipName>
+                            <TargetEntityType>vhacrm_userprovision</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{57A67A06-A3E9-E611-8126-127B25DCBDE7}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>25</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_4" id="{2233a4e6-a6d1-8a15-cc47-331089dc19bd}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" ordinalvalue="3" solutionaction="Added">
+          <labels>
+            <label description="SSO Credentials" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section name="tab_4_section_1" showlabel="false" showbar="false" locklevel="0" id="{b34412b4-4dbe-2bdd-66d3-209cbbebb42e}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="0">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d936b9d4-b767-136b-e4eb-7d975d9173d1}" showlabel="false" colspan="1" auto="false" rowspan="6" ordinalvalue="10000">
+                        <labels>
+                          <label description="SSO Credentials (Owning User)" languagecode="1033" />
+                        </labels>
+                        <control id="SSOCredsGrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{aa58c3d4-90de-ecc1-2728-186dc8830025}">
+                          <parameters>
+                            <ViewId>{579BB8B4-8196-4259-B79D-F2259F72ED38}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>mcs_systemuser_mcs_ssocredential</RelationshipName>
+                            <TargetEntityType>mcs_ssocredential</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{579BB8B4-8196-4259-B79D-F2259F72ED38}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="tab_4_section_2" showlabel="false" showbar="false" locklevel="0" id="{235108e9-6604-dc72-2615-817561c39687}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="1">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows></rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <footer id="{058ffe4f-005e-4a23-9c86-b5099fd9f03f}">
+        <rows>
+          <row>
+            <cell id="{d74e895b-19f9-40d1-b485-cad00c6db033}" ordinalvalue="10000" solutionaction="Removed" />
+          </row>
+        </rows>
+      </footer>
+      <clientresources>
+        <internalresources>
+          <clientincludes>
+            <internaljscriptfile src="/_static/sm/workplans/workshift.js" solutionaction="Added" />
+          </clientincludes>
+        </internalresources>
+      </clientresources>
+      <events>
+        <event name="onload" application="true" active="true">
+          <Handlers>
+            <Handler functionName="OmniChannelPackage.OmniChannelUser.Instance.SetDefaultCapacityAndDefaultPresence" libraryName="msdyn_userSettings.js" handlerUniqueId="{61b9a5cd-934d-ce6e-9e4c-3b51c2636ab8}" enabled="false" parameters="" passExecutionContext="true" ordinalvalue="1" solutionaction="Modified" />
+            <Handler functionName="OmniChannelPackage.OmniChannelUser.Instance.onLoadSetValue" libraryName="msdyn_userSettings.js" handlerUniqueId="{7D305C37-8147-4EFE-9472-6D358AF75453}" enabled="false" parameters="" passExecutionContext="true" ordinalvalue="2" solutionaction="Modified" />
+            <Handler functionName="OmniChannelPackage.BotUser.onLoad" libraryName="msdyn_OmnichannelBotEnabler/msdyn_BotUser.js" handlerUniqueId="{33D34034-4D81-4C73-9A95-697B8B8FC0C2}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="3" solutionaction="Modified" />
+            <Handler functionName="OCBaseURBase.msdyn_capacityProfileSubgridActions.hideAndFilterSubgridOnLoad" libraryName="msdyn_capacityprofileSubgridActions.js" handlerUniqueId="{1e912873-63de-41ca-b529-e5d49b39693b}" enabled="false" parameters="" passExecutionContext="true" ordinalvalue="0" solutionaction="Modified" />
+          </Handlers>
+        </event>
+      </events>
+      <Navigation>
+        <NavBar>
+          <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navRoles" Sequence="1" Area="Info" Id="navRoles" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Security Roles" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navFieldSecurityProfiles" Sequence="1" Area="Info" Id="navFieldSecurityProfiles" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Field Security Profiles" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navResourceGroups" Sequence="2" Area="Service" Id="navResourceGroups" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Resource Groups" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navMonthlyCalendar" Sequence="2" Area="Info" Id="navMonthlyCalendar" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Work Hours" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navServices" Sequence="3" Area="Service" Id="navServices" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Services" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navConnections" Sequence="8500" Area="Info" Id="navConnections" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Connections" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="vhacrm_systemuser_vhacrm_userprovision" Sequence="9600" Area="Info" Id="nav_vhacrm_systemuser_vhacrm_userprovision" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="User Provisions" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navAudit" Sequence="9601" Area="Info" Id="navAudit" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Audit History" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_incident_PreviouslyRoutedBy" Sequence="10000" Area="Info" Id="nav_mcs_systemuser_incident_PreviouslyRoutedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="msdyn_systemuser_msdyn_duplicateleadmapping_DismissedBy" Sequence="10001" Area="Info" Id="nav_msdyn_systemuser_msdyn_duplicateleadmapping_DismissedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Duplicate Lead Mappings" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="msdyn_systemuser_msdyn_unifiedroutingrun_assignedagent" Sequence="10002" Area="Info" Id="nav_msdyn_systemuser_msdyn_unifiedroutingrun_assignedagent" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Routing diagnostics" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="msdyn_systemuser_msdyn_swarmparticipant_userid" Sequence="10003" Area="Info" Id="nav_msdyn_systemuser_msdyn_swarmparticipant_userid" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Swarm participants" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="ccwf_systemuser_incident_assignedtoid" Sequence="10004" Area="Info" Id="nav_ccwf_systemuser_incident_assignedtoid" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="vhacrm_systemuser_incident_resolvedbyid" Sequence="10005" Area="Info" Id="nav_vhacrm_systemuser_incident_resolvedbyid" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="vhacrm_systemuser_vhacrm_requesthistory_createdby_userid" Sequence="10006" Area="Info" Id="nav_vhacrm_systemuser_vhacrm_requesthistory_createdby_userid" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Request Histories" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="vhacrm_systemuser_vhacrm_teamprovision" Sequence="10007" Area="Info" Id="nav_vhacrm_systemuser_vhacrm_teamprovision" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Team Provisions" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_ssocredential" Sequence="10008" Area="Info" Id="nav_mcs_systemuser_mcs_ssocredential" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="SSO Credentials" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_VeteranChange_UpdatedBy_SystemUser" Sequence="10010" Area="Info" Id="nav_mcs_VeteranChange_UpdatedBy_SystemUser" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Veteran Changes" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="vhacrm_systemuser_vhacrm_userrole" Sequence="10011" Area="Info" Id="nav_vhacrm_systemuser_vhacrm_userrole" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="User Roles" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hac_systemuser_bah_interactions_csr_supervisor" Sequence="10012" Area="Info" Id="nav_hac_systemuser_bah_interactions_csr_supervisor" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Interactions" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hac_systemuser_incident_csr_supervisor" Sequence="10013" Area="Info" Id="nav_hac_systemuser_incident_csr_supervisor" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hac_systemuser_task_duedate_updatedby" Sequence="10014" Area="Info" Id="nav_hac_systemuser_task_duedate_updatedby" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Tasks" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hac_systemuser_task__user_workedbyid" Sequence="10015" Area="Info" Id="nav_hac_systemuser_task__user_workedbyid" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Tasks" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hac_systemuser_task_csr_supervisor" Sequence="10016" Area="Info" Id="nav_hac_systemuser_task_csr_supervisor" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Tasks" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hac_systemuser_hac_queueitemassociatedworker_user_workedbyid" Sequence="10017" Area="Info" Id="nav_hac_systemuser_hac_queueitemassociatedworker_user_workedbyid" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Queue Item Associated Workers" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_task_ResolvedBy" Sequence="10018" Area="Info" Id="nav_mcs_systemuser_task_ResolvedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Tasks" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_reroutehistory_ReRoutedBy" Sequence="10019" Area="Info" Id="nav_mcs_systemuser_mcs_reroutehistory_ReRoutedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Re-Route Histories" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_reroutehistory_InitiallyRoutedBy" Sequence="10020" Area="Info" Id="nav_mcs_systemuser_mcs_reroutehistory_InitiallyRoutedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Re-Route Histories" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_task_RoutedByUser" Sequence="10021" Area="Info" Id="nav_mcs_systemuser_task_RoutedByUser" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Tasks" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_incident_RoutedbyUserid" Sequence="10022" Area="Info" Id="nav_mcs_systemuser_incident_RoutedbyUserid" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="msfp_systemuser_msfp_survey_publishedby" Sequence="10023" Area="Info" Id="nav_msfp_systemuser_msfp_survey_publishedby" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Customer Voice surveys" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_trackeritem_AssignedTo" Sequence="10024" Area="Info" Id="nav_mcs_systemuser_mcs_trackeritem_AssignedTo" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Taskers" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_taskertask_SubmittedBy" Sequence="10025" Area="Info" Id="nav_mcs_systemuser_mcs_taskertask_SubmittedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Directorate Tasks" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_taskertask_ApprovedBy" Sequence="10026" Area="Info" Id="nav_mcs_systemuser_mcs_taskertask_ApprovedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Directorate Tasks" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_taskertask_RejectedBy" Sequence="10027" Area="Info" Id="nav_mcs_systemuser_mcs_taskertask_RejectedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Directorate Tasks" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_taskertask_AssignedTo" Sequence="10028" Area="Info" Id="nav_mcs_systemuser_mcs_taskertask_AssignedTo" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Directorate Tasks" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_trackeritem_SubmittedBy" Sequence="10029" Area="Info" Id="nav_mcs_systemuser_mcs_trackeritem_SubmittedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Taskers" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_trackeritem_ApprovedBy" Sequence="10030" Area="Info" Id="nav_mcs_systemuser_mcs_trackeritem_ApprovedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Taskers" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_trackeritem_RejectedBy" Sequence="10031" Area="Info" Id="nav_mcs_systemuser_mcs_trackeritem_RejectedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Taskers" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="veis_automationuserbulkrequest_OriginalRe" Sequence="10032" Area="Info" Id="nav_veis_automationuserbulkrequest_OriginalRe" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Provisioning Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="veis_automationuserbulkrequest_PlatformTe" Sequence="10033" Area="Info" Id="nav_veis_automationuserbulkrequest_PlatformTe" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Provisioning Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="veis_automationuserbulkrequest_DevOpsAppr" Sequence="10034" Area="Info" Id="nav_veis_automationuserbulkrequest_DevOpsAppr" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Provisioning Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="systemuser_appusersetting_userId" Sequence="10035" Area="Info" Id="nav_systemuser_appusersetting_userId" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Model-Driven App User Settings" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_duedateextensionrequest_ApprovedBy" Sequence="10036" Area="Info" Id="nav_mcs_systemuser_mcs_duedateextensionrequest_ApprovedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Due Date Extension Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_duedateextensionrequest_RejectedBy" Sequence="10037" Area="Info" Id="nav_mcs_systemuser_mcs_duedateextensionrequest_RejectedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Due Date Extension Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_incident_AssignedToQuickCreate" Sequence="10038" Area="Info" Id="nav_mcs_systemuser_incident_AssignedToQuickCreate" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Requests" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="msdyusd_systemuser_msdyusd_usersettings_User" Sequence="10039" Area="Info" Id="nav_msdyusd_systemuser_msdyusd_usersettings_User" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="User Settings" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="systemuser_bot_publishedby" Sequence="10040" Area="Info" Id="nav_systemuser_bot_publishedby" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Chatbots" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_vhacrm_requesthistory_PreviouslyAssignedTo" Sequence="10041" Area="Info" Id="nav_mcs_systemuser_vhacrm_requesthistory_PreviouslyAssignedTo" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Request Histories" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_vhacrm_requesthistory_CurrentlyAssignedTo" Sequence="10042" Area="Info" Id="nav_mcs_systemuser_vhacrm_requesthistory_CurrentlyAssignedTo" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Request Histories" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_vhacrm_requesthistory_ResolvedBy" Sequence="10043" Area="Info" Id="nav_mcs_systemuser_vhacrm_requesthistory_ResolvedBy" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Request Histories" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_reroutehistory_PreviouslyAssignedTo" Sequence="10044" Area="Info" Id="nav_mcs_systemuser_mcs_reroutehistory_PreviouslyAssignedTo" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Re-Route Histories" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_systemuser_mcs_reroutehistory_CurrentlyAssignedTo" Sequence="10045" Area="Info" Id="nav_mcs_systemuser_mcs_reroutehistory_CurrentlyAssignedTo" Show="false" solutionaction="Added">
+            <Titles>
+              <Title LCID="1033" Text="Re-Route Histories" />
+            </Titles>
+          </NavBarByRelationshipItem>
+        </NavBar>
+      </Navigation>
+      <controlDescriptions>
+        <controlDescription forControl="{bc14dc21-4316-72ec-80e9-3759901774b4}" solutionaction="Added">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <ViewId>{00000000-0000-0000-00AA-000010001024}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>teammembership_association</RelationshipName>
+              <TargetEntityType>team</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{00000000-0000-0000-00AA-000010001024}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>Grid</ChartGridMode>
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>false</EnableChartPicker>
+              <RecordsPerPage>4</RecordsPerPage>
+              <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+              <HeaderColorCode>#F5F6F8</HeaderColorCode>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{00000000-0000-0000-00AA-000010001024}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>teammembership_association</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>team</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{00000000-0000-0000-00AA-000010001024}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{00000000-0000-0000-00AA-000010001024}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>teammembership_association</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>team</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{00000000-0000-0000-00AA-000010001024}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{00000000-0000-0000-00AA-000010001024}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>teammembership_association</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>team</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{00000000-0000-0000-00AA-000010001024}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{BABB1B18-94BC-964C-7D14-2838763443AD}" solutionaction="Added">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <ViewId>{00000000-0000-0000-00AA-000010001024}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>teammembership_association</RelationshipName>
+              <TargetEntityType>team</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{00000000-0000-0000-00AA-000010001024}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>All</ChartGridMode>
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>true</EnableChartPicker>
+              <RecordsPerPage>4</RecordsPerPage>
+              <HeaderColorCode>#F5F6F8</HeaderColorCode>
+              <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{00000000-0000-0000-00AA-000010001024}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>teammembership_association</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>team</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{00000000-0000-0000-00AA-000010001024}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{00000000-0000-0000-00AA-000010001024}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>teammembership_association</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>team</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{00000000-0000-0000-00AA-000010001024}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{00000000-0000-0000-00AA-000010001024}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>teammembership_association</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>team</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{00000000-0000-0000-00AA-000010001024}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{D4CC2E54-0552-21D1-0826-1658579E59E1}" solutionaction="Added">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <ViewId>{7AEDACA8-95FE-E611-8126-127B25DCBDE7}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>queuemembership_association</RelationshipName>
+              <TargetEntityType>queue</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{3A8191C3-D94E-4FD4-AF8B-5BF29568A563},{7AEDACA8-95FE-E611-8126-127B25DCBDE7}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>All</ChartGridMode>
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>true</EnableChartPicker>
+              <RecordsPerPage>4</RecordsPerPage>
+              <HeaderColorCode>#F5F6F8</HeaderColorCode>
+              <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{7AEDACA8-95FE-E611-8126-127B25DCBDE7}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>queuemembership_association</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>queue</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{3A8191C3-D94E-4FD4-AF8B-5BF29568A563},{7AEDACA8-95FE-E611-8126-127B25DCBDE7}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{7AEDACA8-95FE-E611-8126-127B25DCBDE7}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>queuemembership_association</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>queue</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{3A8191C3-D94E-4FD4-AF8B-5BF29568A563},{7AEDACA8-95FE-E611-8126-127B25DCBDE7}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{7AEDACA8-95FE-E611-8126-127B25DCBDE7}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>queuemembership_association</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>queue</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{3A8191C3-D94E-4FD4-AF8B-5BF29568A563},{7AEDACA8-95FE-E611-8126-127B25DCBDE7}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{BC20A8A6-C528-D267-307D-A75C44097268}" solutionaction="Added">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <ViewId>{8841FC5D-4B0B-E811-81E4-1458D04E1B18}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>vhacrm_hrc_lob_systemuser</RelationshipName>
+              <TargetEntityType>hrc_lob</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{16E9AA39-C204-4B32-8D85-1AD8A5484B38},{8841FC5D-4B0B-E811-81E4-1458D04E1B18}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>All</ChartGridMode>
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>true</EnableChartPicker>
+              <RecordsPerPage>4</RecordsPerPage>
+              <HeaderColorCode>#F5F6F8</HeaderColorCode>
+              <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{8841FC5D-4B0B-E811-81E4-1458D04E1B18}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>vhacrm_hrc_lob_systemuser</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>hrc_lob</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{16E9AA39-C204-4B32-8D85-1AD8A5484B38},{8841FC5D-4B0B-E811-81E4-1458D04E1B18}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{8841FC5D-4B0B-E811-81E4-1458D04E1B18}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>vhacrm_hrc_lob_systemuser</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>hrc_lob</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{16E9AA39-C204-4B32-8D85-1AD8A5484B38},{8841FC5D-4B0B-E811-81E4-1458D04E1B18}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Grid.ReadOnlyGrid">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{8841FC5D-4B0B-E811-81E4-1458D04E1B18}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>vhacrm_hrc_lob_systemuser</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>hrc_lob</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{16E9AA39-C204-4B32-8D85-1AD8A5484B38},{8841FC5D-4B0B-E811-81E4-1458D04E1B18}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <header id="{fdb43941-cba6-4f70-b724-70bcd8bfb443}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
+        <rows></rows>
+      </header>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="User" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Updated default User form" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

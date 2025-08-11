@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7bbcfa59-f809-ee11-8f6d-001dd80b235e}</formid>
+    <IntroducedVersion>2023.06.13.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighReadOnlyValues">
+      <tabs>
+        <tab verticallayout="true" id="{8697ff3c-311c-4282-be04-96f7ad3250af}" IsUserDefined="1" labelid="{98989f8e-e0d8-4d18-9d1d-204d1968022f}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{1674e979-c79d-41e9-9c84-c038c15e8753}" labelid="{8ede5996-de17-4773-8339-c00a03624d22}" name="General">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{cefc48b0-bad0-4926-8535-5d437d90de75}" labelid="{dba1c420-b9c9-4a5c-a2a7-36e0d32ca43b}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d9349287-abe6-48c6-a0c9-45a78c8e0ae7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="mcs_type" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{81a65578-64a8-4641-b1ea-bcbd17ed5c1d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Start Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_startdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="mcs_startdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ffe6a835-7645-4b0a-a9fa-87ef4f5c0ff2}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="End Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_enddate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="mcs_enddate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{434661ac-5964-4aa5-a3ae-1367f9781bf4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Status Reason" languagecode="1033" />
+                        </labels>
+                        <control id="statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2d86d2db-5dac-4a2a-8ef1-598c15e6622d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Line of Business" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_lineofbusiness" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_lineofbusiness" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{93d3e06e-6055-41a8-897b-0de1b2785f86}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Team" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_team" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_team" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6a366633-13a3-4eb4-a9e5-74b045395577}" locklevel="0" colspan="1" rowspan="9">
+                        <labels>
+                          <label description="FetchXML" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_fetchxml" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="mcs_fetchxml" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="AppNotificationInfo" id="a6754e36-751d-456e-8103-d3e3161d6948" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="App Notification Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0e6c6c72-80a2-44cb-bb92-6d5e1797ea2b}" locklevel="0" colspan="1" rowspan="1" labelid="{eaa25813-68e2-431a-a480-a843984f2c9e}">
+                        <labels>
+                          <label description="Toast Alert Title" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_toastalerttitle" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="mcs_toastalerttitle" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ccfeffda-e908-4db7-a1cc-73b37e0b3787}" locklevel="0" colspan="1" rowspan="1" labelid="{56fecf84-a529-4163-b0ce-27ab37b26f58}">
+                        <labels>
+                          <label description="Toast Alert Body" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_toastalertbody" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="mcs_toastalertbody" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c75b0a7b-cda5-4011-87e7-f564ba9bbace}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Link Text" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_linktext" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="mcs_linktext" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{22ccb1b3-187f-40a0-84af-1a2bb51c1401}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Alert Landing Page" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_alertlandingpage" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_alertlandingpage" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="Alert Text" id="6d6ad42b-b48b-4d1c-adf3-5b0daf96e679" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" labelid="{7a84b9b9-3c46-4ffc-a644-79d93a3adcfa}" visible="false">
+                  <labels>
+                    <label description="Alert Text" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{45d54827-d428-4b35-8dfe-19a0442566be}" locklevel="0" colspan="1" rowspan="10" showlabel="false" labelid="{e1307803-b2ab-4267-b3b3-d26fda6b1084}">
+                        <labels>
+                          <label description="Alert Text" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_alerttext" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="mcs_alerttext" disabled="false" uniqueid="{f6289ad1-fb52-4c11-8bde-78fe0ed48eb2}" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{e0287098-b9fe-46f6-a1a0-45500783f644}" labelid="{7ef8660d-b06b-4931-b486-7773a1719486}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="AlertLandingPagePreview" id="39ed4785-08d8-4e1c-a8b2-55fcf9e1895c" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Alert Landing Page Preview" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e115d0b1-950a-43f6-9a74-da974dab99df}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Alert Landing Page" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_alertlandingpage" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="mcs_alertlandingpage" disabled="false" uniqueid="{751189e8-6028-4ec5-a480-0bb018fd01c3}">
+                          <parameters>
+                            <DefaultViewId>{221F2A3A-0AD0-4EBB-8282-B1D8A71156DA}</DefaultViewId>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{b6cc2c0e-bb22-4898-b0f3-b3a58d528d34}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{bcdc9ed2-3ca0-4fad-acbc-9be9be08526f}" showlabel="false" labelid="{1c584dfb-d88e-4d73-8790-91ab03fc12f8}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{74ec7421-bba1-41b2-95be-bf5dc60a224d}" showlabel="false" labelid="{08adb960-e583-4dbe-b423-fe6abd92f781}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1f31adca-f8df-421b-ab16-3887cf8bca14}" showlabel="false" labelid="{48d144a4-32c3-4e74-8252-86637312a43b}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{934a6c6b-b7c7-4eab-8a5c-4b98c39010d3}" colspan="1" rowspan="1" labelid="{77bd5948-bb3d-4002-90a9-5fd072799f60}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{bb185d89-869b-4cac-9514-381b2b3d2851}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{999376fe-2fa3-455f-a1f3-8208aa94ccf3}" showlabel="false" labelid="{468cba95-3fe1-4dd9-841b-003da59072e6}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0c8d5bf5-7349-496e-8375-25f3044a8c2e}" showlabel="false" labelid="{a8224c1e-f7a7-44bd-bd81-ceea91903c20}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{31b24199-3f05-46cb-a72f-ba844c6a6149}" showlabel="false" labelid="{514aede1-e5c5-46bf-bc67-8438940840de}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="1" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{f6289ad1-fb52-4c11-8bde-78fe0ed48eb2}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>mcs_alerttext</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">mcs_alerttext</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">mcs_alerttext</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">mcs_alerttext</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{751189e8-6028-4ec5-a480-0bb018fd01c3}">
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+            <parameters>
+              <datafieldname>mcs_alertlandingpage</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>mcs_alertlandingpage</BindAttribute>
+                <DefaultViewId>{221F2A3A-0AD0-4EBB-8282-B1D8A71156DA}</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="mcs_alertlandingpage"&gt;65ec6755-c5e6-44f9-95d3-c7764548ffb2&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>mcs_alertlandingpage</BindAttribute>
+                <DefaultViewId>{221F2A3A-0AD0-4EBB-8282-B1D8A71156DA}</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="mcs_alertlandingpage"&gt;65ec6755-c5e6-44f9-95d3-c7764548ffb2&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>mcs_alertlandingpage</BindAttribute>
+                <DefaultViewId>{221F2A3A-0AD0-4EBB-8282-B1D8A71156DA}</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="mcs_alertlandingpage"&gt;65ec6755-c5e6-44f9-95d3-c7764548ffb2&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="CommCare Alert Admin Form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

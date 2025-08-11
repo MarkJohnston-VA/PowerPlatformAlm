@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{90fd23ae-02c4-e711-8118-1458d04eaba0}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="subject" select="1" preview="1" icon="1">
+        <row name="result" id="activityid">
+          <cell name="subject" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_bc767e26bab5e71181db1458d04e1b18.ticketnumber" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="100" />
+          <cell name="hac_status_code" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="task">
+          <attribute name="subject" />
+          <attribute name="hac_status_code" />
+          <attribute name="createdon" />
+          <order attribute="subject" descending="false" />
+          <filter type="and">
+            <condition attribute="hac_status_code" operator="not-in">
+              <value>806860000</value>
+              <value>806860001</value>
+              <value>806860011</value>
+              <value>803750000</value>
+              <value>803750001</value>
+              <value>803750003</value>
+              <value>803750004</value>
+            </condition>
+            <condition attribute="ownerid" operator="in">
+              <value uiname="PMD Benefits" uitype="team">{6FAAAF7F-4B04-E711-9429-0050568D1C17}</value>
+              <value uiname="PMD Payment" uitype="team">{8787D961-4B04-E711-9429-0050568D1C17}</value>
+            </condition>
+            <condition attribute="statuscode" operator="not-in">
+              <value>806860000</value>
+              <value>806860006</value>
+            </condition>
+          </filter>
+          <link-entity name="incident" from="incidentid" to="hac_issuetotaskid" visible="false" link-type="outer" alias="a_bc767e26bab5e71181db1458d04e1b18">
+            <attribute name="ticketnumber" />
+          </link-entity>
+          <attribute name="activityid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="PMD Team Open Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

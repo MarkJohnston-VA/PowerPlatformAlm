@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{7e7e1d17-d3c4-431c-b2a3-19760d6c4b27}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_vethomecaseid">
+          <cell name="mcs_name" width="210" />
+          <cell name="mcs_veteranid" width="150" />
+          <cell name="mcs_mandatedregistries" width="160" />
+          <cell name="mcs_nonmandatedregistry" width="190" />
+          <cell name="statuscode" width="120" />
+          <cell name="mcs_daysactionable" width="130" />
+          <cell name="createdon" width="120" />
+          <cell name="mcs_closedbyuser" width="130" />
+          <cell name="mcs_closuredate" width="120" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_vethomecase">
+          <attribute name="mcs_vethomecaseid" />
+          <attribute name="mcs_name" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="mcs_veteranid" />
+          <attribute name="mcs_mandatedregistries" />
+          <attribute name="mcs_nonmandatedregistry" />
+          <attribute name="statuscode" />
+          <attribute name="mcs_daysactionable" />
+          <attribute name="createdon" />
+          <attribute name="mcs_closedbyuser" />
+          <attribute name="mcs_closuredate" />
+          <order attribute="mcs_closuredate" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.01.03.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive VET-HOME Cases" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

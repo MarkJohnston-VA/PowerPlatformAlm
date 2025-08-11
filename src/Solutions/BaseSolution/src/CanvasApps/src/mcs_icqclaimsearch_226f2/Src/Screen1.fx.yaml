@@ -1,0 +1,22 @@
+Screen1 As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =768
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        "PersistedWebPageContainer1 As 'Persisted web page container'":
+            DisplayMode: =DisplayMode.Edit
+            FillPortions: =1
+            Height: =Parent.Height
+            LayoutMinHeight: =200
+            LayoutMinWidth: =200
+            urlValue: =url
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+

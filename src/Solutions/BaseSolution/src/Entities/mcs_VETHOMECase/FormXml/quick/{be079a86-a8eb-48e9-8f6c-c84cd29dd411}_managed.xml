@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{be079a86-a8eb-48e9-8f6c-c84cd29dd411}</formid>
+    <IntroducedVersion>2023.2.16.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{3b904863-f164-45c8-b2d1-224dd31c2734}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{2298a24a-1d0a-472d-aebe-f9fdeb1856e3}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="VET-Home Case Tasks" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e948b835-8087-c2ab-9b8e-aac0ee52cbe3}" showlabel="false" colspan="1" auto="false" rowspan="5">
+                        <labels>
+                          <label description="VET-HOME Tasks (Case)" languagecode="1033" />
+                        </labels>
+                        <control id="grdTasks" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{620d962e-4b85-d281-e123-d80688ed32a6}">
+                          <parameters>
+                            <ViewId>{6B8292D1-6DAC-ED11-AAD1-001DD807245B}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>mcs_mcs_vethomecase_mcs_vethometasks_Case</RelationshipName>
+                            <TargetEntityType>mcs_vethometasks</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{7C4E817C-7761-4135-A496-DBDA1BE8A454},{6B8292D1-6DAC-ED11-AAD1-001DD807245B}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>3</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="List of Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

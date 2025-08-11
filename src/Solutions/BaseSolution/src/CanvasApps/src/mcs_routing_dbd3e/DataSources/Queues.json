@@ -1,0 +1,479 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "queues",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "queue",
+    "MaxGetRowsCount": 500,
+    "Name": "Queues",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "businessunitid": "Business Unit",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "defaultmailbox": "Mailbox",
+      "description": "Description",
+      "email_acceptingentity_queue": "Email Messages (email_acceptingentity_queue)",
+      "emailaddress": "Incoming Email",
+      "emailrouteraccessapproval": "Primary Email Status",
+      "entityimage": "Entity Image",
+      "entityimageid": "Entity Image Id",
+      "exchangerate": "Exchange Rate",
+      "hac_queue_hac_queueitemassociatedworker_queueid": "Queue Item Associated Workers",
+      "ignoreunsolicitedemail": "Convert To Email Activities",
+      "importsequencenumber": "Import Sequence Number",
+      "incomingemaildeliverymethod": "Incoming Email Delivery Method",
+      "incomingemailfilteringmethod": "Convert Incoming Email To Activities",
+      "isemailaddressapprovedbyo365admin": "Email Address O365 Admin Approval Status",
+      "mailbox_regarding_queue": "Mailboxes",
+      "mcs_emailsubject": "Email Subject",
+      "mcs_incomingteam": "Incoming Team",
+      "mcs_LineofBusiness": "Line of Business",
+      "mcs_queue_bah_facility_QueueId": "Facilities (mcs_queue_bah_facility_QueueId)",
+      "mcs_queue_bah_visn_QueueId": "VISN",
+      "mcs_queue_mcs_duedateextensionrequest_Queue": "Due Date Extension Requests",
+      "mcs_queue_queueitem_PreviousQueue": "Queue Items (mcs_queue_queueitem_PreviousQueue)",
+      "mcs_queue_vhacrm_requesthistory_CurrentQueue": "Request Histories (mcs_queue_vhacrm_requesthistory_CurrentQueue)",
+      "mcs_queue_vhacrm_requesthistory_PreviousQueue": "Request Histories (mcs_queue_vhacrm_requesthistory_PreviousQueue)",
+      "mcs_queue_vhacrm_userprovision_Queue": "User Provisions",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "msdyn_assignmentstrategy": "Assignment Strategy",
+      "msdyn_decisionrulesetid": "Prequeue Overflow Ruleset",
+      "msdyn_inqueueoverflowrulesetid": "Inqueue Overflow Ruleset",
+      "msdyn_isdefaultqueue": "Is Default Queue",
+      "msdyn_isomnichannelqueue": "Is Omnichannel queue",
+      "msdyn_liveworkstream_defaultqueue_Queue": "Work Streams (msdyn_liveworkstream_defaultqueue_Queue)",
+      "msdyn_maxqueuesize": "Maximum queue size",
+      "msdyn_operatinghourid": "Operating Hours",
+      "msdyn_priority": "Priority",
+      "msdyn_queue_msdyn_assignmentconfiguration_queueid": "Assignment Configurations",
+      "msdyn_queue_msdyn_liveconversation": "Ongoing conversations (Deprecated)",
+      "msdyn_queue_msdyn_liveworkstream_msdyn_bot_queue": "Work Streams (msdyn_queue_msdyn_liveworkstream_msdyn_bot_queue)",
+      "msdyn_queue_msdyn_liveworkstream_queueid": "Work Streams (msdyn_queue_msdyn_liveworkstream_queueid)",
+      "msdyn_queue_msdyn_ocliveworkitem_queueid": "Conversations",
+      "msdyn_queue_msdyn_ocsession_queueid": "Sessions",
+      "msdyn_queue_msdyn_rulesetdependencymapping_msdyn_referencedpolymorphicentityid": "Rulesetentitymappings",
+      "msdyn_queue_msdyn_unifiedroutingrun_queue": "Routing diagnostics",
+      "msdyn_queue_ocruleitem": "Rule Items",
+      "msdyn_queuetype": "Queue type",
+      "msdyn_routingcontractid": "Assignment Input Contract Id",
+      "msdyn_uniquename": "Unique Name",
+      "name": "Name",
+      "organizationid": "Organization",
+      "outgoingemaildeliverymethod": "Outgoing Email Delivery Method",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "primaryuserid": "Owner (deprecated)",
+      "Queue_AsyncOperations": "System Jobs",
+      "Queue_BulkDeleteFailures": "Bulk Delete Failures",
+      "Queue_DuplicateBaseRecord": "Duplicate Records (Queue_DuplicateBaseRecord)",
+      "Queue_DuplicateMatchingRecord": "Duplicate Records (Queue_DuplicateMatchingRecord)",
+      "Queue_Email_EmailSender": "Email Messages (Queue_Email_EmailSender)",
+      "queue_entries": "Queue Items (queue_entries)",
+      "queue_PostFollows": "Follows",
+      "queue_PostRegardings": "Post Regarding",
+      "queue_principalobjectattributeaccess": "Field Sharing",
+      "Queue_ProcessSessions": "Process Sessions",
+      "Queue_SyncErrors": "Sync Errors",
+      "queue_system_user": "Users (queue_system_user)",
+      "queue_team": "Teams",
+      "queueid": "Queue",
+      "queuemembership_association": "Users (queuemembership_association)",
+      "queuetypecode": "Queue Type",
+      "queueviewtype": "Type",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "transactioncurrencyid": "Currency",
+      "versionnumber": "Version Number",
+      "vhacrm_queue_bah_facility_appointmentmanagementqueueid": "Facilities (vhacrm_queue_bah_facility_appointmentmanagementqueueid)",
+      "vhacrm_queue_bah_facility_authorizationsreferralsqueueid": "Facilities (vhacrm_queue_bah_facility_authorizationsreferralsqueueid)",
+      "vhacrm_queue_incident": "Requests (vhacrm_queue_incident)",
+      "vhacrm_queue_incident_previousqueueid": "Requests (vhacrm_queue_incident_previousqueueid)",
+      "vhacrm_queue_mcs_setting_EmailSender": "Settings",
+      "vhacrm_queue_vhacrm_actionintersection": "Action Intersections",
+      "vhacrm_queue_vhacrm_resolutionintersection_escalation_queueid": "Resolution Intersections"
+    },
+    "PreferredName": "Queues",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Queues (Views)",
+    "Name": "_queue_views",
+    "RelatedEntityName": "Queues",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "00000000-0000-0000-00aa-000010001300": "All Queues",
+      "1851be2d-d60b-48a1-bdf4-11e5e2555316": "Queue Associated View",
+      "240b4abc-99b6-499c-87e2-5c70829ff273": "Active Queues",
+      "3434f892-b38a-4a21-98e4-35c473073f52": "Queues Lookup View",
+      "3a8191c3-d94e-4fd4-af7b-5bf29568a563": "Queues: Primary Email (Pending Approval)",
+      "3a8191c3-d94e-4fd4-af8b-5bf29568a563": "My Active Queues",
+      "3c891757-8003-4852-bfca-e5673963ada6": "Omnichannel queues for messaging",
+      "475ba760-c16c-e911-8196-000d3af7379e": "Omnichannel queues",
+      "4d39b01d-e4be-4385-b371-e2d4ae758fb4": "Queues Advanced Find View",
+      "597e5016-ebc4-4d4b-a7dc-ebd41ff66cfb": "Entity Queues",
+      "6692d3a5-268d-4392-9752-2acf707062bb": "Local User Queues",
+      "75566a9b-cce8-4ed8-acbd-83ee42dd6dee": "Private Queues Lookup View",
+      "7aedaca8-95fe-e611-8126-127b25dcbde7": "Queue Subgrid View",
+      "8072de37-1d23-e911-8131-1458d04e2f20": "Active FM Queues",
+      "81270043-a34e-4091-8733-608ee808d565": "Inactive Queues",
+      "94a21ec6-5bed-483a-bf49-8db31c15ce0c": "Omnichannel queues for Entity",
+      "aeb3745f-1d23-e911-8131-1458d04e2f20": "Active Community Care Queues",
+      "c43ab16e-9ec8-e711-811f-1458d04ef938": "OCCFM Queue Lookup",
+      "f374f814-00a2-44ed-8b88-13f34e202e79": "Business Queues"
+    }
+  },
+  {
+    "DisplayName": "Incoming Team (Queues)",
+    "Name": "mcs_queue_mcs_incomingteam",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "mcs_incomingteam",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "mcs_incomingteam",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Queue Assignment Strategy",
+    "Name": "msdyn_queueassignmentstrategy",
+    "OptionSetInfoNameMapping": {
+      "192350000": "Omnichannel Assignment",
+      "192350001": "Round Robin",
+      "192350002": "Custom Assignment Configuration",
+      "192350003": "Longest Idle"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_assignmentstrategy",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_assignmentstrategy",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Queue type Option Set",
+    "Name": "msdyn_queuetype",
+    "OptionSetInfoNameMapping": {
+      "192350000": "Messaging",
+      "192350001": "Entity"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_queuetype",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_queuetype",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Allow to Use Credentials for Email Processing (Obsolete) (Queues)",
+    "Name": "queue_allowemailcredentials",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "allowemailcredentials",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "allowemailcredentials",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Primary Email Status (Queues)",
+    "Name": "queue_emailrouteraccessapproval",
+    "OptionSetInfoNameMapping": {
+      "0": "Empty",
+      "1": "Approved",
+      "2": "Pending Approval",
+      "3": "Rejected"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "emailrouteraccessapproval",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "emailrouteraccessapproval",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Convert To Email Activities (Queues)",
+    "Name": "queue_ignoreunsolicitedemail",
+    "OptionSetInfoNameMapping": {
+      "0": "All incoming Emails",
+      "1": "Only specific Emails"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "ignoreunsolicitedemail",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "ignoreunsolicitedemail",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Incoming Email Delivery Method (Queues)",
+    "Name": "queue_incomingemaildeliverymethod",
+    "OptionSetInfoNameMapping": {
+      "0": "None",
+      "2": "Server-Side Synchronization or Email Router",
+      "3": "Forward Mailbox"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "incomingemaildeliverymethod",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "incomingemaildeliverymethod",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Convert Incoming Email To Activities (Queues)",
+    "Name": "queue_incomingemailfilteringmethod",
+    "OptionSetInfoNameMapping": {
+      "0": "All email messages",
+      "1": "Email messages in response to Dynamics 365 email",
+      "2": "Email messages from Dynamics 365 Leads, Contacts and Accounts",
+      "3": "Email messages from Dynamics 365 records that are email enabled",
+      "4": "No email messages"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "incomingemailfilteringmethod",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "incomingemailfilteringmethod",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Email Address O365 Admin Approval Status (Queues)",
+    "Name": "queue_isemailaddressapprovedbyo365admin",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "isemailaddressapprovedbyo365admin",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "isemailaddressapprovedbyo365admin",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Fax Queue (Queues)",
+    "Name": "queue_isfaxqueue",
+    "OptionSetInfoNameMapping": {
+      "0": "Non-fax Queue",
+      "1": "Fax Queue"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "isfaxqueue",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "isfaxqueue",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is Default Queue (Queues)",
+    "Name": "queue_msdyn_isdefaultqueue",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_isdefaultqueue",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "msdyn_isdefaultqueue",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is Omnichannel queue (Queues)",
+    "Name": "queue_msdyn_isomnichannelqueue",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_isomnichannelqueue",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "msdyn_isomnichannelqueue",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Outgoing Email Delivery Method (Queues)",
+    "Name": "queue_outgoingemaildeliverymethod",
+    "OptionSetInfoNameMapping": {
+      "0": "None",
+      "2": "Server-Side Synchronization or Email Router"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "outgoingemaildeliverymethod",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "outgoingemaildeliverymethod",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Queue Type (Queues)",
+    "Name": "queue_queuetypecode",
+    "OptionSetInfoNameMapping": {
+      "1": "Default Value"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "queuetypecode",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "queuetypecode",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Type (Queues)",
+    "Name": "queue_queueviewtype",
+    "OptionSetInfoNameMapping": {
+      "0": "Public",
+      "1": "Private"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "queueviewtype",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "queueviewtype",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Queues)",
+    "Name": "queue_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Queues)",
+    "Name": "queue_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Queues"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Queues",
+    "Type": "OptionSetInfo"
+  }
+]

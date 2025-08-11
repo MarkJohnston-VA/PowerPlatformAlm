@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{83e1128d-40a6-4b10-ad8d-d4e4a3fc56de}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" preview="1" icon="1" select="1" jump="mcs_name">
+        <row id="mcs_crpsnoteid" name="result">
+          <cell name="mcs_name" width="243" />
+          <cell name="mcs_selectedworkloadnotetitletext" width="284" />
+          <cell name="mcs_progressnotefacility" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_selectedworkloadlocationtext" width="254" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch mapping="logical" version="1.0">
+        <entity name="mcs_crpsnote">
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <order descending="true" attribute="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" value="0" operator="eq" />
+          </filter>
+          <attribute name="mcs_selectedworkloadnotetitletext" />
+          <attribute name="mcs_selectedworkloadlocationtext" />
+          <attribute name="mcs_progressnotefacility" />
+          <attribute name="mcs_crpsnoteid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active CPRS Notes" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{fde1d457-ede5-4775-874a-f7963797e71e}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{dc51e589-68b3-4c15-acb5-a121b8e55d32}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Contact Detail" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{e29c151d-dfa4-48c9-bb05-9fd14a3dd01e}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{7cd15ac2-a292-7666-d0d3-a671846a7b4b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Source" languagecode="1033" />
+                        </labels>
+                        <control id="bah_interactionsource_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="bah_interactionsource_code" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0ad84e99-c4ae-c102-89b5-201cc62b5ea3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Interacted With" languagecode="1033" />
+                        </labels>
+                        <control id="bah_interactedwith_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="bah_interactedwith_code" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e129c2d1-2d82-5947-4aa9-05dc80bc38a7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_typeintersectionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_typeintersectionid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8e523e5c-41bc-125a-405b-d95db1d39134}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="First Name" languagecode="1033" />
+                        </labels>
+                        <control id="bah_firstname_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_firstname_text" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ada54704-7279-4301-8677-73b474a0b894}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Last Name" languagecode="1033" />
+                        </labels>
+                        <control id="bah_lastname_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_lastname_text" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7a39a85c-7176-1170-6bb6-4c807878587e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Phone #" languagecode="1033" />
+                        </labels>
+                        <control id="bah_phonenumber_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_phonenumber_text" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e7ca868a-7929-1334-83aa-7149508017c2}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Veteran" languagecode="1033" />
+                        </labels>
+                        <control id="bah_veteranid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="bah_veteranid" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Interaction Quick Create" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

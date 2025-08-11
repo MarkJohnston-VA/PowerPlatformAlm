@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b04d1361-ff0b-ec11-94ef-001dd8028bbf}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" preview="1" icon="1">
+        <row name="result" id="objectid" multiobjectidfield="objecttypecode">
+          <cell name="queueitemid" ishidden="1" width="150" />
+          <cell name="a_4317a47620834b68a2f9e7ca23b46f1d.subject" width="200" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="enteredon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="workerid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_4317a47620834b68a2f9e7ca23b46f1d.hac_assigneddate" width="125" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_priority" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_requestcreatedon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_4317a47620834b68a2f9e7ca23b46f1d.mcs_parentdocumentreceiveddate" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_4317a47620834b68a2f9e7ca23b46f1d.mcs_parenttasksubject" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_4317a47620834b68a2f9e7ca23b46f1d.hac_latest_note_txt" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_4317a47620834b68a2f9e7ca23b46f1d.hac_status_code" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_4317a47620834b68a2f9e7ca23b46f1d.mcs_customer" width="200" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_4317a47620834b68a2f9e7ca23b46f1d.regardingobjectid" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdby" width="100" />
+          <cell name="a_4317a47620834b68a2f9e7ca23b46f1d.mcs_tags" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="queueitem">
+          <attribute name="queueitemid" />
+          <attribute name="objecttypecode" />
+          <attribute name="enteredon" />
+          <attribute name="workerid" />
+          <attribute name="hac_priority" />
+          <attribute name="createdby" />
+          <attribute name="mcs_requestcreatedon" />
+          <order attribute="hac_priority" descending="false" />
+          <order attribute="mcs_requestcreatedon" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="queueid" operator="eq" uiname="&lt;Clinical Decisions&gt;" uitype="queue" value="{bb64c4db-a9e9-e811-812c-1458d04e2f20}" />
+          </filter>
+          <link-entity name="task" from="activityid" to="objectid" link-type="inner" alias="a_4317a47620834b68a2f9e7ca23b46f1d">
+            <attribute name="hac_assigneddate" />
+            <attribute name="hac_status_code" />
+            <attribute name="regardingobjectid" />
+            <attribute name="hac_latest_note_txt" />
+            <attribute name="subject" />
+            <attribute name="mcs_parenttasksubject" />
+            <attribute name="mcs_parentdocumentreceiveddate" />
+            <filter type="and">
+              <condition attribute="hac_status_code" operator="not-in">
+                <value>806860011</value>
+                <value>806860000</value>
+              </condition>
+              <condition attribute="statuscode" operator="not-in">
+                <value>806860000</value>
+                <value>5</value>
+                <value>6</value>
+              </condition>
+              <condition attribute="hac_areaintersectionid" operator="eq" uiname="Preauthorization" uitype="vhacrm_areaintersection" value="{58DCBA85-A026-E711-942F-0050568D1C17}" />
+            </filter>
+            <link-entity name="vhacrm_actionintersection" from="vhacrm_actionintersectionid" to="hac_actionintersectionid" alias="aa">
+              <filter type="and">
+                <condition attribute="vhacrm_actionid" operator="eq" uiname="Preauthorization Clinical Decision" uitype="vhacrm_action" value="{3496E150-4AF3-E811-812D-1458D04E2F20}" />
+              </filter>
+            </link-entity>
+            <attribute name="mcs_tags" />
+            <attribute name="mcs_customer" />
+          </link-entity>
+          <attribute name="objectid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.08.27.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Tasks - All Open Preauth Clinical Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

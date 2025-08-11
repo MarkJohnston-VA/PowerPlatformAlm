@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{ad81ce2e-7a1c-4246-9fc5-68b3da3bc868}</formid>
+    <IntroducedVersion>2023.04.24.01</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{3bbd9956-6f11-4805-9799-0cd4da4b9b15}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{43570555-b0d8-47dd-89af-a6d63314fd17}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{9b5516c9-c5b1-4712-4de8-e9e7a6c467bb}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="{3bbd9956-6f11-4805-9799-0cd4da4b9b15}_section_2" showlabel="false" showbar="false" locklevel="0" id="{547c14a1-1cd4-c60a-0be6-c548bd12ca5b}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{18d3a980-6ce5-4d57-8d81-5460670a71c7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Enrollment Category" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" uniqueid="{318aed45-7284-9374-318c-332354a2d822}" disabled="true" />
+                      </cell>
+                      <cell id="{30e2e52b-11d7-acdc-843c-7765811c2b95}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Enrollment Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_enrollmentdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_enrollmentdate" disabled="true" uniqueid="{536865e4-298e-b39b-cab9-6eab4650d552}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0e6c8392-c5d6-b169-446d-60ea8bb55641}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Enrollment Status" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_enrollmentstatus" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_enrollmentstatus" disabled="true" uniqueid="{dae053b6-1e9d-538e-0713-40b5216705b1}" />
+                      </cell>
+                      <cell id="{c970b414-a9cd-d6b2-2582-bc506555202a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Enrollment Effective Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_enrollmenteffectivedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_enrollmenteffectivedate" disabled="true" uniqueid="{b68c8898-3e31-83a0-9803-1b8ba21e93a8}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d4b54264-423a-9715-de87-26736b7aeb81}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Preferred Facility" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_preferredfacility" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_preferredfacility" disabled="true" uniqueid="{089107c1-4d13-0071-ed08-3814e9d78a61}" />
+                      </cell>
+                      <cell id="{aca98db8-4a7e-2e58-05cc-54e22371a05e}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <formLibraries>
+        <Library name="mcs_enrollment.js" libraryUniqueId="{9ebb7c02-9c98-7d5a-6951-8b3024241582}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="enrollment.onLoad" libraryName="mcs_enrollment.js" handlerUniqueId="{17b14102-0b3e-a067-2715-512eb063a25a}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

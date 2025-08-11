@@ -1,0 +1,318 @@
+/// <reference path="CommCareShared.min.js"/>
+
+if (typeof CommCare == 'undefined') {
+    CommCare = {
+        __namespace: true
+    };
+}
+
+if (typeof (CommCare.PhoneCall) == "undefined") {
+    CommCare.PhoneCall = {
+        __namespace: true
+    };
+}
+
+if (typeof (CommCare.PhoneCall.Global) == "undefined") {
+    CommCare.PhoneCall.Global = {
+        __namespace: true
+    };
+}
+
+if (typeof (CommCare.PhoneCall.Constants) == "undefined") {
+    CommCare.PhoneCall.Constants = {
+        __namespace: true
+    };
+}
+
+CommCare.PhoneCall.Constants.InteractedWith = {
+    Email: 803750000,
+    Letter: 803750001,
+    MyHealtheVet: 803750002,
+    PhoneCall: 803750003,
+    Visit: 803750004,
+    Voicemail: 803750005,
+    Fax: 803750006
+}
+
+CommCare.PhoneCall.Constants.Outcome = {
+    LeftVoicemail: 803750000,
+    LeftMessage: 803750001,
+    NoContact: 803750002,
+    NumberDisconnected: 803750003,
+    WrongNumber: 803750004,
+    Answered: 803750005,
+    ResolutionProvided: 803750006
+}
+
+CommCare.PhoneCall.Global = (function () {
+
+    //Public functions
+    return {
+        OnLoad: onLoad
+    }
+
+    function onLoad(context) {
+        CommCare.Shared.GetFormContext(context);
+
+        CommCare.Shared.SetOnChange("phonenumber", validatePhoneNumber);
+        CommCare.Shared.FormContext.data.entity.addOnSave(form_OnSave);
+
+        setCallTypeVisibility();
+        hideShowAddressFields();
+        setRequiredFieldsBasedOnAction();
+
+        CommCare.Shared.SetOnChange("mcs_methodofcontact", hideShowAddressFields);
+        CommCare.Shared.SetOnChange("mcs_methodofcontact", setRequiredFieldsBasedOnAction);
+        CommCare.Shared.SetOnChange("mcs_outcome", setCallTypeVisibility);        
+    }
+
+    function form_OnSave(context) {
+        if (validatePhoneNumber() == false) {
+            context.getEventArgs().preventDefault();
+        }
+    }
+
+    function validatePhoneNumber() {
+        var programType = CommCare.Shared.GetFieldValue("mcs_typeintersectionid");
+        var programTypeName = programType != null ? CommCare.Shared.DialogNameReturn(programType[0].name) : null;
+
+        return CommCare.Shared.ValidatePhoneOrFaxNumber("PhoneCall", programTypeName, ["phonenumber"], "Phone");
+    }
+
+    function setCallTypeVisibility() {
+        var regarding = CommCare.Shared.GetFieldValue("regardingobjectid");
+        var task = CommCare.Shared.GetFieldValue("mcs_taskid");
+
+        if (regarding != null) {
+            if (regarding[0].entityType == "incident") {
+                Xrm.WebApi.online.retrieveRecord("incident", CommCare.Shared.GetCleanId(CommCare.Shared.GetFieldValue("regardingobjectid")), "?$select=_vhacrm_areaintersectionid_value").then(
+                    function success(result) {
+                        retrieveAreaIntersection(result["_vhacrm_areaintersectionid_value"]).then(function (returnedIntersection) {
+                            //add check for interaction purpse is service recovery 
+                            console.log(returnedIntersection);
+                            if (!!returnedIntersection.mcs_sendtopatsr || returnedIntersection.vhacrm_name == "Service Recovery" /*returnedIntersection.vhacrm_areaintersectionid == "f5c8497d-23d0-ea11-a812-001dd8018866"*/) {
+                                CommCare.Shared.SetVisible("mcs_calltype", true);
+                                CommCare.Shared.SetRequired("mcs_calltype", true);
+
+                                var outcome = CommCare.Shared.GetFieldValue("mcs_outcome");
+                                var requireNotes = outcome == CommCare.PhoneCall.Constants.Outcome.ResolutionProvided;
+                                CommCare.Shared.SetRequired("description", requireNotes);
+
+                            } else {
+                                CommCare.Shared.SetVisible("mcs_calltype", false);
+                                CommCare.Shared.SetRequired("mcs_calltype", false);
+                            }
+                        });
+                    },
+                    function (error) {
+                        
+                        var alertStrings = {
+                            text: error.message
+                        };
+                        Xrm.Navigation.openAlertDialog(alertStrings);
+                    }
+                );
+            }
+            else if (regarding[0].entityType == "mcs_tracker") {
+                Xrm.WebApi.online.retrieveRecord("mcs_tracker", CommCare.Shared.GetCleanId(CommCare.Shared.GetFieldValue("regardingobjectid")), "?$select=mcs_patsrid").then(
+                    (result) => {
+                        var mcs_patsrid = result["mcs_patsrid"] != null;
+                        CommCare.Shared.SetVisible("mcs_calltype", mcs_patsrid);
+                        CommCare.Shared.SetRequired("mcs_calltype", mcs_patsrid);
+                    },
+                    (error) => {
+                        var alertStrings = {
+                            text: error.message
+                        };
+                        Xrm.Navigation.openAlertDialog(alertStrings);
+                    }
+                );
+            }
+            else {
+                CommCare.Shared.SetVisible("mcs_calltype", false);
+                CommCare.Shared.SetRequired("mcs_calltype", false);
+            }
+        }
+        else if (task != null) {
+            Xrm.WebApi.online.retrieveRecord("task", CommCare.Shared.GetCleanId(task), "?$select=activityid&$expand=hac_areaintersectionid_Task($select=vhacrm_name,mcs_sendtopatsr)").then((taskResult) => {
+                if (taskResult.hasOwnProperty("hac_areaintersectionid_Task")) {
+                    var PurposeName = taskResult["hac_areaintersectionid_Task"]["vhacrm_name"]; // Text
+                    var SendToPatsr = taskResult["hac_areaintersectionid_Task"]["mcs_sendtopatsr"]; // Boolean
+
+                    if (!!SendToPatsr || PurposeName == "Service Recovery") {
+                        CommCare.Shared.SetVisible("mcs_calltype", true);
+                        CommCare.Shared.SetRequired("mcs_calltype", true);
+
+                        var outcome = CommCare.Shared.GetFieldValue("mcs_outcome");
+                        var requireNotes = outcome == CommCare.PhoneCall.Constants.Outcome.ResolutionProvided;
+                        CommCare.Shared.SetRequired("description", requireNotes);
+                    }
+                    else {
+                        CommCare.Shared.SetVisible("mcs_calltype", false);
+                        CommCare.Shared.SetRequired("mcs_calltype", false);
+                    }
+                }
+                else {
+                    console.log("Phone call is regarding a task but no Purpose Information was provided");
+                }
+            });
+        }
+        else {
+            CommCare.Shared.SetVisible("mcs_calltype", false);
+            CommCare.Shared.SetRequired("mcs_calltype", false);
+        }
+    }
+
+    function retrieveAreaIntersection(areaIntersectionId) {
+        return new Promise(function (resolve, reject) {
+            Xrm.WebApi.online.retrieveRecord("vhacrm_areaintersection", areaIntersectionId).then(
+                function success(result) {
+                    resolve(result);
+                },
+                function (error) {
+                    console.log("An error occurred while retrieving the Purpose Intersection record", error);
+                }
+            );
+        });
+    }
+
+    function hideShowAddressFields() {
+        var methodOfContact = CommCare.Shared.GetFieldValue("mcs_methodofcontact");
+        var letterFieldArray;
+        var programPromise = new Promise(function (resolve, reject) {
+            var regarding = CommCare.Shared.GetFieldValue("regardingobjectid");
+            if (regarding != null) {
+                if (regarding[0].entityType == "incident") {
+                    return Xrm.WebApi.online.retrieveRecord("incident", CommCare.Shared.GetCleanId(CommCare.Shared.GetFieldValue("regardingobjectid")), "?$select=_mcs_programtype_value").then(
+                        function success(result) {
+                            console.log(result);
+                            resolve(result["_mcs_programtype_value@OData.Community.Display.V1.FormattedValue"]);
+                        });
+                } else {
+                    var programType = CommCare.Shared.GetFieldValue("mcs_typeintersectionid");
+                    var programTypeName = programType != null ? CommCare.Shared.DialogNameReturn(programType[0].name) : null;
+                    resolve(programTypeName);
+                }
+            } else {
+                var programType = CommCare.Shared.GetFieldValue("mcs_typeintersectionid");
+                var programTypeName = programType != null ? CommCare.Shared.DialogNameReturn(programType[0].name) : null;
+                resolve(programTypeName);
+            }
+        });
+
+        programPromise.then(function (promiseResult) {
+            if (methodOfContact == CommCare.PhoneCall.Constants.InteractedWith.Letter) {
+                if (promiseResult != null) {
+                    if (promiseResult.trim() == "FMP") {
+                        letterFieldArray = ["mcs_addressline1", "mcs_addressline2", "mcs_city", "mcs_country", "mcs_zip"];
+                    } else {
+                        letterFieldArray = ["mcs_addressline1", "mcs_city", "mcs_state", "mcs_zip"];
+                    }
+                } else {
+                    letterFieldArray = ["mcs_addressline1", "mcs_city", "mcs_state", "mcs_zip"];
+                }
+
+                for (var i = 0; i < letterFieldArray.length; i++) {
+                    CommCare.Shared.SetVisible(letterFieldArray[i], true);
+                    CommCare.Shared.SetRequired(letterFieldArray[i], true);
+                }
+
+                if (promiseResult != null) {
+                    if (promiseResult.trim() == "FMP") {
+                        CommCare.Shared.FormContext.ui.controls.get("mcs_zip").setLabel("Postal Code");
+                    } else {
+                        CommCare.Shared.FormContext.ui.controls.get("mcs_zip").setLabel("Zip");
+                    }
+                } else {
+                    CommCare.Shared.FormContext.ui.controls.get("mcs_zip").setLabel("Zip");
+                }
+
+
+            } else {
+                letterFieldArray = ["mcs_addressline1", "mcs_addressline2", "mcs_city", "mcs_country", "mcs_zip", "mcs_state"];
+                for (var i = 0; i < letterFieldArray.length; i++) {
+                    CommCare.Shared.SetVisible(letterFieldArray[i], false);
+                    CommCare.Shared.SetRequired(letterFieldArray[i], false);
+                }
+            }
+        });
+
+        
+
+        if (methodOfContact == CommCare.PhoneCall.Constants.InteractedWith.Email) {
+            CommCare.Shared.SetVisible("mcs_email", true);
+            CommCare.Shared.SetRequired("mcs_email", true);
+        } else {
+            CommCare.Shared.SetVisible("mcs_email", false);
+            CommCare.Shared.SetRequired("mcs_email", false);
+        }
+
+        if (methodOfContact == CommCare.PhoneCall.Constants.InteractedWith.PhoneCall || methodOfContact == CommCare.PhoneCall.Constants.InteractedWith.Fax || methodOfContact == CommCare.PhoneCall.Constants.InteractedWith.Voicemail) {
+            CommCare.Shared.SetRequired("phonenumber", true);
+        } else {
+            CommCare.Shared.SetRequired("phonenumber", false);
+        }
+    }
+
+    function setRequiredFieldsBasedOnAction() {
+        var action = CommCare.Shared.GetFieldValue("mcs_actionintersection");        
+        var methodOfContact = CommCare.Shared.GetFieldValue("mcs_methodofcontact");
+        if (action != null) {
+            var actionId = action[0].id;
+
+            //Set fields required based on Action
+            var columnsFilter = "mcs_fieldname,mcs_value";
+            var filterFilter = "$filter=mcs_name eq 'PhoneCallFieldRequirement' and  _mcs_action_value eq " + actionId + " and statecode eq 0";
+            CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+            CommCare.Shared.CrmCommonJS.WebApi.RetrieveMultiple("mcs_lookupfilters", columnsFilter, filterFilter).then(function (results) {
+                if (results != null && results.value != null && results.value.length > 0) {
+                    for (var i = 0; i < results.value.length; i++) {
+                        if (results.value[i].mcs_value) {
+                            if (results.value[i].mcs_value == methodOfContact) {
+                                CommCare.Shared.SetRequired(results.value[i].mcs_fieldname, "required");
+                            }
+                            else {
+                                CommCare.Shared.SetRequired(results.value[i].mcs_fieldname, "none");
+                            }
+
+                        }
+                        else {
+                            CommCare.Shared.SetRequired(results.value[i].mcs_fieldname, "required");
+                        }
+                    }
+                }                
+            }).catch(function (error) {
+                console.log("Error Phone Call Field Filter:");
+                console.log(error)
+            });
+
+            //Limit Method of Contact based on Action
+            var xrmPage = CommCare.Shared.FormContext;
+            var pickListFieldName = "mcs_methodofcontact";
+            var pickListField = xrmPage.getControl(pickListFieldName);
+            var options = xrmPage.getAttribute(pickListFieldName).getOptions();
+            
+            var odata = "?$select=mcs_name,mcs_value&$filter=mcs_name eq 'PhoneCallLimitMethodOfContact' and  _mcs_action_value eq " + actionId + " and statecode eq 0&$orderby=mcs_sortorder asc";
+            Xrm.WebApi.online.retrieveMultipleRecords("mcs_lookupfilter", odata).then(
+                function success(results) {
+                    if (results.entities.length > 0) {
+                        //clear all items
+                        for (var i = 0; i < options.length; i++) {
+                            pickListField.removeOption(options[i].value);
+                        }
+                        //add back items
+                        for (var i = 0; i < results.entities.length; i++) {
+                            var methodOfContact = results.entities[i]["mcs_value"];
+
+                            var optionToUse = options.filter(v => v.value == methodOfContact);
+                            pickListField.addOption(optionToUse[0]);
+                        }
+                    }
+                }).catch(function (error) {
+                    console.log("Error filtering method of contact option set:");
+                    console.log(error)
+                });
+        }      
+    }
+    
+})();

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{42a0b7ce-05c4-e711-8118-1458d04eaba0}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="subject" select="1" preview="1" icon="1">
+        <row name="result" id="activityid">
+          <cell name="subject" width="250" />
+          <cell name="createdon" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="actualend" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_teamid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_assigneddate" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_priority" width="100" />
+          <cell name="hac_status_code" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_customer" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="regardingobjectid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_latest_note_txt" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="task">
+          <attribute name="subject" />
+          <attribute name="regardingobjectid" />
+          <attribute name="hac_priority" />
+          <attribute name="createdon" />
+          <attribute name="actualend" />
+          <attribute name="hac_teamid" />
+          <attribute name="hac_status_code" />
+          <attribute name="hac_latest_note_txt" />
+          <attribute name="hac_assigneddate" />
+          <attribute name="mcs_customer" />
+          <order attribute="createdon" descending="false" />
+          <order attribute="hac_priority" descending="false" />
+          <filter type="and">
+            <condition attribute="hac_status_code" operator="in">
+              <value>806860000</value>
+              <value>803750000</value>
+              <value>803750001</value>
+              <value>803750003</value>
+              <value>803750009</value>
+              <value>803750010</value>
+              <value>803750007</value>
+              <value>803750008</value>
+            </condition>
+            <condition attribute="ownerid" operator="ne" uiname="CSC Trainer" uitype="team" value="{AF368EE1-2421-E711-942E-0050568D1C17}" />
+            <condition attribute="mcs_resolvedby" operator="eq-userid" />
+          </filter>
+          <attribute name="activityid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="My Completed Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

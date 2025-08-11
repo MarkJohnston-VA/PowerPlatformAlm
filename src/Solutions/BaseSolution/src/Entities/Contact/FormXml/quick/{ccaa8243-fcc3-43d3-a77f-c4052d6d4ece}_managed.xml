@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{ccaa8243-fcc3-43d3-a77f-c4052d6d4ece}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{fc4d0c91-2200-4602-940d-be4ed3f1d3d4}" name="tab_CaseNotes" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Case Note History" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{e95c97ee-f252-43ee-a311-bc0a032a842e}" name="section_caseNotes" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Case Notes" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a1199740-3e45-8ee7-da0e-9978486bee77}" showlabel="false" colspan="1" auto="false" rowspan="7">
+                        <labels>
+                          <label description="Veteran Case Notes" languagecode="1033" />
+                        </labels>
+                        <control id="VeteranCaseNotes" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                          <parameters>
+                            <ViewId>{C40E2577-35A4-E511-940E-00155D049E51}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>bah_contact_bah_casenote_veteranid</RelationshipName>
+                            <TargetEntityType>bah_casenote</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{DA9C8F70-D112-4ECE-A699-B865A243F8C8},{C40E2577-35A4-E511-940E-00155D049E51}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId></VisualizationId>
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>5</RecordsPerPage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row></row>
+                    <row></row>
+                    <row></row>
+                    <row></row>
+                    <row></row>
+                    <row></row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="3">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Case Note History Quick View Form" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

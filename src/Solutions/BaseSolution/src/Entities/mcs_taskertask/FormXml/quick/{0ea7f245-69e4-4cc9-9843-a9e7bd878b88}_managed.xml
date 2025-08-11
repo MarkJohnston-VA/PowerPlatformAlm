@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{0ea7f245-69e4-4cc9-9843-a9e7bd878b88}</formid>
+    <IntroducedVersion>2021.08.02.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{f843a585-abd6-4fcc-9a91-004ed9c64964}" name="ParentDirectorateTaskInfo" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Parent Information" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{20f633ce-224d-49b2-97aa-29d7a0d8d07d}" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Parent Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d3d392cd-6b2c-3035-0b89-6d19112699d6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Description (Directorate Task)" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_descriptionplaintext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="mcs_descriptionplaintext" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c3530681-52dd-55b6-1c7a-272e4414a061}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Directorate Due Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_directorateduedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_directorateduedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{271651bb-78bd-8c00-727d-4ab380c514d5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Assigned From" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_assignedfrom" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_assignedfrom" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{48da3e2a-18ed-d6bd-4cea-701c6c5c34e1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Assigned to Team" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_assignedtoteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_assignedtoteam" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c610823e-b92b-7534-5027-a71a6da35e27}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="mcs_description" disabled="false" uniqueid="{b9b0bc93-4519-8731-891c-0114eb6193ee}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="2">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Parent Directorate Task Info" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Used on the Due Date Extension to show Approver's record information to compare due dates." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

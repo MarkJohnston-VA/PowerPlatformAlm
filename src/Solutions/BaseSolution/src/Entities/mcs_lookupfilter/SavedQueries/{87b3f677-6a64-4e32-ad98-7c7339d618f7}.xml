@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{87b3f677-6a64-4e32-ad98-7c7339d618f7}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_lookupfilterid">
+          <cell name="mcs_name" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_lineofbusiness" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_position" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_purposeintersection" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_programtype" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_team" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_action" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_fieldname" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_sortorder" width="100" />
+          <cell name="modifiedby" width="100" />
+          <cell name="modifiedon" width="100" />
+          <cell name="createdby" width="100" />
+          <cell name="createdon" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_interactedwith" width="100" />
+          <cell name="mcs_resolution" width="100" />
+          <cell name="mcs_sectionname" width="100" />
+          <cell name="mcs_tabname" width="100" />
+          <cell name="mcs_executivedirectorateoption" width="100" disableSorting="1" />
+          <cell name="mcs_requestorgroup" width="100" />
+          <cell name="mcs_viewname" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_lookupfilter">
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <order attribute="mcs_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_purposeintersection" />
+          <attribute name="mcs_position" />
+          <attribute name="mcs_lineofbusiness" />
+          <attribute name="mcs_programtype" />
+          <attribute name="mcs_team" />
+          <attribute name="modifiedon" />
+          <attribute name="modifiedby" />
+          <attribute name="mcs_fieldname" />
+          <attribute name="createdby" />
+          <attribute name="mcs_action" />
+          <attribute name="mcs_tabname" />
+          <attribute name="mcs_sectionname" />
+          <attribute name="mcs_resolution" />
+          <attribute name="mcs_interactedwith" />
+          <attribute name="mcs_viewname" />
+          <attribute name="mcs_executivedirectorateoption" />
+          <attribute name="mcs_sortorder" />
+          <attribute name="mcs_requestorgroup" />
+          <attribute name="mcs_lookupfilterid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2019.09.19</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Lookup Filters" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

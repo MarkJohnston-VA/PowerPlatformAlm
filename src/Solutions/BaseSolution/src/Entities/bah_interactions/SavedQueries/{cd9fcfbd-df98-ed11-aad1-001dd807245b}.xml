@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{cd9fcfbd-df98-ed11-aad1-001dd807245b}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_name" select="1" icon="1" preview="1">
+        <row name="result" id="bah_interactionsid">
+          <cell name="bah_name" width="170" />
+          <cell name="bah_firstname_text" width="100" />
+          <cell name="bah_lastname_text" width="100" />
+          <cell name="vhacrm_interactionpurposeid" width="150" />
+          <cell name="mcs_questiondetail" width="300" />
+          <cell name="createdon" width="130" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="bah_interactions">
+          <attribute name="bah_name" />
+          <attribute name="bah_interactionsid" />
+          <attribute name="bah_firstname_text" />
+          <attribute name="bah_lastname_text" />
+          <attribute name="vhacrm_interactionpurposeid" />
+          <attribute name="mcs_questiondetail" />
+          <attribute name="createdon" />
+          <order attribute="createdon" descending="false" />
+          <filter type="and">
+            <condition attribute="vhacrm_typeintersectionid" operator="eq" value="{ef7d4c26-2a98-ed11-aad1-001dd80701be}" uiname=" VET-Home Portal" uitype="vhacrm_typeintersection" />
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.1.17.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active VET-HOME Portal Contact Us" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Active VET-HOME Portal Contact Us" languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

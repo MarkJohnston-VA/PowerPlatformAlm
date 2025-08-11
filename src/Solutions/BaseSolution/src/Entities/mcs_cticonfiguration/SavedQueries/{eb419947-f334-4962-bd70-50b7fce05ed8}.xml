@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{eb419947-f334-4962-bd70-50b7fce05ed8}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_cticonfigurationid">
+          <cell name="mcs_name" width="300" />
+          <cell name="mcs_phonenumber" width="100" />
+          <cell name="mcs_dnis" width="100" />
+          <cell name="mcs_lineofbusinessid" width="100" />
+          <cell name="mcs_programtypeid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_cticonfiguration">
+          <attribute name="mcs_name" />
+          <order attribute="mcs_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_programtypeid" />
+          <attribute name="mcs_phonenumber" />
+          <attribute name="mcs_lineofbusinessid" />
+          <attribute name="mcs_dnis" />
+          <attribute name="mcs_cticonfigurationid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2018.11.13.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active CTI Configurations" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

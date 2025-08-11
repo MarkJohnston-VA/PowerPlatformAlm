@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{84af711b-2bc5-4a77-8368-49c48dadfa5f}</savedqueryid>
+    <layoutxml>
+      <grid name="" jump="hac_name" select="1" icon="1" preview="1">
+        <row name="hac_claimcomment" id="hac_claimcommentid">
+          <cell name="hac_comment" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hac_dateentered" width="100" />
+          <cell name="hac_enteredby" width="100" />
+          <cell name="hac_source" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="hac_claimcomment">
+          <order attribute="hac_dateentered" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="hac_source" />
+          <attribute name="hac_enteredby" />
+          <attribute name="hac_dateentered" />
+          <attribute name="hac_comment" />
+          <attribute name="hac_claimcommentid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Claim Comment Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

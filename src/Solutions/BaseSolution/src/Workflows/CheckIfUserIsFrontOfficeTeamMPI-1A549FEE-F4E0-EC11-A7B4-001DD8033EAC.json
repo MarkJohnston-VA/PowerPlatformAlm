@@ -1,0 +1,125 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "mcs_sharedcommondataserviceforapps_e0a04"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "06268f91-d0c2-4eae-a326-a11eb85d847a"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "CheckIfUserIsFrontOfficeTeam_InputString": {
+                  "type": "string",
+                  "x-ms-powerflows-param-ispartial": false
+                }
+              },
+              "required": [
+                "CheckIfUserIsFrontOfficeTeam_InputString"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "CheckIfUserIsFrontOfficeTeam": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "f34351b9-ab3e-426f-8973-325ecf2bddcd"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "mcs_CheckIfUserIsFrontOfficeTeamAction",
+              "item/InputString": "@triggerBody()['CheckIfUserIsFrontOfficeTeam_InputString']"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "JsonResponse": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "728fa946-9a09-4121-8c0b-6a68dff82e76"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "body": "@variables('JsonResponse')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "JsonResponse": {
+          "runAfter": {
+            "CheckIfUserIsFrontOfficeTeam": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ce4dee2d-da89-4bf2-b343-73186ee6f1e3"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "JsonResponse",
+                "type": "object",
+                "value": {
+                  "value": "@outputs('CheckIfUserIsFrontOfficeTeam')?['body/OutputBool']"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

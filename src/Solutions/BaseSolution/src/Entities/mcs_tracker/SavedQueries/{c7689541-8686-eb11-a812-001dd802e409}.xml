@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{c7689541-8686-eb11-a812-001dd802e409}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_trackerid">
+          <cell name="mcs_name" width="300" />
+          <cell name="mcs_descriptionplaintext" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_veteran" width="200" />
+          <cell name="ownerid" width="129" />
+          <cell name="createdby" width="100" />
+          <cell name="mcs_requestorgroup" width="100" />
+          <cell name="statuscode" width="100" />
+          <cell name="createdon" width="125" />
+          <cell name="mcs_responseplaintext" width="100" />
+          <cell name="mcs_briefstatementofissueandstatusplaintext" width="100" />
+          <cell name="mcs_actionsprogressandresolutionplaintext" width="100" />
+          <cell name="mcs_nextstepsplaintext" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="mcs_tracker">
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <attribute name="ownerid" />
+          <attribute name="mcs_requestorgroup" />
+          <attribute name="mcs_descriptionplaintext" />
+          <attribute name="statuscode" />
+          <order attribute="createdon" descending="true" />
+          <order attribute="mcs_requestorgroup" descending="false" />
+          <attribute name="mcs_veteran" />
+          <attribute name="mcs_trackerid" />
+          <attribute name="mcs_responseplaintext" />
+          <attribute name="mcs_briefstatementofissueandstatusplaintext" />
+          <attribute name="mcs_actionsprogressandresolutionplaintext" />
+          <attribute name="mcs_nextstepsplaintext" />
+          <attribute name="createdby" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.03.11.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Action Items" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

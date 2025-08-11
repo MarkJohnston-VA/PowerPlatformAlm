@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{886faba5-d704-4eaa-bbef-1ec165bcc346}</formid>
+    <IntroducedVersion>2022.09.21.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{bdd92a31-3fc8-45ac-878e-00551e87fb02}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{c949f38e-50f4-4101-a880-13ada97a4736}" name="VSignals" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="V-Signals" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{42011805-c063-47c9-dd05-86d1eadc6e61}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Survey ID" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_surveyid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_surveyid" disabled="false" uniqueid="{86b81863-a14c-45d3-b178-471cbec047b3}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ab06d5e2-3e96-b2ba-8011-1c5a7b9e87eb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Survey First Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_surveyfirstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_surveyfirstname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5aaca3ab-1cc6-72e8-c27e-2918d3c12770}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Survey Last Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_surveylastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_surveylastname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9a1b4a5a-d5dc-551b-ce09-8b8602ca4820}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Survey Email" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_surveyveteranemail" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_surveyveteranemail" disabled="false" uniqueid="{3d81d77d-0e83-86c7-b9ea-48226791bd77}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0ed97e05-b848-bd97-9221-c91839940809}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Survey Date of Birth" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_surveydateofbirth" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_surveydateofbirth" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e20de43c-7a1c-67e6-96b0-bc80d6475844}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="V-Signals Survey Type" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_vsignalssurveytype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_vsignalssurveytype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e6d9c6cb-1a5b-6995-4311-54671096001c}" showlabel="true" colspan="1" auto="false" rowspan="8">
+                        <labels>
+                          <label description="V-Signals Scores (Request)" languagecode="1033" />
+                        </labels>
+                        <control id="VSignalScores" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <ViewId>{2CDC080A-9555-ED11-BBA2-001DD8072538}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>mcs_incident_mcs_vsignalscore_Request</RelationshipName>
+                            <TargetEntityType>mcs_vsignalscore</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{6BB4E6FE-087D-4E0D-99E2-D44FBD63A3EF},{29835A16-FB03-EB11-A816-001DD8018866},{2CDC080A-9555-ED11-BBA2-001DD8072538}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>10</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="6">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="FM V-Signals" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

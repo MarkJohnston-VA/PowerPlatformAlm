@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{12bd6ca4-c504-eb11-a816-001dd8018866}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" icon="1" preview="1">
+        <row name="result" id="incidentid">
+          <cell name="createdon" width="150" />
+          <cell name="vhacrm_resolvedbyid" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="vhacrm_resolutiondate_date" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="ticketnumber" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="vhacrm_typeintersectionid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="vhacrm_subareaintersectionid" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="vhacrm_resolutionintersectionid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="customerid" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="vhacrm_visnid" width="100" />
+          <cell name="bah_interactionstorequestid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="incident">
+          <attribute name="createdon" />
+          <attribute name="ticketnumber" />
+          <attribute name="vhacrm_visnid" />
+          <attribute name="customerid" />
+          <attribute name="vhacrm_resolutionintersectionid" />
+          <attribute name="bah_interactionstorequestid" />
+          <attribute name="vhacrm_typeintersectionid" />
+          <attribute name="vhacrm_subareaintersectionid" />
+          <attribute name="vhacrm_resolvedbyid" />
+          <order attribute="createdon" descending="true" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+            <condition attribute="vhacrm_areaintersectionid" operator="eq" uiname=" C3" uitype="vhacrm_areaintersection" value="{F5C8497D-23D0-EA11-A812-001DD8018866}" />
+          </filter>
+          <attribute name="vhacrm_resolutiondate_date" />
+          <attribute name="incidentid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2020.09.30.01</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Resolved Service Recovery Facility Requests" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

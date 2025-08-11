@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{263e9e17-7bb7-ed11-83fe-001dd80721cf}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_portalmessageid">
+          <cell name="mcs_datesent" width="110" />
+          <cell name="mcs_veteran" width="130" />
+          <cell name="mcs_name" width="200" />
+          <cell name="mcs_body" width="260" />
+          <cell name="mcs_vethomecaseid" width="160" />
+          <cell name="mcs_isviewed" width="80" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="mcs_portalmessage">
+          <attribute name="mcs_name" />
+          <attribute name="mcs_portalmessageid" />
+          <attribute name="mcs_datesent" />
+          <attribute name="mcs_veteran" />
+          <attribute name="mcs_body" />
+          <attribute name="mcs_vethomecaseid" />
+          <attribute name="mcs_isviewed" />
+          <order attribute="mcs_datesent" descending="true" />
+          <filter type="and">
+            <condition attribute="createdby" operator="eq-userid" />
+            <condition attribute="mcs_direction" operator="eq" value="1" />
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.02.23.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="My Sent Portal Messages" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="View of the Portal Message where I am the Created By, Direction is Outgoing and Status is Inactive." languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

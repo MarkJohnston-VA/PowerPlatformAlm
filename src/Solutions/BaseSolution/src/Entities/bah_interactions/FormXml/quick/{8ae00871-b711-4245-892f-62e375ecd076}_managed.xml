@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{8ae00871-b711-4245-892f-62e375ecd076}</formid>
+    <IntroducedVersion>2022.09.21.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{87af26ad-499b-4b47-9f98-29a372e53851}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{4ccc73a3-7185-42c5-935f-7a811f555000}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a4bd3022-b32c-e4b9-3087-97e6a793c27e}" showlabel="true" colspan="1" auto="false" rowspan="8">
+                        <labels>
+                          <label description="Callers (Interaction)" languagecode="1033" />
+                        </labels>
+                        <control id="Callers" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{1b55c040-7b31-9d6a-ed8c-dd5695b06d1d}">
+                          <parameters>
+                            <ViewId>{B771D26B-8EFA-E911-A98B-001DD800BA25}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>mcs_bah_interactions_mcs_caller_Interaction</RelationshipName>
+                            <TargetEntityType>mcs_caller</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{CDF9B20E-9A33-40A0-B9B8-E45AC6F2F9E9},{B771D26B-8EFA-E911-A98B-001DD800BA25}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="7">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Callers (Contacting Entities)" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

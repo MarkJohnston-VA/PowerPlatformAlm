@@ -1,0 +1,332 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "mcs_sharedcommondataserviceforapps_36f6b"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1
+          },
+          "metadata": {
+            "operationMetadataId": "9d94448a-b82f-4c11-b821-473fb9a4e02f"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Get_CommCare_Alerts": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "a40cda8a-b43e-4d12-b245-5d5cafa1550a"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_commcarealerts",
+              "$filter": "(Microsoft.Dynamics.CRM.NextXHours(PropertyName='mcs_startdate',PropertyValue=1) and statuscode eq 1)"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Loop_through_all_CC_Alerts": {
+          "foreach": "@outputs('Get_CommCare_Alerts')?['body/value']",
+          "actions": {
+            "Switch": {
+              "runAfter": {},
+              "cases": {
+                "LOB": {
+                  "case": 803750001,
+                  "actions": {
+                    "Get_LOB_Users": {
+                      "runAfter": {},
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "systemusers",
+                          "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"true\">\n  <entity name=\"systemuser\">\n    <attribute name=\"fullname\" />\n    <attribute name=\"businessunitid\" />\n    <attribute name=\"positionid\" />\n    <attribute name=\"systemuserid\" />\n    <attribute name=\"mcs_lastlogindate\" />\n    <attribute name=\"isdisabled\" />\n    <filter>\n      <condition attribute=\"mcs_lastlogindate\" operator=\"not-null\" />\n      <condition attribute=\"isdisabled\" operator=\"eq\" value=\"0\" />\n    </filter>\n    <order attribute=\"fullname\" descending=\"false\" />\n    <link-entity name=\"vhacrm_hrc_lob_systemuser\" from=\"systemuserid\" to=\"systemuserid\" intersect=\"true\">\n      <attribute name=\"hrc_lobid\" />\n      <attribute name=\"systemuserid\" />\n      <attribute name=\"versionnumber\" />\n      <attribute name=\"vhacrm_hrc_lob_systemuserid\" />\n      <filter>\n        <condition attribute=\"hrc_lobid\" operator=\"eq\" value=\"@{items('Loop_through_all_CC_Alerts')?['_mcs_lineofbusiness_value']}\" />\n      </filter>\n    </link-entity>\n  </entity>\n</fetch>"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "LOB_-_Loop_through_users_to_create_notifications": {
+                      "foreach": "@outputs('Get_LOB_Users')?['body/value']",
+                      "actions": {
+                        "Create_LOB_Notifications": {
+                          "runAfter": {},
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "CreateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "appnotifications",
+                              "item/title": "@items('Loop_through_all_CC_Alerts')?['mcs_toastalerttitle']",
+                              "item/body": "@items('Loop_through_all_CC_Alerts')?['mcs_toastalertbody']",
+                              "item/data": "{\n  \"actions\": [\n    {\n      \"data\": {\n        \"url\": \"https://dvagov-commcare-mock.crm9.dynamics.com/main.aspx?pagetype=entityrecord&etn=mcs_commcarealert&id=@{items('Loop_through_all_CC_Alerts')?['mcs_commcarealertid']}&formid=0c460791-f809-ee11-8f6d-001dd80851c2\",\n        \"navigationTarget\": \"newWindow\"\n      },\n      \"title\": \"More Information\"\n    }\n  ]\n}",
+                              "item/ttlinseconds": 172800,
+                              "item/icontype": 100000000,
+                              "item/ownerid@odata.bind": "systemusers(@{items('LOB_-_Loop_through_users_to_create_notifications')?['systemuserid']})",
+                              "item/priority": 200000000,
+                              "item/toasttype": 200000000
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Get_LOB_Users": [
+                          "Succeeded"
+                        ]
+                      },
+                      "type": "Foreach",
+                      "runtimeConfiguration": {
+                        "concurrency": {
+                          "repetitions": 20
+                        }
+                      }
+                    },
+                    "Update_a_row_2": {
+                      "runAfter": {
+                        "LOB_-_Loop_through_users_to_create_notifications": [
+                          "Succeeded"
+                        ]
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "mcs_commcarealerts",
+                          "recordId": "@items('Loop_through_all_CC_Alerts')?['mcs_commcarealertid']",
+                          "item/statuscode": 803750002
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  }
+                },
+                "Fetch": {
+                  "case": 803750003,
+                  "actions": {
+                    "Get_Fetch_users": {
+                      "runAfter": {},
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "systemusers",
+                          "fetchXml": "@items('Loop_through_all_CC_Alerts')?['mcs_fetchxml']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Fetch_-_loop_through_users_to_create_notifications": {
+                      "foreach": "@outputs('Get_Fetch_users')?['body/value']",
+                      "actions": {
+                        "Create_fetch_notifications": {
+                          "runAfter": {},
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "CreateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "appnotifications",
+                              "item/title": "@items('Loop_through_all_CC_Alerts')?['mcs_toastalerttitle']",
+                              "item/body": "@items('Loop_through_all_CC_Alerts')?['mcs_toastalertbody']",
+                              "item/data": "{\n  \"actions\": [\n    {\n      \"data\": {\n        \"url\": \"https://dvagov-commcare-mock.crm9.dynamics.com/main.aspx?pagetype=entityrecord&etn=mcs_commcarealert&id=@{items('Loop_through_all_CC_Alerts')?['mcs_commcarealertid']}&formid=0c460791-f809-ee11-8f6d-001dd80851c2\",\n        \"navigationTarget\": \"newWindow\"\n      },\n      \"title\": \"More Information\"\n    }\n  ]\n}",
+                              "item/ttlinseconds": 172800,
+                              "item/ownerid@odata.bind": "systemusers(@{items('Fetch_-_loop_through_users_to_create_notifications')?['systemuserid']})",
+                              "item/priority": 200000000,
+                              "item/toasttype": 200000000
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Get_Fetch_users": [
+                          "Succeeded"
+                        ]
+                      },
+                      "type": "Foreach",
+                      "runtimeConfiguration": {
+                        "concurrency": {
+                          "repetitions": 20
+                        }
+                      }
+                    },
+                    "Update_a_row": {
+                      "runAfter": {
+                        "Fetch_-_loop_through_users_to_create_notifications": [
+                          "Succeeded"
+                        ]
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "mcs_commcarealerts",
+                          "recordId": "@items('Loop_through_all_CC_Alerts')?['mcs_commcarealertid']",
+                          "item/statuscode": 803750002
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  }
+                },
+                "System": {
+                  "case": 803750000,
+                  "actions": {
+                    "Get_system_users": {
+                      "runAfter": {},
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "systemusers",
+                          "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\">\n  <entity name=\"systemuser\">\n    <attribute name=\"fullname\" />\n    <attribute name=\"title\" />\n    <attribute name=\"businessunitid\" />\n    <attribute name=\"domainname\" />\n    <attribute name=\"systemuserid\" />\n    <order attribute=\"fullname\" descending=\"false\" />\n    <filter type=\"and\">\n      <condition attribute=\"isdisabled\" operator=\"eq\" value=\"0\" />\n      <condition attribute=\"mcs_lastlogindate\" operator=\"not-null\" />\n    </filter>\n  </entity>\n</fetch>"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "System_-_loop_through_users_to_create_notifications": {
+                      "foreach": "@outputs('Get_system_users')?['body/value']",
+                      "actions": {
+                        "Create_system_notifications": {
+                          "runAfter": {},
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "CreateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "appnotifications",
+                              "item/title": "@items('Loop_through_all_CC_Alerts')?['mcs_toastalerttitle']",
+                              "item/body": "@items('Loop_through_all_CC_Alerts')?['mcs_toastalertbody']",
+                              "item/data": "{\n  \"actions\": [\n    {\n      \"data\": {\n        \"url\": \"https://dvagov-commcare-mock.crm9.dynamics.com/main.aspx?pagetype=entityrecord&etn=mcs_commcarealert&id=@{items('Loop_through_all_CC_Alerts')?['mcs_commcarealertid']}&formid=0c460791-f809-ee11-8f6d-001dd80851c2\",\n        \"navigationTarget\": \"newWindow\"\n      },\n      \"title\": \"More Information\"\n    }\n  ]\n}",
+                              "item/ttlinseconds": 172800,
+                              "item/ownerid@odata.bind": "systemusers(@{items('System_-_loop_through_users_to_create_notifications')?['systemuserid']})",
+                              "item/priority": 200000000,
+                              "item/toasttype": 200000000
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Get_system_users": [
+                          "Succeeded"
+                        ]
+                      },
+                      "type": "Foreach"
+                    },
+                    "Update_a_row_3": {
+                      "runAfter": {
+                        "System_-_loop_through_users_to_create_notifications": [
+                          "Succeeded"
+                        ]
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "mcs_commcarealerts",
+                          "recordId": "@items('Loop_through_all_CC_Alerts')?['mcs_commcarealertid']",
+                          "item/statuscode": 803750002
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  }
+                }
+              },
+              "default": {
+                "actions": {}
+              },
+              "expression": "@items('Loop_through_all_CC_Alerts')?['mcs_type']",
+              "metadata": {
+                "operationMetadataId": "413be313-b5dc-413a-93c1-9cda669bbf59"
+              },
+              "type": "Switch"
+            }
+          },
+          "runAfter": {
+            "Get_CommCare_Alerts": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "bf95fa4a-e47d-40d7-8cfa-b7d5690a6bac"
+          },
+          "type": "Foreach",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 5
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

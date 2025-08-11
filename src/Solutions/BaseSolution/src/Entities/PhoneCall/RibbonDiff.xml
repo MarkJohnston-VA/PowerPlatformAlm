@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.phonecall.AddToQueue.Hide" Location="Mscrm.Form.phonecall.AddToQueue" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.phonecall.ConvertTo.Hide" Location="Mscrm.Form.phonecall.ConvertTo" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.phonecall.Delete.Hide" Location="Mscrm.Form.phonecall.Delete" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.phonecall.Flows.RefreshCommandBar.Hide" Location="Mscrm.Form.phonecall.Flows.RefreshCommandBar" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.phonecall.QueueItemDetail.Hide" Location="Mscrm.Form.phonecall.QueueItemDetail" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.phonecall.WordTemplate.Hide" Location="Mscrm.Form.phonecall.WordTemplate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.phonecall.MBPF.ConvertTo.Hide" Location="Mscrm.HomepageGrid.phonecall.MBPF.ConvertTo" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.phonecall.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.phonecall.AddExistingAssoc" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.phonecall.AddExistingStandard.Hide" Location="Mscrm.SubGrid.phonecall.AddExistingStandard" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.phonecall.Delete.Hide" Location="Mscrm.SubGrid.phonecall.Delete" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.AddNewRecordFromSubGridStandard">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AppendToPrimary" />
+        <EnableRule Id="Mscrm.EntityFormIsEnabled" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="mcs.phonecall.AddNew.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.ShowForOneToManyGrids" />
+        <DisplayRule Id="Mscrm.AppendToPrimary" />
+        <DisplayRule Id="Mscrm.CreateSelectedEntityPermission" />
+        <DisplayRule Id="Mscrm.AppendSelected" />
+        <DisplayRule Id="Mscrm.HideAddNewForChildEntities" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Open.addNewFromSubGridStandard" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.AppendSelected">
+        <EntityPrivilegeRule PrivilegeType="Append" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AppendToPrimary">
+        <EntityPrivilegeRule PrivilegeType="AppendTo" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CreateSelectedEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideAddNewForChildEntities">
+        <OrRule>
+          <Or>
+            <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="IsChildEntity" PropertyValue="false" />
+          </Or>
+          <Or>
+            <RelationshipTypeRule AppliesTo="SelectedEntity" AllowCustomRelationship="false" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ShowForOneToManyGrids">
+        <RelationshipTypeRule AppliesTo="SelectedEntity" RelationshipType="OneToMany" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="mcs.phonecall.AddNew.EnableRule">
+        <CustomRule FunctionName="ShowCreatePhoneCallButton" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="true" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.AppendToPrimary">
+        <RecordPrivilegeRule PrivilegeType="AppendTo" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.EntityFormIsEnabled">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline">
+        <CustomRule FunctionName="XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+        </CustomRule>
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

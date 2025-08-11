@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <HideCustomAction HideActionId="mcs.AccessChecker.OpenDialog.vhacrm_article.Button.Hide" Location="AccessChecker.OpenDialog.vhacrm_article.Button" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.vhacrm_article.WordTemplate.Hide" Location="Mscrm.Form.vhacrm_article.WordTemplate" />
+    <HideCustomAction HideActionId="vhacrm.ApplicationRibbon.Button28.Button.Hide" Location="vhacrm.ApplicationRibbon.Button28.Button" />
+    <HideCustomAction HideActionId="vhacrm.ApplicationRibbon.Button29.Button.Hide" Location="vhacrm.ApplicationRibbon.Button29.Button" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Activate.Hide" Location="Mscrm.Form.vhacrm_article.Activate" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.AddOtherActivities.Hide" Location="Mscrm.Form.vhacrm_article.AddOtherActivities" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.AddToQueue.Hide" Location="Mscrm.Form.vhacrm_article.AddToQueue" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Assign.Hide" Location="Mscrm.Form.vhacrm_article.Assign" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Close.Hide" Location="Mscrm.Form.vhacrm_article.Close" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Convert.Case.Hide" Location="Mscrm.Form.vhacrm_article.Convert.Case" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Convert.Opportunity.Hide" Location="Mscrm.Form.vhacrm_article.Convert.Opportunity" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.CustomizeEntity.Hide" Location="Mscrm.Form.vhacrm_article.CustomizeEntity" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Deactivate.Hide" Location="Mscrm.Form.vhacrm_article.Deactivate" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Delete.Hide" Location="Mscrm.Form.vhacrm_article.Delete" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.EditSalesProcess.Hide" Location="Mscrm.Form.vhacrm_article.EditSalesProcess" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.FollowButton.Hide" Location="Mscrm.Form.vhacrm_article.FollowButton" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.FormDesign.Hide" Location="Mscrm.Form.vhacrm_article.FormDesign" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.NewRecord.Hide" Location="Mscrm.Form.vhacrm_article.NewRecord" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Permissions.Grant.Hide" Location="Mscrm.Form.vhacrm_article.Permissions.Grant" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Permissions.Sharing.Hide" Location="Mscrm.Form.vhacrm_article.Permissions.Sharing" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.PromoteToResponse.Hide" Location="Mscrm.Form.vhacrm_article.PromoteToResponse" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.QueueItemDetail.Hide" Location="Mscrm.Form.vhacrm_article.QueueItemDetail" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Reports.Hide" Location="Mscrm.Form.vhacrm_article.Reports" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.RunScript.Hide" Location="Mscrm.Form.vhacrm_article.RunScript" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.RunWorkflow.Hide" Location="Mscrm.Form.vhacrm_article.RunWorkflow" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.Save.Hide" Location="Mscrm.Form.vhacrm_article.Save" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.SaveAndClose.Hide" Location="Mscrm.Form.vhacrm_article.SaveAndClose" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.SaveAsComplete.Hide" Location="Mscrm.Form.vhacrm_article.SaveAsComplete" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.SwitchProcess.Hide" Location="Mscrm.Form.vhacrm_article.SwitchProcess" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.UnfollowButton.Hide" Location="Mscrm.Form.vhacrm_article.UnfollowButton" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_article.ViewHierarchy.Hide" Location="Mscrm.Form.vhacrm_article.ViewHierarchy" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.SwitchProcess">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.IsBusinessProcessPresent" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.IsBusinessProcessEnabled" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.CommandBarActions.switchProcess" Library="/_static/_common/scripts/CommandBarActions.js" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.CanWritePrimary">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.IsBusinessProcessEnabled">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsBusinessProcessEnabled" PropertyValue="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.FormStateNotNew">
+        <FormStateRule State="Create" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsBusinessProcessPresent">
+        <CustomRule FunctionName="Mscrm.CommandBarActions.isBusinessProcessPresent" Library="/_static/_common/scripts/CommandBarActions.js" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

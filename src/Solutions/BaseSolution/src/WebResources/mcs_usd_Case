@@ -1,0 +1,89 @@
+function setSubject(context, getSubjectName) {
+    if (Xrm.Page.getAttribute("subjectid").getValue() != null)
+        return;
+
+    var serverUrl = Xrm.Page.context.getClientUrl();
+
+    var oDataEndpointUrl = serverUrl + "/XRMServices/2011/OrganizationData.svc/";
+    oDataEndpointUrl += "SubjectSet?$select=SubjectId,Title&$filter=Title eq '" + getSubjectName + "'";
+
+    var service = GetRequestObject();
+
+    if (service != null) {
+        service.open("GET", oDataEndpointUrl, false);
+        service.setRequestHeader("X-Requested-Width", "XMLHttpRequest");
+        service.setRequestHeader("Accept", "application/json, text/javascript, */*");
+        service.send(null);
+
+        var requestResults = eval('(' + service.responseText + ')').d;
+        if (requestResults != null && requestResults.results != null) { // Make sure we have a result.
+            if (requestResults.results[0].SubjectId != null) { // Make sure we have a result with a value.
+                var lookupItemValue = new Array();
+                lookupItemValue[0] = new Object();
+                lookupItemValue[0].id = requestResults.results[0].SubjectId;
+                lookupItemValue[0].name = requestResults.results[0].Title;
+                lookupItemValue[0].entityType = "Subject";
+            }
+            Xrm.Page.getAttribute("subjectid").setValue(lookupItemValue);
+        }
+    }
+}
+
+function setCustomerField(context, searchType, contactId, contactfullname, accountId, accountname) {
+    if (searchType == "Caregiver")
+        Xrm.Page.ui.controls.get("customerid").setLabel("Caregiver");
+    else if (searchType == "Provider")
+        Xrm.Page.ui.controls.get("customerid").setLabel("Provider");
+
+    if (Xrm.Page.ui.getFormType() == 1) {
+        if (contactId != "") {
+            var beneficiaryLookupValue = [];
+            var beneficiaryEntityReference = {};
+            beneficiaryEntityReference.id = contactId;
+            beneficiaryEntityReference.name = contactfullname;
+            beneficiaryEntityReference.entityType = "contact";
+            beneficiaryLookupValue[0] = beneficiaryEntityReference;
+            Xrm.Page.getAttribute("customerid").setValue(beneficiaryLookupValue);
+        }
+
+        if (accountId != "") {
+            var accountLookupValue = [];
+            var accountEntityReference = {};
+            accountEntityReference.id = accountId;
+            accountEntityReference.name = accountname;
+            accountEntityReference.entityType = "account";
+            accountLookupValue[0] = accountEntityReference;
+            Xrm.Page.getAttribute("customerid").setValue(accountLookupValue);
+        }
+    }
+}
+
+function reloadCaseNotesArea() {
+    var iframe = document.getElementById("notescontrol");
+    iframe.src = iframe.src;
+}
+
+function saveCase() {
+    Xrm.Page.data.entity.save();
+}
+
+function fixPopulateDataforSaveEvent() {
+    setTimeout("callOldSavedEvent();", 2000);
+}
+function callOldSavedEvent() {
+    if (Xrm.Page.data.entity.getId() == "") {
+        setTimeout("callOldSavedEvent();", 1000);
+        return; // only load new data if it's actually new
+    }
+    var data = top.getClassicData();
+    top.USDFORMDATA = data;
+    window.open('http://event/?eventname=usddataload&saveeventfired=true');
+    setTimeout("fireSavedEvent();", 500);  // have to do a delay because of a bug in USD
+}
+function fireSavedEvent() {
+    window.open("http://event/?eventname=Saved"); // notify USD of save
+}
+
+function addOnSave() {
+    Xrm.Page.data.entity.addOnSave(fixPopulateDataforSaveEvent);
+}

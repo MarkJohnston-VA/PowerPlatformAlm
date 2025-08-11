@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{8c687f03-65f9-4cc7-9394-80940c61a2d2}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_namedemployeeid">
+          <cell name="mcs_pointofcontact" width="150" />
+          <cell name="mcs_firstname" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_lastname" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_position" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_email" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_countrycode" width="100" />
+          <cell name="mcs_phonenumber" width="100" />
+          <cell name="mcs_phoneextension" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_namedemployee">
+          <attribute name="createdon" />
+          <order attribute="mcs_firstname" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_email" />
+          <attribute name="mcs_lastname" />
+          <attribute name="mcs_firstname" />
+          <attribute name="mcs_position" />
+          <attribute name="mcs_namedemployeeid" />
+          <attribute name="mcs_pointofcontact" />
+          <attribute name="mcs_phonenumber" />
+          <attribute name="mcs_countrycode" />
+          <attribute name="mcs_phoneextension" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2020.06.20.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Involved Parties" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

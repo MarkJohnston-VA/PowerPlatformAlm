@@ -1,0 +1,645 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "mcs_D365ConnectionReference01"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedsharepointonline_c670e"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Minute",
+            "interval": 5,
+            "timeZone": "Central Standard Time"
+          },
+          "metadata": {
+            "operationMetadataId": "24545fd4-a679-408c-8875-ca392ab3f08e"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Initialize_Flow_ID_variable": {
+          "runAfter": {
+            "Flow_Start_Time": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1a62cdfd-7f5e-4e18-baa7-73b027bd1af5"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow ID",
+                "type": "string",
+                "value": "@{workflow()?['name']}"
+              }
+            ]
+          },
+          "description": "Creates Flow ID Variable used to track Flow Status"
+        },
+        "Flow_Start_Time": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "44e6921c-b92a-4be5-9c1c-524379af6ce6"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Initialize_Flow_Display_Name_variable": {
+          "runAfter": {
+            "Initialize_Flow_ID_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8fc33c19-cade-46ad-89a3-53fdab5e521b"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow Display Name",
+                "type": "string",
+                "value": "@{workflow()?['tags']['flowDisplayName']}"
+              }
+            ]
+          },
+          "description": "Creates Flow Display Name Variable used to track Flow Status"
+        },
+        "Initialize_Flow_URL_variable": {
+          "runAfter": {
+            "Initialize_Flow_Display_Name_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4497aee6-086f-4c9d-a3fe-72016645c169"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow URL",
+                "type": "string",
+                "value": "@{concat('https://gov.flow.microsoft.us/manage/environments/', workflow()?['tags']['environmentName'], '/flows/', workflow()?['name'], '/runs/', workflow()?['run']['name'])}"
+              }
+            ]
+          },
+          "description": "Creates Flow URL variable used to Track Flow Status"
+        },
+        "Initialize_Run_ID_variable": {
+          "runAfter": {
+            "Initialize_Flow_URL_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "77d837a7-6dfa-4956-a256-01829fa71bd2"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Run ID",
+                "type": "string",
+                "value": "@{workflow()?['run']['name']}"
+              }
+            ]
+          },
+          "description": "Creates flow Run ID variable used to track Run ID"
+        },
+        "Create_new_Flow_Activity_Status_Morning": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "173fdd54-0742-433d-8539-7bb349f79dde"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "CreateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "item/mcs_flowname": "@variables('Flow Display Name')",
+              "item/mcs_flowexecutionurl": "@variables('Flow URL')",
+              "item/mcs_flowid": "@variables('Flow ID')",
+              "item/statuscode": 1,
+              "item/mcs_runid": "@variables('Run ID')",
+              "item/mcs_startdatetime": "@body('Flow_Start_Time')",
+              "item/statecode": 0
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Creates new record in Flow Activity Statuses entity to track flow runs."
+        },
+        "Scope": {
+          "actions": {
+            "Get_Email_Messages": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "e63deff3-5439-437c-8c53-839deca46099"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "emails",
+                  "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"true\">\n  <entity name=\"email\">\n    <attribute name=\"subject\" />\n    <attribute name=\"regardingobjectid\" />\n    <attribute name=\"from\" />\n    <attribute name=\"to\" />\n    <attribute name=\"torecipients\" />\n    <attribute name=\"prioritycode\" />\n    <attribute name=\"statuscode\" />\n    <attribute name=\"modifiedon\" />\n    <attribute name=\"activityid\" />\n    <attribute name=\"description\" />\n    <order attribute=\"subject\" descending=\"false\" />\n    <filter type=\"and\">\n      <condition attribute=\"torecipients\" operator=\"like\" value=\"%VHA16IVCTrackerCRAM@va.gov%\" />\n      <condition attribute=\"category\" operator=\"ne\" value=\"Processed\" />\n      <condition attribute=\"category\" operator=\"ne\" value=\"In Progress\" />\n      <condition attribute=\"createdon\" operator=\"last-x-days\" value=\"1\" />\n    </filter>\n    <link-entity name=\"activityparty\" from=\"activityid\" to=\"activityid\" link-type=\"inner\" alias=\"au\">\n      <filter type=\"and\">\n        <condition attribute=\"participationtypemask\" operator=\"in\">\n          <value>2</value>\n          <value>3</value>\n        </condition>\n      </filter>\n    </link-entity>\n  </entity>\n</fetch>"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Apply_to_each_3": {
+              "foreach": "@outputs('Get_Email_Messages')?['body/value']",
+              "actions": {
+                "Set_variable": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "dc95409a-4f0c-4097-90d6-72e76b412fdf"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "To Recipients",
+                    "value": "@items('Apply_to_each_3')?['torecipients']"
+                  }
+                },
+                "Compose_-_Get_Email_Subject": {
+                  "runAfter": {
+                    "Set_variable": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "602a8277-824d-4426-85c8-2435ea1f5f18"
+                  },
+                  "type": "Compose",
+                  "inputs": "@items('Apply_to_each_3')?['subject']"
+                },
+                "Compose_-_Get_first_50_chars_of_Email_Subject": {
+                  "runAfter": {
+                    "Compose_-_Get_Email_Subject": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "b478a9bf-f643-4ce8-90a6-fcddf2ed33d7"
+                  },
+                  "type": "Compose",
+                  "inputs": "@slice(outputs('Compose_-_Get_Email_Subject'), 0,50)"
+                },
+                "Set_Email's_Category_field_to_In_Progress": {
+                  "runAfter": {
+                    "Compose_-_Get_first_50_chars_of_Email_Subject": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "e8919b76-8e9f-47b1-adb9-c362a570ed8e"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "emails",
+                      "recordId": "@items('Apply_to_each_3')?['activityid']",
+                      "item/category": "In Progress"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Get_Email's_Attachments": {
+                  "runAfter": {
+                    "Compose_-_Remove_special_characters": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "10318658-3e46-44c1-8170-6fe0aac0b366"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "activitymimeattachments",
+                      "$filter": "(_objectid_value eq '@{outputs('Set_Email''s_Category_field_to_In_Progress')?['body/activityid']}')"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Get_environment's_default_Sharepoint_site": {
+                  "runAfter": {
+                    "Get_Email's_Attachments": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "d455602d-f869-47d8-a8f5-0d7de9e6297a"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "sharepointsites",
+                      "$filter": "isdefault eq true"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Create_Action_Item": {
+                  "runAfter": {
+                    "Set_Email's_Category_field_to_In_Progress": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "d711ac02-26c7-4714-884b-e337e4df42f6"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "mcs_trackers",
+                      "item/mcs_descriptionrichtext": "@items('Apply_to_each_3')?['description']",
+                      "item/mcs_frontofficeduedate": "@null",
+                      "item/mcs_originatorduedate": "@null",
+                      "item/mcs_receiveddate": "@utcNow()",
+                      "item/mcs_RequestorGroup@odata.bind": "@null",
+                      "item/mcs_name": "@outputs('Compose_-_Get_first_50_chars_of_Email_Subject')",
+                      "item/mcs_createdviaemail": true,
+                      "item/mcs_OwningTeam@odata.bind": "/teams(2d9ad717-246a-eb11-a812-001dd800a140)",
+                      "item/ownerid@odata.bind": "/teams(2d9ad717-246a-eb11-a812-001dd800a140)"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Update_Email's_Regarding_field_and_set_Category_to_Processed": {
+                  "runAfter": {
+                    "Apply_to_each": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "f4b02cf4-1d74-4fed-9dc4-709b7fb21911"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "emails",
+                      "recordId": "@items('Apply_to_each_3')?['activityid']",
+                      "item/category": "Processed",
+                      "item/regardingobjectid_mcs_tracker_email@odata.bind": "/mcs_trackers(@{outputs('Create_Action_Item')?['body/mcs_trackerid']})"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Compose_-_Remove_special_characters": {
+                  "runAfter": {
+                    "Compose_-_format_SharePoint_folder_name": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "1295eb69-0999-42c0-bc25-d3969bd79852"
+                  },
+                  "type": "Compose",
+                  "inputs": "@replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(outputs('Compose_-_format_SharePoint_folder_name'), '\"', '-'), '*', '-'), '<', '-'), '>', '-'), '?', '-'), '/', '-'), '\\', '-'), '|', '-'), '\t', ' '), '#', '-'), '%', '-'), '&', '-'), ':', '-'), '{', '-'), '}', '-'), '+', '-'), '.', '-'), '~', '-')"
+                },
+                "Compose_-_format_SharePoint_folder_name": {
+                  "runAfter": {
+                    "Create_Action_Item": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "0175df5a-f5f8-40c0-8ac0-e51a2a3279e1"
+                  },
+                  "type": "Compose",
+                  "inputs": "@concat(replace(outputs('Create_Action_Item')?['body/mcs_name'], ':','-'),'_', toUpper(replace(outputs('Create_Action_Item')?['body/mcs_trackerid'], '-','')))"
+                },
+                "Apply_to_each": {
+                  "foreach": "@outputs('Get_environment''s_default_Sharepoint_site')?['body/value']",
+                  "actions": {
+                    "Create_new_folder": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "809aa901-1e61-4c66-978a-07b462fcc4a2"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_sharepointonline",
+                          "operationId": "CreateNewFolder",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                        },
+                        "parameters": {
+                          "dataset": "@items('Apply_to_each')?['absoluteurl']",
+                          "table": "Action Item",
+                          "parameters/path": "@outputs('Compose_-_Remove_special_characters')"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Apply_to_each_2": {
+                      "foreach": "@outputs('Get_Email''s_Attachments')?['body/value']",
+                      "actions": {
+                        "Compose_-_Get_attachment_body": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "41d87ace-fa4b-4e37-844f-4c69632be686"
+                          },
+                          "type": "Compose",
+                          "inputs": "@items('Apply_to_each_2')?['body']"
+                        },
+                        "Create_file": {
+                          "runAfter": {
+                            "Compose_-_Get_attachment_body": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "3385a335-2752-42f5-8264-bf41b0fa33a0"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_sharepointonline",
+                              "operationId": "CreateFile",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                            },
+                            "parameters": {
+                              "dataset": "@items('Apply_to_each')?['absoluteurl']",
+                              "folderPath": "/mcs_tracker/@{outputs('Compose_-_Remove_special_characters')}",
+                              "name": "@items('Apply_to_each_2')?['filename']",
+                              "body": "@base64ToBinary(outputs('Compose_-_Get_attachment_body'))"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          },
+                          "runtimeConfiguration": {
+                            "contentTransfer": {
+                              "transferMode": "Chunked"
+                            }
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Create_new_folder": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "274731f8-28bd-44d6-96d7-3556973c8baa"
+                      },
+                      "type": "Foreach"
+                    }
+                  },
+                  "runAfter": {
+                    "Get_environment's_default_Sharepoint_site": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "714a9ded-f389-410e-bf0a-ce8c7c2d8741"
+                  },
+                  "type": "Foreach"
+                }
+              },
+              "runAfter": {
+                "Get_Email_Messages": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2559b133-0fc6-44fd-be2d-46953a628035"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Create_new_Flow_Activity_Status_Morning": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "af3aef12-c159-4d66-b994-a1b0d5a5415f"
+          },
+          "type": "Scope"
+        },
+        "Current_time_Failed": {
+          "runAfter": {
+            "Scope": [
+              "Skipped",
+              "Failed",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d873a0ad-0c99-4341-a515-554b7948c7da"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Update_with_Success_Status": {
+          "runAfter": {
+            "Current_time_Successful": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "90751a53-eaf5-4203-bd2a-0de603453eb2"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "recordId": "@outputs('Create_new_Flow_Activity_Status_Morning')?['body/mcs_flowactivitystatusid']",
+              "item/mcs_enddatetime": "@body('Current_time_Successful')",
+              "item/statuscode": 153190007
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Update the corresponding Flow Activity Status record depending on if Scope step completed successfully.  Update the End Date Time with current time, Flow Run Status to Success.."
+        },
+        "Current_time_Successful": {
+          "runAfter": {
+            "Scope": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b41e3bd9-edcd-463e-9371-7026ac9d298a"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Filter_Error_Array": {
+          "runAfter": {
+            "Current_time_Failed": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8fd80e3d-b708-463c-a4d1-239eca4a7d83"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@result('Scope')",
+            "where": "@equals(item()?['status'], string('Failed'))"
+          },
+          "description": "Filter workflow object based on Failed Status to retrieve Error Message."
+        },
+        "Flow_Error_Message": {
+          "runAfter": {
+            "Filter_Error_Array": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "49924d66-db09-45ad-a544-ce5300b477d5"
+          },
+          "type": "Compose",
+          "inputs": "@body('Filter_Error_Array')[0]?['outputs']?['body']?['error/message']",
+          "description": "Obtain Error Message from workflow object"
+        },
+        "Update_a_row_with_Failed_Status": {
+          "runAfter": {
+            "Flow_Error_Message": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "04a53181-61c9-40b9-b54d-5a666255e4b7"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "recordId": "@outputs('Create_new_Flow_Activity_Status_Morning')?['body/mcs_flowactivitystatusid']",
+              "item/mcs_enddatetime": "@body('Current_time_Failed')",
+              "item/mcs_errormessage": "@string(outputs('Flow_Error_Message'))",
+              "item/statuscode": 153190004
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Update the corresponding Flow Activity Status record due to one or more steps failing in the Scope above.   Update the Start Date field to Current time, Flow Run Status to Error and the Error Message field with the error retrieved from previous step."
+        },
+        "Initialize_Invalid_Characters_variable": {
+          "runAfter": {
+            "Initialize_Run_ID_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "84ec2a36-5104-4114-8c57-7e89d1334124"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Invalid Characters",
+                "type": "array",
+                "value": "@createArray('~', '*',':','<','>','?', '/','\\','|')"
+              }
+            ]
+          }
+        },
+        "Initialize_variable": {
+          "runAfter": {
+            "Initialize_Invalid_Characters_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b676b365-51f1-45ec-9b32-02b72a2732db"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "To Recipients",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{f59c61ca-9456-4466-8d7f-08cc9613eccc}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_errormessageid">
+          <cell name="mcs_errormessage" width="100" />
+          <cell name="mcs_friendlyerrormessage" width="100" />
+          <cell name="mcs_errorname" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_errormessage">
+          <order attribute="mcs_friendlyerrormessage" descending="false" />
+          <attribute name="mcs_friendlyerrormessage" />
+          <attribute name="mcs_errormessage" />
+          <attribute name="mcs_errorname" />
+          <attribute name="mcs_errormessageid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2018.12.19.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Error Message Advanced Find View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

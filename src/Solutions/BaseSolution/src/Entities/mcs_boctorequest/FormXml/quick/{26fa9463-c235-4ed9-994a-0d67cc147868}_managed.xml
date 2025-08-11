@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{26fa9463-c235-4ed9-994a-0d67cc147868}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab verticallayout="true" id="{bc69bd8b-3c8d-48df-be37-5f2ac4193fc9}" IsUserDefined="1" expanded="true">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{3dc99fb7-25d3-4548-87cf-289545c25cb7}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d8dab3b7-6d95-4588-8776-9ce321548fe7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" uniqueid="{3019c36e-3272-cc61-a73c-88ba04344da4}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0c136127-9453-0655-72ad-23aa76945310}" showlabel="false" colspan="1" auto="false" rowspan="7">
+                        <labels>
+                          <label description="Requests (BOC to Request)" languagecode="1033" />
+                        </labels>
+                        <control id="RelatedRequests" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{1ed34544-dd94-1463-17ee-13902453b09a}">
+                          <parameters>
+                            <ViewId>{F1A659D5-4E21-E811-811E-1458D04E2938}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>mcs_mcs_boctorequest_incident_BOCtoRequest</RelationshipName>
+                            <TargetEntityType>incident</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{00000000-0000-0000-00AA-000010001028},{F1A659D5-4E21-E811-811E-1458D04E2938},{8306C62F-D5B5-E711-81DB-1458D04E1B18}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId>{4143B74E-4A07-4D01-9FFE-2CDCAA4208FD}</VisualizationId>
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row></row>
+                    <row>
+                      <cell id="{d04eb7ab-4f65-4ce3-b558-30cd89535eb9}" showlabel="true" locklevel="1" visible="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{727ad16d-81aa-853b-0bd4-ca11656add82}" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="OCC FM Request Quick View" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

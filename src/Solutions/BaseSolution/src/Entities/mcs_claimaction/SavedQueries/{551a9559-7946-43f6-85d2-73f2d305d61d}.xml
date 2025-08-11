@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{551a9559-7946-43f6-85d2-73f2d305d61d}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_claimactionid">
+          <cell name="mcs_queue" width="100" />
+          <cell name="mcs_date" width="100" />
+          <cell name="mcs_reason" width="100" />
+          <cell name="mcs_status" width="100" />
+          <cell name="mcs_userfullname" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_claimaction">
+          <order attribute="mcs_date" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_status" />
+          <attribute name="mcs_queue" />
+          <attribute name="mcs_date" />
+          <attribute name="mcs_reason" />
+          <attribute name="mcs_userfullname" />
+          <attribute name="mcs_claimactionid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2019.10.22.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Claim Actions" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

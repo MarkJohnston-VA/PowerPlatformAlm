@@ -1,0 +1,95 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "List_records": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "incidents",
+              "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\" >\n  <entity name=\"incident\" >\n    <attribute name=\"incidentid\" />\n    <order attribute=\"createdon\" descending=\"false\" />\n    <filter type=\"and\" >\n      <filter type=\"and\" >\n        <condition attribute=\"vhacrm_lobid\" operator=\"eq\" uiname=\"Customer Experience\" uitype=\"hrc_lob\" value=\"{8D98D9F6-D4CE-E511-9415-0050568D64C9}\" />\n        <condition attribute=\"statecode\" operator=\"eq\" value=\"0\" />\n        <condition attribute=\"vhacrm_areaintersectionid\" operator=\"in\" >\n          <value uiname=\"Appointments\" uitype=\"vhacrm_areaintersection\" >{E4A0F089-89EC-E611-8126-127B25DCBDE7}</value>\n          <value uiname=\"Authorizations/Referrals\" uitype=\"vhacrm_areaintersection\" >{B3D2D68B-5111-E611-941D-0050568D64C9}</value>\n        </condition>\n      </filter>\n    </filter>\n  </entity>\n</fetch>"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@outputs('List_records')?['body/value']",
+          "actions": {
+            "Perform_a_bound_action": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "PerformBoundAction",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "incidents",
+                  "actionName": "Microsoft.Dynamics.CRM.mcs_RequestAppointmentUrgencyAction",
+                  "recordId": "@items('Apply_to_each')?['incidentid']"
+                },
+                "authentication": {
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "List_records": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

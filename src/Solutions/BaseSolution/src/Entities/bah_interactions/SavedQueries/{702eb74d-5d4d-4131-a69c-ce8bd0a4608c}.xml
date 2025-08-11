@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{702eb74d-5d4d-4131-a69c-ce8bd0a4608c}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_name" select="1" icon="1" preview="1">
+        <row name="result" id="bah_interactionsid">
+          <cell name="createdon" width="125" />
+          <cell name="createdby" width="125" />
+          <cell name="hrc_interactionno_text" width="100" />
+          <cell name="hrc_lobid" width="125" />
+          <cell name="bah_interactionsource_code" width="125" />
+          <cell name="bah_interactedwith_code" width="125" />
+          <cell name="vhacrm_typeintersectionid" width="100" />
+          <cell name="vhacrm_interactionpurposeid" width="100" />
+          <cell name="vhacrm_interactionsubpurposeid" width="100" />
+          <cell name="bah_veteranid" width="150" />
+          <cell name="ccwf_providerfacility_text" width="125" />
+          <cell name="ccwf_tin_text" width="100" />
+          <cell name="bah_facilityid" width="150" />
+          <cell name="bah_visnid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="bah_interactions">
+          <attribute name="createdon" />
+          <attribute name="bah_facilityid" />
+          <attribute name="hrc_interactionno_text" />
+          <attribute name="bah_veteranid" />
+          <attribute name="hrc_lobid" />
+          <attribute name="createdby" />
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="bah_vsooffice_text" operator="like" value="{0}" />
+            <condition attribute="bah_visnid" operator="like" value="{0}" />
+            <condition attribute="bah_veteranid" operator="like" value="{0}" />
+            <condition attribute="vhacrm_typeintersectionid" operator="like" value="{0}" />
+            <condition attribute="ccwf_tin_text" operator="like" value="{0}" />
+            <condition attribute="bah_ssn_text" operator="like" value="{0}" />
+            <condition attribute="ccwf_providerfacility_text" operator="like" value="{0}" />
+            <condition attribute="hrc_lobid" operator="like" value="{0}" />
+            <condition attribute="bah_lastname_text" operator="like" value="{0}" />
+            <condition attribute="hrc_interactionno_text" operator="like" value="{0}" />
+            <condition attribute="bah_firstname_text" operator="like" value="{0}" />
+            <condition attribute="bah_facilityid" operator="like" value="{0}" />
+            <condition attribute="bah_phonenumber_text" operator="like" value="{0}" />
+            <condition attribute="hrc_callbacknumber_text" operator="like" value="{0}" />
+          </filter>
+          <attribute name="bah_visnid" />
+          <attribute name="vhacrm_typeintersectionid" />
+          <attribute name="bah_interactionsource_code" />
+          <attribute name="bah_interactedwith_code" />
+          <attribute name="ccwf_tin_text" />
+          <attribute name="ccwf_providerfacility_text" />
+          <order attribute="createdon" descending="true" />
+          <attribute name="vhacrm_interactionsubpurposeid" />
+          <attribute name="vhacrm_interactionpurposeid" />
+          <attribute name="bah_interactionsid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Interactions" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

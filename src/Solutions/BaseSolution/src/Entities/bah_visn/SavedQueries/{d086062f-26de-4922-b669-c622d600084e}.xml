@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{d086062f-26de-4922-b669-c622d600084e}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_name" select="1" icon="1" preview="1">
+        <row name="result" id="bah_visnid">
+          <cell name="bah_name" width="100" />
+          <cell name="vhacrm_visnonboarded_bool" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="bah_visn">
+          <attribute name="bah_name" />
+          <attribute name="bah_visnid" />
+          <attribute name="vhacrm_visnonboarded_bool" />
+          <order attribute="bah_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="VISN Advanced Find View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

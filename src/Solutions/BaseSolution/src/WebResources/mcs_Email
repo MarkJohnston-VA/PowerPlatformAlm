@@ -1,0 +1,35 @@
+/// <reference path="CommCareShared.min.js"/>
+
+if (typeof CommCare == 'undefined') {
+    CommCare = {
+        __namespace: true
+    };
+}
+
+if (typeof (CommCare.Email) == "undefined") {
+    CommCare.Email = {
+        __namespace: true
+    };
+}
+
+if (typeof (CommCare.Email.Global) == "undefined") {
+    CommCare.Email.Global = {
+        __namespace: true
+    };
+}
+
+CommCare.Email.Global = (function () {
+
+    //Public functions
+    return {
+        OnLoad: onLoad
+    }
+
+    function onLoad(context) {
+        CommCare.Shared.GetFormContext(context);
+        //CommCare.Shared.HashHandler();
+        //console.log("pastHashHandler");
+        CommCare.Shared.SetChildContext(CommCare.Shared.FormContext, "WebResource_RequestsByTinSearch");
+    }
+
+})();

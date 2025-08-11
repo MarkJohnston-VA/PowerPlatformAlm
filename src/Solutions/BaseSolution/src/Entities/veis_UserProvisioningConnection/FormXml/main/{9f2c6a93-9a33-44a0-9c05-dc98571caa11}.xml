@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{9f2c6a93-9a33-44a0-9c05-dc98571caa11}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{1b8a5afc-a450-4f7c-ac33-a3aea4c957bc}" IsUserDefined="1" name="generalTab">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{1b2375b3-dcb6-41ce-a04c-d49b89b746d9}" name="general">
+                  <labels>
+                    <label description="Environment" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{103eac97-cdcc-49b7-aa6b-754206660424}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="veis_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="veis_name" uniqueid="{b3433e06-2d11-c111-0284-523ca0e17260}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c723bcf1-1461-499a-99cb-beabe9dfd7d9}" locklevel="0">
+                        <labels>
+                          <label description="Target Type" languagecode="1033" />
+                        </labels>
+                        <control id="veis_targettype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="veis_targettype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{20e60d90-49cc-40e6-8ec4-72df794f5148}" locklevel="0">
+                        <labels>
+                          <label description="Application" languagecode="1033" />
+                        </labels>
+                        <control id="veis_application" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="veis_application" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eed071dd-6a60-4cfe-a0fd-ffd6a08c2579}" locklevel="0">
+                        <labels>
+                          <label description="Environment" languagecode="1033" />
+                        </labels>
+                        <control id="veis_environment" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="veis_environment" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bbd5fd54-6842-4de3-bd84-f96be7f6872e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="URL" languagecode="1033" />
+                        </labels>
+                        <control id="veis_dynamicsurl" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="veis_dynamicsurl" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="{1b8a5afc-a450-4f7c-ac33-a3aea4c957bc}_section_3" showlabel="true" showbar="false" locklevel="0" id="{e5a5d50e-5582-911b-e0d3-ce483e6733b7}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Testing" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4653a660-5587-4903-9012-913ae61df31a}" locklevel="0">
+                        <labels>
+                          <label description="Test Connection" languagecode="1033" />
+                        </labels>
+                        <control id="veis_testconnection" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="veis_testconnection" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{22e45761-607a-c0a5-1820-661ae51b66e6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Connection Successful" languagecode="1033" />
+                        </labels>
+                        <control id="veis_connectionsuccessful" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="veis_connectionsuccessful" disabled="true" uniqueid="{c435d866-dcb8-1bc4-c9d8-0516756b2454}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2ec67a39-b6ce-4511-b030-71ca8813ba3c}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Message" languagecode="1033" />
+                        </labels>
+                        <control id="veis_connectiontestresult" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="veis_connectiontestresult" disabled="true" uniqueid="{d8785e21-2cc7-358b-e8a9-26d9e0a3e859}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="null_section_5" id="f44f7355-2573-4b72-827f-e08255e259f0" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="App Registration" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b14642b0-a5e5-4a0f-a443-c563686c1ccc}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Tenant ID" languagecode="1033" />
+                        </labels>
+                        <control id="veis_tenantid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="veis_tenantid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{32ab0b00-81b9-462d-a591-574f675c8994}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Client ID" languagecode="1033" />
+                        </labels>
+                        <control id="veis_clientid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="veis_clientid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b7698ed3-215b-4995-a35e-76a48e0ade3c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Secret" languagecode="1033" />
+                        </labels>
+                        <control id="veis_secret" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="veis_secret" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bc61e35d-7c55-41ed-a0e9-275ed1234eec}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Resource" languagecode="1033" />
+                        </labels>
+                        <control id="veis_resource" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="veis_resource" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="apiManagerSection" id="ddc208c6-0331-43ac-92c8-91b479891670" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="API Manager" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e6090ee0-3d1f-49a5-b5f5-8ac43554fc3c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Subscription Key" languagecode="1033" />
+                        </labels>
+                        <control id="veis_subscriptionkey" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="veis_subscriptionkey" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{99e8c50f-9a5d-4f31-b5d9-f6814eb8cc05}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Subscription Key - East" languagecode="1033" />
+                        </labels>
+                        <control id="veis_subscriptionkeyeast" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="veis_subscriptionkeyeast" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{71ef509a-9cfa-495c-9730-bbca4ad18e97}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Subscription Key - South" languagecode="1033" />
+                        </labels>
+                        <control id="veis_subscriptionkeysouth" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="veis_subscriptionkeysouth" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{541e2167-4a3a-43ab-b469-6e2644c0c538}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{9db93be7-0eb0-4e0a-a4cd-bcbbb1c476e2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2b96900a-9d0b-4251-bc7c-2f02eefe6ebd}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{894deed8-55df-49b0-804e-178217729ec0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ee6ef75f-041c-45d5-b4e9-5b455f474d9a}" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{b39c5c5c-36eb-4918-96f5-af13f1139b4f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{8db8e6c4-b9df-4672-950a-a819254069c9}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{93cc2d84-dab7-436a-893a-a527930c7ebf}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{81619d7d-abc9-4ce0-9a99-601ec1426226}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <controlDescriptions />
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="veis_/javascript/UserProvisioningConnection" libraryUniqueId="{ce7a7439-4ae0-4e26-a44e-a62bd14efaff}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="true" active="true">
+          <Handlers>
+            <Handler functionName="UpdateFormForTargetType" libraryName="veis_/javascript/UserProvisioningConnection" handlerUniqueId="{1a9da6c2-0129-472e-b176-7148daede881}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="true" active="true" attribute="veis_targettype">
+          <Handlers>
+            <Handler functionName="UpdateFormForTargetType" libraryName="veis_/javascript/UserProvisioningConnection" handlerUniqueId="{7e34895b-f111-46f0-a0ca-b2c46384063b}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

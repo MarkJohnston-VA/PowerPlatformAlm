@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <link href="bah_bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="bah_personsearchstyle.css" rel="stylesheet" type="text/css">
+    <script src="vhacrm_/scripts/Common/CommCareShared.min.js"></script>
+    <!--script src="bah_jquery1.4.1.min.js" type="text/javascript"></script> -->
+    <script src="bah_jquery_3_2_1.js" type="text/javascript"></script>
+    <!--<script src="bah_SDK.REST.js" type="text/javascript"></script>-->
+    <script src="bah_json2.js" type="text/javascript"></script>
+    <!--<script src="bah_personsearchutils.js" type="text/javascript"></script>-->
+    <!--<script src="bah_VeteranAlerts.js" type="text/javascript"></script>-->
+    <!--<script src="vhacrm_/SSOI/js/viaSSOI.js" type="text/javascript"></script>-->
+    <!--<script src="bah_via_library.js" type="text/javascript"></script>-->
+    <script src="bah_bootstrap.js" type="text/javascript"></script>
+    <script src="mcs_ICQClaimSearch.js" type="text/javascript"></script>
+    <!--<script src="bah_bootstrap.js" type="text/javascript"></script>-->
+    <!--<script src="bah_via_library.js" type="text/javascript"></script>-->
+    <script src="mcs_bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function initiateApplicationInsights() {
+            var context = Xrm.Utility.getGlobalContext();
+            var serverUrl = context.getClientUrl();
+            var orgSplit = serverUrl.split("-");
+            var org;
+
+            var columns = "mcs_appinsights_key";
+            var filter = null;
+
+            CommCare.Shared.CrmCommonJS.WebApi.RetrieveMultiple("mcs_settings", columns, filter).then(function (dataResponse) {
+                var data = dataResponse.value;
+                if (data.length > 0) {
+                    key = data[0].mcs_appinsights_key;
+
+                    //const prodKey = "c34a20fe-8922-f9c6-9ad9-687640ddad8c";
+                    //const nProdKey = "b2d1a0fa-af2a-f5ae-85d9-45abcee3b458";
+                    //const devKey = "1b396e0c-ec4f-ffa9-9fa3-8cb1bbd1fddd";
+
+                    //var key;
+                    if (orgSplit.length < 3) {
+                        //key = prodKey;
+                        org = "PROD"
+                    }
+                    else {
+                        orgSplit = orgSplit[2].split(".")[0];
+                        //key = orgSplit == "dev" ? devKey : nProdKey;
+                        org = orgSplit.toUpperCase();
+                    }
+
+                    var appInsights = window.appInsights || function (a) {
+                        function b(a) { c[a] = function () { var b = arguments; c.queue.push(function () { c[a].apply(c, b) }) } } var c = { config: a }, d = document, e = window; setTimeout(function () { var b = d.createElement("script"); b.src = a.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js", d.getElementsByTagName("script")[0].parentNode.appendChild(b) }); try { c.cookie = d.cookie } catch (a) { } c.queue = []; for (var f = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; f.length;) b("track" + f.pop()); if (b("setAuthenticatedUserContext"), b("clearAuthenticatedUserContext"), b("startTrackEvent"), b("stopTrackEvent"), b("startTrackPage"), b("stopTrackPage"), b("flush"), !a.disableExceptionTracking) { f = "onerror", b("_" + f); var g = e[f]; e[f] = function (a, b, d, e, h) { var i = g && g(a, b, d, e, h); return !0 !== i && c["_" + f](a, b, d, e, h), i } } return c
+                    }({
+                        instrumentationKey: key,
+                        endpointUrl: "https://dc.applicationinsights.us/v2/track"
+                    });
+
+                    var UserName;
+                    var Alias;
+                    var UserID;
+                    var formName;
+                    var entityName;
+                    var selectFields = "$select=DomainName,FullName";
+
+
+                    UserID = context.userSettings.userId.replace(/[{}]/g, "").toLowerCase();
+                    eventName = "ICQ_Claim_Search";
+
+                    window.appInsights = appInsights, appInsights.queue
+                        && 0 === appInsights.queue.length
+                        && appInsights.trackPageView(eventName, serverUrl,
+                            {
+                                User: context.userSettings.userName
+                                , AgentId: UserID
+                                , DomainName: "CommCare"
+                                , Organization: org
+                                , SessionId: uuidv4()
+                            });
+                }
+            });
+        }
+
+        function uuidv4() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            console.log("in start");
+            //debugger;
+            onLoad();
+            $("#claimNumber").on("keyup", function (e) {
+                if (e.keyCode === 13 || e.keyCode === 32) {
+                    searchData(1);
+                }
+                else {
+                    var value = $(this).val().toLowerCase();
+                    $("#table tr").not("thead tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1 && $(this).attr("data-group") == 1)
+                    });
+                }
+            });
+            $("#PDI").on("keyup", function (e) {
+                if (e.keyCode === 13 || e.keyCode === 32) {
+                    searchData(1);
+                }
+                else {
+                    var value = $(this).val().toLowerCase();
+                    $("#table tr").not("thead tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1 && $(this).attr("data-group") == 1)
+                    });
+
+                }
+            });
+            $("#startDate").on("keyup", function (e) {
+                if (e.keyCode === 13 || e.keyCode === 32) {
+                    searchData(1);
+                }
+            });
+            $("#endDate").on("keyup", function (e) {
+                if (e.keyCode === 13 || e.keyCode === 32) {
+                    searchData(1);
+                }
+            });
+        });
+    </script>
+    <!--<style>
+        label {
+            width:180px;
+            clear:left;
+            text-align:right;
+            padding-right:10px;
+        }
+
+        input, label {
+            float:left;
+        }
+    </style>-->
+
+    <style>
+        /*.paginationLink {
+            background-color: rgb(0,32,80);
+            border-color: rgb(255,255,255);
+            border-style: none;
+            border-width: 0px;
+            color: rgb(255,255,255);
+            direction: ltr;
+            font-family: "Segoe UI Semibold","Segoe UI Web Semibold","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","HelveticaNeue-Medium","Helvetica Neue",Arial,sans-serif;*/
+            /*font-size: 14.06px;*/
+            /*font-size: 10px;
+            height: 30px;
+            line-height: 20px;
+            min-width: 84.4px;*/
+            /*padding-bottom: 10px;*/
+            /*padding-left: 12px;
+            padding-right: 12px;*/
+            /*padding-top: 5px;*/
+            /*margin-right: 6px;
+            text-align: center;
+        }*/
+            .tableFixHead {overflow-y: auto; height: 300px; width: 100%;}
+            .tableFixHead thead th {position: sticky; top: 0; z-index: 1;}
+            table {border-collapse: collapse; width: 100%;}
+
+    </style>
+
+</head>
+<body style="margin-left: 2%; margin-right: 2%">﻿
+
+    <div class="container">
+        <div class="col-md-12">
+            <table style="width: 100%; height:100%;">
+                <tbody><tr>
+                    <td style="vertical-align:middle;" align="left">
+                        <label style="width:180px; clear:left; text-align:right; padding-right:10px; float:left;" for="startDate">Start Date of Service: </label>
+                        <input style="float:left;" type="date" id="startDate" class="inputField" placeholder="mm/dd/yyyy">
+                    </td>
+                    <td style="vertical-align:middle;" align="left">
+                        <label style="width:180px; clear:left; text-align:right; padding-right:10px; float:left;" for="endDate">End Date of Service: </label>
+                        <input style="float:left;" type="date" id="endDate" class="inputField" placeholder="mm/dd/yyyy">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:middle;" align="left">
+                        <label style="width:180px; clear:left; text-align:right; padding-right:10px; float:left;" for="claimNumber">Claim Number: </label>
+                        <input style="float:left;" type="text" id="claimNumber" class="inputField">
+                    </td>
+                    <td style="vertical-align:middle;" align="left">
+                        <label style="width:180px; clear:left; text-align:right; padding-right:10px; float:left;" for="PDI">PDI: </label>
+                        <input style="float:left;" type="text" id="PDI" class="inputField">
+                    </td>
+                </tr>
+            </tbody></table>
+
+            <!--<div class="row">
+                <div class="col">
+                    <label for="startDate">Start Date of Service: </label>
+                    <input type="date" id="startDate" class="inputField" />
+                </div>
+                <div class="col">
+                    <label for="endDate">End Date of Service: </label>
+                    <input type="date" id="endDate" class="inputField" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="claimNumber">Claim Number: </label>
+                    <input type="text" id="claimNumber" class="inputField" />
+                </div>
+                <div class="col">
+                    <label for="checkNumber">Check Number: </label>
+                    <input type="text" id="checkNumber" class="inputField" />
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+    <!--<div class="form-group border-bottom">
+        <label for="PDI">PDI: </label>
+        <input type="text" id="PDI" class="inputField" />
+    </div>-->
+    <div class="row"></div>
+    <div class="row"></div>
+
+    <div class="container">
+        <div class="col-6"></div>
+        <div class="col-3">
+            <button type="button" onclick="searchData(1);">Search</button>
+        </div>
+        <div class="col-3">
+            <button type="button" onclick="clearAll();">Clear All</button>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="table-responsive tableFixHead">
+            <table class="table table-striped table-hover" style="text-align:center; width: 100%; height:100%;" id="table">
+                <thead class="thead-dark">
+                    <tr class="row headerRow">
+                        <th class="col-1">Claim</th>
+                        <th class="col-1" onclick="sortTable(1)">Claim Number</th>
+                        <th class="col-2" onclick="sortTable(2)">Claim Status</th>
+                        <th class="col-2" onclick="sortTable(3)">Provider</th>
+                        <!--<td class="col-2" onclick="sortTable(4)">EIN</td>-->
+                        <th class="col-1" onclick="sortTable(4)">
+                            Date of Service
+                            <span class="caret" style="color: #002050"></span>
+                        </th>
+                        <th class="col-1" onclick="sortTable(5)">Billed Amount</th>
+                        <th class="col-1" onclick="sortTable(6)">OHI Payment</th>
+                        <th class="col-1" onclick="sortTable(7)">Allowable</th>
+                        <th class="col-1" onclick="sortTable(8)">ChampVA Payment</th>
+                        <th class="col-1" onclick="sortTable(9)">Deductible</th>
+                        <th class="col-1" onclick="sortTable(10)">Cost Share</th>
+                        <th class="dropdown">Adjudication Reason(s)</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="tmpDialog">
+        <table style="width: 100%; height:100%; cursor:progress">
+            <tbody><tr>
+                <td style="vertical-align:middle;" align="center">
+                    <img alt="" src="/_imgs/advfind/progress.gif"><br>
+                    <label id="lblStatus">Working on it. Please wait...</label>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+
+    <div class="col-md-12" style="display:none" id="noContent">
+        <div class="table-responsive">
+            <table style="text-align:center; width: 100%; height:100%;" id="table">
+                <tbody><tr><td><h2>No Content Found</h2></td></tr>
+            </tbody></table>
+        </div>
+    </div>
+    <div class="container" id="footer">
+        <nav id="pag_nav">
+            <ul class="pagination pagination-lg">
+            </ul>
+        </nav>
+        <!--<pre id="pag_nav_chunk">Current Page: 1</pre>-->
+        <pre id="pag_nav_count"></pre>
+    </div>
+
+
+</body></html>

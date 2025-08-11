@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{8e42cd9e-eb29-4ecf-9486-8b5c3416d7d9}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_fmpclaiminquiryid">
+          <cell name="mcs_claimnumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_dateofservice" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_checknumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_checkissuedate" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_amountpaid" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_recipient" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_fmpclaiminquiry">
+          <order attribute="mcs_claimnumber" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_checknumber" />
+          <attribute name="mcs_amountpaid" />
+          <attribute name="mcs_claimnumber" />
+          <attribute name="mcs_recipient" />
+          <attribute name="mcs_checkissuedate" />
+          <attribute name="mcs_dateofservice" />
+          <attribute name="mcs_fmpclaiminquiryid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2018.11.13.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active FMP Claim Inquiries" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

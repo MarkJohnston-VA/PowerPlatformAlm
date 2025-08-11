@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{836c56ca-a73e-4d66-8e8e-10f5ec58f793}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="crme_ssn" select="1" icon="1" preview="1">
+        <row name="result" id="crme_personid">
+          <cell name="crme_ssn" width="125" />
+          <cell name="crme_firstname" width="150" />
+          <cell name="crme_middlename" width="125" />
+          <cell name="crme_lastname" width="150" />
+          <cell name="crme_filenumber" width="125" />
+          <cell name="crme_branchofservice" width="125" />
+          <cell name="crme_personrecordtype" width="150" />
+          <cell name="crme_relationshiptype" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="crme_person">
+          <attribute name="crme_ssn" />
+          <order attribute="crme_ssn" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="crme_relationshiptype" />
+          <attribute name="crme_personrecordtype" />
+          <attribute name="crme_middlename" />
+          <attribute name="crme_lastname" />
+          <attribute name="crme_firstname" />
+          <attribute name="crme_filenumber" />
+          <attribute name="crme_branchofservice" />
+          <attribute name="crme_personid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2014.12.15</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Persons" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,95 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "List_records": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "queueitems",
+              "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\" >\n  <entity name=\"queueitem\" >\n    <attribute name=\"enteredon\" />\n    <attribute name=\"vhacrm_createdon_date\" />\n    <attribute name=\"workerid\" />\n    <attribute name=\"queueid\" />\n    <attribute name=\"objecttypecode\" />\n    <attribute name=\"queueitemid\" />\n    <order attribute=\"vhacrm_createdon_date\" descending=\"false\" />\n    <filter type=\"and\" >\n      <condition attribute=\"queueid\" operator=\"eq\" uiname=\"CSC\" uitype=\"queue\" value=\"{2E716279-FAD5-E511-9417-0050568D64C9}\" />\n      <condition attribute=\"statecode\" operator=\"eq\" value=\"0\" />\n    </filter>\n    <link-entity name=\"incident\" from=\"incidentid\" to=\"objectid\" alias=\"a_cf79ac6ed0e243f8b4514bbf0554999c\" >\n      <attribute name=\"vhacrm_visnid\" />\n      <attribute name=\"customerid\" />\n      <attribute name=\"statuscode\" />\n      <attribute name=\"ticketnumber\" />\n      <attribute name=\"ccwf_tin_text\" />\n      <attribute name=\"hrc_facilityid\" />\n      <attribute name=\"prioritycode\" />\n      <attribute name=\"vhacrm_actionintersectionid\" />\n      <attribute name=\"vhacrm_choiceops_bims_bool\" />\n      <attribute name=\"vhacrm_typeintersectionid\" />\n      <attribute name=\"vhacrm_subareaintersectionid\" />\n      <attribute name=\"vhacrm_areaintersectionid\" />\n      <filter type=\"and\" >\n        <condition attribute=\"vhacrm_areaintersectionid\" operator=\"eq\" uiname=\"ACR\" uitype=\"vhacrm_areaintersection\" value=\"{97EECF60-5111-E611-941D-0050568D64C9}\" />\n        <condition attribute=\"vhacrm_ahr_ob1resolution_code\" operator=\"eq\" value=\"713770000\" />\n        <condition attribute=\"vhacrm_ahr_ob2resolution_code\" operator=\"null\" />\n        <condition attribute=\"vhacrm_24hourob2email_bool\" operator=\"eq\" value=\"0\" />\n        <condition attribute=\"vhacrm_daysopen_number\" operator=\"ge\" value=\"1\" />\n      </filter>\n    </link-entity>\n  </entity>\n</fetch>"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@outputs('List_records')?['body/value']",
+          "actions": {
+            "Perform_a_bound_action": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "PerformBoundAction",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "queueitems",
+                  "actionName": "Microsoft.Dynamics.CRM.mcs_QueueItemRequestACR24HourOB2emailAction",
+                  "recordId": "@items('Apply_to_each')?['queueitemid']"
+                },
+                "authentication": {
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "List_records": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

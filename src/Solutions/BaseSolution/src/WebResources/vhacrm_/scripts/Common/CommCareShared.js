@@ -1,0 +1,2279 @@
+﻿if (typeof CommCare == 'undefined')
+{ CommCare = { __namespace: true }; }
+
+if (typeof (CommCare.Shared) == "undefined") {
+    CommCare.Shared = {
+        __namespace: true
+    };
+}
+
+if (typeof (CommCare.Shared.Constants) == "undefined") {
+    CommCare.Shared.Constants = {
+        __namespace: true
+    };
+}
+
+if (typeof CommCare.Shared.RibbonCode === 'undefined') {
+    CommCare.Shared.RibbonCode = { __namespace: true };
+}
+
+// Constants
+CommCare.Shared.Constants.CREATE_FORM = 1;
+CommCare.Shared.Constants.UPDATE_FORM = 2;
+CommCare.Shared.Constants.INACTIVE_FORM = 4;
+CommCare.Shared.Constants.QUICK_CREATE_FORM = 5;
+CommCare.Shared.Constants.OCCFM_LOB_NAME = "OCC FM";
+CommCare.Shared.Constants.VETHOME_LOB_NAME = "VET-HOME";
+CommCare.Shared.Constants.CCWF_LOB_NAME = "Customer Experience";
+CommCare.Shared.Constants.OCCFM_FORM = "43132D83-9BC6-432A-B20C-2039CFC2E0C8";
+CommCare.Shared.Constants.PROGRAM_TYPE_C3 = "d970695d-c0c5-e911-a984-001dd800ba25";
+CommCare.Shared.Constants.PROGRAM_TYPE_C6 = "3dfe0100-e356-e911-a96b-001dd800ba25";
+CommCare.Shared.Constants.PROGRAM_TYPE_CSC = "81482FDC-43A5-E811-812C-1458D04D78B8";
+CommCare.Shared.Constants.PROGRAM_TYPE_NONVA = "b2e0a244-a39e-e511-940e-00155d14f3b4";
+CommCare.Shared.Constants.PROGRAM_TYPE_DOHUB = "836d73b0-ccc3-eb11-bacd-001dd8020d25";
+CommCare.Shared.Constants.TYPE_INTERSECTION_FMP = "76E4A42F-DF0E-E911-8129-1458D04E0CA0";
+CommCare.Shared.Constants.TYPE_INTERSECTION_CSC = "b32861fa-34df-e611-9427-0050568d1c17";
+CommCare.Shared.Constants.TYPE_INTERSECTION_HELPDESK = "556AF29C-0E6B-E711-812D-1289A8FDD3DA";
+CommCare.Shared.Constants.TYPE_INTERSECTION_COMMCARE = "38F4D0A2-B20C-E611-941C-0050568D64C9";
+CommCare.Shared.Constants.TYPE_INTERSECTION_C6 = "F9BACB4C-E556-E911-A96B-001DD800BA25";
+CommCare.Shared.Constants.TYPE_INTERSECTION_C3 = "642e4e9c-c0c5-e911-a984-001dd800ba25";
+CommCare.Shared.Constants.TYPE_INTERSECTION_DOHUB = "a0447c04-8cc8-eb11-bacd-001dd802e1a5";
+CommCare.Shared.Constants.TEAM_C3 = "ef97ed25-b2c5-e911-a984-001dd800ba25";
+CommCare.Shared.Constants.TEAM_C6 = "64086c6d-b457-e911-a96f-001dd800a749";
+CommCare.Shared.Constants.C3Name = "VISN/VAMC";
+CommCare.Shared.Constants.Position =
+    {
+        SpecialtyCSR: "9f4fd2ce-48d9-e811-8134-1458d04d78b8",
+        Supervisor: "dbb3287d-c2ce-e711-8118-1458d04e2938",
+        SeniorSupervisor: "bff07490-c2ce-e711-8118-1458d04e2938",
+        CSR: "d4f035d9-c2ce-e711-8118-1458d04e2938",
+        Analyst: "6c2d8605-c3ce-e711-8118-1458d04e2938"
+    };
+CommCare.Shared.Constants.InteractedWith =
+    {
+        Provider: 810050000,
+        Veteran: 810050001,
+        MeaningfulRelationship: 810050002,
+        VeteranRepresentative: 810050003,
+        VAEmployee: 713770000,
+        Other: 810050004,
+        Beneficiary: 806860000,
+        CampLeJeune: 806860006,
+        Caregiver: 806860005,
+        Clinical: 806860007,
+        Congressional: 806860008,
+        InternalGroup: 806860009,
+        SocialWorker: 806860011,
+        Sponsor: 806860002,
+        Training: 806860012,
+        VAGeneralCouncil: 806860013,
+        VIPProvider: 803750000,
+        CommunityProviderOffice: 803750002,
+        TPA: 803750003
+    };
+CommCare.Shared.Constants.InteractedWith_Options =
+    {
+        C6: [
+                CommCare.Shared.Constants.InteractedWith.Veteran,
+                CommCare.Shared.Constants.InteractedWith.MeaningfulRelationship,
+                CommCare.Shared.Constants.InteractedWith.VAEmployee,
+                CommCare.Shared.Constants.InteractedWith.Other,
+                CommCare.Shared.Constants.InteractedWith.Congressional,
+                CommCare.Shared.Constants.InteractedWith.VeteranRepresentative,
+                CommCare.Shared.Constants.InteractedWith.CommunityProviderOffice,
+                CommCare.Shared.Constants.InteractedWith.TPA
+        ]
+    }
+CommCare.Shared.Constants.InteractionSource =
+        {
+            Web: 3,
+            Facebook: 2483,
+            Twitter: 3986,
+            Phone: 1,
+            Chat: 810050001,
+            Email: 2,
+            Fax: 810050003,
+            Mail: 810050004,
+            Portal: 810050005,
+            Walkin: 810050006,
+            Internal: 806860010
+        };
+CommCare.Shared.Constants.PurposeGuids =
+    {
+        Bankruptcy: "5d972499-b526-e711-942f-0050568d1c17",
+        Benefits: "f56324ff-1f04-e711-8166-1200a26d3da3",
+        BillofCollections: "e753b55b-a026-e711-942f-0050568d1c17",
+        CheckDisposition: "ffcfe623-b626-e711-942f-0050568d1c17",
+        CheckReceived: "dbd3773b-b626-e711-942f-0050568d1c17",
+        CITIInquiry: "59b20be3-2e56-e911-a96b-001dd800ba25",
+        ClaimCheck: "33dd99bd-b426-e711-942f-0050568d1c17",
+        Claims: "514be333-39df-e611-9427-0050568d1c17",
+        Clinical: "e2c31dc2-a026-e711-942f-0050568d1c17",
+        Correspondence: "3643e73f-39df-e611-9427-0050568d1c17",
+        Eligibility: "f2bbd84c-39df-e611-9427-0050568d1c17",
+        FraudWasteAbuse: "703c1af2-b426-e711-942f-0050568d1c17",
+        InterDepartmentRequests: "da88022c-a126-e711-942f-0050568d1c17",
+        MediaCampaign: "194feae6-bfe8-e611-9427-0050568d1c17",
+        NonCore: "a82400c1-e222-e811-811e-1458d04eaba0",
+        Other: "0d92de5a-39df-e611-9427-0050568d1c17",
+        Payment: "a99a1e6f-f525-e711-942f-0050568d1c17",
+        PaymentPlan: "ed73e928-3404-e711-8166-1200a26d3da3",
+        Preauthorization: "58dcba85-a026-e711-942f-0050568d1c17",
+        Recoupment: "f72231d9-3004-e711-8166-1200a26d3da3",
+        Stipend: "bb854625-a026-e711-942f-0050568d1c17",
+        TimelyFiling: "91d69b4b-b326-e711-942f-0050568d1c17",
+        TPLCallBack: "357a1091-1f04-e711-8166-1200a26d3da3",
+        TPLCheckReceived: "a3c228e0-b826-e711-942f-0050568d1c17",
+        Waiver: "11470883-b826-e711-942f-0050568d1c17",
+        ServiceRecovery: "da787d28-c067-ea11-a998-001dd800a749"
+}
+
+CommCare.Shared.DOMConstants = {
+    otherEligibilityFactorsDOM: null,
+    ratedSCDisabilitiesDOM: null
+}
+
+//Variables
+var _notifications = null;
+var _crmCommonJS = new CrmCommonJS.CrmCommon(2016);
+
+CommCare.Shared.UserLobs = null;
+CommCare.Shared.UserTeams = null;
+CommCare.Shared.SelectedLOB = null;
+CommCare.Shared.SelectedTeam = null;
+CommCare.Shared.DefaultedValuesForSelectedTeam = null;
+CommCare.Shared.DefaultContactRecord = null;
+CommCare.Shared.IsCSR = false;
+CommCare.Shared.IsC6 = undefined;
+CommCare.Shared.IsC3 = undefined;
+CommCare.Shared.ValidFormForLOB = null;
+CommCare.Shared.FormContext = null;
+CommCare.Shared.LOB_Entity_Type_Code = null;
+CommCare.Shared.Interaction_Entity_Type_Code = null;
+CommCare.Shared.VIAConsumingApplication = null;
+CommCare.Shared.VIAConsumingAppPassword = null;
+CommCare.Shared.VIAConsumingAppToken = null;
+
+//CrmCommonJS Web API accessor 
+CommCare.Shared.CrmCommonJS = _crmCommonJS;
+
+//Function to handle UTC Dates
+CommCare.Shared.FormatDate = function (date, operator) {
+    ///rip out month, day year and rebuild
+    var dateParts = date.split("/");
+
+    var utcDate;
+    var isoDate;
+
+    if (dateParts.length === 3) {
+
+        if (isNumeric(dateParts[0]) && isNumeric(dateParts[1]) && isNumeric(dateParts[2])) {
+
+            if (!isNaN(Date.parse(dateParts[2] + "-" + dateParts[0] + "-" + dateParts[1]))) {
+
+                if (operator == "ge") {
+                    utcDate = new Date(Date.UTC(dateParts[2], parseInt(dateParts[0]) - 1, parseInt(dateParts[1]), 12));
+                }
+                else if (operator == "lt") {
+                    utcDate = new Date(Date.UTC(dateParts[2], parseInt(dateParts[0]) - 1, parseInt(dateParts[1]) + 1, 12));
+                }
+
+                isoDate = utcDate.toISOString();
+                isoDate = isoDate.substring(0, 10);
+            }
+        }
+    }
+
+    return isoDate;
+}
+
+//function to validate the provided SSN 
+CommCare.Shared.ValidateSSN = function (ssn) {
+
+    return (
+      ssn.length == 9 &&
+      ssn.match(/[0-9]{9}/)
+     );
+}
+
+CommCare.Shared.ValidatePDI = function (pdi) {
+    //return new Promise
+    //return /^\d+$/.test(pdi);
+    var bool = isNaN(pdi) ? false
+        : pdi.length != 15 ? false
+        : true;
+
+    return bool;
+}
+
+
+CommCare.Shared.ValidatePhoneOrFaxNumber =
+    /**
+    * @param {string} formType - Identify entity friendly name
+    * @param {string} programName - Identify Program Name of the Interaction Program Type
+    * @param {array} fieldNames - Pass an Array of field names to validate
+    * @param {string} numberType - For form notifications '{string} is invalid'
+    */
+    function (formType, programName, fieldNames, numberType) {
+    var validNumber = true;
+    var errMsg = numberType + " Number must contain only 10 digits";
+    var numberToCheck;
+    var badNumber;
+    var fieldCnt = fieldNames.length;
+
+    if (programName != null) {
+        programName = programName.trim();
+    }
+
+    for (i = 0; i < fieldCnt; i++) {
+        badNumber = false;
+        numberToCheck = CommCare.Shared.GetFieldValue(fieldNames[i]);
+
+        if (numberToCheck == null) {
+            numberToCheck = "";
+        }
+
+        numberToCheck = CommCare.Shared.UnPrettyFormatPhoneOrFaxNumber(numberToCheck);
+
+        if (numberToCheck.replace(/\D/g, '').length < numberToCheck.length && numberToCheck.length > 0) {
+            errMsg = numberType + " Number cannot contain letters";
+            badNumber = true;
+        } else if (numberToCheck.length == 0) {
+            badNumber = false;
+        }
+        else {
+            badNumber = numberToCheck.length != 10 ? true : false;
+        }
+
+        if (badNumber && programName != "FMP" && programName != "Champ VA Foreign") {
+            validNumber = false; // There is at least one bad number
+
+            CommCare.Shared.FormContext.ui.setFormNotification(errMsg, "ERROR", numberType + "ERROR" + i);
+
+            // Add additional field level notification as well
+            if (formType == "Interaction" && numberType == "Phone") {
+                CommCare.Shared.FormContext.getControl("bah_phonenumber_text").setNotification("Phone Number must contain only 10 digits", "PHONELENGTHERROR");
+            }
+        } else {
+            CommCare.Shared.FormContext.ui.clearFormNotification(numberType + "ERROR" + i);
+
+            if (formType == "Interaction" && numberType == "Phone") {
+                CommCare.Shared.FormContext.getControl("bah_phonenumber_text").clearNotification("PHONELENGTHERROR");
+            }
+
+            if (programName != "FMP") {
+                CommCare.Shared.SetFieldValue(fieldNames[i], CommCare.Shared.PrettyFormatPhoneOrFaxNumber(numberToCheck));
+            }
+        }
+    }
+
+    return validNumber;
+}
+
+
+CommCare.Shared.PrettyFormatPhoneOrFaxNumber =
+    /**
+    *Removes non-digits and adds parens
+    *@param {string} num - Input Phone Number
+    */
+    function (num) {
+    var prettyNum;
+    num = num.replace(/\D/g, ''); // Remove all non-digits
+
+    var match = num.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+        prettyNum = '(' + match[1] + ')' + match[2] + '-' + match[3];
+    } else {
+        prettyNum = num;
+    }
+    return prettyNum;
+}
+
+CommCare.Shared.UnPrettyFormatPhoneOrFaxNumber = function (num) {
+    var nonPrettyNum;
+
+    nonPrettyNum = num.replace("(", "").replace(")", "").replace("-", "");
+
+    return nonPrettyNum;
+}
+
+CommCare.Shared.ValidateTIN = function (formType) {
+    var fieldName = "";
+    var tin;
+    var validTIN = true;
+    var tinErrorMsg = "TIN must be 9 numbers";
+    var tinErrorMsg;
+
+    //if (CommCare.Shared.FormContext == null) {
+    //    CommCare.Shared.FormContext = parent.Xrm.Page;
+    //}
+
+    var purposeValue = CommCare.Shared.GetFieldValue("vhacrm_areaintersectionid");
+    var purposeName;
+
+    if (purposeValue !== null) {
+        purposeName = CommCare.Shared.DialogNameReturn(purposeValue[0].name);
+    }
+
+    if (formType == "Request") {
+        if (purposeName === "Vendorization") {
+            fieldName = "ccwf_tinvendorization";
+        } else {
+            fieldName = "ccwf_tin_text";
+        }
+    } else if (formType == "Interaction") {
+        tinErrorMsg = "The TIN must be 9 Numbers.  Please update the TIN prior to executing a Search.";
+
+        if (purposeName == "Vendorization") {
+            fieldName = "vhacrm_tinvendorization_text";
+        } else {
+            fieldName = "ccwf_tin_text";
+        }
+    }
+
+    tin = CommCare.Shared.GetFieldValue(fieldName);
+    if (tin === null) {
+        CommCare.Shared.FormContext.ui.clearFormNotification("TINERROR");
+        CommCare.Shared.FormContext.getControl(fieldName).clearNotification("TINFIELDERROR");
+
+        return true;
+    }
+
+    if (tin.replace(/\D/g, '').length < tin.length && tin.length > 0) {
+        tinErrorMsg = "TIN can only contain numbers";
+        tin = "BADTIN";
+    }
+
+    if (formType == "Interaction") {
+        var intWith = CommCare.Shared.GetFieldValue("bah_interactedwith_code");
+        var tinAttrib = CommCare.Shared.FormContext.getAttribute(fieldName);
+        var reqLevel = (tinAttrib !== null) ? CommCare.Shared.FormContext.getAttribute(fieldName).getRequiredLevel() : null;
+        var providerFacility = CommCare.Shared.GetFieldValue("ccwf_providerfacility_text");
+        var providerFacilityLine1 = CommCare.Shared.GetFieldValue("vhacrm_address1_line1_text");
+        var providerFacilityLine2 = CommCare.Shared.GetFieldValue("mcs_provideraddressline2_text");
+        var providerFacilityCity = CommCare.Shared.GetFieldValue("vhacrm_address1_city_text");
+        var providerFacilityState = CommCare.Shared.GetFieldValue("vhacrm_address1_stateid");
+        var providerFacilityZip = CommCare.Shared.GetFieldValue("vhacrm_address1_zip_text");
+        var providerFacilityCountry = CommCare.Shared.GetFieldValue("mcs_providercountryid");
+
+        validTIN = true;
+
+        if ((providerFacility === null || providerFacilityLine1 === null || providerFacilityLine2 === null || providerFacilityCity === null || providerFacilityState === null || providerFacilityZip === null || providerFacilityCountry === null) && tin != '') {
+            if (tin.length !== 9 && reqLevel == "required") {
+                validTIN = false;
+
+                // Set both Form and Field level error notifications
+                CommCare.Shared.FormContext.ui.setFormNotification(tinErrorMsg, "ERROR", "TINERROR");
+
+                CommCare.Shared.FormContext.getControl(fieldName).setNotification(tinErrorMsg, "TINFIELDERROR");
+
+                CommCare.Shared.FormContext.getControl(fieldName).setFocus();
+            }
+            else {
+                CommCare.Shared.FormContext.ui.clearFormNotification("TINERROR");
+                CommCare.Shared.FormContext.getControl(fieldName).clearNotification("TINFIELDERROR");
+            }
+        }
+        else {
+            setTimeout(function () {
+                CommCare.Shared.FormContext.ui.clearFormNotification("TINERROR");
+                CommCare.Shared.FormContext.getControl(fieldName).clearNotification("TINFIELDERROR");
+
+                if (providerFacility !== null && providerFacilityLine1 !== null && providerFacilityLine2 !== null && providerFacilityCity !== null && providerFacilityState !== null && providerFacilityZip !== null && providerFacilityCountry !== null) {
+                    CommCare.Shared.SetRequired(fieldName, "none");
+                }
+            }, 1000);
+
+            if (intWith != CommCare.Shared.Constants.InteractedWith.VeteranServiceOfficer) {
+                CommCare.Shared.SetRequired("ccwf_providerfacility_text", "none");
+            }
+
+            CommCare.Shared.FormContext.getControl("ccwf_providerfacility_text").clearNotification();
+        }
+    } else {
+        if (tin == "") {
+            validTIN = true;
+        } else {
+            validTIN = tin.length != 9 ? false : true;
+        }
+
+        if (validTIN) {
+            CommCare.Shared.FormContext.ui.clearFormNotification("TINERROR");
+        } else {
+            CommCare.Shared.FormContext.ui.setFormNotification(tinErrorMsg, "ERROR", "TINERROR");
+            CommCare.Shared.FormContext.getControl(fieldName).setFocus();
+        }
+    }
+
+    return validTIN;
+}
+
+CommCare.Shared.GetDefaultContact = function () {
+    var getDefaultContactFetch = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>\
+                                  <entity name='mcs_setting'>\
+                                    <attribute name='mcs_settingid' />\
+                                    <attribute name='vhacrm_defaultcontactrecord' />\
+                                    <attribute name='mcs_interactionentitytypecode' />\
+                                    <attribute name='mcs_lobentitytypecode' />\
+                                    <order attribute='vhacrm_defaultcontactrecord' descending='false' />\
+                                    <filter type='and'>\
+                                      <condition attribute='statecode' operator='eq' value='0' />\
+                                    </filter>\
+                                  </entity>\
+                                </fetch>";
+
+    CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+    CommCare.Shared.CrmCommonJS.WebApi.RetrieveByFetchXml("mcs_settings", getDefaultContactFetch).then(function (settings) {
+        if (settings.value.length > 0) {
+            var settingsRecord = settings.value[0];
+            var defaultContactId = settingsRecord["_vhacrm_defaultcontactrecord_value"];
+            var defaultContactName = settingsRecord["_vhacrm_defaultcontactrecord_value@OData.Community.Display.V1.FormattedValue"];
+
+            if (defaultContactId !== undefined) {
+                var defaultContact = new Array();
+                defaultContact[0] = new Object();
+                defaultContact[0].id = defaultContactId;
+                defaultContact[0].name = defaultContactName;
+                defaultContact[0].entityType = "contact";
+
+                CommCare.Shared.DefaultContactRecord = defaultContact;
+            }
+        }
+        else
+            console.log("No record found in Retrieving Settings for Default Contact: ");
+    }).catch(function (error) {
+        console.log("Error in Retrieving Settings for Default Contact: " + error.message);
+    });
+}
+
+CommCare.Shared.GetDefaultContactPromise = function () {
+    return new Promise(function (resolve, reject) {
+        var getDefaultContactFetch = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>\
+                                  <entity name='mcs_setting'>\
+                                    <attribute name='mcs_settingid' />\
+                                    <attribute name='vhacrm_defaultcontactrecord' />\
+                                    <attribute name='mcs_interactionentitytypecode' />\
+                                    <attribute name='mcs_lobentitytypecode' />\
+                                    <order attribute='vhacrm_defaultcontactrecord' descending='false' />\
+                                    <filter type='and'>\
+                                      <condition attribute='statecode' operator='eq' value='0' />\
+                                    </filter>\
+                                  </entity>\
+                                </fetch>";
+
+        CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+        CommCare.Shared.CrmCommonJS.WebApi.RetrieveByFetchXml("mcs_settings", getDefaultContactFetch).then(function (settings) {
+            if (settings.value.length > 0) {
+                var settingsRecord = settings.value[0];
+                var defaultContactId = settingsRecord["_vhacrm_defaultcontactrecord_value"];
+                var defaultContactName = settingsRecord["_vhacrm_defaultcontactrecord_value@OData.Community.Display.V1.FormattedValue"];
+
+                if (defaultContactId !== undefined) {
+                    var defaultContact = new Array();
+                    defaultContact[0] = new Object();
+                    defaultContact[0].id = defaultContactId;
+                    defaultContact[0].name = defaultContactName;
+                    defaultContact[0].entityType = "contact";
+
+                    CommCare.Shared.DefaultContactRecord = defaultContact;
+                    resolve(defaultContact);
+                }
+            }
+            else {
+                console.log("No record found in Retrieving Settings for Default Contact: ");
+                reject(new Error("No record found in Retrieving Settings for Default Contact: "));
+            }
+        }).catch(function (error) {
+            console.log("Error in Retrieving Settings for Default Contact: " + error.message);
+            reject(new Error("Error in Retrieving Settings for Default Contact: " + error.message));
+        });
+        //test
+    });
+}
+
+CommCare.Shared.GetUserLobs = function () {
+    if (CommCare.Shared.UserLobs !== null) {
+        CommCare.Shared.SetLob("hrc_lobid");
+    }
+    else {
+        var currentUserLOBFetch = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='true' ><entity name='hrc_lob' ><attribute name='hrc_lobid' /><attribute name='hrc_name' /><attribute name='vhacrm_interactionformid' /><order attribute='hrc_name' descending='false' /><link-entity name='vhacrm_hrc_lob_systemuser' from='hrc_lobid' to='hrc_lobid' visible='false' intersect='true' ><link-entity name='systemuser' from='systemuserid' to='systemuserid' alias='ae' ><attribute name='positionid' alias='PositionId' /><attribute name='positionidname' alias='PositionName' /><filter type='and' ><condition attribute='systemuserid' operator='eq-userid' /></filter><link-entity name='teammembership' from='systemuserid' to='systemuserid' link-type='outer' ><attribute name='teamid' alias='teamID' /><filter type='and' ><condition attribute='teamid' operator='eq' value='64086c6d-b457-e911-a96f-001dd800a749' /></filter></link-entity><link-entity name='teammembership' from='systemuserid' to='systemuserid' link-type='outer' alias='C3' ><attribute name='teamid' alias='c3team' /><filter type='and' ><condition attribute='teamid' operator='eq' value='ef97ed25-b2c5-e911-a984-001dd800ba25' /></filter></link-entity></link-entity></link-entity></entity></fetch>";
+
+        //"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='true' > \
+        //      <entity name='hrc_lob' > \
+        //        <attribute name='hrc_lobid' /> \
+        //        <attribute name='hrc_name' /> \
+        //        <attribute name='vhacrm_interactionformid' /> \
+        //        <order attribute='hrc_name' descending='false' /> \
+        //        <link-entity name='vhacrm_hrc_lob_systemuser' from='hrc_lobid' to='hrc_lobid' visible='false' intersect='true' > \
+        //          <link-entity name='systemuser' from='systemuserid' to='systemuserid' alias='ae' > \
+        //            <attribute name='positionid' alias='PositionId' /> \
+        //            <attribute name='positionidname' alias='PositionName' /> \
+        //            <filter type='and' > \
+        //              <condition attribute='systemuserid' operator='eq-userid' /> \
+        //            </filter> \
+        //            <link-entity name='teammembership' from='systemuserid' to='systemuserid' link-type='outer' > \
+        //              <attribute name='teamid' alias='teamID' /> \
+        //              <filter type='and' > \
+        //                <condition attribute='teamid' operator='eq' value='64086c6d-b457-e911-a96f-001dd800a749' /> \
+        //              </filter> \
+        //            </link-entity> \
+        //            <link-entity name='teammembership' from='systemuserid' to='systemuserid' link-type='outer' alias='C3' > \
+        //              <attribute name='teamid' alias='c3team' /> \
+        //              <filter type='and' > \
+        //                <condition attribute='teamid' operator='eq' value='ef97ed25-b2c5-e911-a984-001dd800ba25' /> \
+        //              </filter> \
+        //            </link-entity> \
+        //          </link-entity> \
+        //        </link-entity> \
+        //      </entity> \
+        //    </fetch>";
+
+        CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+        CommCare.Shared.CrmCommonJS.WebApi.RetrieveByFetchXml("hrc_lobs", currentUserLOBFetch).then(function (userLobs) {
+            if (userLobs.value.length > 0) {
+                CommCare.Shared.UserLobs = userLobs.value;
+                if (userLobs.value[0]["teamID"]) {
+                    CommCare.Shared.IsC6 = true;
+                    CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue("bah_programtypeid", CommCare.Shared.Constants.PROGRAM_TYPE_C6, "C6", "bah_program");
+                    CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue("vhacrm_typeintersectionid", CommCare.Shared.Constants.TYPE_INTERSECTION_C6, "C6", "vhacrm_typeintersection");
+                }
+                if (userLobs.value[0]["c3team"]) {
+                    CommCare.Shared.IsC3 = true;
+                    CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue("bah_programtypeid", CommCare.Shared.Constants.PROGRAM_TYPE_C3, CommCare.Shared.Constants.C3Name, "bah_program");
+                    CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue("vhacrm_typeintersectionid", CommCare.Shared.Constants.TYPE_INTERSECTION_C3, CommCare.Shared.Constants.C3Name, "vhacrm_typeintersection");
+                }
+                if (userLobs.value[0]["PositionId"]) {
+                    CommCare.Shared.IsCSR = userLobs.value[0]["PositionId"] == CommCare.Shared.Constants.Position.CSR ? true : false;
+                }
+            } else {
+                var alertStrings = { text: "You do not have a Line of Business on your Profile. Please put in a SNOW Ticket to update your Profile with the Correct Line of Business.", title: "No LOB" };
+                var alertOptions = { height: 200, width: 300 };
+                Xrm.Navigation.openAlertDialog(alertStrings, alertOptions).then((success) => {
+                    CommCare.Shared.FormContext.ui.close();
+                },
+                    (error) => {
+                        console.log("Error in closing dialog", error);
+                    });
+            }
+
+            CommCare.Shared.SetLob("hrc_lobid");
+
+        }).catch(function (error) {
+            console.log("Error in Getting current users LOBs: " + error.message);
+        });
+    }
+}
+
+CommCare.Shared.SetLob = function (lobAttr) {
+    var currentLobValue = CommCare.Shared.GetFieldValue(lobAttr);
+
+    if (currentLobValue !== null) {
+
+        //CommCare.Shared.LimitInteractedWithOptions();
+
+        if (currentLobValue[0].name === CommCare.Shared.Constants.OCCFM_LOB_NAME) {
+            CommCare.Shared.SetDepartmentalDefaultTeam("hac_teamid");
+        }
+        else {
+            CommCare.Shared.finishSave(CommCare.Shared.Constants.CCWF_LOB_NAME)
+        }
+    }
+    else if (CommCare.Shared.UserLobs === null) {
+        ///TODO: JE - User Must provide an LOB
+        ///before proceeding. Add Pop-Up Dialog with available LOBs for user to select for this call flow        
+
+    }
+    else if (CommCare.Shared.UserLobs.length === 1) {
+        var lob = CommCare.Shared.UserLobs[0];
+        var validFormId;
+
+        if (CommCare.Shared.FormContext.data.entity.getEntityName() === "bah_interactions") {
+            validFormId = lob["vhacrm_interactionformid"];
+        }
+
+        if (validFormId !== null) {
+            var currentFormId = CommCare.Shared.FormContext.ui.formSelector.getCurrentItem().getId();
+            if (!CommCare.Shared.FormIsValid(validFormId)) {
+                CommCare.Shared.FormContext.ui.formSelector.items.get(validFormId.toLowerCase()).navigate();
+            }
+            else {
+                CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue(lobAttr, lob.hrc_lobid, lob.hrc_name, "hrc_lob");
+                //CommCare.Shared.LimitInteractedWithOptions();
+
+                if (lob.hrc_name === CommCare.Shared.Constants.OCCFM_LOB_NAME) {
+                    CommCare.Shared.SetDepartmentalDefaultTeam("hac_teamid");
+                }
+                else {
+                    CommCare.Shared.finishSave(lob.hrc_name);
+                }
+            }
+        }
+        else
+            console.log("Valid form ID not provided. Unable to determine which form user should be on!");
+    }
+    else if (CommCare.Shared.UserLobs.length > 1) {
+        ///TODO: JE - Handle Multiple LOBs****************
+
+        var isLobSelected;
+        var storedLobId;
+        var storedLobName;
+        var timeStamp;
+        var timeDif;
+
+        storedSelectedLOB = sessionStorage.getItem("storedLOB");
+        storedLOB = JSON.parse(sessionStorage.getItem("storedLOB"));
+
+        if (storedLOB) {
+            timeDif = Date.now() - storedLOB.timeStamp;
+            if (timeDif > 30000) {
+                sessionStorage.removeItem("storedLOB");
+                isLobSelected = false;
+            }
+            else {
+                isLobSelected = storedLOB.isLobSelected;
+                storedLobId = storedLOB.lobId;
+                storedLobName = storedLOB.lobName;
+                timeStamp = storedLOB.timeStamp;
+            }
+
+        }
+
+
+        if (CommCare.Shared.SelectedLOB === null && !isLobSelected) {
+            CommCare.Shared.FormContext.ui.tabs.get("LOB_Selector").setVisible(true);
+            CommCare.Shared.FormContext.ui.tabs.get("LOB_Selector").setDisplayState("expanded");
+
+            ////OLD CODE DIRECTING TO DIALOG POP
+            //currentRecordId = "00000000-0000-0000-0000-000000000000";
+            //
+            //var etc_hrc_lob = Mscrm.EntityPropUtil.EntityTypeName2CodeMap["hrc_lob"];
+            //var etc_bah_interactions = Mscrm.EntityPropUtil.EntityTypeName2CodeMap["bah_interactions"];
+            //
+            //var etc_hrc_lob = 10028;
+            //var etc_bah_interactions = 10018;
+            //
+            //CommCare.Shared.showDialogLOB(etc_hrc_lob, currentRecordId, etc_bah_interactions);
+        }
+        else {
+            //CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue(lobAttr, lob.hrc_lobid, lob.hrc_name, "hrc_lob");
+            CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue(lobAttr, storedLobId, storedLobName, "hrc_lob");
+            CommCare.Shared.LimitInteractedWithOptions();
+
+            if (storedLobName == CommCare.Shared.Constants.OCCFM_LOB_NAME) {
+                CommCare.Shared.SetDepartmentalDefaultTeam("hac_teamid");
+            }
+            else {
+                CommCare.Shared.finishSave(storedLobName);
+            }
+        }
+    }
+}
+
+CommCare.Shared.showDialogLOB = function (entityTypeCode, currentRecordId, currentObjectType) {
+    var defaultViewId = "8841fc5d-4b0b-e811-81e4-1458d04e1b18";
+    var returnID = null;
+    var returnName = null;
+    var strURL = "/_controls/lookup/lookupinfo.aspx?AllowFilterOff=0&DefaultType=" + entityTypeCode + "&DefaultViewId=%7b" + defaultViewId + "%7d&DisableQuickFind=0&DisableViewPicker=0&IsInlineMultiLookup=0&LookupStyle=single&ShowNewButton=1&ShowPropButton=1&browse=false&currentObjectType=" + currentObjectType + "&currentid=%7b" + currentRecordId + "%7d&dType=1&mrsh=false&objecttypes=" + entityTypeCode;
+    var callback = (function (result) {
+        CommCare.Shared.SelectedLOB = result.items[0];
+        returnID = result.items[0].id.substr(1, 36);
+        returnName = result.items[0].name.replace(String.fromCharCode(160), String.fromCharCode(32));
+        var selectedLOB = {
+            "lobId": returnID,
+            "lobName": returnName,
+            "isLobSelected": true,
+            "timeStamp": Date.now()
+        };
+        if (typeof (Storage) !== "undefined") {
+            sessionStorage.setItem("storedLOB", JSON.stringify(selectedLOB));
+        }
+
+        CommCare.Shared.setSelectedLob(returnID, returnName);
+        //CommCare.Shared.PreFilterPurposeforProgram();
+    });
+
+    var DialogueOption = new Xrm.DialogOptions;
+    DialogueOption.width = 500;
+    DialogueOption.height = 600;
+    DialogueOption.openInNewWindow = true;
+
+    Xrm.Internal.openDialog(Xrm.Utility.getGlobalContext().getClientUrl() + strURL,
+                        DialogueOption,
+                        null, null,
+                        callback);
+}
+
+CommCare.Shared.showDialogTeam = function (entityTypeCode, currentRecordId, currentObjectType, userTeams, messageId) {
+    var defaultViewId = "b0e2545c-440b-e811-81e4-1458d04e1b18";
+    var returnID = null;
+    var returnName = null;
+    var strURL = "/_controls/lookup/lookupinfo.aspx?AllowFilterOff=0&DefaultType=" + entityTypeCode + "&DefaultViewId=%7b" + defaultViewId + "%7d&DisableQuickFind=0&DisableViewPicker=0&IsInlineMultiLookup=0&LookupStyle=single&ShowNewButton=1&ShowPropButton=1&browse=false&currentObjectType=" + currentObjectType + "&currentid=%7b" + currentRecordId + "%7d&dType=1&mrsh=false&objecttypes=" + entityTypeCode;
+    var callback = (function (result) {
+        CommCare.Shared.SelectedTeam = result.items[0];
+        returnID = result.items[0].id.substr(1, 36);
+        returnName = result.items[0].name.replace(String.fromCharCode(160), String.fromCharCode(32));
+        CommCare.Shared.setSelectedTeam(returnID, returnName, userTeams, messageId);
+    });
+
+    var DialogueOption = new Xrm.DialogOptions;
+    DialogueOption.width = 500;
+    DialogueOption.height = 600;
+    DialogueOption.openInNewWindow = true;
+
+    Xrm.Internal.openDialog(Xrm.Utility.getGlobalContext().getClientUrl() + strURL,
+                        DialogueOption,
+                        null, null,
+                        callback);
+}
+
+CommCare.Shared.setSelectedTeam = function (teamId, teamName, userTeams, messageId) {
+    //Done by web resource now
+    CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue("hac_teamid", teamId, teamName, "team");
+
+    try {
+        teamName = teamName.replace(String.fromCharCode(160), String.fromCharCode(32));
+
+        var sourceCode = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["Source"];
+        var interactedWithCode = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["InteractedWithCode"];
+        var purposeName = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["Purpose"];
+        var purposeId = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["PurposeId"];
+
+        CommCare.Shared.SetFieldValue("bah_interactionsource_code", sourceCode);
+        CommCare.Shared.SetFieldValue("bah_interactedwith_code", interactedWithCode);
+        CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue("vhacrm_interactionpurposeid", purposeId, purposeName, "vhacrm_areaintersection");
+        CommCare.Shared.finishSave(messageId);
+    }
+    catch (e) {
+        console.log("Error in getting default values: " + e.message);
+        CommCare.Shared.finishSave(messageId);
+    }
+
+}
+
+CommCare.Shared.setSelectedLob = function (returnId, returnName) {
+    var lob;
+    for (var i = 0; i < CommCare.Shared.UserLobs.length; i++) {
+        if (returnId.toLowerCase() == CommCare.Shared.UserLobs[i].hrc_lobid) {
+            lob = CommCare.Shared.UserLobs[i];
+            break;
+        }
+    }
+
+    if (lob == null) {
+        console.log("User does not belong to LOB");
+        //Refire dialog?
+        return;
+    }
+    //var lob = CommCare.Shared.UserLobs[0];
+    var validFormId;
+
+    if (CommCare.Shared.FormContext.data.entity.getEntityName() === "bah_interactions") {
+        validFormId = lob["vhacrm_interactionformid"];
+    }
+
+    if (validFormId !== null) {
+        var currentFormId = CommCare.Shared.FormContext.ui.formSelector.getCurrentItem().getId();
+        if (!CommCare.Shared.FormIsValid(validFormId)) {
+            CommCare.Shared.FormContext.ui.formSelector.items.get(validFormId.toLowerCase()).navigate();
+        }
+        else {
+            CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue("hrc_lobid", lob.hrc_lobid, lob.hrc_name, "hrc_lob");
+            CommCare.Shared.LimitInteractedWithOptions();
+
+            if (lob.hrc_name === CommCare.Shared.Constants.OCCFM_LOB_NAME) {
+                CommCare.Shared.SetDepartmentalDefaultTeam("hac_teamid");
+            }
+            else {
+                //CommCare.Shared.FormContext.getAttribute("vhacrm_interactionpurposeid").setRequiredLevel("none");
+                //CommCare.Shared.FormContext.data.entity.save();
+                //CommCare.Shared.FormContext.getAttribute("vhacrm_interactionpurposeid").setRequiredLevel("required");
+                //CommCare.Shared.FormContext.getControl("bah_firstname_text").setFocus(true);
+
+                CommCare.Shared.finishSave(lob.hrc_name);
+            }
+        }
+    }
+}
+
+CommCare.Shared.FormIsValid = function (expectedForm) {
+    var currentFormId = CommCare.Shared.FormContext.ui.formSelector.getCurrentItem().getId();
+    if (CommCare.Shared.FormContext.ui.formSelector.items.get(expectedForm.toLowerCase()) != null && currentFormId.toLowerCase() != expectedForm.toLowerCase()) {
+        return false;
+    }
+
+    return true;
+}
+
+CommCare.Shared.SetDepartmentalDefaultTeam = function (teamAttr) {
+
+    var departmentTeamFetch = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='true'> \
+                                          <entity name='team'> \
+                                            <attribute name='name' /> \
+                                            <attribute name='businessunitid' /> \
+                                            <attribute name='teamid' /> \
+                                            <attribute name='teamtype' /> \
+                                            <order attribute='name' descending='false' /> \
+                                            <filter type='and'> \
+                                              <condition attribute='vhacrm_commcareteamtype' operator='eq' value='713770000' /> \
+                                            </filter> \
+                                            <link-entity name='teammembership' from='teamid' to='teamid' visible='false' intersect='true'> \
+                                              <link-entity name='systemuser' from='systemuserid' to='systemuserid' alias='ab'> \
+                                                <filter type='and'> \
+                                                  <condition attribute='systemuserid' operator='eq-userid' /> \
+                                                </filter> \
+                                              </link-entity> \
+                                            </link-entity> \
+                                          </entity> \
+                                        </fetch>";
+
+    CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+    CommCare.Shared.CrmCommonJS.WebApi.RetrieveByFetchXml("teams", departmentTeamFetch).then(function (results) {
+        CommCare.Shared.UserTeams = results.value;
+
+        var messageId = "DEPARTMENTTEAMMESSAGE";
+
+        if (results.value.length === 0) {
+            CommCare.Shared.CrmCommonJS.Notification.SetInfo("No departmental team found for current user. Defaults not applied.", messageId);
+            CommCare.Shared.finishSave(CommCare.Shared.Constants.OCCFM_LOB_NAME, messageId);
+        }
+        else if (results.value.length > 1) {
+            //add dialog for user here
+            var currentRecordId = "00000000-0000-0000-0000-000000000000";
+
+            if (CommCare.Shared.SelectedTeam === null) {
+                CommCare.Shared.FormContext.ui.tabs.get("LOB_Selector").setVisible(true);
+                CommCare.Shared.FormContext.ui.tabs.get("LOB_Selector").setDisplayState("expanded");
+
+
+                ////Old Code pointing to dialog process
+                //var etc_team = Mscrm.EntityPropUtil.EntityTypeName2CodeMap["team"];
+                //var etc_bah_interactions = Mscrm.EntityPropUtil.EntityTypeName2CodeMap["bah_interactions"];
+                //
+                //CommCare.Shared.showDialogTeam(etc_team, currentRecordId, etc_bah_interactions, results.value, messageId);
+            }
+
+        }
+        else {
+            ///Set the team on the form
+            var team = results.value[0];
+            CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue(teamAttr, team.teamid, team.name, "team");
+
+            try {
+                teamName = team.name.replace(String.fromCharCode(160), String.fromCharCode(32));
+                var sourceCode = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["Source"];
+                var interactedWithCode = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["InteractedWithCode"];
+                var purposeName = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["Purpose"];
+                var purposeId = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["PurposeId"];
+
+                CommCare.Shared.SetFieldValue("bah_interactionsource_code", sourceCode);
+                CommCare.Shared.SetFieldValue("bah_interactedwith_code", interactedWithCode);
+                CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue("vhacrm_interactionpurposeid", purposeId, purposeName, "vhacrm_areaintersection");
+                CommCare.Shared.finishSave(CommCare.Shared.Constants.OCCFM_LOB_NAME, messageId);
+            }
+            catch (e) {
+                console.log("Error in getting default values: " + e.message);
+                CommCare.Shared.finishSave(CommCare.Shared.Constants.OCCFM_LOB_NAME, messageId);
+            }
+            //CommCare.Shared.finishSave(messageId);
+        }
+
+    }).catch(function (error) {
+        console.log("Error in GetDefaultTeam: " + error.message);
+        CommCare.Shared.finishSave(CommCare.Shared.Constants.OCCFM_LOB_NAME);
+    });
+}
+
+CommCare.Shared.setPRRTCTI = function () {
+    console.log("set PRRT CTI");
+    var lob = CommCare.Shared.GetFieldValue("hrc_lobid");
+    var lobName = CommCare.Shared.DialogNameReturn(lob[0].name);
+    //var lobName = lob != null ? CommCare.Shared.DialogNameReturn(lob[0].name) : null;
+
+    var programType = CommCare.Shared.GetFieldValue("bah_programtypeid");
+    console.log(programType);
+
+    var programTypeName;
+    if (programType != null)
+        programTypeName = CommCare.Shared.DialogNameReturn(programType[0].name);
+
+    var dateEmailReceived = CommCare.Shared.GetFieldValue("mcs_dateemailrecieved");
+
+    var ani = CommCare.Shared.GetFieldValue("vhacrm_ctiani");
+    var ctidob = CommCare.Shared.GetFieldValue("vhacrm_ctidob");
+    var ctissn = CommCare.Shared.GetFieldValue("vhacrm_ctiidentifier");
+    if ((ctidob != null) && (ctissn != null)) {
+        if (programTypeName === "PRRT") {
+            console.log("Is PRRT");
+            CommCare.Shared.SetVisible("mcs_prrtreceiveremailaddress", true);
+            CommCare.Shared.SetVisible("hrc_emailaddress_text", true);
+            CommCare.Shared.SetVisible("mcs_dateemailrecieved", true);
+            CommCare.Shared.SetVisible("mcs_emailsubject", true);
+
+            CommCare.Shared.SetRequired("mcs_prrtreceiveremailaddress", true);
+            CommCare.Shared.SetRequired("hrc_emailaddress_text", true);
+            CommCare.Shared.SetRequired("mcs_dateemailrecieved", true);
+            CommCare.Shared.SetRequired("vhacrm_interactionpurposeid", true);
+
+            CommCare.Shared.SetRequired("bah_firstname_text", "none");
+            CommCare.Shared.SetRequired("bah_lastname_text", "none");
+            CommCare.Shared.SetRequired("bah_phonenumber_text", "none");
+            CommCare.Shared.SetRequired("ccwf_providerfacility_text", "none");
+            CommCare.Shared.SetRequired("ccwf_tin_text", "none");
+
+            if (dateEmailReceived == null) {
+                var now = new Date();
+                CommCare.Shared.SetFieldValue("mcs_dateemailrecieved", now);
+            }
+        }
+    }
+}
+
+CommCare.Shared.finishSave = function (lobName, messageId, teamName) {
+    //if (CommCare.Shared.FormContext == null) {
+    //    CommCare.Shared.FormContext = parent.Xrm.Page;
+    //}
+    if (lobName == CommCare.Shared.Constants.OCCFM_LOB_NAME) {
+        if (CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]) {
+            var sourceCode = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["Source"];
+            var interactedWithCode = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["InteractedWithCode"];
+            var purposeName = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["Purpose"];
+            var purposeId = CommCare.Shared.DefaultedValuesForSelectedTeam[teamName]["PurposeId"];
+
+            CommCare.Shared.SetFieldValue("bah_interactionsource_code", sourceCode);
+            CommCare.Shared.SetFieldValue("bah_interactedwith_code", interactedWithCode);
+            CommCare.Shared.CrmCommonJS.FormHelper.SetLookupValue("vhacrm_interactionpurposeid", purposeId, purposeName, "vhacrm_areaintersection");
+        }
+    }
+    else {
+        var prog = CommCare.Shared.GetFieldValue("bah_programtypeid");
+        var progName;
+        if (prog != null)
+            progName = CommCare.Shared.DialogNameReturn(prog[0].name);
+
+        if (progName == CommCare.Shared.Constants.C3Name || progName == "C6") {
+            CommCare.Shared.SetFieldValue("bah_interactedwith_code", CommCare.Shared.Constants.InteractedWith.Veteran);
+        }
+    }
+
+    CommCare.Interaction.Global.DefaultProgramType();
+
+    CommCare.Shared.SetRequired("bah_phonenumber_text", "none");
+    CommCare.Shared.SetRequired("ccwf_providerfacility_text", "none");
+    CommCare.Shared.SetRequired("vhacrm_interactionpurposeid", "none");
+    CommCare.Shared.SetRequired("ccwf_tin_text", "none");
+    CommCare.Shared.SetRequired("bah_firstname_text", "none");
+
+    CommCare.Shared.SetRequired("mcs_prrtreceiveremailaddress", "none");
+    CommCare.Shared.SetRequired("hrc_emailaddress_text", "none");
+    CommCare.Shared.SetRequired("mcs_dateemailrecieved", "none");
+    CommCare.Shared.SetRequired("vhacrm_interactionpurposeid", "none");
+
+    CommCare.Shared.FormContext.data.entity.attributes.forEach(function (attribute, index) {
+        attribute.setRequiredLevel("none");
+    });
+
+    console.log("finish save");
+    CommCare.Shared.FormContext.data.save()
+        .then(function () {
+            console.log("save finished");
+            CommCare.Shared.SetRequired("vhacrm_interactionpurposeid", "required");
+            CommCare.Shared.SetRequired("ccwf_tin_text", "required");
+            CommCare.Shared.SetRequired("bah_programtypeid", "required");
+            CommCare.Shared.SetRequired("bah_interactedwith_code", "required")
+
+            var programType = CommCare.Shared.GetFieldValue("bah_programtypeid");
+            var programTypeName;
+            if (programType != null)
+                programTypeName = CommCare.Shared.DialogNameReturn(programType[0].name);
+
+            var dateEmailReceived = CommCare.Shared.GetFieldValue("mcs_dateemailrecieved");
+
+            var ani = CommCare.Shared.GetFieldValue("vhacrm_ctiani");
+            var ctidob = CommCare.Shared.GetFieldValue("vhacrm_ctidob");
+            var ctissn = CommCare.Shared.GetFieldValue("vhacrm_ctiidentifier");
+            if ((ctidob != null) && (ctissn != null)) {
+                if (programTypeName != "PRRT") {
+                    CommCare.Shared.SetRequired("bah_firstname_text", "required");
+                    //CommCare.Shared.SetFocus("vhacrm_interactionpurposeid");
+                }
+            }
+            else {
+                CommCare.Shared.SetRequired("bah_firstname_text", "required");
+                //CommCare.Shared.SetFocus("vhacrm_interactionpurposeid");
+            }
+
+            if (lobName === CommCare.Shared.Constants.CCWF_LOB_NAME) {
+                CommCare.Shared.SetRequired("bah_phonenumber_text", "required");
+                CommCare.Shared.SetRequired("ccwf_providerfacility_text", "required");
+
+            }
+            else {
+                //For firing business rules to show/hide fields
+                CommCare.Shared.FormContext.getAttribute("hac_teamid").fireOnChange();
+                CommCare.Shared.FormContext.getAttribute("bah_interactedwith_code").fireOnChange();
+            }
+
+            CommCare.Shared.FormContext.getControl("bah_firstname_text").setFocus(true);
+            CommCare.Shared.ClearFieldNotifications();
+
+            CommCare.Shared.setPRRTCTI();
+
+            console.log("end of finish save");
+
+
+            //CommCare.Interaction.Global.OnLoad();
+            CommCare.Shared.PreFilterPurposeforProgram("finishSave");
+
+            var ctidob = CommCare.Shared.GetFieldValue("vhacrm_ctidob");
+            var ctissn = CommCare.Shared.GetFieldValue("vhacrm_ctiidentifier");
+            if ((ctidob != null) && (ctissn != null)) {
+
+                var webresName = "WebResource_PreloadMVISearch";
+                var webres = CommCare.Shared.FormContext.getControl(webresName);
+
+                var src = webres.getSrc();
+                webres.setSrc(null);
+                webres.setSrc(src);
+
+            }
+
+        },
+    function (e) {
+        CommCare.Shared.setPRRTCTI();
+        CommCare.Shared.PreFilterPurposeforProgram("finishSave");
+
+        console.log("Error in finish save " + e.message);
+    });
+}
+
+CommCare.Shared.ClearFieldNotifications = function () {
+    CommCare.Shared.FormContext.getControl("vhacrm_interactionpurposeid").clearNotification();
+    CommCare.Shared.FormContext.getControl("ccwf_tin_text").clearNotification();
+    CommCare.Shared.FormContext.getControl("ccwf_providerfacility_text").clearNotification();
+}
+
+CommCare.Shared.DefaultedValuesForSelectedTeam = {
+    "CAR Clinical": { "Source": CommCare.Shared.Constants.InteractionSource.Mail, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Eligibility, "Purpose": "Eligibility", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Provider },
+    "Congressional": { "Source": CommCare.Shared.Constants.InteractionSource.Email, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Congressional },
+    "CSC LOTW": { "Source": CommCare.Shared.Constants.InteractionSource.Fax, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Eligibility, "Purpose": "Eligibility", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Beneficiary },
+    "EEV": { "Source": CommCare.Shared.Constants.InteractionSource.Mail, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Beneficiary },
+    "FM Team A": { "Source": CommCare.Shared.Constants.InteractionSource.Fax, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Correspondence, "Purpose": "Correspondence", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "FM Team B": { "Source": CommCare.Shared.Constants.InteractionSource.Fax, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Correspondence, "Purpose": "Correspondence", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "FM Billing": { "Source": CommCare.Shared.Constants.InteractionSource.Email, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Recoupment, "Purpose": "Recoupment", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "HCR": { "Source": CommCare.Shared.Constants.InteractionSource.Mail, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Provider },
+    "Pharmacy": { "Source": CommCare.Shared.Constants.InteractionSource.Email, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Eligibility, "Purpose": "Eligibility", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "Program Integrity": { "Source": CommCare.Shared.Constants.InteractionSource.Mail, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Other, "Purpose": "Other", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Beneficiary },
+    "PMD Benefits": { "Source": CommCare.Shared.Constants.InteractionSource.Email, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "PMD Payment": { "Source": CommCare.Shared.Constants.InteractionSource.Email, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "CVAF/FMP": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "Spina Bifida": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "Caregiver (CVA)": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "Caregiver (Stipend)": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "PSD Appeals": { "Source": CommCare.Shared.Constants.InteractionSource.Mail, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Provider },
+    "PSD DTA": { "Source": CommCare.Shared.Constants.InteractionSource.Mail, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Provider },
+    "R&R Suspense 1": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "R&R Suspense 2": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "R&R Suspense 3": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "R&R Suspense 4": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "R&R Suspense 5": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "R&R Suspense 6": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup },
+    "CSC Specialty": { "Source": CommCare.Shared.Constants.InteractionSource.Phone, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Eligibility, "Purpose": "Eligibility", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Provider },
+    "Supervisors TL 852": { "Source": CommCare.Shared.Constants.InteractionSource.Phone, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Beneficiary },
+    "CSC CSR": { "Source": CommCare.Shared.Constants.InteractionSource.Phone, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Beneficiary },
+    "CSC Trainer": { "Source": CommCare.Shared.Constants.InteractionSource.Phone, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Provider },
+    "Signature": { "Source": CommCare.Shared.Constants.InteractionSource.Phone, "PurposeId": CommCare.Shared.Constants.PurposeGuids.Claims, "Purpose": "Claims", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.Provider },
+    "Service Recovery": { "Source": CommCare.Shared.Constants.InteractionSource.Internal, "PurposeId": CommCare.Shared.Constants.PurposeGuids.ServiceRecovery, "Purpose": "Service Recovery", "InteractedWithCode": CommCare.Shared.Constants.InteractedWith.InternalGroup }
+}
+
+CommCare.Shared.LimitInteractedWithOptions = function (interactedWithCode) {
+    console.log("Limiting option set");
+    var xrmPage = CommCare.Shared.FormContext;
+    var entity = xrmPage.data.entity.getEntityName();
+    var pickListFieldName = "";
+    var lobFieldName = "";
+    var lobName;
+    var programTypeFieldName = "";
+
+    (entity === "bah_interactions") ? pickListFieldName = "bah_interactedwith_code" 
+        : (entity == "incident") ? pickListFieldName = "ccwf_issuerequestor_code" 
+            : pickListFieldName = "mcs_interactedwith";
+
+    (entity === "bah_interactions") ? lobFieldName = "hrc_lobid"
+        : (entity == "incident") ? lobFieldName = "vhacrm_lobid"
+            : lobFieldName = "mcs_lineofbusiness";
+
+    (entity === "bah_interactions") ? programTypeFieldName = "bah_programtypeid"
+        : (entity == "incident") ? programTypeFieldName = "ccwf_programid"
+            : programTypeFieldName = "mcs_programtype";
+
+    var pickListField = xrmPage.getControl(pickListFieldName);
+
+    var options = xrmPage.getAttribute(pickListFieldName).getOptions();
+    var userLOB = CommCare.Shared.GetFieldValue(lobFieldName);
+    var selectedIWC = CommCare.Shared.GetFieldValue(pickListFieldName);
+    //var teamOnLoad = CommCare.Shared.GetFieldValue("hac_teamid");
+    var programType = CommCare.Shared.GetFieldValue(programTypeFieldName);
+    var programTypeName;
+
+    if (programType != null)
+        programTypeName = programType[0].name;
+
+    if (userLOB && programType) {
+        lobName = CommCare.Shared.DialogNameReturn(userLOB[0].name);
+
+        //clear all items
+        for (var i = 0; i < options.length; i++) {
+            pickListField.removeOption(options[i].value);
+        }
+
+        var odata = "?$select=mcs_interactedwith,_mcs_lineofbusiness_value,mcs_name,_mcs_programtype_value&$filter=mcs_name eq 'ShowInteractedWithValue' and  _mcs_lineofbusiness_value eq ";
+        odata += userLOB[0].id.replace(/[{}]/g, "") + " and  _mcs_programtype_value eq ";
+        odata += programType[0].id.replace(/[{}]/g, "");
+        odata += " and statecode eq 0";
+        odata += "&$orderby=mcs_sortorder asc";
+
+        Xrm.WebApi.online.retrieveMultipleRecords("mcs_lookupfilter", odata).then(
+            function success(results) {
+                var useDefault = true;
+                var filterHasSelectedIWC = false;
+                for (var i = 0; i < results.entities.length; i++) {
+                    var mcs_interactedwith = results.entities[i]["mcs_interactedwith"];
+                    var mcs_interactedwith_formatted = results.entities[i]["mcs_interactedwith@OData.Community.Display.V1.FormattedValue"];
+                    var _mcs_lineofbusiness_value = results.entities[i]["_mcs_lineofbusiness_value"];
+                    var _mcs_lineofbusiness_value_formatted = results.entities[i]["_mcs_lineofbusiness_value@OData.Community.Display.V1.FormattedValue"];
+                    var mcs_name = results.entities[i]["mcs_name"];
+                    var _mcs_programtype_value = results.entities[i]["_mcs_programtype_value"];
+                    var _mcs_programtype_value_formatted = results.entities[i]["_mcs_programtype_value@OData.Community.Display.V1.FormattedValue"];
+
+                    if (userLOB != null && programType != null) {
+                        if (userLOB[0].id.replace(/[{}]/g, "").toLowerCase() == _mcs_lineofbusiness_value.replace(/[{}]/g, "").toLowerCase()) {
+                            if (programType[0].id.replace(/[{}]/g, "").toLowerCase() == _mcs_programtype_value.replace(/[{}]/g, "").toLowerCase()) {
+                                var optionToUse = options.filter(v => v.value == mcs_interactedwith);
+                                pickListField.addOption(optionToUse[0]);
+                                if (mcs_interactedwith == selectedIWC) {
+                                    useDefault = false;
+                                    filterHasSelectedIWC = true;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                if (!filterHasSelectedIWC) {
+                    for (var i = 0; i < options.length; i++) {
+                        if (options[i]["value"] == selectedIWC) {
+                            pickListField.addOption(options[i]);
+                            useDefault = false;
+                            CommCare.Shared.SetFieldValue(pickListFieldName, selectedIWC);
+                            CommCare.Shared.FormContext.getAttribute(pickListFieldName).fireOnChange();
+                        }
+                    }
+                }
+
+                try {
+                    if (CommCare.Shared.FormContext.ui.getFormType() === CommCare.Shared.Constants.CREATE_FORM && interactedWithCode && !selectedIWC) {
+                        CommCare.Shared.SetFieldValue(pickListFieldName, interactedWithCode);
+                    }
+                    else if (!selectedIWC && entity == "mcs_caller") {
+                        //do nothing
+                    }
+                    else if (programTypeName == "C6" || programTypeName == CommCare.Shared.Constants.C3Name) {
+                        if (selectedIWC) {
+                            //if (CommCare.Shared.Constants.InteractedWith_Options.C6.indexOf(selectedIWC) >= 0) {
+                            if (useDefault == false) {
+                                CommCare.Shared.SetFieldValue(pickListFieldName, selectedIWC);
+                                CommCare.Shared.FormContext.getAttribute(pickListFieldName).fireOnChange();
+                            }
+                            else {
+                                CommCare.Shared.SetFieldValue(pickListFieldName, CommCare.Shared.Constants.InteractedWith.Veteran);
+                                CommCare.Shared.FormContext.getAttribute(pickListFieldName).fireOnChange();
+                            }
+                        }
+                    }
+                    else if (selectedIWC && selectedIWC != CommCare.Shared.Constants.InteractedWith.Provider) {
+                        CommCare.Shared.SetFieldValue(pickListFieldName, selectedIWC);
+                        CommCare.Shared.FormContext.getAttribute(pickListFieldName).fireOnChange();
+                    }
+                    else if (programTypeName == "PRRT") {
+                        CommCare.Shared.SetFieldValue(pickListFieldName, selectedIWC);
+                        CommCare.Shared.FormContext.getAttribute(pickListFieldName).fireOnChange();
+                    }
+                    else {
+                        CommCare.Shared.SetFieldValue(pickListFieldName, CommCare.Shared.Constants.InteractedWith.Provider);
+                        CommCare.Shared.FormContext.getAttribute(pickListFieldName).fireOnChange();
+                    }
+                }
+                catch (e) {
+                    console.log("failed to set value to previously selected");
+                }
+                
+            },
+            function (error) {
+                console.log("Error setting Interacted With Values");
+                console.log(error);
+            }
+        );
+
+        if (lobName == CommCare.Shared.Constants.OCCFM_LOB_NAME && (entity == "bah_interactions" || entity == "incident")) {
+            CommCare.Shared.PreFilterPurposeforCSR(entity);
+        }
+
+        if (entity == "bah_interactions" || entity == "incident") {
+            CommCare.Shared.LimitNonCoreOptions("vhacrm_noncorereason_code", lobName, entity, xrmPage, null, programTypeFieldName);
+        }
+
+        if (entity == "mcs_caller" && pickListFieldName == "mcs_interactedwith") {
+            //add humanitarian
+            pickListField.addOption({ value: 803750011, text: "Humanitarian" });
+        }
+
+        if (entity == "bah_interactions") {
+            var programValue = CommCare.Shared.GetFieldValue("bah_programtypeid");
+            var purposeValue = CommCare.Shared.GetFieldValue("vhacrm_interactionpurposeid");
+            //if (CommCare.Shared.GetLookupName(programValue) == "VISN/VAMC" && CommCare.Shared.GetLookupName(purposeValue) == "Billing Concern") {
+            if (CommCare.Shared.GetLookupName(programValue) == "VISN/VAMC") {
+                pickListField.addOption({ value: 803750011, text: "Humanitarian" });
+            }
+        }
+
+        //if (entity == "bah_interactions" && pickListFieldName == "bah_interactedwith_code") {
+        //    //add humanitarian
+        //    pickListField.addOption({ value: 803750011, text: "Humanitarian" });
+        //}
+    }
+}
+
+CommCare.Shared.LimitMethodOfDelivery = function () {
+    console.log("limiting MOD");
+    var currentFormId = CommCare.Shared.FormContext.ui.formSelector.getCurrentItem().getId();
+
+    if (currentFormId != CommCare.Shared.Constants.OCCFM_FORM) {
+        var lineOfBusiness = CommCare.Shared.GetFieldValue("vhacrm_lobid");
+        var lineOfBusinessName = lineOfBusiness != null ? CommCare.Shared.DialogNameReturn(lineOfBusiness[0].name) : null;
+
+        if (lineOfBusinessName == CommCare.Shared.Constants.CCWF_LOB_NAME) {
+            var programType = CommCare.Shared.GetFieldValue("ccwf_programid");
+            var programTypeName = programType != null ? CommCare.Shared.DialogNameReturn(programType[0].name) : null;
+            var pickListField = CommCare.Shared.FormContext.getControl("vhacrm_methodofdelivery_code");
+            var action = CommCare.Shared.GetFieldValue("vhacrm_actionintersectionid");
+            var actionName = action != null ? CommCare.Shared.DialogNameReturn(action[0].name) : null;
+
+            var options = CommCare.Shared.FormContext.getAttribute("vhacrm_methodofdelivery_code").getOptions();
+            var selectedValue = CommCare.Shared.GetFieldValue("vhacrm_methodofdelivery_code");
+
+            if (!window.MODOptions) {
+                window.MODOptions = {};
+                MODOptions.Mail = CommCare.Shared.FormContext.getAttribute("vhacrm_methodofdelivery_code").getOption(713770000);
+                MODOptions.EMail = CommCare.Shared.FormContext.getAttribute("vhacrm_methodofdelivery_code").getOption(713770001);
+                MODOptions.Fax = CommCare.Shared.FormContext.getAttribute("vhacrm_methodofdelivery_code").getOption(713770002);
+                MODOptions.VHIE = CommCare.Shared.FormContext.getAttribute("vhacrm_methodofdelivery_code").getOption(803750000);
+                MODOptions.NotClaimStatusReport = CommCare.Shared.FormContext.getAttribute("vhacrm_methodofdelivery_code").getOption(713770003);
+            }
+
+            for (var i = 0; i < options.length; i++) {
+                pickListField.removeOption(options[i].value);
+            }
+
+            if (actionName == "PFRAR" || actionName == "Send Correspondence") {
+                pickListField.addOption(MODOptions.Mail);
+                pickListField.addOption(MODOptions.EMail);
+                pickListField.addOption(MODOptions.Fax);
+
+                if (selectedValue) {
+                    CommCare.Shared.SetFieldValue("vhacrm_methodofdelivery_code", selectedValue);
+                }
+            }
+            else if (programTypeName == "C6" || programTypeName == CommCare.Shared.Constants.C3Name) {
+                pickListField.addOption(MODOptions.Mail);
+                pickListField.addOption(MODOptions.EMail);
+                pickListField.addOption(MODOptions.Fax);
+                pickListField.addOption(MODOptions.VHIE);
+
+                if (selectedValue) {
+                    CommCare.Shared.SetFieldValue("vhacrm_methodofdelivery_code", selectedValue);
+                }
+            }
+            else {
+                pickListField.addOption(MODOptions.Mail);
+                pickListField.addOption(MODOptions.EMail);
+                pickListField.addOption(MODOptions.Fax);
+                //pickListField.addOption(MODOptions.VHIE);
+                pickListField.addOption(MODOptions.NotClaimStatusReport);
+
+                if (selectedValue) {
+                    CommCare.Shared.SetFieldValue("vhacrm_methodofdelivery_code", selectedValue);
+                }
+            }
+        }
+    }
+}
+
+CommCare.Shared.LimitNonCoreOptions = function (pickListFieldName, userLOB, entity, xrmPage, pushedValue, programTypeFieldName) {
+    console.log("limiting non-core");
+    var pickListField = xrmPage.getControl(pickListFieldName);
+    var programType = CommCare.Shared.GetFieldValue(programTypeFieldName);
+    var programTypeName = programType != null ? CommCare.Shared.DialogNameReturn(programType[0].name) : null;
+    var options = xrmPage.getAttribute(pickListFieldName).getOptions();
+    var selectedValue = CommCare.Shared.GetFieldValue(pickListFieldName);
+
+    if (userLOB) {
+
+        //save all options  
+        if (!window.nonCoreOptions) {
+            window.nonCoreOptions = {};
+            nonCoreOptions.General = xrmPage.getAttribute(pickListFieldName).getOption(806860000);
+            nonCoreOptions.Applicant = xrmPage.getAttribute(pickListFieldName).getOption(806860001);
+            nonCoreOptions.Tricare = xrmPage.getAttribute(pickListFieldName).getOption(806860002);
+            nonCoreOptions.VAMC = xrmPage.getAttribute(pickListFieldName).getOption(806860003);
+            nonCoreOptions.Choice = xrmPage.getAttribute(pickListFieldName).getOption(713770000);
+            nonCoreOptions.ReferredtoVAMCFacility = xrmPage.getAttribute(pickListFieldName).getOption(713770001);
+            nonCoreOptions.UnsupportedVISN = xrmPage.getAttribute(pickListFieldName).getOption(713770002);
+            nonCoreOptions.CallerDisconnected = xrmPage.getAttribute(pickListFieldName).getOption(713770003);
+            nonCoreOptions.WrongNumber = xrmPage.getAttribute(pickListFieldName).getOption(713770004);
+            nonCoreOptions.CreatedinError = xrmPage.getAttribute(pickListFieldName).getOption(713770005);
+            nonCoreOptions.Transfer = xrmPage.getAttribute(pickListFieldName).getOption(803750000);
+            nonCoreOptions.Optum = xrmPage.getAttribute(pickListFieldName).getOption(803750001);
+            nonCoreOptions.SignatureTransfer = xrmPage.getAttribute(pickListFieldName).getOption(803750002);
+            nonCoreOptions.BlankFax = xrmPage.getAttribute(pickListFieldName).getOption(803750003);
+            nonCoreOptions.Advertisement = xrmPage.getAttribute(pickListFieldName).getOption(803750004);
+            nonCoreOptions.WrongDepartment = xrmPage.getAttribute(pickListFieldName).getOption(803750005);
+            nonCoreOptions.Duplicate = xrmPage.getAttribute(pickListFieldName).getOption(803750006);
+        }
+
+        //clear all items
+        for (var i = 0; i < options.length; i++) {
+            pickListField.removeOption(options[i].value);
+        }
+
+        if (userLOB == CommCare.Shared.Constants.OCCFM_LOB_NAME) {
+            
+            pickListField.addOption(nonCoreOptions.General);
+            pickListField.addOption(nonCoreOptions.Applicant);
+            pickListField.addOption(nonCoreOptions.Tricare);
+            pickListField.addOption(nonCoreOptions.VAMC);
+            pickListField.addOption(nonCoreOptions.CallerDisconnected);
+            pickListField.addOption(nonCoreOptions.Transfer);
+            pickListField.addOption(nonCoreOptions.SignatureTransfer);
+
+            if (CommCare.Shared.FormContext.ui.getFormType() === CommCare.Shared.Constants.CREATE_FORM && pushedValue) {
+                CommCare.Shared.SetFieldValue(pickListFieldName, pushedValue);
+            }
+            else if (selectedValue) {
+                CommCare.Shared.SetFieldValue(pickListFieldName, selectedValue);
+            }
+            var entityName = xrmPage.data.entity.getEntityName();
+            var source;
+            var purpose;
+            if (entityName == "bah_interactions") {
+                source = CommCare.Shared.GetFieldValue("bah_interactionsource_code");
+                purpose = CommCare.Shared.GetFieldValue("vhacrm_interactionpurposeid");
+            } else if (entityName == "incident") {
+                source = CommCare.Shared.GetFieldValue("caseorigincode");
+                purpose = CommCare.Shared.GetFieldValue("vhacrm_areaintersectionid");
+            }
+            
+            var purposeName = purpose != null ? CommCare.Shared.DialogNameReturn(purpose[0].name) : null;
+
+            if (purposeName == "Non-Core" && source == CommCare.Shared.Constants.InteractionSource.Fax) {
+                pickListField.addOption(nonCoreOptions.BlankFax);
+                pickListField.addOption(nonCoreOptions.Advertisement);
+                pickListField.addOption(nonCoreOptions.WrongDepartment);
+                pickListField.addOption(nonCoreOptions.Duplicate);
+            }
+        }
+        else if (programTypeName == "C6" || programTypeName == CommCare.Shared.Constants.C3Name) {
+            pickListField.addOption(nonCoreOptions.ReferredtoVAMCFacility);
+            pickListField.addOption(nonCoreOptions.CallerDisconnected);
+            pickListField.addOption(nonCoreOptions.WrongNumber);
+            pickListField.addOption(nonCoreOptions.CreatedinError);
+            pickListField.addOption(nonCoreOptions.Transfer);
+
+            if (selectedValue) {
+                CommCare.Shared.SetFieldValue(pickListFieldName, selectedValue);
+            }
+        }
+        else {
+            pickListField.addOption(nonCoreOptions.Choice);
+            pickListField.addOption(nonCoreOptions.ReferredtoVAMCFacility);
+            //pickListField.addOption(nonCoreOptions.UnsupportedVISN);
+            pickListField.addOption(nonCoreOptions.CallerDisconnected);
+            pickListField.addOption(nonCoreOptions.WrongNumber);
+            pickListField.addOption(nonCoreOptions.CreatedinError);
+            pickListField.addOption(nonCoreOptions.Transfer);
+            pickListField.addOption(nonCoreOptions.Optum);
+            pickListField.addOption(nonCoreOptions.SignatureTransfer);
+
+            if (selectedValue) {
+                CommCare.Shared.SetFieldValue(pickListFieldName, selectedValue);
+            }
+        }
+    }
+}
+
+CommCare.Shared.PreFilterPurposeforCSR = function (entity) {
+    var fetchXml;
+    var filterFields = (entity === "bah_interactions") ? true : (CommCare.Shared.FormContext.ui.getFormType() === CommCare.Shared.Constants.CREATE_FORM) ? true : false;
+    console.log("Prefilter Purpose");
+    if (filterFields === true) {
+        var fieldToFilter = (entity === "bah_interactions") ? "vhacrm_interactionpurposeid" : "vhacrm_areaintersectionid"
+
+        if (CommCare.Shared.IsCSR) {
+            var columns = "mcs_PurposeIntersection";
+            var filter = "$filter=mcs_name eq 'InteractionPurposeCSR' and statecode eq 0";
+            CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+            CommCare.Shared.CrmCommonJS.WebApi.RetrieveMultiple("mcs_lookupfilters", columns, filter).then(function (results) {
+                if (results.value != null) {
+                    fetchXml = "<filter type='or'>\n";
+                    for (var i = 0; i < results.value.length; i++) {
+                        fetchXml += "<condition attribute='vhacrm_name' operator='eq' value='" + results.value[i]["_mcs_purposeintersection_value@OData.Community.Display.V1.FormattedValue"] + "' />\n";
+                    }
+                    fetchXml += "</filter>";
+
+                    CommCare.Shared.FormContext.getControl(fieldToFilter).addPreSearch(function () {
+                        CommCare.Shared.SetPrefilterforPurpose(fieldToFilter, fetchXml);
+                    });
+                }
+            }).catch(function (error) {
+                console.log("Error retrieving CSR Filter:");
+                console.log(error)
+            });
+        }
+        else {
+            CommCare.Shared.SetPrefilterforPurpose(fieldToFilter, "");
+        }
+
+
+        //Old Fetch Replaced by GetUserLobs Fetch
+        //var userId = Xrm.Utility.getGlobalContext().userSettings.userId.replace("{", "").replace("}", "");
+        //var userPositionFetch = "<fetch>\
+        //                          <entity name='systemuser' >\
+        //                            <attribute name='fullname' />\
+        //                            <link-entity name='position' from='positionid' to='positionid' link-type='inner' >\
+        //                              <attribute name='name' />\
+        //                            </link-entity>\
+        //                            <link-entity name='teammembership' from='systemuserid' to='systemuserid' link-type='inner' >\
+        //                              <link-entity name='team' from='teamid' to='teamid' >\
+        //                                <attribute name='name' />\
+        //                              </link-entity>\
+        //                            </link-entity>\
+        //                            <filter type='and' >\
+        //                              <condition attribute='systemuserid' operator='eq' value='" + userId + "' />\
+        //                              <filter type='and' >\
+        //                                <condition entityname='position' attribute='name' operator='eq' value='CSR' />\
+        //                              </filter>\
+        //                            </filter>\
+        //                          </entity>\
+        //                        </fetch>"
+        //
+        //CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+        //CommCare.Shared.CrmCommonJS.WebApi.RetrieveByFetchXml("systemusers", userPositionFetch).then(function (results) {
+        //    if (results.value.length > 0) {
+        //        CommCare.Shared.IsCSR = true;
+        //    }
+        //    //always add the preSearch. Check CommCare.Shared.IsCSR within filter function.
+        //    CommCare.Shared.FormContext.getControl(fieldToFilter).addPreSearch(function () {
+        //        CommCare.Shared.SetPrefilterforPurpose(fieldToFilter);
+        //    });
+        //}).catch(function (error) {
+        //    console.log("Error in fetching user position: " + error.message);
+        //});
+    }
+}
+
+CommCare.Shared.SetPrefilterforPurpose = function (fieldToFilter, CSCFetchXML) {
+    var fetchXml;
+    var programTypeFieldName;
+    var entity = CommCare.Shared.FormContext.data.entity.getEntityName();
+    (entity === "bah_interactions") ? programTypeFieldName = "bah_programtypeid" : programTypeFieldName = "ccwf_programid";
+    var programType = CommCare.Shared.GetFieldValue(programTypeFieldName);
+    var programTypeName = programType != null ? CommCare.Shared.DialogNameReturn(programType[0].name) : null;
+    if (programTypeName == "FMP") { //type intersection = " FMP"
+        fetchXml = fetchXml;
+        //fetchXml = "<filter type='or'>\
+        //                <condition attribute='vhacrm_typeintersectionid' operator='eq' value='76E4A42F-DF0E-E911-8129-1458D04E0CA0' />\
+        //            </filter>";
+        //<filter type='and'>\
+        //    <condition attribute='vhacrm_typeintersectionid' operator='neq' value='b32861fa-34df-e611-9427-0050568d1c17' />\
+        //</filter>";
+        //CommCare.Shared.FormContext.getControl(fieldToFilter).addCustomFilter(fetchXml);
+    }
+    else {//type intersection = " CSC"
+        if (CommCare.Shared.IsCSR) {
+            CommCare.Shared.FormContext.getControl(fieldToFilter).addCustomFilter(CSCFetchXML);
+        }
+    }
+}
+
+CommCare.Shared.PreFilterPurposeforProgram = function (source) {
+    console.log("Prefilter Program");
+    var fieldToFilter = "bah_programtypeid";
+    var LobControl = CommCare.Shared.GetFieldValue("hrc_lobid");
+    if (LobControl === null) return;
+
+    var LineOfBusiness = CommCare.Shared.DialogNameReturn(LobControl[0].name);
+    if (LineOfBusiness === CommCare.Shared.Constants.OCCFM_LOB_NAME) {
+
+        var fetchXml;
+        var columns = "mcs_ProgramType";
+        var filter = "$filter=mcs_name eq 'ProgramFM' and statecode eq 0";
+        CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+        CommCare.Shared.CrmCommonJS.WebApi.RetrieveMultiple("mcs_lookupfilters", columns, filter).then(function (results) {
+            if (results.value != null) {
+                fetchXml = "<filter type='or'>\n";
+                for (var i = 0; i < results.value.length; i++) {
+                    fetchXml += "<condition attribute='bah_name' operator='eq' value='" + results.value[i]["_mcs_programtype_value@OData.Community.Display.V1.FormattedValue"] + "' />\n";
+                }
+
+                var team = CommCare.Shared.GetFieldValue("hac_teamid");
+                var teamName;
+                if (team != null)
+                    teamName = CommCare.Shared.DialogNameReturn(team[0].name);
+
+                if (teamName === "CSC Specialty") {
+                    fetchXml += "                    <condition attribute='bah_name' operator='eq' value='FMP' />\
+                ";
+                }
+
+                fetchXml += "</filter>";
+
+                CommCare.Shared.FormContext.getControl(fieldToFilter).addPreSearch(function () {
+                    CommCare.Shared.SetPrefilterProgramforFM(fieldToFilter, fetchXml);
+                });
+            }
+        }).catch(function (error) {
+            console.log("Error ProgramFM Filter:");
+            console.log(error)
+        });
+
+    }
+    else if (LineOfBusiness === CommCare.Shared.Constants.CCWF_LOB_NAME) {
+        var userId = Xrm.Utility.getGlobalContext().userSettings.userId.replace(/[{}]/g, "");
+        var fetchXml;
+        var columns = "mcs_ProgramType";
+        var filter = "$filter=mcs_name eq 'ProgramCE' and statecode eq 0";
+        CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+        CommCare.Shared.CrmCommonJS.WebApi.RetrieveMultiple("mcs_lookupfilters", columns, filter).then(function (results) {
+            if (results.value != null) {
+                if (CommCare.Shared.IsC3 == undefined || CommCare.Shared.IsC6 == undefined) {
+                    Xrm.WebApi.online.retrieveMultipleRecords("teammembership", "?$select=systemuserid,teamid&$filter=systemuserid eq " + userId + " and  (teamid eq ef97ed25-b2c5-e911-a984-001dd800ba25 or  teamid eq 64086c6d-b457-e911-a96f-001dd800a749)").then(
+                        function success(resultsTeams) {
+                            for (var i = 0; i < resultsTeams.entities.length; i++) {
+                                var teamid = resultsTeams.entities[i]["teamid"];
+                                if (teamid == CommCare.Shared.Constants.TEAM_C3)
+                                    CommCare.Shared.IsC3 = true;
+                                if (teamid == CommCare.Shared.Constants.TEAM_C6)
+                                    CommCare.Shared.IsC6 == true
+                            }
+
+                            fetchXml = "<filter type='or'>\n";
+                            if (CommCare.Shared.IsC6 == true) fetchXml += "<condition attribute='bah_name' operator='eq' value='C6' />";
+                            if (CommCare.Shared.IsC3 == true) fetchXml += "<condition attribute='bah_name' operator='eq' value='" + CommCare.Shared.Constants.C3Name + "' />";
+                            for (var i = 0; i < results.value.length; i++) {
+                                fetchXml += "<condition attribute='bah_name' operator='eq' value='" + results.value[i]["_mcs_programtype_value@OData.Community.Display.V1.FormattedValue"] + "' />\n";
+                            }
+                            fetchXml += "</filter>";
+
+                            CommCare.Shared.FormContext.getControl(fieldToFilter).addPreSearch(function () {
+                                CommCare.Shared.SetPrefilterProgramforC4(fieldToFilter, fetchXml);
+                            });
+                        },
+                        function (error) {
+                            Xrm.Navigation.openAlertDialog({ text: error.message });
+                        }
+                    );
+                }
+            }
+        }).catch(function (error) {
+            console.log("Error retrieving ProgramCE:");
+            console.log(error)
+        });
+    }
+}
+
+CommCare.Shared.SetPrefilterProgramforFM = function (fieldToFilter, ProgramFMFetchXML) {
+    //hac_teamid is Team for both Interaction and Request
+    var team = CommCare.Shared.GetFieldValue("hac_teamid");
+    var teamName;
+    if (team != null)
+        teamName = CommCare.Shared.DialogNameReturn(team[0].name);
+
+    //var fetchXml = "<filter type='or'>\
+    //                <condition attribute='bah_name' operator='eq' value='CSC' />\
+    //                <condition attribute='bah_name' operator='eq' value='PRRT' />\
+    //            ";
+    //if (teamName === "CSC Specialty") {
+    //    fetchXml += "                    <condition attribute='bah_name' operator='eq' value='FMP' />\
+    //            ";
+    //}
+    //fetchXml += "</filter>";
+
+    CommCare.Shared.FormContext.getControl(fieldToFilter).addCustomFilter(ProgramFMFetchXML);
+}
+
+CommCare.Shared.SetPrefilterProgramforC4 = function (fieldToFilter, ProgramC4FetchXML) {
+
+    //var fetchXml = "<filter type='or'>";
+    //if (CommCare.Shared.IsC6 == true) fetchXml += "<condition attribute='bah_name' operator='eq' value='C6' />";
+    //if (CommCare.Shared.IsC3 == true) fetchXml += "<condition attribute='bah_name' operator='eq' value='C3' />";
+    //fetchXml += "<condition attribute='bah_name' operator='eq' value='Choice' />\
+    //                <condition attribute='bah_name' operator='eq' value='Help Desk' />\
+    //                <condition attribute='bah_name' operator='eq' value='Non-VA' />\
+    //                <condition attribute='bah_name' operator='eq' value='PC3' />\
+    //                <condition attribute='bah_name' operator='eq' value='PRRT' />\
+    //            </filter>";
+    CommCare.Shared.FormContext.getControl(fieldToFilter).addCustomFilter(ProgramC4FetchXML);
+}
+
+CommCare.Shared.ValidateForm = function validateForm() {
+    var valid = true;
+    var valuestring = '';
+    CommCare.Shared.FormContext.data.entity.attributes.forEach(function (attribute, index) {
+        if (attribute.getRequiredLevel() == "required") {
+            if (attribute.getValue() == null) {
+                var control = attribute.controls.get(0);
+                valuestring += control.getLabel() + '\n';
+                valid = false;
+            }
+        }
+    });
+
+    if (!valid) {
+        Xrm.Navigation.openAlertDialog({ text: 'You must complete the following fields:\n' + valuestring });
+    }
+    return valid;
+}
+
+//function to check charcodes on dialog text returns
+CommCare.Shared.DialogNameReturn = function (nameText) {
+    if (nameText) {
+        while (nameText.indexOf(String.fromCharCode(160)) > 0) {
+            nameText = nameText.replace(String.fromCharCode(160), String.fromCharCode(32));
+        }
+    }
+
+    return nameText;
+}
+
+//function to clear session storage
+CommCare.Shared.ClearSesssionStorage = function (storageItemName) {
+    if (sessonStorage.getItem(storageItemName)) {
+        sessionStorage.removeItem(storageItemName);
+    }
+}
+
+CommCare.Shared.GetCleanId = function (lookup) {
+    if (lookup == null) {
+        return null;
+    }
+    var cleanId = lookup[0].id.replace("{", "").replace("}", "").toLowerCase();
+    return cleanId;
+}
+
+// function that wires a change event to a field
+CommCare.Shared.SetOnChange = function (fieldName, delegate) {
+    if (CommCare.Shared.FormContext.getAttribute(fieldName) != null) {
+        CommCare.Shared.FormContext.getAttribute(fieldName).addOnChange(delegate);
+    }
+}
+
+CommCare.Shared.SetOnChangeOfMultipleFields = function (fieldList, delegate) {
+    if (fieldList.length > 0) {
+        for (var i = 0; i < fieldList.length; i++) {
+            CommCare.Shared.SetOnChange(fieldList[i], delegate);
+        }
+    }
+}
+
+//Function to remove a specific change event handler for a field
+CommCare.Shared.RemoveOnChange = function (fieldName, delegate) {
+    if (CommCare.Shared.FormContext.getAttribute(fieldName) != null) {
+        CommCare.Shared.FormContext.getAttribute(fieldName).removeOnChange(delegate);
+    }
+}
+
+// set the specified field as read-only (true/false)
+CommCare.Shared.SetReadOnly = function (fieldName, isReadOnly) {
+    if (CommCare.Shared.FormContext.getControl(fieldName) != null) {
+        CommCare.Shared.FormContext.getControl(fieldName).setDisabled(isReadOnly);
+    }
+}
+
+CommCare.Shared.SetFieldValue = function (fieldName, value) {
+    if (CommCare.Shared.FormContext.getAttribute(fieldName) != null) {
+        return CommCare.Shared.FormContext.getAttribute(fieldName).setValue(value);
+    }
+    return null;
+}
+
+// some field-level manipulation functions that provide null-checking
+CommCare.Shared.GetFieldValue = function (fieldName) {
+    if (CommCare.Shared.FormContext != null && CommCare.Shared.FormContext.getAttribute(fieldName) != null) {
+        return CommCare.Shared.FormContext.getAttribute(fieldName).getValue();
+    }
+        //Else try incase field is on parent
+    //else if (parent.Xrm.Page.getAttribute(fieldName) != null) {
+    //    return parent.Xrm.Page.getAttribute(fieldName).getValue();
+    //}
+    return null;
+}
+
+CommCare.Shared.SetRequired = function (fieldName, requiredLevel) {
+    requiredLevel = requiredLevel == true ? "required"
+        : requiredLevel == false ? "none"
+        : requiredLevel;
+
+    //if (CommCare.Shared.FormContext == null && parent.Xrm.Page.getAttribute(fieldName) != null) {
+    //    parent.Xrm.Page.getAttribute(fieldName).setRequiredLevel(requiredLevel);
+    //}
+    //else
+    if (CommCare.Shared.FormContext.getAttribute(fieldName) != null) {
+        CommCare.Shared.FormContext.getAttribute(fieldName).setRequiredLevel(requiredLevel);
+    }
+}
+
+// set the specified field to Visible/hidden (true/false)
+CommCare.Shared.SetVisible = function (fieldName, isReadOnly) {
+    if (CommCare.Shared.FormContext.getControl(fieldName) != null) {
+        CommCare.Shared.FormContext.getControl(fieldName).setVisible(isReadOnly);
+    }
+}
+
+// set the cursor on specific attribute
+CommCare.Shared.SetFocus = function (fieldName) {
+    if (CommCare.Shared.FormContext.getControl(fieldName) != null) {
+        CommCare.Shared.FormContext.getControl(fieldName).setFocus();
+    }
+}
+
+// set submit mode on field
+// valid values: always, never dirty
+CommCare.Shared.SetSubmitMode = function (fieldName, submitMode) {
+    if (CommCare.Shared.FormContext.getAttribute(fieldName) != null) {
+        CommCare.Shared.FormContext.getAttribute(fieldName).setSubmitMode(submitMode);
+    }
+}
+
+CommCare.Shared.GetOptionSetValue = function (fieldName) {
+    if (CommCare.Shared.FormContext.getAttribute(fieldName) != null && CommCare.Shared.FormContext.getAttribute(fieldName).getSelectedOption() != null) {
+        return CommCare.Shared.FormContext.getAttribute(fieldName).getSelectedOption().value;
+    }
+    return null;
+}
+
+CommCare.Shared.GetOptionSetText = function (fieldName) {
+    if (CommCare.Shared.FormContext.getAttribute(fieldName) != null && CommCare.Shared.FormContext.getAttribute(fieldName).getSelectedOption() != null) {
+        return CommCare.Shared.FormContext.getAttribute(fieldName).getSelectedOption().text;
+    }
+    return null;
+}
+
+//Function to loop all controls on form and set them to disabled
+CommCare.Shared.LockForm = function () {
+    CommCare.Shared.FormContext.data.entity.attributes.forEach(function (attribute, index) {
+        var control = CommCare.Shared.FormContext.getControl(attribute.getName());
+        if (control) {
+            control.setDisabled(true);
+        }
+    });
+}
+
+//Function to loop all controls on form and set them to Required No
+CommCare.Shared.SetAllFieldsNotRequired = function () {
+    CommCare.Shared.FormContext.data.entity.attributes.forEach(function (attribute, index) {
+        attribute.setRequiredLevel("none");
+    });
+}
+
+// utility function to write to the console (if it is available)
+CommCare.Shared.WriteToConsole = function (message) {
+    if (window.console) {
+        window.console.log(message);
+    }
+}
+
+// columnList needs to be a comma delimited string
+// params is a comma-delimited string in the format paramName,paramValue,paramName,paramValue
+//        Sample: StringFildName,StringValue,LookupFieldName/Id,<guid>guidValue,optionListFieldName/Value,<int>optionListValue
+//                new_name,test Record,ContactId/Id,<guid>{29E3AE6D-3EDD-E311-BF37-6C3BE5A80B7C},statuscode/Value,0
+CommCare.Shared.GetEntityOData = function (entityName, entityId, columnList, params, orderBy, expand) {
+    if ((typeof (orderBy) == "undefined") || (orderBy == null))
+        orderBy = "";
+
+    //OData URI
+    var oDataURI = Xrm.Utility.getGlobalContext().getClientUrl()
+        + "/XRMServices/2011/OrganizationData.svc/"
+        + entityName + "Set";
+
+    if (entityId != null && entityId.length > 0) {
+        oDataURI += "(guid'" + entityId + "')";
+    }
+
+    if (columnList == null) {
+        columnList = "";
+    }
+
+    if (params == null) {
+        params = "";
+    }
+
+    if (expand == null) {
+        expand = "";
+    }
+
+    if (columnList.length > 0 || params.length > 0 || orderBy.length > 0 || expand.length > 0) {
+        oDataURI += "?";
+
+        if (columnList.length > 0) {
+            oDataURI += "$select=" + columnList;
+
+            if (orderBy.length > 0 || params.length > 0 || expand.length > 0) {
+                oDataURI += "&";
+            }
+        }
+
+        //Sample of order by list "Address1_Country,Address1_City desc"
+        //Use "desc" to reverse the order or "asc" for default order 
+        if (orderBy.length > 0) {
+            oDataURI += "$orderby=" + orderBy;
+
+            if (params.length > 0 || expand.length > 0) {
+                oDataURI += "&";
+            }
+        }
+
+        if (params.length > 0) {
+            oDataURI += "$filter=";
+            var paramsArray = params.split(",");
+            for (var i = 0; i < paramsArray.length / 2; i++) {
+                if (i > 0) {
+                    oDataURI += " and ";
+                }
+                var currentIndex = i * 2;
+                oDataURI += paramsArray[currentIndex] + " eq ";
+
+                //
+                if (paramsArray[currentIndex + 1].indexOf("<int>") >= 0) {
+                    oDataURI += paramsArray[currentIndex + 1].replace("<int>", "");
+                } else {
+                    if (paramsArray[currentIndex + 1].indexOf("<guid>") >= 0) {
+                        oDataURI += "guid'" + paramsArray[currentIndex + 1].replace("<guid>", "");
+                    }
+                    else {
+                        oDataURI += "'" + paramsArray[currentIndex + 1];
+                    }
+                    oDataURI += "'";
+                }
+            }
+
+            if (expand.length > 0) {
+                oDataURI += "&";
+            }
+        }
+
+        if (expand.length > 0) {
+            oDataURI += "$expand=" + expand;
+        }
+
+    }
+
+    // write the odata uri out to the console
+    CommCare.Shared.WriteToConsole(oDataURI);
+
+    var returnObject;
+
+    //synchronous XMLHttpRequest to retrieve account record
+    var req = new XMLHttpRequest();
+    req.open("GET", encodeURI(oDataURI), false);
+    req.setRequestHeader("Accept", "application/json");
+    req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    req.onreadystatechange = function () {
+        if (this.readyState == 4 /* complete */) {
+            req.onreadystatechange = null; //avoids memory leaks
+            if (this.status == 200) {
+                //parse the response string as a JSON object into the successCallback method.
+                returnObject = JSON.parse(this.responseText).d;
+            }
+            else {
+                CommCare.Shared.WriteToConsole("Error occurred trying to retrieve " + entityName + " entity");
+            }
+        }
+    };
+    req.send();
+
+    return returnObject;
+}
+
+CommCare.Shared.ExecuteWorkflow = function (workflowId, entityId) {
+    return new Promise(function (resolve, reject) {
+        var query = "workflows(" + workflowId.replace("}", "").replace("{", "") + ")/Microsoft.Dynamics.CRM.ExecuteWorkflow";
+        var data = {
+            "EntityId": entityId
+        };
+
+        var req = new XMLHttpRequest();
+        req.open("POST", encodeURI(Xrm.Utility.getGlobalContext().getClientUrl() + "/api/data/v9.1/" + query), true);
+        req.setRequestHeader("Accept", "application/json");
+        req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+        req.setRequestHeader("OData-MaxVersion", "4.0");
+        req.setRequestHeader("OData-Version", "4.0");
+        req.onreadystatechange = function () {
+            if (this.readyState == 4 /* complete */) {
+                if (req.status >= 200 && req.status < 300) {
+                    req.onreadystatechange = null;
+                    resolve(req);
+                }
+                else {
+                    reject(new Error(req.status + " - " + req.statusText));
+                }
+            }
+        };
+        req.send(JSON.stringify(data));
+    });
+}
+
+CommCare.Shared.ExecuteWorkflowWithoutCallback = function (workflowId, entityId) {
+    CommCare.Shared.ExecuteWorkflow(workflowId, entityId).then(function (workflowData) {
+        console.log(workflowData);
+    }).catch(function (err) {
+        console.log(err);
+    });
+}
+
+CommCare.Shared.UpdateRecord = function (entityName, recordId, entityObject) {
+    return new Promise(function (resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open("PATCH", Xrm.Utility.getGlobalContext().getClientUrl() + "/api/data/v9.1/" + entityName + "(" + recordId + ")", true);
+        req.setRequestHeader("OData-MaxVersion", "4.0");
+        req.setRequestHeader("OData-Version", "4.0");
+        req.setRequestHeader("Accept", "application/json");
+        req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+        req.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                req.onreadystatechange = null;
+                if (this.status === 204) {
+                    //Success - No Return Data - Do Something
+                    resolve(req);
+                } else {
+                    reject(new Error(req.status + " - " + req.statusText));
+                }
+            }
+        };
+        req.send(JSON.stringify(entityObject));
+    });
+}
+
+CommCare.Shared.CreateRecord = function (entityName, entityObject) {
+    return new Promise(function (resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open("POST", Xrm.Utility.getGlobalContext().getClientUrl() + "/api/data/v9.1/" + entityName, true);
+        req.setRequestHeader("OData-MaxVersion", "4.0");
+        req.setRequestHeader("OData-Version", "4.0");
+        req.setRequestHeader("Accept", "application/json");
+        req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+        req.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                req.onreadystatechange = null;
+                if (this.status === 204) {
+                    var uri = this.getResponseHeader("OData-EntityId");
+                    var regExp = /\(([^)]+)\)/;
+                    var matches = regExp.exec(uri);
+                    var newEntityId = matches[1];
+                    resolve(newEntityId);
+                } else {
+                    reject(new Error(req.status + " - " + req.statusText));
+                }
+            }
+        };
+        req.send(JSON.stringify(entityObject));
+    });
+}
+
+CommCare.Shared.CopySurveyEmail = function (interactionId, contactId) {
+    CommCare.Shared.FormContext.data.save().then(function () {
+        if ((contactId != null) && (interactionId != null)) {
+            var EmailAddress = "";
+            if (contactId !== null) {
+                var columns = "emailaddress1";
+                CommCare.Shared.CrmCommonJS.WebApi.RetrieveRecord(contactId, "contacts", columns).then(function (contact) {
+                    EmailAddress = contact["emailaddress1"];
+                    if (EmailAddress != null) {
+                        var serverURL = Xrm.Utility.getGlobalContext().getClientUrl();
+                        var query = "bah_interactionses(" + interactionId + ")/Microsoft.Dynamics.CRM.mcs_SaveSurveyEmail";
+                        var data = {
+                            "SurveyEmailAddress": EmailAddress
+                        };
+
+                        var req = new XMLHttpRequest();
+                        req.open("POST", serverURL + "/api/data/v9.1/" + query, true);
+                        req.setRequestHeader("Accept", "application/json");
+                        req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+                        req.setRequestHeader("OData-MaxVersion", "4.0");
+                        req.setRequestHeader("OData-Version", "4.0");
+                        req.onreadystatechange = function () {
+                            if (this.readyState == 4) {
+                                req.onreadystatechange = null;
+                                if (req.status >= 200 && req.status < 300) {
+                                    if (parent.window.IsUSD) {
+                                        windowtoOpen = "http://event/?eventName=CopySurveyEmailCallback";
+                                        window.open(windowtoOpen);
+                                    }
+                                } else {
+                                    var error = JSON.parse(this.response).error;
+                                    console.log(error.message);
+                                }
+                            }
+                        };
+                        req.send(JSON.stringify(data));
+                    }
+                }).catch(function (error) {
+                    console.log("Error retrieving Contact:");
+                    console.log(error);
+                });
+            }
+
+        }
+    }, function () {
+        console.log("Error saving: " + error.message);
+    });
+}
+
+CommCare.Shared.GetFormContext = function (executionContext) {
+    if (executionContext != null && executionContext != "undefined") {
+        if (CommCare.Shared.FormContext == null) CommCare.Shared.FormContext = executionContext.getFormContext();
+    }
+}
+
+CommCare.Shared.CallAction = function (actionName, parameters) {
+    return new Promise(function (resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open("POST", Xrm.Utility.getGlobalContext().getClientUrl() + "/api/data/v9.1/" + actionName, true);
+        req.setRequestHeader("OData-MaxVersion", "4.0");
+        req.setRequestHeader("OData-Version", "4.0");
+        req.setRequestHeader("Accept", "application/json");
+        req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+        req.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                req.onreadystatechange = null;
+                if (this.status === 200) {
+                    var result = JSON.parse(this.response);
+                    console.log("Successful Action Call with Results: ");
+                    console.log(result);
+                    resolve(result);
+                } else {
+                    console.log("Error in action call: " + this.statusText);
+                    reject(new Error(req.status + " - " + req.statusText));
+                }
+            }
+        };
+        req.send(JSON.stringify(parameters));
+    });
+}
+
+CommCare.Shared.CallEntityAction = function (actionName, entityName, entityId, parameters) {
+    return new Promise(function (resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open("POST", Xrm.Utility.getGlobalContext().getClientUrl() + "/api/data/v9.1/" + entityName + "s(" + entityId + ")/Microsoft.Dynamics.CRM." + actionName, true);
+        req.setRequestHeader("OData-MaxVersion", "4.0");
+        req.setRequestHeader("OData-Version", "4.0");
+        req.setRequestHeader("Accept", "application/json");
+        req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+        req.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                req.onreadystatechange = null;
+                if (this.status >= 200 && this.status < 300) {
+                    var result = '';
+
+                    if (this.response !== '') {
+                        result = JSON.parse(this.response);
+                        console.log("Successful Action Call with Results: ");
+                        console.log(result);
+                    }
+
+                    resolve(result);
+                } else {
+                    console.log("Error in action call: " + this.statusText);
+                    reject(new Error(req.status + " - " + req.statusText));
+                }
+            }
+        };
+
+        // IE req http requires an empty JSON string to be passed in to Action if no body is found.
+        if (typeof (parameters === 'undefined')) {
+            parameters = {};
+        }
+
+        req.send(JSON.stringify(parameters));
+    });
+}
+
+CommCare.Shared.GetCurrentAppProperties = function () {
+    return new Promise(function (resolve, reject) {
+        var globalContext = Xrm.Utility.getGlobalContext();
+        globalContext.getCurrentAppProperties().then(function (appProperties) {
+            resolve(appProperties);
+        }).catch(function (error) {
+            reject(error);
+        });
+    });
+}
+
+CommCare.Shared.DoesUserHaveRoles = function (listOfRoles) {
+    return new Promise(function (resolve, reject) {
+        var userId = Xrm.Utility.getGlobalContext().userSettings.userId.replace("{", "").replace("}", "");
+
+        var fetchXMLForUserRoles = '<fetch no-lock="true">' +
+                                    '<entity name="role" >' +
+                                    '<attribute name="name" />' +
+                                    '<link-entity name="systemuserroles" from="roleid" to="roleid" intersect="true" >' +
+                                        '<filter type="and" >' +
+                                        '<condition attribute="systemuserid" operator="eq" value="' + userId + '" />' +
+                                        '</filter>' +
+                                    '</link-entity>' +
+                                    '</entity>' +
+                                '</fetch>';
+
+        CommCare.Shared.CrmCommonJS.WebApi.AddRequestHeader("Prefer", "odata.include-annotations=OData.Community.Display.V1.FormattedValue");
+        CommCare.Shared.CrmCommonJS.WebApi.RetrieveByFetchXml("roles", fetchXMLForUserRoles).then(function (roles) {
+
+            for (var i = 0; i < roles.value.length; i++) {
+                var role = roles.value[i];
+
+                for (var j = 0; j < listOfRoles.length; j++) {
+                    if (listOfRoles[j].toLowerCase() === role.name.toLowerCase()) {
+                        resolve(true);
+                    }
+                }
+            }
+
+            // not resolved, role not found
+            resolve(false);
+        }).catch(function (error) {
+            reject(error);
+        });
+    });
+}
+
+CommCare.Shared.setReadOnlyOnMultipleFields = function (fieldList, bool) {
+    for (var i = 0; i < fieldList.length; i++) {
+        CommCare.Shared.SetReadOnly(fieldList[i], bool);
+    }
+}
+
+CommCare.Shared.SetRecordStatus = function (recordId, entityName, state, status) {
+    return new Promise(function (resolve, reject) {
+        var entity = {};
+        entity.statecode = state;
+        entity.statuscode = status;
+
+        var lastletter = entityName[entityName.length - 1]
+
+        var req = new XMLHttpRequest();
+        req.open("PATCH", Xrm.Utility.getGlobalContext().getClientUrl() + "/api/data/v9.1/" + entityName + "(" + recordId + ")", true);
+        req.setRequestHeader("OData-MaxVersion", "4.0");
+        req.setRequestHeader("OData-Version", "4.0");
+        req.setRequestHeader("Accept", "application/json");
+        req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+        req.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                req.onreadystatechange = null;
+                if (this.status === 204) {
+                    resolve();
+                } else {
+                    reject(this.statusText);
+                }
+            }
+        };
+        req.send(JSON.stringify(entity));
+    });
+}
+
+CommCare.Shared.GetEntitySetName = function (logicalName) {
+    return new Promise(function (resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open("GET", Xrm.Utility.getGlobalContext().getClientUrl() + "/api/data/v9.1/EntityDefinitions(LogicalName='" + logicalName + "')?$select=DisplayName,IsKnowledgeManagementEnabled,EntitySetName", true);
+        req.setRequestHeader("OData-MaxVersion", "4.0");
+        req.setRequestHeader("OData-Version", "4.0");
+        req.setRequestHeader("Accept", "application/json");
+        req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+        req.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                req.onreadystatechange = null;
+                if (this.status === 200) {
+                    var result = JSON.parse(this.response);
+                    resolve(result.EntitySetName);
+                } else {
+                    reject(this.statusText);
+                }
+            }
+        };
+        req.send(JSON.stringify());
+    });
+}
+CommCare.Shared.HashHandler = function () {
+    const recieveMessage = () => {
+        CommCare.Shared.FormContext.ui.controls.getByFilter(c => c.getControlType() === "webresource")
+            .map(c => c.getContentWindow().then((cwin) => {
+                //console.log("HashHandlerRunning");
+                if (cwin.location.hash === "#ReadyXrm") {
+
+                    try {
+                        cwin.setClientApiContext(Xrm, CommCare.Shared.FormContext);
+                    } catch (ex) {
+                        //console.log(ex);
+                    }
+
+                    cwin.location.hash = "";
+                }
+            })
+        );
+
+        CommCare.Shared.FormContext.ui.controls.getByFilter(c => c.getControlType() === "iframe")
+            .map(c => c.getContentWindow().then((cwin) => {
+                //console.log("HashHandlerRunningIframe");
+                if (cwin.location.hash === "#ReadyXrm") {
+
+                    try {
+                        cwin.setClientApiContext(Xrm, CommCare.Shared.FormContext);
+                    } catch (ex) {
+                        //console.log(ex);
+                    }
+
+                    cwin.location.hash = "";
+                }
+            })
+        );
+    };
+
+    setInterval(recieveMessage, 100);
+}
+
+CommCare.Shared.SetChildContext = function (context, controlName) {
+    var webResource = CommCare.Shared.FormContext.getControl(controlName);
+    console.log("Setting context for Web Resource: " + controlName);
+
+    if (webResource) {
+        webResource.getContentWindow().then((contentWindow) => {
+            contentWindow.setClientApiContext(Xrm, context);
+        }).catch((error) => {
+            console.log("Error in setChildContext");
+            console.log(error);
+        });
+    }
+
+}
+
+CommCare.Shared.GetLookupName = function (lookup) {
+    var lookupName = lookup != null ? CommCare.Shared.DialogNameReturn(lookup[0].name) : null;
+    return lookupName;
+}
+
+CommCare.Shared.GetUsersRoleNames = function () {
+    return new Promise(function (resolve, reject) {
+        var userRoleNames = [];
+        var roleObject = Xrm.Utility.getGlobalContext().userSettings.roles;
+        roleObject.forEach(guid => {
+            userRoleNames.push(guid["name"]);
+        });
+        resolve(userRoleNames);
+    });
+}

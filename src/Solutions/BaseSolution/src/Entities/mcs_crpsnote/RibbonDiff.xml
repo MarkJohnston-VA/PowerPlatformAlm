@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="mcs.mcs_crpsnote.SaveToVISTACPRS.Button.CustomAction" Location="Mscrm.Form.mcs_crpsnote.MainTab.Collaborate.Controls._children" Sequence="43">
+      <CommandUIDefinition>
+        <Button Command="mcs.mcs_crpsnote.SaveToVISTACPRS.Command" Id="mcs.mcs_crpsnote.SaveToVISTACPRS.Button" LabelText="$LocLabels:mcs.mcs_crpsnote.SaveToVISTACPRS.Button.LabelText" Sequence="43" TemplateAlias="o2" ModernImage="$webresource:mcs_VISTACPRSNote.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_crpsnote.Reports.Hide" Location="Mscrm.Form.mcs_crpsnote.Reports" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_crpsnote.WordTemplate.Hide" Location="Mscrm.Form.mcs_crpsnote.WordTemplate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_crpsnote.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.mcs_crpsnote.AddExistingAssoc" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_crpsnote.AddExistingStandard.Hide" Location="Mscrm.SubGrid.mcs_crpsnote.AddExistingStandard" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="mcs.mcs_crpsnote.SaveToVISTACPRS.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="vcmn_ribbonButtonSaveToVistA" Library="$webresource:mcs_VistACPRSMultiProgressNoteFormScript.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="mcs.mcs_crpsnote.SaveToVISTACPRS.Button.LabelText">
+      <Titles>
+        <Title description="Save to VISTA/CPRS" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

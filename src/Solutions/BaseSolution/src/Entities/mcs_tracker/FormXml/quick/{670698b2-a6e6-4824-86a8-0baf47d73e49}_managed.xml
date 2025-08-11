@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{670698b2-a6e6-4824-86a8-0baf47d73e49}</formid>
+    <IntroducedVersion>2020.12.30.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{99f2796a-cd19-427d-80fc-f18439602c15}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{5b4b1daf-c673-418b-a7dc-aba5c4098d9b}" name="ActionItem" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Action Item Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b8c3103c-ca56-d8d4-4a3b-75c7d583869b}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Subject" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" disabled="false" uniqueid="{97886797-a449-d717-8889-0b984a12d489}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c6c633c9-26eb-1e09-ead5-7ede5234ee8b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Requestor Group" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_requestorgroup" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_requestorgroup" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6158e04d-899b-3d5e-cd36-ea530a07c7ad}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Received Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_receiveddate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_receiveddate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{98186ad0-ba5c-e516-5b96-cadc737b3132}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_descriptionrichtext" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="mcs_descriptionrichtext" disabled="false" uniqueid="{2aed2096-ded9-b235-206e-74e5ab43c7d0}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Action Item" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

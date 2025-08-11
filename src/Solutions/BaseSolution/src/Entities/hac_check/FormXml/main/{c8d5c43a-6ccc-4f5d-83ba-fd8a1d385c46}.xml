@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c8d5c43a-6ccc-4f5d-83ba-fd8a1d385c46}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{80524a1c-5430-44cf-ad45-e947309bcdf1}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{adc81cb5-b9c3-4e40-9919-b23f029dbc69}" name="{adc81cb5-b9c3-4e40-9919-b23f029dbc69}" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{19c9a37b-d324-4918-8120-5a7e875b6830}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="hac_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{43b5498b-087d-ea63-149c-c7b376216041}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Check Number" languagecode="1033" />
+                        </labels>
+                        <control id="hac_checknumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_checknumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a65d0d1b-06b9-3c6e-c8b2-b6be30a54966}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Check Date" languagecode="1033" />
+                        </labels>
+                        <control id="hac_checkdate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_checkdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4e649db2-bd69-6b87-a697-7967342905bb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Amount" languagecode="1033" />
+                        </labels>
+                        <control id="hac_amount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="hac_amount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8541159c-dec5-8b17-1e62-baa71ba21072}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Check Recipient" languagecode="1033" />
+                        </labels>
+                        <control id="hac_checkrecipient" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_checkrecipient" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5663bbce-283e-4aa1-b87c-e13d090b7d4b}" showlabel="true" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{3caa8e2e-1056-947e-21b6-d1871173d6cd}" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{9131657a-686a-48e2-94b0-b416a6c19e1a}" columns="111">
+        <rows>
+          <row>
+            <cell id="{e4b3120d-a319-502a-56ed-6d80934665dc}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
+            <cell id="{0de1c93f-4bed-4349-91bf-ff498f2667ee}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{92f70351-4175-406b-8734-440a5e00a8cb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{558bca7d-f9ca-412f-b9d4-7477ad9d765b}">
+        <rows>
+          <row>
+            <cell id="{007c4ba0-14cb-4d9d-b067-a2865925115c}">
+              <labels>
+                <label description="Status" languagecode="1033" />
+              </labels>
+              <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Processes" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

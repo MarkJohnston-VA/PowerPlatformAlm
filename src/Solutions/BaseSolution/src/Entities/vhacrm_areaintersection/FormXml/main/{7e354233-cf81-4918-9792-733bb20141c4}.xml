@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7e354233-cf81-4918-9792-733bb20141c4}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{c4884e91-5145-4269-ad4b-a3a6b164527d}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="{c4884e91-5145-4269-ad4b-a3a6b164527d}_section_2" showlabel="false" showbar="false" locklevel="0" id="{d1dd5074-a4d6-9131-a6d3-8588a0363522}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ad22e742-7330-db98-3814-577e379b15d8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Purpose" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_areaid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_areaid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{243aa4be-963a-267d-b607-8232944d7e11}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_typeintersectionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_typeintersectionid" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{CF0C70B4-DF9A-442D-967D-3928CD2092B8}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eeb9481d-2429-b12e-4aa3-b17d03b39051}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Ranking" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_ranking_number" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="vhacrm_ranking_number" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3e607d02-e69b-4d38-9ca8-c74b55847e46}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Default Resolution Intersection" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_defaultresolutionintersection" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_defaultresolutionintersection" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{31b67a99-c008-3184-38c4-328498156539}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Send to PATS-R?" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_sendtopatsr" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="mcs_sendtopatsr" disabled="false" uniqueid="{67c36283-b6cc-ed52-793a-41a03a188075}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b47b21dd-d200-47b2-9351-87fabfbfd876}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Default Route to Team" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_defaultroutetoteamid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_defaultroutetoteamid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Sub Purposes" id="{01393a49-a8c9-0d3d-de23-482046cac725}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Sub Purposes" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{6ee36166-accc-88d3-7d9c-38db26dccd4c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Sub Areas" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{481cc922-b3ad-a248-74c4-2251eb2a0075}" showlabel="false" colspan="1" auto="false" rowspan="12">
+                        <labels>
+                          <label description="Sub Area Intersections (Area)" languagecode="1033" />
+                        </labels>
+                        <control id="Sub_Area" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{9642c663-7444-2177-0c6a-3395e99d144a}" indicationOfSubgrid="true">
+                          <parameters>
+                            <ViewId>{7BB4F1AC-7194-48A0-9A35-B3348FEF71AC}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>vhacrm_vhacrm_areaintersection_vhacrm_subareaintersection_areaintersectionid</RelationshipName>
+                            <TargetEntityType>vhacrm_subareaintersection</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{7BB4F1AC-7194-48A0-9A35-B3348FEF71AC}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>10</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Actions" id="{6276c4ed-7606-a754-e25a-e67a8a63e32a}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Actions" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="{c4884e91-5145-4269-ad4b-a3a6b164527d}_section_3" showlabel="false" showbar="false" locklevel="0" id="{4288d094-c552-5b87-a342-2e76a180d23c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Actions" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{84de0ae2-92bd-14d9-b14a-7e94668dd068}" showlabel="false" colspan="1" auto="false" rowspan="12">
+                        <labels>
+                          <label description="Action Intersections (Area)" languagecode="1033" />
+                        </labels>
+                        <control id="action" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{571c3039-24e7-7488-0eae-4b61e10e442e}" indicationOfSubgrid="true">
+                          <parameters>
+                            <ViewId>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>vhacrm_vhacrm_areaintersection_vhacrm_actionintersection_areaintersectionid</RelationshipName>
+                            <TargetEntityType>vhacrm_actionintersection</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{6D1CCA4B-702F-499D-BDF2-25440773F06B}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>10</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Resolutions" id="{acd553b5-9973-56d7-6a32-53904e32bccb}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Resolutions" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_6" showlabel="true" showbar="false" locklevel="0" id="{d5ea8049-b3c3-a1ac-9c20-dea51191e0ed}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top">
+                  <labels>
+                    <label description="Resolutions" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a6edca8b-1049-dcb0-6baa-bad01b601367}" showlabel="true" colspan="1" auto="false" rowspan="13">
+                        <labels>
+                          <label description="Resolution Intersections (Area)" languagecode="1033" />
+                        </labels>
+                        <control id="resolution" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{db12c5ea-676d-a208-170c-59baaa1cb5e1}" indicationOfSubgrid="true">
+                          <parameters>
+                            <ViewId>{CF910C24-4493-4DB8-9CD4-4459072B83D5}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>vhacrm_vhacrm_areaintersection_vhacrm_resolutionintersection_areaintersectionid</RelationshipName>
+                            <TargetEntityType>vhacrm_resolutionintersection</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>true</EnableViewPicker>
+                            <ViewIds>{CF910C24-4493-4DB8-9CD4-4459072B83D5},{630099BE-BC0B-4B32-82D0-168823AE75AA}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>10</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="{a04ad072-2dcc-a577-0500-2183952bcca6}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_3" showlabel="true" showbar="true" locklevel="0" id="{91e852aa-bd94-2915-6c33-cb8d801b5878}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Case Note Templates" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{488a12ca-3239-9397-bc33-91740678c23a}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                        <labels>
+                          <label description="Case Note template" languagecode="1033" />
+                        </labels>
+                        <control id="Case_Note_Template" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                          <parameters>
+                            <ViewId>{EB25FFF9-25AA-46EE-99E4-3CBDBF005C85}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>vhacrm_vhacrm_areaintersection_hrc_casenotetemplate_areaintersectionid</RelationshipName>
+                            <TargetEntityType>hrc_casenotetemplate</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{EB25FFF9-25AA-46EE-99E4-3CBDBF005C85}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_3" id="{4e9d5755-970b-35b1-3303-781c72a79337}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Administration" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section name="tab_3_section_1" showlabel="false" showbar="false" locklevel="0" id="{ae300b03-7816-3059-da99-acac87431a71}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a4ed7c62-cce9-2035-0765-3ba2a187e684}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created On" languagecode="1033" />
+                        </labels>
+                        <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a67b29bc-0340-de0a-50b1-ae7bc132ad4a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created By" languagecode="1033" />
+                        </labels>
+                        <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{946e0030-8887-4799-8d91-e8ed092d6700}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="tab_3_section_2" showlabel="false" showbar="false" locklevel="0" id="{1cdba135-9c94-551b-cebe-d37408d9b30b}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b2781303-9b35-a686-4ae5-c6db8d9c88db}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Modified On" languagecode="1033" />
+                        </labels>
+                        <control id="modifiedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{36b09690-c72e-53b6-d52a-d7e5ca307a19}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Modified By" languagecode="1033" />
+                        </labels>
+                        <control id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4519f0c5-f6af-43f1-9825-fe006363e516}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="vhacrm_name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d7e689c9-dce7-c341-9ae0-b184053cdbd2}" showlabel="false" userspacer="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_4" id="{61137881-e64b-e964-7a96-85d092ead3b1}" IsUserDefined="0" locklevel="0" showlabel="false" expanded="true" visible="false">
+          <labels>
+            <label description="Hidden Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section name="tab_4_section_1" showlabel="false" showbar="false" locklevel="0" id="{1e8b9ca0-94b7-3de6-72de-458ad58b9d6a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3f476eb7-e643-48d6-b584-aa34ed76ad5a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_name" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="tab_4_section_2" showlabel="false" showbar="false" locklevel="0" id="{60e81477-d8d8-170d-1675-a97d80c2933b}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0e2b0dc4-cca2-68ea-35ec-3679812980e6}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <header id="{390d478c-f1a6-468a-bd33-659cb16bcef1}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{5bc6113d-6a6b-4841-a2d0-fbe123c5b5d4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1b5f194e-cc54-47e6-b6df-f965c9ae72a4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e4b9524e-de74-4cae-a161-14a59fd07383}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{41ed0d0a-9a49-4835-8986-3e41e9fabf6b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{762bdf8c-53da-40ee-8fd0-35fc3ec4a6b2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4c517a16-75b0-464f-bf2e-2736708417f6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{adf01e34-6074-4780-bec5-8ad731da8818}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

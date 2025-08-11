@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a7a617ff-8977-468f-8efc-0b630f22d816}</formid>
+    <IntroducedVersion>2018.11.26.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1900" showImage="false" shownavigationbar="true" headerdensity="HighReadOnlyValues">
+      <tabs>
+        <tab name="{a6660211-8df9-4430-8152-41ea4f989393}" showlabel="true" expanded="true" locklevel="0" IsUserDefined="1" id="{a6660211-8df9-4430-8152-41ea4f989393}" verticallayout="true">
+          <labels>
+            <label description="CLAIM INFORMATION" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="{b013162a-db9e-47d5-9552-a1a62b2af808}" showlabel="false" locklevel="0" IsUserDefined="0" id="{b013162a-db9e-47d5-9552-a1a62b2af808}" celllabelposition="Left" celllabelalignment="Left" labelwidth="130" columns="11" showbar="false" height="auto">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{8281344c-7874-823b-5486-35785a2a5888}">
+                        <labels>
+                          <label description="Claim Status" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="mcs_claimstatus" datafieldname="mcs_claimstatus" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{5bdc8429-83a0-96b7-c749-b3edbb27b880}" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{c30a9617-51e0-283c-6acb-ecc8142b9aa0}">
+                        <labels>
+                          <label description="Check Number" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="mcs_checknumber" datafieldname="mcs_checknumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{86be2e40-bd59-290e-260c-9c6a9034b27e}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{4b9c6c58-7982-2ae5-434d-6a25c148a2ca}">
+                        <labels>
+                          <label description="Vendor" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="mcs_vendor" datafieldname="mcs_vendor" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{d3e533de-a8d9-eee9-dd28-4bbb565b725c}" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{6aae9db8-aa7e-9b85-6b8d-27a8966139e8}">
+                        <labels>
+                          <label description="Amount Billed" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="mcs_amountbilled" datafieldname="mcs_amountbilled" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" uniqueid="{736c7a23-ec20-e1ed-b025-2d4e5835e7bb}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{52c1eec7-c0ca-5a48-dea7-cd4c8d46d827}">
+                        <labels>
+                          <label description="Date of Service" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="mcs_dateofservice" datafieldname="mcs_dateofservice" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" uniqueid="{eb958132-5bd7-de58-9e5c-407311b23d86}" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{94a32aae-b7c7-9435-ec71-b94683d25d24}">
+                        <labels>
+                          <label description="Amount Paid" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="mcs_amountpaid" datafieldname="mcs_amountpaid" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" uniqueid="{9157659a-6c6d-b32a-e0a2-d1790bea6744}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{8a810641-3695-dd11-7e5a-dd32271633be}">
+                        <labels>
+                          <label description="Type of Service" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="mcs_typeofservice" datafieldname="mcs_typeofservice" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{aab3d198-2a58-5805-7a4a-6026a398de37}" />
+                      </cell>
+                      <cell showlabel="false" id="{1a7839ee-444d-d7dc-17e7-c6272aeb0334}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="CheckDetail" showlabel="true" locklevel="0" IsUserDefined="0" id="{880848de-a04a-c5c6-67c4-581ebb19999d}" celllabelposition="Left" celllabelalignment="Left" labelwidth="115" columns="111" showbar="false" layout="varwidth" height="auto">
+                  <labels>
+                    <label description="Check Detail" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{1e0e584c-7e95-6aeb-1a57-2c4170a771b8}">
+                        <labels>
+                          <label description="Check Total" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="mcs_checktotal" datafieldname="mcs_checktotal" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" />
+                      </cell>
+                      <cell showlabel="false" id="{72149abc-03c0-c447-ae90-4b665b557a62}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell showlabel="false" id="{a83c38a2-b9a9-5b14-1a67-0e8b02c1eb1d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell colspan="3" showlabel="true" id="{b84cbe14-0186-a929-3635-b9bd885472a0}" rowspan="5" auto="true">
+                        <labels>
+                          <label description="Checks" languagecode="1033" />
+                        </labels>
+                        <control id="Checks" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{c997107e-0439-c8d2-e124-ea2ed1cca6e0}" indicationOfSubgrid="true">
+                          <parameters>
+                            <ViewId>{8E42CD9E-EB29-4ECF-9486-8B5C3416D7D9}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>mcs_mcs_fmpclaimsummary_mcs_fmpclaiminquiry_FMPClaimSummary</RelationshipName>
+                            <TargetEntityType>mcs_fmpclaiminquiry</TargetEntityType>
+                            <AutoExpand>Auto</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{8E42CD9E-EB29-4ECF-9486-8B5C3416D7D9}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>100</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_5" showlabel="true" expanded="true" locklevel="0" IsUserDefined="0" id="{0307d51a-50d6-4bbe-22c2-340254774770}">
+          <labels>
+            <label description="REPORT" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_5_section_1" showlabel="false" locklevel="0" IsUserDefined="0" id="{27c3bed6-d70e-55b3-8025-26bdd7420d51}" celllabelposition="Left" celllabelalignment="Left" labelwidth="115" columns="1" showbar="false" layout="varwidth" height="auto">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell colspan="1" showlabel="false" id="{a87eb08c-7979-8de3-3337-ada12819ea5b}" rowspan="30" auto="true">
+                        <labels>
+                          <label description="Claim Summary Report" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_mcs_FMPClaimSummaryReport" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>mcs_FMPClaimSummaryReport.html</Url>
+                            <PassParameters>true</PassParameters>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>true</Border>
+                            <WebResourceId>{0E0341EB-5505-E911-8129-1458D04E0CA0}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false">
+                            <dependencies />
+                          </event>
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="FMP_Report" showlabel="true" expanded="true" locklevel="0" IsUserDefined="0" id="{3a48d59c-5606-5551-2c1d-e88a1d3bea0e}" visible="false">
+          <labels>
+            <label description="REPORT TEXT" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_4_section_1" showlabel="false" locklevel="0" IsUserDefined="0" id="{cd632575-b462-db3e-7035-141a27817aba}" labelwidth="115" columns="1" showbar="false" layout="varwidth" height="auto">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row height="auto">
+                      <cell showlabel="false" locklevel="0" id="{399ddb1e-7614-9c7b-6ab0-40ed409ec871}" auto="true">
+                        <labels>
+                          <label description="Text of Report" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="mcs_textofreport" datafieldname="mcs_textofreport" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" uniqueid="{682d454d-816b-67e9-0508-02a622b643bc}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Hidden" showlabel="true" expanded="true" locklevel="0" IsUserDefined="0" id="{72b7bb20-c0d3-a70b-43a2-417810d6866b}" visible="false">
+          <labels>
+            <label description="Hidden" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" locklevel="0" IsUserDefined="0" id="{0577e33b-d937-7c3a-eceb-4ec8c4c55508}" labelwidth="115" columns="1" showbar="false" layout="varwidth">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{165d1cda-50d2-477d-a59c-fa1a4189c7f1}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" datafieldname="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{751f89e2-f5af-461d-bec6-0d9da4364d3f}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" datafieldname="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{3627e16e-578d-a9ab-3068-a3bb87b8b8a0}">
+                        <labels>
+                          <label description="DFN" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_dfn" datafieldname="mcs_dfn" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{1125197e-4d53-1983-dab0-009b17560bab}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{0a899406-d136-db6e-50e1-01e7166b325a}">
+                        <labels>
+                          <label description="BFN" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_bfn" datafieldname="mcs_bfn" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title Text="Common" LCID="1033" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title Text="Sales" LCID="1033" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title Text="Service" LCID="1033" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title Text="Marketing" LCID="1033" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title Text="Process Sessions" LCID="1033" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{68e93b9c-b420-e578-323d-1c8e86c89dde}" />
+        <Library name="mcs_ApplicationInsights" libraryUniqueId="{47a8405d-6eab-676c-8a0a-77784caac905}" />
+        <Library name="mcs_FMPClaimSummaryReport.js" libraryUniqueId="{7a11c660-e9e9-bc6d-aed5-a242b5d97901}" />
+      </formLibraries>
+      <events>
+        <event name="onload" active="false" application="false">
+          <Handlers>
+            <Handler passExecutionContext="true" parameters="" enabled="true" handlerUniqueId="{8391bcac-ca01-da20-a994-9a993876ce4e}" libraryName="mcs_FMPClaimSummaryReport.js" functionName="OnLoad" />
+            <Handler functionName="initiateAppInsights" libraryName="mcs_ApplicationInsights" handlerUniqueId="{9133d94e-dbc7-0866-16a3-dec9da6ac9a4}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <header id="{09ca05bd-c937-4b72-b895-679c7dbd2285}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{7b5fba24-2739-455f-b967-479509cf921d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f64f40c7-8c20-4483-84b6-5f52db0138c1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{da9421d2-01a3-4f64-8665-ea9aead2863e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{5cfe94e3-5c09-40ec-b46c-d47d27375f0a}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{c023ebaf-37b2-46bb-8b2e-96d48b345201}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e005e50a-0332-4ad6-9835-56ba81f6867f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3c9afdba-3775-4fa6-ae37-5e7f12cc8ab3}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions FallbackForm="true" Order="0" />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

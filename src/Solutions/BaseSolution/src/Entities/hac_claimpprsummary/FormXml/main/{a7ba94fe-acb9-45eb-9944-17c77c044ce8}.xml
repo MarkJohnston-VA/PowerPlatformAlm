@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a7ba94fe-acb9-45eb-9944-17c77c044ce8}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1900">
+      <tabs>
+        <tab name="pprTab" id="{e44e5370-7701-6b4d-946e-6a903d885c7e}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="PPR" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="{2842e868-5fd5-47a0-b9cb-01f26d0a205f}" showlabel="false" showbar="false" locklevel="0" id="{34ae2a56-94eb-69a9-d35d-264bea347c9c}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{9b74e223-0a80-b920-783c-1c232207de5b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Claim Number" languagecode="1033" />
+                        </labels>
+                        <control id="hac_claimnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_claimnumber" disabled="true" uniqueid="{839a00d2-0840-d7e3-81c7-b335e2e9aac7}" />
+                      </cell>
+                      <cell id="{673ceca9-5a4d-048c-6063-e8ec39dad982}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="DOS" languagecode="1033" />
+                        </labels>
+                        <control id="hac_servicedate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_servicedate" disabled="true" uniqueid="{2552c6d2-b292-cc88-6416-c9c2a10e4386}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d9d9463e-aba6-13b2-09cc-643e9236182c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="PDI Number" languagecode="1033" />
+                        </labels>
+                        <control id="hac_pdinumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_pdinumber" disabled="true" uniqueid="{1492d42b-2880-7aae-ead4-1ad9ac2c83bb}" />
+                      </cell>
+                      <cell id="{3810230b-c36c-9d43-bc2d-e0113ba66dbe}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Completion Date" languagecode="1033" />
+                        </labels>
+                        <control id="hac_completiondate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_completiondate" disabled="true" uniqueid="{da14c005-949e-1614-6b31-37356ce3c0ee}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c644acba-b03a-1843-cec6-ceb4a0eb8694}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Program" languagecode="1033" />
+                        </labels>
+                        <control id="hac_programtype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_programtype" disabled="true" uniqueid="{80355dc2-1cce-7c52-6c8e-501d21cad2ae}" />
+                      </cell>
+                      <cell id="{ae507ea2-a4e5-50e3-e79c-e2ccb50cac39}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Beneficiary Deductible" languagecode="1033" />
+                        </labels>
+                        <control id="hac_champvabeneficiarydeductible" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_champvabeneficiarydeductible" disabled="true" uniqueid="{14d6083a-0797-8b53-920d-a9c066e22840}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{09340aa7-a1a2-ee03-7783-67cb9db42170}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Claim Type" languagecode="1033" />
+                        </labels>
+                        <control id="hac_claimtype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_claimtype" disabled="true" uniqueid="{7ace202e-c339-d250-ecd9-517c94595e50}" />
+                      </cell>
+                      <cell id="{918d072b-06c1-98c5-7767-122d56b63a29}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Family Deductible" languagecode="1033" />
+                        </labels>
+                        <control id="hac_champvafamilydeductible" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_champvafamilydeductible" disabled="true" uniqueid="{51d508cc-c97b-062a-4593-939dce6746da}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8d3d4b64-6cc4-dc8d-d64d-343208aec2d2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Claim Amount Billed" languagecode="1033" />
+                        </labels>
+                        <control id="hac_claimamountbilled" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_claimamountbilled" disabled="true" uniqueid="{452067bb-01e9-9199-7bee-6e520c2c527d}" />
+                      </cell>
+                      <cell id="{932d3dc5-c7ac-e562-57ca-b01322b28daa}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Family Cat Cap" languagecode="1033" />
+                        </labels>
+                        <control id="hac_champvafamilycatastrophiccap" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_champvafamilycatastrophiccap" disabled="true" uniqueid="{24c34638-1760-0e37-0111-3c55708675c4}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="pprLineItemDetailsSection" showlabel="true" showbar="false" locklevel="0" id="{a0353342-80bc-9b32-b599-04669e35e8c5}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" height="auto">
+                  <labels>
+                    <label description="PPR Detailed Line Items" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3be4b2da-82ec-e5b1-1333-60be22da718a}" showlabel="false" colspan="2" auto="true" rowspan="4">
+                        <labels>
+                          <label description="PPR Detailed Line Items" languagecode="1033" />
+                        </labels>
+                        <control id="PPRLineItemDetails" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{2978625b-6157-bce8-d32d-d375198584d9}">
+                          <parameters>
+                            <ViewId>{EBA84F92-C33C-4DF0-924C-A8AC26B250D7}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>hac_claimpprsummary_claimlineitemppr</RelationshipName>
+                            <TargetEntityType>hac_claimlineitemppr</TargetEntityType>
+                            <AutoExpand>Auto</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{EBA84F92-C33C-4DF0-924C-A8AC26B250D7}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>100</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="pprPaymentDetailTab" id="{6c7d3340-3dae-44d0-001a-43b46ab2b2d1}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="PPR Payment Detail" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="pprPaymentDetailsSection" showlabel="false" showbar="false" locklevel="0" id="{b20a0ce4-e8be-7aa4-b0cb-8e10d477684d}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="165" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="PPR Payment Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{58b2a911-965e-992e-023a-166c2e608037}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Total Amount Billed" languagecode="1033" />
+                        </labels>
+                        <control id="hac_totalchargesbilled" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_totalchargesbilled" disabled="true" uniqueid="{5690d33b-8ced-386b-5392-962c54b25d24}" />
+                      </cell>
+                      <cell id="{61beceb9-d67e-1b5a-d8a7-5d1332e83e8d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Amount Paid To Provider" languagecode="1033" />
+                        </labels>
+                        <control id="hac_amountpaidtovendor" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_amountpaidtovendor" disabled="true" uniqueid="{5025b090-92b2-3a69-922e-4629e1ca2451}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{530ba168-be84-e2da-874d-e58762852888}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Allowable" languagecode="1033" />
+                        </labels>
+                        <control id="hac_calculatedallowableamount" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_calculatedallowableamount" disabled="true" uniqueid="{d93b3881-0b43-c8a6-cd44-586a8174872e}" />
+                      </cell>
+                      <cell id="{74d2ab40-8734-adda-7078-d1881dc3a162}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Amount Paid To Beneficiary" languagecode="1033" />
+                        </labels>
+                        <control id="hac_amountpaidtobeneficiary" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_amountpaidtobeneficiary" disabled="true" uniqueid="{e783ab8b-c096-b052-9e67-4e8105e60745}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4bdc1814-0021-0bcb-6193-59bb3cb2d08b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Deductible" languagecode="1033" />
+                        </labels>
+                        <control id="hac_amountappliedtodeductible" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_amountappliedtodeductible" disabled="true" uniqueid="{13dce6d1-83be-d837-249b-68a6ee3cc1b7}" />
+                      </cell>
+                      <cell id="{da99ce40-0424-ea08-6be3-888dc1241d17}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Medicaid Paid" languagecode="1033" />
+                        </labels>
+                        <control id="hac_medicaidamount" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_medicaidamount" disabled="true" uniqueid="{b27b0277-c772-9749-a29a-ee8004c3b30e}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{269e7a15-3b93-d03a-0a38-a9d38c99adc3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Cost Share" languagecode="1033" />
+                        </labels>
+                        <control id="hac_costsharecreditedtocatcap" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_costsharecreditedtocatcap" disabled="true" uniqueid="{34cbe977-34d2-373c-8613-9635a46871a4}" />
+                      </cell>
+                      <cell id="{e3eb0a73-ab3d-bc16-d84e-a15b6aeb958b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="TPL Paid" languagecode="1033" />
+                        </labels>
+                        <control id="hac_amountpaidbytpl" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_amountpaidbytpl" disabled="true" uniqueid="{507b9e1c-6648-2925-b262-a7716bb200ea}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2a4321c1-5081-90ec-ed6a-bbccde722abc}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="OHI Paid" languagecode="1033" />
+                        </labels>
+                        <control id="hac_amountpaidbyotherinsurances" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_amountpaidbyotherinsurances" disabled="true" uniqueid="{7b4cd83a-0875-a679-e095-0e15b6aa8175}" />
+                      </cell>
+                      <cell id="{8515a9a9-4241-0ed9-9d33-d6b065c3b960}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="DRG" languagecode="1033" />
+                        </labels>
+                        <control id="hac_drg" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_drg" disabled="true" uniqueid="{7397b252-b17d-35e7-46a5-301c891ed8ac}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b4755509-b7eb-2243-6955-960c1151e5c6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Patient Responsibility Amount" languagecode="1033" />
+                        </labels>
+                        <control id="hac_patientresponsibilityamount" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_patientresponsibilityamount" disabled="true" uniqueid="{3214e8bb-6293-8721-221c-6b749838a7d6}" />
+                      </cell>
+                      <cell id="{0319b613-a165-70d1-cb47-42b8625225e2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="DRG Method Of Payment" languagecode="1033" />
+                        </labels>
+                        <control id="hac_drgmethodofpayment" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_drgmethodofpayment" disabled="true" uniqueid="{8116e2d5-a580-9915-628d-351ed5d6a812}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a8cd6963-d2a9-8ccb-1dca-a361e3d76c0c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Beneficiary Paid" languagecode="1033" />
+                        </labels>
+                        <control id="hac_amountpaidbybeneficiarytovendor" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_amountpaidbybeneficiarytovendor" disabled="true" uniqueid="{3a622135-2999-bea3-9ba6-528be6bb2357}" />
+                      </cell>
+                      <cell id="{0c37ca50-4ada-d458-36a3-890473a80438}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{45a4461c-c057-5310-d1be-57140c28c9a8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ChampVA Paid" languagecode="1033" />
+                        </labels>
+                        <control id="hac_totalamounttobepaidonclaim" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_totalamounttobepaidonclaim" disabled="true" uniqueid="{c661cae6-5ae9-b1de-e71c-a56e4dca52b6}" />
+                      </cell>
+                      <cell id="{dd01c539-cb4c-1d21-3381-c1b1eee22454}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="checkInformationTab" id="{6ded183a-c369-8085-be29-2bb46e8dd617}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Check Information" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="checkInfoSection" showlabel="true" showbar="true" locklevel="0" id="{489c4046-0e22-e142-642b-4283741d7336}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="165" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Check Info" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{27e1b110-26e4-eb66-bd99-0e8ce56b436d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Tax ID" languagecode="1033" />
+                        </labels>
+                        <control id="hac_taxid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_taxid" disabled="true" uniqueid="{cd276761-a598-6bd7-c78b-8084c05cc627}" />
+                      </cell>
+                      <cell id="{957175c3-2d3d-1680-5d55-b4ce9962a735}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Provider" languagecode="1033" />
+                        </labels>
+                        <control id="hac_provider" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_provider" disabled="true" uniqueid="{3ccecb36-2924-cb99-66c7-bddabae7a81a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d4c64290-835d-5137-5e93-30edb6ed7c97}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="FMS Document ID" languagecode="1033" />
+                        </labels>
+                        <control id="hac_fmsdocumentid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_fmsdocumentid" disabled="true" uniqueid="{ca42a82b-ebd4-1b73-a681-624411a9aeed}" />
+                      </cell>
+                      <cell id="{2b90a10a-44c4-b343-dad3-56225e89a122}" showlabel="false" userspacer="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{719c03aa-8870-3578-4d59-54a234223203}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Remit To Address Line 1" languagecode="1033" />
+                        </labels>
+                        <control id="hac_remitto_address_line1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_remitto_address_line1" disabled="true" uniqueid="{235c9984-ea23-7d3a-4378-c634d4980c8e}" />
+                      </cell>
+                      <cell id="{c4049c62-2e45-53a1-91ae-30428e5b9397}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Remit To Address State" languagecode="1033" />
+                        </labels>
+                        <control id="hac_remitto_address_stateorprovince" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_remitto_address_stateorprovince" disabled="true" uniqueid="{04eb058d-e9b0-a969-2ecb-bbdb0a7ba257}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5d6684bd-eec9-1862-c5ee-e69bb034abe8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Remit To Address Line 2" languagecode="1033" />
+                        </labels>
+                        <control id="hac_remitto_address_line2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_remitto_address_line2" disabled="true" uniqueid="{653ab1b9-0a85-3a75-c60a-7b7daac837de}" />
+                      </cell>
+                      <cell id="{56a1d691-255c-02d1-23a6-d14e01690b9a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Remit To Address Postal Code" languagecode="1033" />
+                        </labels>
+                        <control id="hac_remitto_address_postal_code" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_remitto_address_postal_code" disabled="true" uniqueid="{3a22bb7a-93d3-3eb8-5400-e86c4c179044}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{39206615-23bb-09c5-d128-43c13a2a4195}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Remit To Address City" languagecode="1033" />
+                        </labels>
+                        <control id="hac_remitto_address_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_remitto_address_city" disabled="true" uniqueid="{b575a529-bc46-7953-eea0-007a979db19b}" />
+                      </cell>
+                      <cell id="{bab19b89-b201-c9ca-11ec-3b8010b34932}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Remit To Address Country" languagecode="1033" />
+                        </labels>
+                        <control id="hac_remitto_address_country" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_remitto_address_country" disabled="true" uniqueid="{84e24e28-60bb-495c-192d-4259a068c574}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="beneficiaryCheckSection" showlabel="true" showbar="true" locklevel="0" id="{5cca208a-306d-6b62-5ab2-de639b556d66}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Beneficiary Check" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ae116e46-421a-2d2e-edca-b42432caeb94}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="B Check Number" languagecode="1033" />
+                        </labels>
+                        <control id="hac_beneficiarychecknumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_beneficiarychecknumber" disabled="true" uniqueid="{3345b695-c681-da37-e309-8c267c63a3b5}" />
+                      </cell>
+                      <cell id="{1274ecdd-b35a-2a1a-790e-8ed847778dad}" showlabel="false" userspacer="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{43cdee32-d1c1-7371-647e-00316e724309}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="B Check Date" languagecode="1033" />
+                        </labels>
+                        <control id="hac_beneficiarycheckdate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_beneficiarycheckdate" disabled="true" uniqueid="{021b547c-0cd2-6d66-70e0-56746673a6bb}" />
+                      </cell>
+                      <cell id="{9bde45ae-2537-bad0-bc16-8e0c75924d5c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="B Check Amount" languagecode="1033" />
+                        </labels>
+                        <control id="hac_beneficiarycheckamount" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_beneficiarycheckamount" disabled="true" uniqueid="{ba83973c-287e-3772-97b0-6a777e5180c7}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="vendorCheckSection" showlabel="true" showbar="true" locklevel="0" id="{da03d293-834d-c498-85da-49b31093809c}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Vendor Check" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e943bc78-c36b-c899-61e0-44e689d64624}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="P Check Number" languagecode="1033" />
+                        </labels>
+                        <control id="hac_vendorchecknumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_vendorchecknumber" disabled="true" uniqueid="{55e969b7-9365-e7a5-7e41-0bd8ea3eeac0}" />
+                      </cell>
+                      <cell id="{6ce28463-64b5-4c53-aa15-c61c5acc3399}" showlabel="false" userspacer="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9e4272d5-e598-c2aa-8b0a-e364584cd45c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="P Check Date" languagecode="1033" />
+                        </labels>
+                        <control id="hac_vendorcheckdate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_vendorcheckdate" disabled="true" uniqueid="{4e31493b-c32b-255b-9134-cdd5d3ececae}" />
+                      </cell>
+                      <cell id="{033cb127-5c60-0284-79e8-7b0de91794a3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="P Check Amount" languagecode="1033" />
+                        </labels>
+                        <control id="hac_vendorcheckamount" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_vendorcheckamount" disabled="true" uniqueid="{3ed61b96-2ca6-3872-2c5a-d3edc183eca5}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="commentsTab" id="{6b2bcada-b051-0792-4731-bc0e3240d701}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Comments" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="commentsTab_section_2" showlabel="false" showbar="false" locklevel="0" id="{e917746d-ecd9-d0ae-1ea9-0a434e843854}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{015d1c83-d29d-50e9-9e70-68285467ba94}" showlabel="true" rowspan="5" auto="false" colspan="2" locklevel="0">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" uniqueid="{d6c1edad-71bd-894a-e3e9-13e27b48462c}" disabled="false">
+                          <parameters>
+                            <DefaultTabId>ActivitiesTab</DefaultTabId>
+                            <ShowArticleTab>false</ShowArticleTab>
+                            <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                            <UClientUniqueName>Notes</UClientUniqueName>
+                            <UClientModules>Notes</UClientModules>
+                            <UClientDefaultModuleForCreateExperience>Notes</UClientDefaultModuleForCreateExperience>
+                            <UClientShowFilterPane>false</UClientShowFilterPane>
+                            <UClientExpandFilterPane>false</UClientExpandFilterPane>
+                            <UClientOrderBy>descending</UClientOrderBy>
+                            <UClientRecordPerPage>10</UClientRecordPerPage>
+                            <EmailConversationView>true</EmailConversationView>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="hiddenFieldsTab" id="{9360a64d-a732-d606-ca3d-cab037419aea}" IsUserDefined="0" locklevel="0" showlabel="false" expanded="true" visible="false">
+          <labels>
+            <label description="Hidden Fields" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_3_section_1" showlabel="false" showbar="false" locklevel="0" id="{d993b34d-e1b6-c256-0ecc-828ce47e3710}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4bb1ed95-bbb5-c0ca-063d-e4c5edc1b301}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Claim Year" languagecode="1033" />
+                        </labels>
+                        <control id="hac_claimyear" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_claimyear" disabled="true" uniqueid="{eee7c9e8-119b-5156-c271-94b7190c82c5}" />
+                      </cell>
+                      <cell id="{2f3b04c5-d700-4a49-b82c-e88aa23c3186}" showlabel="true" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{02bd6642-c703-1b7a-4a77-ada2b1be012d}" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6a52c6c2-5821-d595-1d82-b76137030682}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{fd08e2d8-25b1-49dd-8bfa-eb1bb1263e8f}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="hac_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_name" uniqueid="{d7454e41-a334-2ac4-10ea-00794b240c6c}" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <footer id="{5014d901-e05d-47dd-ba1a-8947e030f18f}" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+        <rows>
+          <row>
+            <cell id="{2b696c0d-95bc-c046-bd0c-809baeac4c25}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Claim Status" languagecode="1033" />
+              </labels>
+              <control id="footer_hac_claimstatus" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_claimstatus" disabled="true" uniqueid="{d22061cd-338b-5c0c-9b64-0846ecdc064e}" />
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{7c118895-2c6d-3d4a-173c-95b4416b11e1}" />
+        <Library name="mcs_ApplicationInsights" libraryUniqueId="{22962180-6080-587e-d784-7c56b0a21252}" />
+        <Library name="hac_/shared/ClaimPPRSummary_OnLoad.js" libraryUniqueId="{1eb1c85a-b709-d7e7-2b4e-cbce01c60850}" />
+      </formLibraries>
+      <controlDescriptions />
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="disableSave" libraryName="hac_/shared/ClaimPPRSummary_OnLoad.js" handlerUniqueId="{e49028bc-4572-d128-ec3e-390e810889de}" enabled="false" parameters="" passExecutionContext="true" />
+            <Handler functionName="HideNavAndCmdBars" libraryName="hac_/shared/ClaimPPRSummary_OnLoad.js" handlerUniqueId="{6386ab9c-ca88-2003-7ae1-b3c832cd21ea}" enabled="true" parameters="" passExecutionContext="false" />
+            <Handler functionName="AddOnClickEventToSubgridsPPRLineItemDetails" libraryName="hac_/shared/ClaimPPRSummary_OnLoad.js" handlerUniqueId="{b2e75d04-a896-a320-0588-0caae649be75}" enabled="true" parameters="" passExecutionContext="false" />
+            <Handler functionName="initiateAppInsights" libraryName="mcs_ApplicationInsights" handlerUniqueId="{75e72686-9982-702a-687c-0a9313168663}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions FallbackForm="true">
+        <Role Id="{44F43F70-E434-E311-884B-08002781895E}" />
+        <Role Id="{618A7DAA-0A35-E311-B65C-080027582B1C}" />
+        <Role Id="{095BAEC5-5620-E711-942D-0050568D1C17}" />
+        <Role Id="{28E61246-B61F-E711-942D-0050568D1C17}" />
+        <Role Id="{6C81475C-BA4B-E711-9435-0050568D1C17}" />
+        <Role Id="{2EDBC270-6020-E711-942D-0050568D1C17}" />
+        <Role Id="{D02E3675-ED29-E711-9431-0050568D1C17}" />
+        <Role Id="{37FB9892-8141-E711-9434-0050568D1C17}" />
+        <Role Id="{A7FAC18A-8341-E711-9434-0050568D1C17}" />
+        <Role Id="{D16EB936-C11F-E711-942D-0050568D1C17}" />
+        <Role Id="{1CB3F922-5D20-E711-942D-0050568D1C17}" />
+        <Role Id="{3CF22D91-3116-E711-8168-1200A26D3DA3}" />
+        <Role Id="{929393DF-E31E-E711-942D-0050568D1C17}" />
+        <Role Id="{CDD0B545-4A16-E711-8168-1200A26D3DA3}" />
+        <Role Id="{1D1C4B74-5D20-E711-942D-0050568D1C17}" />
+        <Role Id="{CF192F49-3416-E711-8168-1200A26D3DA3}" />
+        <Role Id="{F1E2899D-ED1E-E711-942D-0050568D1C17}" />
+        <Role Id="{837BCF3C-B61F-E711-942D-0050568D1C17}" />
+        <Role Id="{A8223F03-3716-E711-8168-1200A26D3DA3}" />
+        <Role Id="{489127E3-3616-E711-8168-1200A26D3DA3}" />
+        <Role Id="{CCCBC873-3916-E711-8168-1200A26D3DA3}" />
+        <Role Id="{C3DFF2C3-5D20-E711-942D-0050568D1C17}" />
+        <Role Id="{AFD425CB-4616-E711-8168-1200A26D3DA3}" />
+        <Role Id="{9C2D2794-3516-E711-8168-1200A26D3DA3}" />
+        <Role Id="{F25F59B0-E31E-E711-942D-0050568D1C17}" />
+        <Role Id="{5E199501-5E20-E711-942D-0050568D1C17}" />
+        <Role Id="{3C3B6249-4B16-E711-8168-1200A26D3DA3}" />
+        <Role Id="{DA494801-E41E-E711-942D-0050568D1C17}" />
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

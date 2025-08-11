@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{93626dc6-5e42-4130-bc6a-ef606e3644d7}</savedqueryid>
+    <layoutxml>
+      <grid name="" jump="bah_name" select="1" icon="1" preview="0">
+        <row name="bah_interactions" id="bah_interactionsid">
+          <cell name="bah_name" width="100" />
+          <cell name="createdon" width="100" />
+          <cell name="bah_interactedwith_code" width="125" />
+          <cell name="hrc_lobid" width="125" />
+          <cell name="vhacrm_areaintersectionid" width="125" />
+          <cell name="vhacrm_subareaintersectionid" width="125" />
+          <cell name="bah_veteranid" width="150" />
+          <cell name="ccwf_providerfacility_text" width="125" />
+          <cell name="ccwf_tin_text" width="100" />
+          <cell name="bah_facilityid" width="150" />
+          <cell name="bah_visnid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="bah_interactions">
+          <attribute name="bah_interactionsid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="bah_facilityid" />
+          <attribute name="bah_veteranid" />
+          <attribute name="hrc_lobid" />
+          <attribute name="bah_visnid" />
+          <attribute name="bah_interactedwith_code" />
+          <attribute name="ccwf_tin_text" />
+          <attribute name="ccwf_providerfacility_text" />
+          <attribute name="vhacrm_subareaintersectionid" />
+          <attribute name="vhacrm_areaintersectionid" />
+          <order attribute="createdon" descending="true" />
+          <attribute name="createdon" />
+          <attribute name="bah_name" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Interactions Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

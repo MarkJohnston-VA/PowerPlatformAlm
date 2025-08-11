@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{4f809cc5-9e62-ec11-8f8e-001dd800c03c}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_lookupfilterid">
+          <cell name="mcs_name" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_action" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_fieldname" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_sectionname" width="100" />
+          <cell name="mcs_tabname" width="100" />
+          <cell name="createdby" width="100" />
+          <cell name="createdon" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="mcs_lookupfilter">
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <order attribute="mcs_name" descending="false" />
+          <attribute name="mcs_fieldname" />
+          <attribute name="createdby" />
+          <attribute name="mcs_action" />
+          <attribute name="mcs_tabname" />
+          <attribute name="mcs_sectionname" />
+          <attribute name="mcs_lookupfilterid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="mcs_name" operator="eq" value="ShowRejectionReason" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="ShowRejectionReason" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

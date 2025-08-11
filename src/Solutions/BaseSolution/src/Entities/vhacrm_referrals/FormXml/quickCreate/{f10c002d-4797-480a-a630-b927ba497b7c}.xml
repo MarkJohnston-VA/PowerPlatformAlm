@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{f10c002d-4797-480a-a630-b927ba497b7c}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1900">
+      <tabs>
+        <tab id="{a2e78ca3-325b-48aa-bb57-d5d7244dc81d}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{ab9fc2d9-b180-4e85-9fd3-dd2b60591e07}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{16a95e72-198e-7bd2-e66e-6c3a6dc80e75}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Inpatient/Outpatient" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_inpatientoutpatient_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="vhacrm_inpatientoutpatient_code" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{572a0e58-9580-e9a4-7e43-6db9360eb612}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Referral Number" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_name" disabled="false" uniqueid="{7a5b6b57-e588-62c5-5b6a-432dc9db1879}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e56660b4-69a8-e91e-2477-ca0638311b3e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Referral Date" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_fromdate_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="vhacrm_fromdate_date" disabled="false" uniqueid="{c05d9d30-8c0c-5ee8-ea81-3ce848c0e1c5}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{02a8c35e-5024-d919-6e4c-06c2984b1ccd}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Referral Expiration Date" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_todate_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="vhacrm_todate_date" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{ed42ea83-c693-4f85-9bb8-ef326ad1d597}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8220e0e9-2999-6252-2758-4426a1e93378}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Vendor" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_vendor_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_vendor_text" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aa754109-e7c3-6176-dc3e-8a6e7e2b2d54}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Servicing Facility" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_servicingfacilityid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_servicingfacilityid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4ecd1779-1b1d-c3ac-e9d3-c307507bd5bb}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Veteran" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_veteranid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_veteranid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f34a19aa-875e-4fd5-b1b2-b1517c60e301}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="TPA" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_tpa" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="mcs_tpa" disabled="false" uniqueid="{6b597a48-adb0-e2e8-6464-14c0d3e0b5b2}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{cbeed212-3436-4d22-b73f-e036976ea4da}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{125499c8-3195-0e57-47b0-1c8209da8012}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Interaction" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_interactionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_interactionid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a72ec146-71eb-b221-2335-1d45248489e3}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Request" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_requestid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_requestid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5900c0cb-61bb-5a75-7968-e0e3d274d8e6}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{6da05bdd-e895-d0cd-6b01-8c6ba559787c}" />
+        <Library name="mcs_/scripts/entity_referral.js" libraryUniqueId="{04d323db-ad53-0e01-ce52-625014b82b3a}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CommCare.Referral.FormOnLoad" libraryName="mcs_/scripts/entity_referral.js" handlerUniqueId="{4c03b065-402c-6b26-3509-0685509e4c68}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Referral Quick Create Form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Referral Quick Create Form" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

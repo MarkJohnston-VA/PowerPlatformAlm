@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .SummaryHeader {
+            font-family: "Segoe UI Regular", SegoeUI, "Segoe UI";
+            font-size: 12pt;
+            font-weight: 400;
+        }
+        
+        .SummaryDetail {
+            font-family: "Segoe UI Regular", SegoeUI, "Segoe UI";
+            font-size: 10pt;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div id="summaryPlaceholder" ></div>
+</body>
+
+<script>
+
+    "use strict";
+
+    async function RenderControlWithContext(globalContext, executionContext) {
+
+        let formContext = executionContext.getFormContext();
+        let attribute = formContext.getAttribute('veis_configurationchanges');
+        let application = formContext.getAttribute('veis_application').getValue();
+
+        let jsonRequest = attribute.getValue();
+        if (jsonRequest === null || jsonRequest === '') {
+            return;
+        }
+
+        let user = JSON.parse(jsonRequest);
+        let summaryPlaceholder = $('#summaryPlaceholder');
+        summaryPlaceholder.html = '';
+
+        if (user !== null && application !== null) {
+            if (application === 345990003) {
+                // AVA
+                let roleDisplay = (user.Roles.length > 0) ? user.Roles.map(r => r.DisplayName).join('; ') : "None selected";
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Roles: " + roleDisplay + "</div>"));
+
+                let teamDisplay = (user.Teams.length > 0) ? user.Teams.map(r => r.DisplayName).join('; ') : "None selected";
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Teams: " + teamDisplay + "</div>"));
+
+                if (user.FmiInbox !== null && user.FmiInbox !== undefined && user.FmiInbox !== '') {
+                    summaryPlaceholder.append($("<div class=\"SummaryHeader\">FMI Capacity: " + user.FmiInbox + "</div>"));
+                }
+            }
+            else if (application === 345990000) {
+                // CommCare
+                let managerDisplay = (user.Manager !== undefined && user.Manager !== null && user.Manager.DisplayName !== '') ? user.Manager.DisplayName : "Not provided";
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Manager: " + managerDisplay + "</div>"));
+
+                let roleDisplay = (user.Roles.length > 0) ? user.Roles.map(r => r.DisplayName).join('; ') : "None selected";
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Roles: " + roleDisplay + "</div>"));
+
+                let teamDisplay = (user.Teams.length > 0) ? user.Teams.map(r => r.DisplayName).join('; ') : "None selected";
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Teams: " + teamDisplay + "</div>"));
+            }
+            else if (application === 345990001) {
+                // UDO
+                let managerDisplay = (user.Manager !== undefined && user.Manager !== null && user.Manager.DisplayName !== '') ? user.Manager.DisplayName : "Not provided";
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Manager: " + managerDisplay + "</div>"));
+
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">PCR Sensitivity Level: " + user.PcrSensitivityLevel?.DisplayName + "</div>"));
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Site: " + user.Site?.DisplayName + "</div>"));
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">User Type: " + user.UdoUserType + "</div>"));
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Participant ID: " + user.ParticipantId + "</div>"));
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">WS Login Name: " + user.WsLoginName + "</div>"));
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Station: " + user.Station + "</div>"));
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">IP Address: " + user.IpAddress + "</div>"));
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Reply Refer To: " + user.ReplyReferTo + "</div>"));
+                if (user.UdoUserType == 'VASS') {
+                    summaryPlaceholder.append($("<div class=\"SummaryHeader\">Finesse Agent ID: " + user.FinesseAgentID + "</div>"));
+                    summaryPlaceholder.append($("<div class=\"SummaryHeader\">Finesse Agent ID Extension: " + user.FinesseAgentIDExt + "</div>"));
+                }
+                
+            }
+            else if (application === 345990002) {
+                // PATS-R
+                let subfacilityDisplay = (user.Subfacility !== undefined && user.Subfacility !== null && user.Subfacility.DisplayName !== '') ? user.Subfacility.DisplayName : "Not provided";
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Subfacility: " + subfacilityDisplay + "</div>"));
+
+                let serviceLineDisplay = (user.ServiceLine?.DisplayName !== null && user.ServiceLine?.DisplayName !== '') ? user.ServiceLine.DisplayName : "Not provided";
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Service Line: " + serviceLineDisplay + "</div>"));
+
+                if (user.Roles.length > 0) {
+                    summaryPlaceholder.append($("<div class=\"SummaryHeader\">Business Unit: " + user.Roles[0].ParentRecordId + "</div>"));
+                }
+
+                let roleDisplay = (user.Roles.length > 0) ? user.Roles.map(r => r.DisplayName).join('; ') : "None selected";
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Roles: " + roleDisplay + "</div>"));
+            }
+        }
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{8df19b44-a073-40c3-9d6d-ee1355d8c4ba}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="fullname" select="1" icon="1" preview="1">
+        <row name="result" id="contactid">
+          <cell name="bah_source_text" width="100" />
+          <cell name="firstname" width="125" />
+          <cell name="middlename" width="125" />
+          <cell name="lastname" width="125" />
+          <cell name="telephone1" width="125" />
+          <cell name="bah_branch_text" width="125" />
+          <cell name="jobtitle" width="125" />
+          <cell name="bah_dutystatus_text" width="125" />
+          <cell name="bah_isenrolled_bool" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="contact">
+          <attribute name="telephone1" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="hrc_title_text" operator="like" value="{0}" />
+            <condition attribute="bah_ssn_text" operator="like" value="{0}" />
+            <condition attribute="bah_placeofbirth_city_text" operator="like" value="{0}" />
+            <condition attribute="bah_mmn_text" operator="like" value="{0}" />
+            <condition attribute="lastname" operator="like" value="{0}" />
+            <condition attribute="firstname" operator="like" value="{0}" />
+            <condition attribute="bah_dob_date" operator="on" value="{3}" />
+            <condition attribute="bah_contacttype_code" operator="like" value="{0}" />
+          </filter>
+          <attribute name="bah_branch_text" />
+          <attribute name="lastname" />
+          <attribute name="firstname" />
+          <attribute name="bah_source_text" />
+          <attribute name="bah_isenrolled_bool" />
+          <attribute name="middlename" />
+          <attribute name="jobtitle" />
+          <attribute name="bah_dutystatus_text" />
+          <order attribute="bah_source_text" descending="false" />
+          <attribute name="contactid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Customers" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

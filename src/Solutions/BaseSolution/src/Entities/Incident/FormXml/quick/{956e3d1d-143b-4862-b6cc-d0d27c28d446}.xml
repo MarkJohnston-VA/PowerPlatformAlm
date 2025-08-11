@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{956e3d1d-143b-4862-b6cc-d0d27c28d446}</formid>
+    <IntroducedVersion>2019.10.16.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{019966b5-9e03-4375-9699-b61a805f07c0}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{e2918693-f38d-4d10-be88-2f428421f151}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" height="auto">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{84b1262b-c093-78dd-4cb1-a3cb4b6a4596}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Request Number" languagecode="1033" />
+                        </labels>
+                        <control id="ticketnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ticketnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1b29cbab-2d4d-57a5-e7a4-90ba94304675}" showlabel="true" colspan="1" auto="true" rowspan="5">
+                        <labels>
+                          <label description="Related Notes" languagecode="1033" />
+                        </labels>
+                        <control id="Related_Notes" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{81ca03c5-3abc-1925-8e60-8a02b53c28a6}">
+                          <parameters>
+                            <ViewId>{0B6BE868-C8F5-E911-A98F-001DD8009F4B}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>hac_incident_hac_casenote_requestid</RelationshipName>
+                            <TargetEntityType>hac_casenote</TargetEntityType>
+                            <AutoExpand>Auto</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{99A61B7D-6478-47DA-808A-683F3D5D54CB},{0B6BE868-C8F5-E911-A98F-001DD8009F4B}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>10</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="4">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Related Notes Quick View" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

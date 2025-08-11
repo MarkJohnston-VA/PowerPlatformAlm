@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3b238b7f-5bf6-4142-b4bb-a4f47771c3f2}</formid>
+    <IntroducedVersion>2021.08.02.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{e87facbd-c963-42ba-a404-50ea913815a0}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{3d6c0e6d-a1b8-4ea2-b692-e24a81347b91}" name="ActionItemParentInfo" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Parent Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c648016e-2c62-a6b8-e838-1e75eabd2ce3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Description (Action Item)" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_descriptionplaintext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="mcs_descriptionplaintext" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4e89e9d4-bd30-9438-9ce5-1306d6890d15}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Front Office Due Date " languagecode="1033" />
+                        </labels>
+                        <control id="mcs_frontofficeduedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_frontofficeduedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e84e17ad-6580-609b-1170-a5a22826a54d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Originator Due Date " languagecode="1033" />
+                        </labels>
+                        <control id="mcs_originatorduedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_originatorduedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{579a2c68-1bb8-d715-18ac-ca5c37e72c24}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Requestor Group" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_requestorgroup" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_requestorgroup" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="5">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Parent Action Item Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

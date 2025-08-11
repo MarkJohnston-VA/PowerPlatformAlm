@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{667cc9fc-c2b5-e711-81db-1458d04e1b18}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" icon="1" preview="1" select="1" jump="subject">
+        <row id="activityid" name="result">
+          <cell name="subject" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="200" />
+          <cell name="ownerid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="150" />
+          <cell name="hac_status_code" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
+          <cell name="hac_resolutionreason_code" width="140" />
+          <cell name="hac__user_workedbyid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
+          <cell name="hac_assigneddate" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
+          <cell name="scheduledstart" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
+          <cell name="scheduledend" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
+          <cell name="actualend" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">
+        <entity name="task">
+          <attribute name="subject" />
+          <attribute name="scheduledstart" />
+          <attribute name="ownerid" />
+          <attribute name="scheduledend" />
+          <attribute name="actualend" />
+          <attribute name="hac_status_code" />
+          <attribute name="hac__user_workedbyid" />
+          <attribute name="hac_assigneddate" />
+          <order descending="false" attribute="subject" />
+          <filter type="and">
+            <condition attribute="hac_type_code" operator="in">
+              <value>806860000</value>
+              <value>806860001</value>
+            </condition>
+          </filter>
+          <attribute name="hac_resolutionreason_code" />
+          <attribute name="activityid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Action Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{fbbb0877-7a1d-ed11-b83c-001dd803c0ba}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" icon="1" preview="1">
+        <row name="result" id="incidentid">
+          <cell name="createdon" width="150" />
+          <cell name="title" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="ticketnumber" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="subjectid" width="100" />
+          <cell name="statecode" width="125" />
+          <cell name="ccwf_claimnumber_text" width="100" />
+          <cell name="hac_pdinumber_text" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="incident">
+          <attribute name="createdon" />
+          <attribute name="ticketnumber" />
+          <attribute name="statecode" />
+          <attribute name="title" />
+          <attribute name="subjectid" />
+          <attribute name="ccwf_claimnumber_text" />
+          <attribute name="hac_pdinumber_text" />
+          <order attribute="createdon" descending="true" />
+          <filter type="and">
+            <condition attribute="vhacrm_lobid" operator="eq" uiname="OCC FM" uitype="hrc_lob" value="{A9C7B284-F0E3-E611-9427-0050568D1C17}" />
+          </filter>
+          <attribute name="incidentid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2022.08.15.4</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Voucher Examiner test" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

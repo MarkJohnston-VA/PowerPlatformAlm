@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{ba0c9dd9-1e3d-4166-a109-849d65ea0ebb}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_trackerid">
+          <cell name="mcs_name" width="300" />
+          <cell name="mcs_descriptionplaintext" width="100" />
+          <cell name="mcs_veteran" width="100" />
+          <cell name="createdon" width="125" />
+          <cell name="mcs_responseplaintext" width="100" />
+          <cell name="mcs_briefstatementofissueandstatusplaintext" width="100" />
+          <cell name="mcs_actionsprogressandresolutionplaintext" width="100" />
+          <cell name="mcs_nextstepsplaintext" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_tracker">
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <order attribute="mcs_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="mcs_veteran" operator="like" value="{0}" />
+            <condition attribute="mcs_name" operator="like" value="{0}" />
+            <condition attribute="mcs_actionsprogressandresolutionplaintext" operator="like" value="{0}" />
+            <condition attribute="mcs_briefstatementofissueandstatusplaintext" operator="like" value="{0}" />
+            <condition attribute="mcs_descriptionplaintext" operator="like" value="{0}" />
+            <condition attribute="mcs_nextstepsplaintext" operator="like" value="{0}" />
+            <condition attribute="mcs_responseplaintext" operator="like" value="{0}" />
+          </filter>
+          <attribute name="mcs_veteran" />
+          <attribute name="mcs_trackerid" />
+          <attribute name="mcs_descriptionplaintext" />
+          <attribute name="mcs_responseplaintext" />
+          <attribute name="mcs_briefstatementofissueandstatusplaintext" />
+          <attribute name="mcs_actionsprogressandresolutionplaintext" />
+          <attribute name="mcs_nextstepsplaintext" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2020.12.30.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Action Items" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

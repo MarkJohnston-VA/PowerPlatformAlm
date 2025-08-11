@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{f638fa21-edb6-438f-b10a-42597523cef7}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_errormessageid">
+          <cell name="mcs_errormessage" width="100" />
+          <cell name="mcs_friendlyerrormessage" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_errormessage">
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="mcs_name" operator="like" value="{0}" />
+          </filter>
+          <order attribute="mcs_friendlyerrormessage" descending="false" />
+          <attribute name="mcs_friendlyerrormessage" />
+          <attribute name="mcs_errormessage" />
+          <attribute name="mcs_errormessageid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2018.12.19.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Error Messages" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

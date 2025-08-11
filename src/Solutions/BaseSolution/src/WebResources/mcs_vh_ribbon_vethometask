@@ -1,0 +1,107 @@
+//Pick button for views
+function assignToSelfFromView(primaryControl, selectedItemsReferences) {
+    const userSettings = Xrm.Utility.getGlobalContext().userSettings;
+    const currentuserid = userSettings.userId.replace("{", "").replace("}", "");
+
+    const promises = selectedItemsReferences.map(selectedItem => {
+        const recordId = selectedItem.Id;
+        const user = {};
+        user["ownerid@odata.bind"] = "/systemusers(" + currentuserid +")"; // Owner
+
+        return Xrm.WebApi.updateRecord("mcs_vethometasks", recordId, user)
+                .then(result => {
+                    const updatedId = result.id;
+                    Xrm.Utility.refreshParentGrid(result);
+                },
+                error => {
+                    console.log(error.message);
+                }
+            );
+    });
+    return Promise.all(promises);
+}
+
+//Pick button for form
+function assignToSelfFromForm(context) {
+	const taskId = context.data.entity.getId().replace("{", "").replace("}", "");
+	const userSettings = Xrm.Utility.getGlobalContext().userSettings;
+	const currentUserId = userSettings.userId.replace("{", "").replace("}", "");
+
+	const taskRecord = {};
+	taskRecord["ownerid@odata.bind"] = "/systemusers(" + currentUserId + ")"; // Owner
+
+	return Xrm.WebApi.updateRecord("mcs_vethometasks", taskId, taskRecord)
+		.then(result => {				
+				context.data.refresh();
+                return result;
+			},
+			error => {
+				console.log(error.message);
+			}
+		);
+}
+
+//Release button for views
+function reassignBackToTeamFromView(primaryControl, selectedItemsReferences) {
+debugger; 
+    const promises = selectedItemsReferences.map(reference => {        
+        const entity = { "EntityId": reference.Id };        
+        const WorkflowId = "B0F33ED6-83A1-ED11-AAD0-001DD80721CF";
+        
+        const req = new XMLHttpRequest();
+        req.open("POST", Xrm.Page.context.getClientUrl() + "/api/data/v9.0/workflows(" + WorkflowId + ")/Microsoft.Dynamics.CRM.ExecuteWorkflow", true);
+        req.setRequestHeader("OData-MaxVersion", "4.0");
+        req.setRequestHeader("OData-Version", "4.0");
+        req.setRequestHeader("Accept", "application/json");
+        req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+        
+        return new Promise((resolve, reject) => {
+            req.onreadystatechange = function() {
+                if (this.readyState === 4) {
+                    req.onreadystatechange = null;
+                    if (this.status === 204) {                        
+                        console.log("Workflow successfully executed for record ID: " + reference.Id);
+                        resolve(reference.Id);
+                    } else {                        
+                        console.log("Error executing workflow for record ID: " + reference.Id);
+                        reject(new Error("Workflow execution failed for record ID: " + reference.Id));
+                    }
+                }
+            };                        
+            req.send(JSON.stringify(entity));
+        });        
+    });    
+    Promise.all(promises).then(results => {        
+        // Refresh Subgrid.
+        var lookupOptions = {};
+        lookupOptions.entityType = "mcs_vethometasks";
+        Xrm.Utility.refreshParentGrid(lookupOptions);        
+    }).catch(error => {
+        console.log(error);        
+    });
+}
+
+//Release button for form
+function reassignBackToTeamFromForm(context) {
+	var entity = { "EntityId": context.data.entity.getId() };    
+	var WorkflowId = "B0F33ED6-83A1-ED11-AAD0-001DD80721CF";
+
+	var req = new XMLHttpRequest();
+	req.open("POST", Xrm.Page.context.getClientUrl() + "/api/data/v9.0/workflows(" + WorkflowId + ")/Microsoft.Dynamics.CRM.ExecuteWorkflow", true);
+	req.setRequestHeader("OData-MaxVersion", "4.0");
+	req.setRequestHeader("OData-Version", "4.0");
+	req.setRequestHeader("Accept", "application/json");
+	req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+	req.onreadystatechange = function() {
+		if (this.readyState === 4) {
+			req.onreadystatechange = null;
+			if (this.status === 204) {
+				console.log("Success");
+                context.data.refresh();
+			} else {
+				console.log(this.statusText);
+			}
+		}
+	};
+	req.send(JSON.stringify(entity));
+}

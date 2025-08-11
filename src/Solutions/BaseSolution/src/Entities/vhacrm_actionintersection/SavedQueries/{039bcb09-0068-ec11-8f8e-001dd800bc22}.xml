@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{039bcb09-0068-ec11-8f8e-001dd800bc22}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="vhacrm_name" select="1" icon="1" preview="1">
+        <row name="result" id="vhacrm_actionintersectionid">
+          <cell name="vhacrm_name" width="250" />
+          <cell name="vhacrm_areaintersectionid" width="150" />
+          <cell name="vhacrm_subareaintersectionid" width="100" />
+          <cell name="hac_owner_teamid" width="100" />
+          <cell name="hac_routetype_code" width="100" />
+          <cell name="vhacrm_queueid" width="150" />
+          <cell name="hac_route_teamid" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="vhacrm_actionintersection">
+          <attribute name="vhacrm_name" />
+          <attribute name="hac_owner_teamid" />
+          <attribute name="vhacrm_subareaintersectionid" />
+          <attribute name="hac_routetype_code" />
+          <attribute name="hac_route_teamid" />
+          <attribute name="vhacrm_areaintersectionid" />
+          <attribute name="vhacrm_actionintersectionid" />
+          <order attribute="vhacrm_areaintersectionid" descending="false" />
+          <order attribute="vhacrm_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="vhacrm_typeintersectionid" operator="eq" value="{38f4d0a2-b20c-e611-941c-0050568d64c9}" uiname=" Community Care" uitype="vhacrm_typeintersection" />
+          </filter>
+          <attribute name="vhacrm_queueid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.12.28.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="C4 Active Action Intersections" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

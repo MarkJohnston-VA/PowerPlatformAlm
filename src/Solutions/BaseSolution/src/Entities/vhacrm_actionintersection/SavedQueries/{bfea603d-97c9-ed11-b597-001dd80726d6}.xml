@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{bfea603d-97c9-ed11-b597-001dd80726d6}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="vhacrm_name" select="1" icon="1" preview="1">
+        <row name="result" id="vhacrm_actionintersectionid">
+          <cell name="vhacrm_name" width="250" />
+          <cell name="vhacrm_lineofbusiness" width="100" />
+          <cell name="vhacrm_typeintersectionid" width="100" />
+          <cell name="vhacrm_areaintersectionid" width="100" />
+          <cell name="hac_owner_teamid" width="100" />
+          <cell name="hac_routingaction_bool" width="100" />
+          <cell name="hac_routetype_code" width="100" />
+          <cell name="hac_route_teamid" width="200" />
+          <cell name="vhacrm_subareaintersectionid" width="100" />
+          <cell name="vhacrm_actionid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="vhacrm_actionintersection">
+          <attribute name="vhacrm_name" />
+          <attribute name="vhacrm_typeintersectionid" />
+          <attribute name="hac_owner_teamid" />
+          <attribute name="vhacrm_subareaintersectionid" />
+          <attribute name="hac_routetype_code" />
+          <attribute name="hac_route_teamid" />
+          <attribute name="vhacrm_areaintersectionid" />
+          <attribute name="vhacrm_actionintersectionid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="vhacrm_lineofbusiness" operator="eq" value="{a9c7b284-f0e3-e611-9427-0050568d1c17}" uiname="OCC FM" uitype="hrc_lob" />
+          </filter>
+          <order attribute="hac_owner_teamid" descending="false" />
+          <order attribute="vhacrm_name" descending="false" />
+          <attribute name="vhacrm_lineofbusiness" />
+          <attribute name="hac_routingaction_bool" />
+          <attribute name="vhacrm_actionid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.12.28.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="FM Active Action Intersections For Export" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

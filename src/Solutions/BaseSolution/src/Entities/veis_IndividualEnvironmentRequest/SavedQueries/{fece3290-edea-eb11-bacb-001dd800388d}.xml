@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{fece3290-edea-eb11-bacb-001dd800388d}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="veis_name" select="1" icon="1" preview="1">
+        <row name="result" id="veis_individualenvironmentrequestid">
+          <cell name="createdon" width="125" />
+          <cell name="veis_automationuserbulkrequest" width="130" />
+          <cell name="veis_application" width="114" />
+          <cell name="veis_useremail" width="172" />
+          <cell name="veis_userfullname" width="168" />
+          <cell name="veis_environment" width="154" />
+          <cell name="veis_userlicensestatus" width="157" />
+          <cell name="veis_userupdatestatus" width="153" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="veis_individualenvironmentrequest">
+          <attribute name="veis_individualenvironmentrequestid" />
+          <link-entity name="veis_automationuserbulkrequest" alias="aa" link-type="inner" from="veis_automationuserbulkrequestid" to="veis_automationuserbulkrequest">
+            <filter type="and">
+              <condition attribute="ownerid" operator="eq-userid" />
+            </filter>
+          </link-entity>
+          <attribute name="createdon" />
+          <attribute name="veis_environment" />
+          <attribute name="veis_useremail" />
+          <attribute name="veis_userlicensestatus" />
+          <attribute name="veis_userupdatestatus" />
+          <attribute name="veis_automationuserbulkrequest" />
+          <attribute name="veis_userfullname" />
+          <attribute name="veis_application" />
+          <order attribute="veis_automationuserbulkrequest" descending="true" />
+          <order attribute="veis_useremail" descending="false" />
+          <order attribute="veis_environment" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.1.5</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="My User Updates" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

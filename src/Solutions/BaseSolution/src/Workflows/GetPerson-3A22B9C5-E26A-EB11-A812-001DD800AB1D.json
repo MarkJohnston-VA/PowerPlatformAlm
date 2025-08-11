@@ -1,0 +1,518 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "7634c2e6-1763-485a-b1e5-733499f72797"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "FilterString_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                }
+              },
+              "required": [
+                "FilterString_Value"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "FilterString": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c87caeca-d906-4bbc-bee8-4724f1d49bc4"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "FilterString",
+                "type": "string",
+                "value": "@{triggerBody()['FilterString_Value']}"
+              }
+            ]
+          }
+        },
+        "Try": {
+          "actions": {
+            "List_rows": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "f5e612fd-0b55-4f73-a085-e078cc19953b"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "crme_persons",
+                  "$filter": "@variables('FilterString')"
+                },
+                "retryPolicy": {
+                  "type": "none"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Response": {
+              "runAfter": {
+                "List_rows": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "db121096-4c9b-445e-9414-735427dfa5f3"
+              },
+              "type": "Response",
+              "kind": "Http",
+              "inputs": {
+                "statusCode": 200,
+                "body": "@outputs('List_rows')?['body/value']",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@@odata.type": {
+                        "type": "string"
+                      },
+                      "@@odata.id": {
+                        "type": "string"
+                      },
+                      "@@odata.editLink": {
+                        "type": "string"
+                      },
+                      "crme_personid@odata.type": {
+                        "type": "string"
+                      },
+                      "crme_personid": {
+                        "type": "string"
+                      },
+                      "crme_fullname": {
+                        "type": "string"
+                      },
+                      "crme_returnmessage": {
+                        "type": "string"
+                      },
+                      "createdbyname@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "createdbyname@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "createdonbehalfbyname@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "createdonbehalfbyname@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "modifiedbyname@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "modifiedbyname@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "modifiedonbehalfbyname@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "modifiedonbehalfbyname@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "owninguser@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "owninguser@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "owningteam@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "owningteam@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "ownerid@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "ownerid@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "owningbusinessunit@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "owningbusinessunit@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_SyncErrors@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_SyncErrors@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_AsyncOperations@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_AsyncOperations@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_MailboxTrackingFolders@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_MailboxTrackingFolders@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_UserEntityInstanceDatas@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_UserEntityInstanceDatas@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_ProcessSession@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_ProcessSession@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_BulkDeleteFailures@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_BulkDeleteFailures@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_PrincipalObjectAttributeAccesses@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_PrincipalObjectAttributeAccesses@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_firstname": {
+                        "type": "string"
+                      },
+                      "crme_lastname": {
+                        "type": "string"
+                      },
+                      "crme_middlename": {
+                        "type": "string"
+                      },
+                      "crme_alias": {
+                        "type": "string"
+                      },
+                      "crme_fulladdress": {
+                        "type": "string"
+                      },
+                      "crme_primaryphone": {
+                        "type": "string"
+                      },
+                      "crme_recordsource": {
+                        "type": "string"
+                      },
+                      "crme_gender": {
+                        "type": "string"
+                      },
+                      "crme_identitytheft": {
+                        "type": "string"
+                      },
+                      "crme_url": {
+                        "type": "string"
+                      },
+                      "crme_edipi": {
+                        "type": "string"
+                      },
+                      "crme_participantid": {
+                        "type": "string"
+                      },
+                      "crme_veteransensitivitylevel": {
+                        "type": "string"
+                      },
+                      "crme_patientmviidentifier": {
+                        "type": "string"
+                      },
+                      "crme_icn": {
+                        "type": "string"
+                      },
+                      "crme_deceaseddate": {
+                        "type": "string"
+                      },
+                      "crme_filenumber": {
+                        "type": "string"
+                      },
+                      "crme_dobstring": {
+                        "type": "string"
+                      },
+                      "crme_ssn": {
+                        "type": "string"
+                      },
+                      "crme_branchofservice ": {
+                        "type": "string"
+                      },
+                      "error": {
+                        "type": "string"
+                      }
+                    },
+                    "required": []
+                  }
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "FilterString": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e88f1001-f000-49b3-84ee-ecc1fc22f838"
+          },
+          "type": "Scope"
+        },
+        "Catch": {
+          "actions": {
+            "Response_2": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "46da2b60-6187-4f42-a279-c4ba6af93fea"
+              },
+              "type": "Response",
+              "kind": "Http",
+              "inputs": {
+                "statusCode": 200,
+                "body": [
+                  {
+                    "error": "true"
+                  }
+                ],
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@@odata.type": {
+                        "type": "string"
+                      },
+                      "@@odata.id": {
+                        "type": "string"
+                      },
+                      "@@odata.editLink": {
+                        "type": "string"
+                      },
+                      "crme_personid@odata.type": {
+                        "type": "string"
+                      },
+                      "crme_personid": {
+                        "type": "string"
+                      },
+                      "crme_fullname": {
+                        "type": "string"
+                      },
+                      "crme_returnmessage": {
+                        "type": "string"
+                      },
+                      "createdbyname@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "createdbyname@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "createdonbehalfbyname@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "createdonbehalfbyname@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "modifiedbyname@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "modifiedbyname@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "modifiedonbehalfbyname@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "modifiedonbehalfbyname@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "owninguser@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "owninguser@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "owningteam@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "owningteam@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "ownerid@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "ownerid@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "owningbusinessunit@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "owningbusinessunit@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_SyncErrors@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_SyncErrors@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_AsyncOperations@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_AsyncOperations@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_MailboxTrackingFolders@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_MailboxTrackingFolders@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_UserEntityInstanceDatas@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_UserEntityInstanceDatas@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_ProcessSession@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_ProcessSession@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_BulkDeleteFailures@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_BulkDeleteFailures@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_PrincipalObjectAttributeAccesses@odata.associationLink": {
+                        "type": "string"
+                      },
+                      "crme_person_PrincipalObjectAttributeAccesses@odata.navigationLink": {
+                        "type": "string"
+                      },
+                      "crme_firstname": {
+                        "type": "string"
+                      },
+                      "crme_lastname": {
+                        "type": "string"
+                      },
+                      "crme_middlename": {
+                        "type": "string"
+                      },
+                      "crme_alias": {
+                        "type": "string"
+                      },
+                      "crme_fulladdress": {
+                        "type": "string"
+                      },
+                      "crme_primaryphone": {
+                        "type": "string"
+                      },
+                      "crme_recordsource": {
+                        "type": "string"
+                      },
+                      "crme_gender": {
+                        "type": "string"
+                      },
+                      "crme_identitytheft": {
+                        "type": "string"
+                      },
+                      "crme_url": {
+                        "type": "string"
+                      },
+                      "crme_edipi": {
+                        "type": "string"
+                      },
+                      "crme_participantid": {
+                        "type": "string"
+                      },
+                      "crme_veteransensitivitylevel": {
+                        "type": "string"
+                      },
+                      "crme_patientmviidentifier": {
+                        "type": "string"
+                      },
+                      "crme_icn": {
+                        "type": "string"
+                      },
+                      "crme_deceaseddate": {
+                        "type": "string"
+                      },
+                      "crme_filenumber": {
+                        "type": "string"
+                      },
+                      "crme_dobstring": {
+                        "type": "string"
+                      },
+                      "crme_ssn": {
+                        "type": "string"
+                      },
+                      "crme_branchofservice ": {
+                        "type": "string"
+                      },
+                      "error": {
+                        "type": "string"
+                      }
+                    },
+                    "required": []
+                  }
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Try": [
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c6997fdc-2bcb-4278-9403-6a0a087af217"
+          },
+          "type": "Scope"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

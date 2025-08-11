@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{802e3dde-bc5d-43d8-a3b7-b971a77c373f}</savedqueryid>
+    <layoutxml>
+      <grid name="veis_individualenvironmentrequests" jump="veis_name" select="1" icon="1" preview="1">
+        <row name="veis_individualenvironmentrequest" id="veis_individualenvironmentrequestid">
+          <cell name="veis_name" width="300" />
+          <cell name="veis_userfullname" width="202" />
+          <cell name="veis_environment" width="120" />
+          <cell name="veis_userlicensestatus" width="152" />
+          <cell name="veis_userupdatestatus" width="165" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="veis_individualenvironmentrequest">
+          <attribute name="veis_individualenvironmentrequestid" />
+          <attribute name="veis_name" />
+          <order attribute="veis_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="veis_userfullname" />
+          <attribute name="veis_environment" />
+          <attribute name="veis_userlicensestatus" />
+          <attribute name="veis_userupdatestatus" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.1.5</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="User Environment Updates Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

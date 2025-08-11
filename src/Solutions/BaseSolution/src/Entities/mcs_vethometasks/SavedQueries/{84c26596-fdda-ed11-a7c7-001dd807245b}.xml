@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{84c26596-fdda-ed11-a7c7-001dd807245b}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_vethometasksid">
+          <cell name="mcs_name" width="220" />
+          <cell name="mcs_vethometaskdescription" width="280" />
+          <cell name="mcs_case" width="160" />
+          <cell name="mcs_veteranid" width="120" />
+          <cell name="createdon" width="110" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="mcs_vethometasks">
+          <attribute name="mcs_name" />
+          <attribute name="mcs_vethometasksid" />
+          <attribute name="mcs_vethometaskdescription" />
+          <attribute name="mcs_case" />
+          <attribute name="mcs_veteranid" />
+          <attribute name="createdon" />
+          <order attribute="createdon" descending="false" />
+          <filter type="and">
+            <condition attribute="ownerid" operator="eq-userid" />
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <link-entity name="mcs_vethomecase" alias="aa" link-type="inner" from="mcs_vethomecaseid" to="mcs_case">
+            <filter type="and">
+              <filter type="or">
+                <condition attribute="mcs_appointmentscheduledintmp" operator="last-x-years" value="10" />
+                <condition attribute="mcs_appointmentscheduledintmp" operator="null" />
+              </filter>
+            </filter>
+          </link-entity>
+          <link-entity name="vhacrm_actionintersection" alias="ab" link-type="inner" from="vhacrm_actionintersectionid" to="mcs_vethometasktypeid">
+            <filter type="and">
+              <condition attribute="hac_routetype_code" operator="eq" value="806860002" />
+            </filter>
+          </link-entity>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.04.13.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="My Current Provider VET-HOME Tasks" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="This is a view of My Current Provider VET-HOME Tasks." languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

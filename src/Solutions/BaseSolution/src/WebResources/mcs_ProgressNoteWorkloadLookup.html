@@ -1,0 +1,89 @@
+<html><head>
+    <title>VIA  Workload Lookup</title>
+    <script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <link href="mcs_ProgressNoteWorkloadStyle.css" rel="stylesheet">
+    <script src="bah_jquery_3_2_1.js" type="text/javascript"></script>
+    <script src="mcs_ProgressNoteWorkloadScriptLib.js" type="text/javascript"></script>
+    <script src="mcs_ViaServiceLibrary.js" type="text/javascript"></script>
+
+    <script src="mcs_VistaLoginControlScriptLib.js" type="text/javascript"></script>
+    <script src="vhacrm_/scripts/Common/CommCareShared.min.js"></script>
+
+<meta></head>
+<body class="ViaWorkloadLookupForm" lang="en-US" style="overflow-wrap: break-word;" dir="LTR" onfocusout="parent.setEmailRange();">
+    ﻿
+
+    <div id="ViaWorkloadLookupForm">
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td style="width: 8%; valign: bottom;">
+                        Site
+                    </td>
+                    <td style="width: 25%; valign: bottom;">
+                        <select id="selSite" style="min-width: 99%; max-width: 99%;" onchange="viawl_selectSite('called','from','dropdown')"></select>
+                    </td>
+                    <td style="width: 67%; text-align: right; valign: bottom;" colspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="width: 8%; valign: bottom;">
+                        Location
+                    </td>
+                    <td style="width: 25%; valign: bottom;">
+                        <select id="selFreqUsedLocation" style="min-width: 99%; max-width: 99%;" onchange="viawl_selectFreqUsedLocation()"></select>
+                    </td>
+                    <td style="width: 17%; text-align: right; valign: bottom;">
+                        Other Locations
+                    </td>
+                    <td style="width: 40%; valign: bottom;">
+                        <input title="Select a location by typing the first few letters in the location name." id="viawl_searchLocation" style="width: 99%;">
+                    </td>
+                    <td style="width: 10%; valign: bottom;">
+                        <iframe height="25" src="/WebResources/mcs_ProgressNoteFrequentlyUsedControl.html?data=FreqUsedLocationButton~~Click here to add the currently selected location to the Frequently Used List~~Add Location" frameborder="0" scrolling="no"></iframe>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 8%; valign: bottom;">
+                        Note Title
+                    </td>
+                    <td style="width: 25%; valign: bottom;">
+                        <select id="selFreqUsedNoteTitle" style="min-width: 99%; max-width: 99%;" onchange="viawl_selectFreqUsedNoteTitle()"></select>
+                    </td>
+                    <td style="width: 17%; text-align: right; valign: bottom;">
+                        Other Note Titles
+                    </td>
+                    <td style="width: 40%; valign: bottom;">
+                        <input title="Select a note title by typing the first few letters in the title." id="viawl_searchNoteTitle" style="width: 99%;">
+                    </td>
+                    <td style="width: 10%; valign: bottom;">
+                        <iframe height="25" src="/WebResources/mcs_ProgressNoteFrequentlyUsedControl.html?data=FreqUsedNoteTitleButton~~Click here to add the currently selected note title to the Frequently Used List~~Add Note Title" frameborder="0" scrolling="no"></iframe>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 8%; valign: bottom;">
+                        <label id="lblVisit" style="width: 10%; display: none;">Visit</label>
+                    </td>
+                    <td style="width: 33%; valign: bottom;">
+                        <select id="selVisit" style="display: none; min-width: 99%; max-width: 99%;" onchange="viawl_selectVisit()"></select>
+                    </td>
+                    <td style="width: 59%; text-align: right; valign: bottom;" colspan="3">&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            //Actions/Functions to execute as soon as the form is at a ready state.
+            try {
+                //Construct the initial Lookup
+                viawl_formLoad();
+            }
+            catch (err) {
+                //Display Error....
+                alert("ViaWorkloadLookup.html Script Document Ready Error: " + err.message);
+            }
+        });
+    </script>
+
+
+</body></html>

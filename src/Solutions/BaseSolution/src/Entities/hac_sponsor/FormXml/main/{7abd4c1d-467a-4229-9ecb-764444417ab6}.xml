@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7abd4c1d-467a-4229-9ecb-764444417ab6}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{37033f56-3c8f-444c-b3e5-3a4f16a5f62a}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c4237687-49d8-414e-ae5f-8b4583df1b42}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e39c014b-e09c-4b2c-b7d8-af3cd5dd0e62}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="hac_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_name" />
+                      </cell>
+                      <cell id="{5e704559-e357-ad4c-c44a-2999b18226ea}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Sponsor Status" languagecode="1033" />
+                        </labels>
+                        <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2cd4bd77-33cc-65b8-b445-60ce06e3c166}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="SSN" languagecode="1033" />
+                        </labels>
+                        <control id="hac_ssn" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_ssn" disabled="false" />
+                      </cell>
+                      <cell id="{a6255e42-d23d-4f89-b1ae-58bbb5125f49}" showlabel="true" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{312b9fc3-5ca1-408c-bb39-69bf91362bf9}" IsUserDefined="0" expanded="false">
+          <labels>
+            <label description="Notes" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" id="{657fb5ac-ecb1-40ca-a027-b5903aa61d4e}" IsUserDefined="0" height="auto">
+                  <labels>
+                    <label description="Notes" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell colspan="2" showlabel="false" rowspan="5" auto="true" id="{7b6ded54-4300-4eb6-b232-59f72fe020ec}">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" />
+                      </cell>
+                    </row>
+                    <row></row>
+                    <row></row>
+                    <row></row>
+                    <row height="auto"></row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{5e9c7aa4-b5da-4bed-9a0c-1d22c851e442}" columns="1111" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+        <rows>
+          <row>
+            <cell id="{581cee10-2782-4318-dbc3-673d280ecdc3}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Name" languagecode="1033" />
+              </labels>
+              <control id="header_hac_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_name" disabled="true" />
+            </cell>
+            <cell id="{e7a626e2-7b31-920b-2d7b-1144e18088da}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="SSN" languagecode="1033" />
+              </labels>
+              <control id="header_hac_ssn" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_ssn" disabled="true" />
+            </cell>
+            <cell id="{cd91e898-deab-96de-68bd-9a29ce780ece}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="File Number" languagecode="1033" />
+              </labels>
+              <control id="header_hac_filenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_filenumber" disabled="true" />
+            </cell>
+            <cell id="{02d52502-83a3-c36e-19d2-8e6a2d51262c}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Sponsor Status" languagecode="1033" />
+              </labels>
+              <control id="header_statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="true" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{a04ee580-83f4-4a0d-bba9-e4cadf120b41}">
+        <rows>
+          <row>
+            <cell id="{27b648b1-1563-412b-86e6-86158f3f8790}">
+              <labels>
+                <label description="Status" languagecode="1033" />
+              </labels>
+              <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Processes" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

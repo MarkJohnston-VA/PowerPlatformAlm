@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .SummaryHeader {
+            font-family: "Segoe UI Regular", SegoeUI, "Segoe UI";
+            font-size: 12pt;
+            font-weight: 400;
+        }
+        
+        .SummaryDetail {
+            font-family: "Segoe UI Regular", SegoeUI, "Segoe UI";
+            font-size: 10pt;
+            font-weight: 400;
+            margin-left: 20px;
+        }
+        .Heavy {
+            font-weight: 600;
+        }
+        .UserSpacer {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="summaryPlaceholder" ></div>
+</body>
+
+<script>
+
+    "use strict";
+
+    async function RenderControlWithContext(globalContext, executionContext) {        
+        let formContext = executionContext.getFormContext();
+
+        let attribute = formContext.getAttribute('veis_jsonrequest');
+
+        let jsonRequest = attribute.getValue();
+        if (jsonRequest !== null && jsonRequest !== '') {
+            let requestObject = JSON.parse(jsonRequest);
+            let summaryPlaceholder = $('#summaryPlaceholder');
+            summaryPlaceholder.empty();
+            if (requestObject !== null && requestObject.SelectedApplication !== null) {
+                summaryPlaceholder.append($("<div class=\"SummaryHeader\">Application: " + requestObject.SelectedApplication + "</div>"));
+
+                if (requestObject.Environments !== null && requestObject.Environments.length) {
+                    summaryPlaceholder.append($("<div class=\"SummaryHeader\">Environments: " + requestObject.Environments.join(', ') + "</div>"));
+                }
+                if (requestObject.Justification !== '') {
+                    summaryPlaceholder.append($("<div class=\"SummaryHeader\">Justification: " + requestObject.Justification + "</div>"));
+                }
+
+                if (requestObject.SelectedApplication === "AVA") {
+                    AddAvaContent(requestObject.Users, summaryPlaceholder);
+                }
+                if (requestObject.SelectedApplication === "CommCare") {
+                    AddCommCareContent(requestObject.Users, summaryPlaceholder);
+                }
+                else if (requestObject.SelectedApplication === "PATS-R") {
+                    AddPATSRContent(requestObject.Users, summaryPlaceholder);
+                }
+                else if (requestObject.SelectedApplication === "UDO") {
+                    AddUdoContent(requestObject.Users, summaryPlaceholder);
+                }
+                else if (String(requestObject.SelectedApplication).includes("OIT")) {
+                    AddOITContent(requestObject.Users, summaryPlaceholder);
+                }
+                
+            }
+        }
+    }
+
+    function AddAvaContent(users, summaryPlaceholder) {
+        users.map((user, index) => {
+            summaryPlaceholder.append($("<div class=\"UserSpacer\"/>"));
+            summaryPlaceholder.append($("<div class=\"SummaryHeader Heavy\">" + user.FullName + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Email: " + user.Email + "</div>"));
+
+            let roleDisplay = (user.Roles.length > 0) ? user.Roles.map(r => r.DisplayName).join('; ') : "None selected";
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Roles: " + roleDisplay + "</div>"));
+
+            let teamDisplay = (user.Teams.length > 0) ? user.Teams.map(r => r.DisplayName).join('; ') : "None selected";
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Teams: " + teamDisplay + "</div>"));
+
+            if (user.FmiInbox !== undefined && user.FmiInbox !== '') {
+                summaryPlaceholder.append($("<div class=\"SummaryDetail\">FMI Capacity: " + user.FmiInbox + "</div>"));
+            }
+        });
+    }
+
+    function AddCommCareContent(users, summaryPlaceholder) {
+        users.map((user, index) => {
+            summaryPlaceholder.append($("<div class=\"UserSpacer\"/>"));
+            summaryPlaceholder.append($("<div class=\"SummaryHeader Heavy\">" + user.FullName + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Email: " + user.Email + "</div>"));
+
+            let managerDisplay = (user.Manager !== undefined && user.Manager.DisplayName !== '') ? user.Manager.DisplayName : "Not provided";
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Manager: " + managerDisplay + "</div>"));
+
+            let roleDisplay = (user.Roles.length > 0) ? user.Roles.map(r => r.DisplayName).join('; ') : "None selected";
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Roles: " + roleDisplay + "</div>"));
+
+            let teamDisplay = (user.Teams.length > 0) ? user.Teams.map(r => r.DisplayName).join('; ') : "None selected";
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Teams: " + teamDisplay + "</div>"));
+        });
+    }
+
+    function AddPATSRContent(users, summaryPlaceholder) {
+        users.map((user, index) => {
+            summaryPlaceholder.append($("<div class=\"UserSpacer\"/>"));
+            summaryPlaceholder.append($("<div class=\"SummaryHeader Heavy\">" + user.FullName + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Email: " + user.Email + "</div>"));
+
+            let subfacilityDisplay = (user.Subfacility !== undefined && user.Subfacility.DisplayName !== '') ? user.Subfacility.DisplayName : "Not provided";
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Subfacility: " + subfacilityDisplay + "</div>"));
+
+            let serviceLineDisplay = (user.ServiceLine !== undefined && user.ServiceLine !== '' && user.ServiceLine.DisplayName !== '') ? user.ServiceLine.DisplayName : "Not provided";
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Service Line: " + serviceLineDisplay + "</div>"));
+
+            if (user.Roles.length > 0) {
+                summaryPlaceholder.append($("<div class=\"SummaryDetail\">Business Unit: " + user.Roles[0].ParentRecordId + "</div>"));
+            }
+            let roleDisplay = (user.Roles.length > 0) ? user.Roles.map(r => r.DisplayName).join('; ') : "None selected";
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Roles: " + roleDisplay + "</div>"));
+        });
+    }
+
+    function AddUdoContent(users, summaryPlaceholder) {
+        users.map((user, index) => {
+            summaryPlaceholder.append($("<div class=\"UserSpacer\"/>"));
+            summaryPlaceholder.append($("<div class=\"SummaryHeader Heavy\">" + user.FullName + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Email: " + user.Email + "</div>"));
+
+            let managerDisplay = (user.Manager !== undefined && user.Manager.DisplayName !== '') ? user.Manager.DisplayName : "Not provided";
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Manager: " + managerDisplay + "</div>"));
+
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">PCR Sensitivity Level: " + user.PcrSensitivityLevel?.DisplayName + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Site: " + user.Site?.DisplayName + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">User Type: " + user.UdoUserType + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Participant ID: " + user.ParticipantId + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">WS Login Name: " + user.WsLoginName + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Station: " + user.Station + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">IP Address: " + user.IpAddress + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Reply Refer To: " + user.ReplyReferTo + "</div>"));
+            if (user.UdoUserType == 'VASS') {
+                summaryPlaceholder.append($("<div class=\"SummaryDetail\">Finesse Agent ID: " + user.FinesseAgentID + "</div>"));
+                summaryPlaceholder.append($("<div class=\"SummaryDetail\">Finesse Agent ID Extension: " + user.FinesseAgentIDExt + "</div>"));
+            }
+
+        });
+    }
+    function AddOITContent(users, summaryPlaceholder) {
+        users.map((user, index) => {
+            summaryPlaceholder.append($("<div class=\"UserSpacer\"/>"));
+            summaryPlaceholder.append($("<div class=\"SummaryHeader Heavy\">" + user.FullName + "</div>"));
+            summaryPlaceholder.append($("<div class=\"SummaryDetail\">Email: " + user.Email + "</div>"));
+
+        });
+
+    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{93ebf8ed-f7a3-4661-8434-183b1833a123}</formid>
+    <IntroducedVersion>2023.1.17.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1920">
+      <tabs>
+        <tab id="{09746105-6343-42b6-981d-771823bd1db2}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{831abc5a-1a7c-43ad-b80b-9458ebe11001}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" height="auto">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d1d3426b-e724-c746-2daa-0663de175807}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="VET-HOME Task Type" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_vethometasktypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_vethometasktypeid" disabled="false" uniqueid="{19de4ab9-9873-263d-eb27-27c5eb0d0e08}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>true</DisableViewPicker>
+                            <DefaultViewId>{093A51C9-B396-ED11-AAD1-001DD807245B}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8a80962c-b45e-0e5b-34a7-86657adcd155}" showlabel="true" locklevel="0" rowspan="7" auto="true">
+                        <labels>
+                          <label description="Task Description" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_vethometaskdescription" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="mcs_vethometaskdescription" disabled="false" uniqueid="{8824c76c-8d76-b5d6-985d-806425091a31}" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{404ffe45-0bd6-4159-82f1-8e54c6a503c8}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{97f22bea-9a0a-42b5-83f4-0b14d69ab933}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{8bbbdb10-befb-452c-bdf6-eeb5974237f9}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8998319e-e497-c858-0715-6ec6ed041c67}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" disabled="false" uniqueid="{5595e8db-681b-63b9-a5c8-a279daae0067}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e4480455-ccdb-805d-8313-4ab9b12de84e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Case" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_case" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_case" disabled="false" uniqueid="{bd723639-96ea-5bdb-06a3-0dae7ba91949}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{5d170e8c-b2ad-c380-29ad-5989409018dd}" />
+        <Library name="mcs_vh_form_vethometask.js" libraryUniqueId="{7d0de5a6-d428-05a8-de28-c9dada64542e}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="VETHOME.Task.Functions.OnLoad" libraryName="mcs_vh_form_vethometask.js" handlerUniqueId="{a60ac1a3-ea61-0086-ce33-7644509d34ea}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Quick Create" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

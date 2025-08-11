@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{730dd5c4-0c0f-eb11-a813-001dd801df87}</savedqueryid>
+    <layoutxml>
+      <grid name="queueitems" jump="title" select="1" icon="1" preview="1">
+        <row name="queueitem" id="objectid" multiobjectidfield="objecttypecode">
+          <cell name="mcs_requestnumber" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_tasktitle" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_action" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_program" width="150" />
+          <cell name="workerid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_duedate" width="150" />
+          <cell name="enteredon" width="100" />
+          <cell name="mcs_customernew" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_interaction" width="200" />
+          <cell name="mcs_purposedetail" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_vsignalssurveytype" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="queueitemid" ishidden="1" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="queueitem">
+          <attribute name="enteredon" />
+          <attribute name="objecttypecode" />
+          <attribute name="queueitemid" />
+          <attribute name="workerid" />
+          <attribute name="mcs_program" />
+          <attribute name="mcs_requestnumber" />
+          <attribute name="mcs_tasktitle" />
+          <attribute name="mcs_interaction" />
+          <attribute name="mcs_duedate" />
+          <attribute name="mcs_action" />
+          <order attribute="mcs_duedate" descending="false" />
+          <order attribute="mcs_action" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+            <condition attribute="queueid" operator="in">
+              <value uiname="&lt;Service Recovery Approval&gt;" uitype="queue">{9908ACCA-AD6E-EA11-A811-001DD8018866}</value>
+              <value uiname="&lt;Service Recovery&gt;" uitype="queue">{604F2648-6C59-EA11-A99C-001DD8009F4B}</value>
+            </condition>
+          </filter>
+          <attribute name="mcs_purposedetail" />
+          <attribute name="mcs_customernew" />
+          <attribute name="mcs_vsignalssurveytype" />
+          <attribute name="objectid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2020.09.30.01</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Service Recovery Items - All Closed" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

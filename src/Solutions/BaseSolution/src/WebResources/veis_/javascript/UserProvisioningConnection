@@ -1,0 +1,14 @@
+function UpdateFormForTargetType(executionContext) {
+    let formContext = executionContext.getFormContext();
+    let targetType = formContext.getAttribute('veis_targettype').getValue();
+
+    let dynamicsSelected = targetType === 345990000;
+
+    formContext.getControl('veis_application').setVisible(dynamicsSelected);
+    formContext.getAttribute('veis_application').setRequiredLevel((dynamicsSelected) ? 'required' : 'none');
+
+    formContext.getControl('veis_environment').setVisible(dynamicsSelected);
+    formContext.getAttribute('veis_environment').setRequiredLevel((dynamicsSelected) ? 'required' : 'none');
+
+    formContext.ui.tabs.get('generalTab').sections.get('apiManagerSection').setVisible(dynamicsSelected === false);
+}

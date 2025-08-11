@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{7c4e817c-7761-4135-a496-dbda1be8a454}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_vethometasksid">
+          <cell name="mcs_name" width="210" />
+          <cell name="mcs_vethometaskdescription" width="200" />
+          <cell name="ownerid" width="130" />
+          <cell name="mcs_veteranid" width="140" />
+          <cell name="mcs_numberofbusinessdaysopen" width="70" />
+          <cell name="createdon" width="120" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_vethometasks">
+          <attribute name="createdon" />
+          <order attribute="createdon" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="ownerid" />
+          <attribute name="mcs_vethometasksid" />
+          <attribute name="mcs_name" />
+          <attribute name="mcs_vethometaskdescription" />
+          <attribute name="mcs_numberofbusinessdaysopen" />
+          <attribute name="mcs_veteranid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.1.17.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active VET-HOME Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

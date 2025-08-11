@@ -1,0 +1,67 @@
+function initiateAppInsights(exCon) {
+    const prodKey = "c34a20fe-8922-f9c6-9ad9-687640ddad8c";
+    const nProdKey = "b2d1a0fa-af2a-f5ae-85d9-45abcee3b458";
+    const devKey = "1b396e0c-ec4f-ffa9-9fa3-8cb1bbd1fddd";
+    CommCare.Shared.GetFormContext(exCon);
+    var context = Xrm.Utility.getGlobalContext();
+    var serverUrl = context.getClientUrl();
+    var orgSplit = serverUrl.split("-");
+    var org;
+
+    var key;
+    if (orgSplit.length < 3) {
+        key = prodKey;
+        org = "PROD"
+    }
+    else {
+        orgSplit = orgSplit[2].split(".")[0];
+        key = orgSplit == "dev" ? devKey : nProdKey;
+        org = orgSplit.toUpperCase();
+    }
+
+    var appInsights = window.appInsights || function (a) {
+        function b(a) { c[a] = function () { var b = arguments; c.queue.push(function () { c[a].apply(c, b) }) } } var c = { config: a }, d = document, e = window; setTimeout(function () { var b = d.createElement("script"); b.src = a.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js", d.getElementsByTagName("script")[0].parentNode.appendChild(b) }); try { c.cookie = d.cookie } catch (a) { } c.queue = []; for (var f = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; f.length;) b("track" + f.pop()); if (b("setAuthenticatedUserContext"), b("clearAuthenticatedUserContext"), b("startTrackEvent"), b("stopTrackEvent"), b("startTrackPage"), b("stopTrackPage"), b("flush"), !a.disableExceptionTracking) { f = "onerror", b("_" + f); var g = e[f]; e[f] = function (a, b, d, e, h) { var i = g && g(a, b, d, e, h); return !0 !== i && c["_" + f](a, b, d, e, h), i } } return c
+    }({
+        instrumentationKey: key,
+        endpointUrl: "https://dc.applicationinsights.us/v2/track"
+    });
+
+    var UserName;
+    var Alias;
+    var UserID;
+    var ODataPath;
+    var formName = "-No Form";
+    var formType = CommCare.Shared.FormContext.ui.getFormType();
+    var entityName;
+
+    UserID = Xrm.Utility.getGlobalContext().userSettings.userId.replace("{", "").replace("}", "").toLowerCase();
+    ODataPath = serverUrl + "/XRMServices/2011/OrganizationData.svc";
+    if (CommCare.Shared.FormContext.ui.formSelector != null && CommCare.Shared.FormContext.ui.formSelector.getCurrentItem() != null) {
+        formName = CommCare.Shared.FormContext.ui.formSelector.getCurrentItem().getLabel();
+    }
+    else if (formType == 1 || formType == 5) {
+        formName = "Quick Create";
+    }
+
+    entityName = CommCare.Shared.FormContext.data.entity.getEntityName();
+    eventName = formName != null ? entityName + "-" + formName : entityName + "-No Form";
+
+    window.appInsights = appInsights, appInsights.queue
+        && 0 === appInsights.queue.length
+        && appInsights.trackPageView(eventName, serverUrl,
+            {
+                User: Xrm.Utility.getGlobalContext().userSettings.UserName
+                , AgentId: UserID
+                , DomainName: "CommCare"
+                , Organization: org
+                , SessionId: uuidv4()
+            });
+
+}
+
+function uuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}

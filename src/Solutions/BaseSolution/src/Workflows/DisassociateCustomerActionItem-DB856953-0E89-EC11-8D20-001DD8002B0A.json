@@ -1,0 +1,154 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "mcs_sharedcommondataserviceforapps_e0a04"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "e1cdd381-8ed2-402b-bb84-918889d9bc2e"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ContactId_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                },
+                "ActionItemId_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                },
+                "OrgDomain_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                }
+              },
+              "required": [
+                "ContactId_Value",
+                "ActionItemId_Value",
+                "OrgDomain_Value"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Unrelate_rows": {
+          "runAfter": {
+            "OrgDomain": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c9f4874c-ca1d-4a5e-8e22-50d44fcab560"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "DisassociateEntities",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_trackers",
+              "recordId": "@variables('ActionItemId')",
+              "associationEntityRelationship": "mcs_tracker_Contact_Contact",
+              "$id": "@{variables('OrgDomain')}/api/data/v9.1/contacts(@{variables('ContactId')})"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "ContactId": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "d5a3ebdd-4c74-4789-8646-99bcad2063d4"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ContactId",
+                "type": "string",
+                "value": "@{triggerBody()['ContactId_Value']}"
+              }
+            ]
+          }
+        },
+        "ActionItemId": {
+          "runAfter": {
+            "ContactId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3e05aad2-b3a5-4709-ba3c-da80278f4286"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ActionItemId",
+                "type": "string",
+                "value": "@{triggerBody()['ActionItemId_Value']}"
+              }
+            ]
+          }
+        },
+        "OrgDomain": {
+          "runAfter": {
+            "ActionItemId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5eb099b1-73bd-407d-a4ae-eeff8d924b1a"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "OrgDomain",
+                "type": "string",
+                "value": "@{triggerBody()['OrgDomain_Value']}"
+              }
+            ]
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

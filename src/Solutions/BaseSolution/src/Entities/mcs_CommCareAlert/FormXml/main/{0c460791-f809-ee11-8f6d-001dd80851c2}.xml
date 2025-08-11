@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{0c460791-f809-ee11-8f6d-001dd80851c2}</formid>
+    <IntroducedVersion>2023.06.13.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighReadOnlyValues" shownavigationbar="false">
+      <tabs>
+        <tab verticallayout="true" id="{8697ff3c-311c-4282-be04-96f7ad3250af}" IsUserDefined="1" labelid="{2fb99c55-6593-4618-b54b-bfc54d95804e}" name="General">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="Dates" id="6d6ad42b-b48b-4d1c-adf3-5b0daf96e679" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{8f726434-66f9-4bd8-bdba-62624f175829}">
+                  <labels>
+                    <label description="Dates" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b9eb82b6-3274-4415-a527-f3228b7bf15e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Start Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_startdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="mcs_startdate" disabled="true" />
+                      </cell>
+                      <cell id="{5a4b9976-6dc9-4092-8594-07ee7bea36a3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="End Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_enddate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="mcs_enddate" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="LandingPage" id="9e8ef920-6f46-4c1c-874c-518c7ecbc08e" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Landing Page" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8ad88a91-6943-4374-bedc-d73f6e9aea4d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Alert Landing Page" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_alertlandingpage" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="mcs_alertlandingpage" disabled="true" uniqueid="{cb505396-72a4-45a7-a684-928fec250517}">
+                          <parameters>
+                            <DefaultViewId>{221F2A3A-0AD0-4EBB-8282-B1D8A71156DA}</DefaultViewId>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Hidden" id="bb0ceae8-be04-4b30-9d3f-0690024f09a7" IsUserDefined="0" locklevel="0" showlabel="true" visible="false">
+          <labels>
+            <label description="Hidden" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" id="ced0a9b1-8e65-4b29-b26d-1ed135459b9c" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{934a6c6b-b7c7-4eab-8a5c-4b98c39010d3}" colspan="1" rowspan="1" labelid="{46103ef4-ad40-41eb-a90a-525710be614c}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cefc48b0-bad0-4926-8535-5d437d90de75}" labelid="{4714cfe8-ddf0-4e29-91aa-2f06b63237ea}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{b6cc2c0e-bb22-4898-b0f3-b3a58d528d34}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{bcdc9ed2-3ca0-4fad-acbc-9be9be08526f}" showlabel="false" labelid="{477c8696-52ba-4bcc-9ce0-1852fabecd82}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{74ec7421-bba1-41b2-95be-bf5dc60a224d}" showlabel="false" labelid="{c87de022-36dd-4938-86e8-2cd153ac629d}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1f31adca-f8df-421b-ab16-3887cf8bca14}" showlabel="false" labelid="{92b2dcba-3364-42e5-9ec5-278856aeac9f}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{bb185d89-869b-4cac-9514-381b2b3d2851}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{999376fe-2fa3-455f-a1f3-8208aa94ccf3}" showlabel="false" labelid="{6da089e4-3fe3-4c1c-868d-48174a499b9d}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0c8d5bf5-7349-496e-8375-25f3044a8c2e}" showlabel="false" labelid="{a33ea09f-c763-4ef7-99e7-ae8543d651c1}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{31b24199-3f05-46cb-a72f-ba844c6a6149}" showlabel="false" labelid="{a3944362-37fc-4d7e-88ee-598ff851b6f5}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="2" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+        <Role Id="{7a5b2786-cfec-42d9-b848-68e9655797da}" />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{cb505396-72a4-45a7-a684-928fec250517}">
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+            <parameters>
+              <datafieldname>mcs_alertlandingpage</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>mcs_alertlandingpage</BindAttribute>
+                <DefaultViewId>{221F2A3A-0AD0-4EBB-8282-B1D8A71156DA}</DefaultViewId>
+                <FilterRelationshipName></FilterRelationshipName>
+                <DependentAttributeName></DependentAttributeName>
+                <DependentAttributeType></DependentAttributeType>
+                <AvailableViewIds></AvailableViewIds>
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="mcs_alertlandingpage"&gt;65ec6755-c5e6-44f9-95d3-c7764548ffb2&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>mcs_alertlandingpage</BindAttribute>
+                <DefaultViewId>{221F2A3A-0AD0-4EBB-8282-B1D8A71156DA}</DefaultViewId>
+                <FilterRelationshipName></FilterRelationshipName>
+                <DependentAttributeName></DependentAttributeName>
+                <DependentAttributeType></DependentAttributeType>
+                <AvailableViewIds></AvailableViewIds>
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="mcs_alertlandingpage"&gt;65ec6755-c5e6-44f9-95d3-c7764548ffb2&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>mcs_alertlandingpage</BindAttribute>
+                <DefaultViewId>{221F2A3A-0AD0-4EBB-8282-B1D8A71156DA}</DefaultViewId>
+                <FilterRelationshipName></FilterRelationshipName>
+                <DependentAttributeName></DependentAttributeName>
+                <DependentAttributeType></DependentAttributeType>
+                <AvailableViewIds></AvailableViewIds>
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="mcs_alertlandingpage"&gt;65ec6755-c5e6-44f9-95d3-c7764548ffb2&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <Navigation>
+        <NavBar>
+          <NavBarByRelationshipItem Area="Info" Show="false" RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navAudit" Id="navAudit" Sequence="9600">
+            <Titles>
+              <Title Text="Audits" LCID="1033" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem Area="ProcessCenter" Show="false" RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navAsyncOperations" Id="navAsyncOperations" Sequence="9500">
+            <Titles>
+              <Title Text="System Jobs" LCID="1033" />
+            </Titles>
+          </NavBarByRelationshipItem>
+        </NavBar>
+      </Navigation>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="CommCare Alert main form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="mcs.mcs_vethomecase.SendInvitation.Button.CustomAction" Location="Mscrm.Form.mcs_vethomecase.MainTab.Save.Controls._children" Sequence="47">
+      <CommandUIDefinition>
+        <Button Command="mcs.mcs_vethomecase.SendInvitation.Command" Id="mcs.mcs_vethomecase.SendInvitation.Button" LabelText="$LocLabels:mcs.mcs_vethomecase.SendInvitation.Button.LabelText" Sequence="47" TemplateAlias="o1" ModernImage="$webresource:adx_create_invitation.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_vethomecase.Activate.Hide" Location="Mscrm.Form.mcs_vethomecase.Activate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_vethomecase.AddToQueue.Hide" Location="Mscrm.Form.mcs_vethomecase.AddToQueue" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_vethomecase.Assign.Hide" Location="Mscrm.Form.mcs_vethomecase.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_vethomecase.Deactivate.Hide" Location="Mscrm.Form.mcs_vethomecase.Deactivate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_vethomecase.QueueItemDetail.Hide" Location="Mscrm.Form.mcs_vethomecase.QueueItemDetail" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_vethomecase.QueueItemDetailOmnichannel.Hide" Location="Mscrm.Form.mcs_vethomecase.QueueItemDetailOmnichannel" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.mcs_vethomecase.Activate.Hide" Location="Mscrm.HomepageGrid.mcs_vethomecase.Activate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.mcs_vethomecase.Assign.Hide" Location="Mscrm.HomepageGrid.mcs_vethomecase.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.mcs_vethomecase.Chart.Assign.Hide" Location="Mscrm.HomepageGrid.mcs_vethomecase.Chart.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.mcs_vethomecase.Deactivate.Hide" Location="Mscrm.HomepageGrid.mcs_vethomecase.Deactivate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_vethomecase.Activate.Hide" Location="Mscrm.SubGrid.mcs_vethomecase.Activate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_vethomecase.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.mcs_vethomecase.AddExistingAssoc" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_vethomecase.AddExistingStandard.Hide" Location="Mscrm.SubGrid.mcs_vethomecase.AddExistingStandard" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_vethomecase.AddToQueue.Hide" Location="Mscrm.SubGrid.mcs_vethomecase.AddToQueue" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_vethomecase.Assign.Hide" Location="Mscrm.SubGrid.mcs_vethomecase.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_vethomecase.Deactivate.Hide" Location="Mscrm.SubGrid.mcs_vethomecase.Deactivate" />
+    <HideCustomAction HideActionId="mcs.vhacrm.ApplicationRibbon.Button28.Button.Hide" Location="vhacrm.ApplicationRibbon.Button28.Button" />
+    <HideCustomAction HideActionId="mcs.vhacrm.ApplicationRibbon.Button29.Button.Hide" Location="vhacrm.ApplicationRibbon.Button29.Button" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="mcs.mcs_vethomecase.SendInvitation.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="mcs.mcs_vethomecase.Existing.DisplayRule" />
+        <DisplayRule Id="mcs.mcs_vethomecase.InvitationAlreadySent.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="openNewInvitationForm" Library="$webresource:mcs_vh_ribbon_vethomecase.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="mcs.mcs_vethomecase.Existing.DisplayRule">
+        <FormStateRule State="Existing" />
+      </DisplayRule>
+      <DisplayRule Id="mcs.mcs_vethomecase.InvitationAlreadySent.DisplayRule">
+        <ValueRule Field="mcs_sendportalinvitation" Value="false" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="mcs.mcs_vethomecase.SendInvitation.Button.LabelText">
+      <Titles>
+        <Title description="Send Portal Invitation" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

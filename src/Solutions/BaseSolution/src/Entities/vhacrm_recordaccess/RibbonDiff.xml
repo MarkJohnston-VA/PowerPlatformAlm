@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.Activate.Hide" Location="Mscrm.Form.vhacrm_recordaccess.Activate" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.AddToQueue.Hide" Location="Mscrm.Form.vhacrm_recordaccess.AddToQueue" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.Convert.Case.Hide" Location="Mscrm.Form.vhacrm_recordaccess.Convert.Case" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.Convert.Opportunity.Hide" Location="Mscrm.Form.vhacrm_recordaccess.Convert.Opportunity" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.Deactivate.Hide" Location="Mscrm.Form.vhacrm_recordaccess.Deactivate" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.FollowButton.Hide" Location="Mscrm.Form.vhacrm_recordaccess.FollowButton" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.NewRecord.Hide" Location="Mscrm.Form.vhacrm_recordaccess.NewRecord" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.PromoteToResponse.Hide" Location="Mscrm.Form.vhacrm_recordaccess.PromoteToResponse" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.QueueItemDetail.Hide" Location="Mscrm.Form.vhacrm_recordaccess.QueueItemDetail" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.Reports.Hide" Location="Mscrm.Form.vhacrm_recordaccess.Reports" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.RunScript.Hide" Location="Mscrm.Form.vhacrm_recordaccess.RunScript" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.RunWorkflow.Hide" Location="Mscrm.Form.vhacrm_recordaccess.RunWorkflow" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.SaveAsComplete.Hide" Location="Mscrm.Form.vhacrm_recordaccess.SaveAsComplete" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.Form.vhacrm_recordaccess.UnfollowButton.Hide" Location="Mscrm.Form.vhacrm_recordaccess.UnfollowButton" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.Activate.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.Activate" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.AddToQueue.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.AddToQueue" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.Deactivate.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.Deactivate" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.Detect.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.Detect" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.Edit.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.Edit" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.FollowButton.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.FollowButton" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.Import.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.Import" />
+    <CustomAction Id="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management.CustomAction" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Groups._children" Sequence="10">
+      <CommandUIDefinition>
+        <Group Command="Mscrm.Enabled" Description="$Resources:Ribbon.HomepageGrid.MainTab.Management" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management" Image32by32Popup="/_imgs/ribbon/newrecord32.png" Sequence="10" Template="Mscrm.Templates.FourOverflow" Title="$Resources:Ribbon.HomepageGrid.MainTab.Management">
+          <Controls Id="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management.Controls">
+            <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.New" Command="Mscrm.NewRecordFromGrid" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.NewRecord" Image32by32="/_imgs/ribbon/newrecord32.png" Image16by16="/_imgs/ribbon/New_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.New" Sequence="10" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.New" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.New" ModernImage="New" />
+            <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.Management.Edit" Command="Mscrm.EditSelectedRecord" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.Edit" Image32by32="/_imgs/ribbon/edit32.png" Image16by16="/_imgs/ribbon/Edit_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Management.Edit" Sequence="20" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.Management.Edit" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.Edit" />
+            <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Command="Mscrm.HomepageGrid.Activate" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.Activate" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Sequence="30" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Activate" ModernImage="Activate" />
+            <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Deactivate" Command="Mscrm.HomepageGrid.Deactivate" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.Deactivate" Image32by32="/_imgs/ribbon/Deactivate_32.png" Image16by16="/_imgs/ribbon/Deactivate_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Status.Deactivate" Sequence="40" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Deactivate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Deactivate" ModernImage="DeActivate" />
+            <SplitButton Alt="$Resources:Ribbon.HomepageGrid.MainTab.Management.Delete" Command="Mscrm.HomepageGrid.DeleteSplitButtonCommand" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.DeleteMenu" Image32by32="/_imgs/Workplace/remove_32.png" Image16by16="/_imgs/ribbon/Delete_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Management.Delete" Sequence="50" TemplateAlias="o2" ToolTipTitle="$Resources:Mscrm_HomepageGrid_Other_MainTab_Management_Delete_ToolTipTitle" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.HomepageGrid.Tooltip.Delete" ModernImage="Remove">
+              <Menu Id="Mscrm.HomepageGrid.vhacrm_recordaccess.DeleteMenu.Menu">
+                <MenuSection Id="Mscrm.HomepageGrid.vhacrm_recordaccess.DeleteMenu.MenuSection" Sequence="10" DisplayMode="Menu16">
+                  <Controls Id="Mscrm.HomepageGrid.vhacrm_recordaccess.DeleteMenu.Controls">
+                    <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.Management.Delete" Command="Mscrm.DeleteSelectedRecord" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.Delete" Image32by32="/_imgs/Workplace/remove_32.png" Image16by16="/_imgs/ribbon/Delete_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Management.Delete" Sequence="50" ToolTipTitle="$Resources:Mscrm_HomepageGrid_Other_MainTab_Management_Delete_ToolTipTitle" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.HomepageGrid.Tooltip.Delete" />
+                    <Button Command="Mscrm.HomepageGrid.BulkDelete" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.BulkDelete" Image32by32="/_imgs/ribbon/BulkDeleteWizard_32.png" Image16by16="/_imgs/ribbon/BulkDelete_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Management.BulkDelete" Sequence="100" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.Management.BulkDelete" ToolTipDescription="$Resources:Ribbon.HomepageGrid.MainTab.Management.BulkDelete.TooltipDescription" />
+                  </Controls>
+                </MenuSection>
+              </Menu>
+            </SplitButton>
+            <FlyoutAnchor Alt="$Resources:Ribbon.HomepageGrid.account.Record.Dupe.Detect" Command="Mscrm.HomepageGrid.DetectDupes" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.Detect" Image16by16="/_imgs/ribbon/DetectDuplicates_16.png" Image32by32="/_imgs/ribbon/DuplicateDetection_32.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Dupe.Detect" Sequence="60" TemplateAlias="o3" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Dupe.Detect" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.DetectDuplicates">
+              <Menu Id="Mscrm.HomepageGrid.vhacrm_recordaccess.Detect.Menu">
+                <MenuSection Id="Mscrm.HomepageGrid.vhacrm_recordaccess.Detect.MenuSection" Sequence="10" DisplayMode="Menu16">
+                  <Controls Id="Mscrm.HomepageGrid.vhacrm_recordaccess.Detect.Controls">
+                    <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Dupe.Detect.Selected" Command="Mscrm.HomepageGrid.DetectDupesSelected" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.Detect.Selected" Image32by32="/_imgs/ribbon/DeleteSelected_32.png" Image16by16="/_imgs/ribbon/DeleteSelected_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Dupe.Detect.Selected" Sequence="10" ToolTipTitle="$Resources:Mscrm_HomepageGrid_Other_MainTab_Management_Detect_Selected_ToolTipTitle" ToolTipDescription="$Resources:Mscrm_HomepageGrid_Other_MainTab_Management_Detect_Selected_ToolTipDescription" />
+                    <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Dupe.Detect.All" Command="Mscrm.HomepageGrid.DetectDupesAll" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.Detect.All" Image32by32="/_imgs/ribbon/DetectAll_32.png" Image16by16="/_imgs/ribbon/DetectAll_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Dupe.Detect.All" Sequence="20" ToolTipTitle="$Resources:Mscrm_HomepageGrid_Other_MainTab_Management_Detect_All_ToolTipTitle" ToolTipDescription="$Resources(EntityDisplayName):Mscrm_HomepageGrid_EntityLogicalName_MainTab_Management_Detect_All_ToolTipDescription" />
+                  </Controls>
+                </MenuSection>
+              </Menu>
+            </FlyoutAnchor>
+          </Controls>
+        </Group>
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management.MaxSize.CustomAction" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Scaling._children" Sequence="10">
+      <CommandUIDefinition>
+        <MaxSize GroupId="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management.MaxSize" Sequence="10" Size="LargeMediumLargeLarge" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management.Scale.1.CustomAction" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Scaling._children" Sequence="130">
+      <CommandUIDefinition>
+        <Scale GroupId="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management.Scale.1" Sequence="130" Size="LargeMediumLargeMedium" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management.Scale.2.CustomAction" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Scaling._children" Sequence="170">
+      <CommandUIDefinition>
+        <Scale GroupId="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management" Id="Mscrm.HomepageGrid.vhacrm_recordaccess.MainTab.Management.Scale.2" Sequence="170" Size="Popup" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.NewRecord.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.NewRecord" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.RunReport.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.RunReport" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.RunScript.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.RunScript" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.RunWorkflow.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.RunWorkflow" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.SendDirectEmail.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.SendDirectEmail" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.HomepageGrid.vhacrm_recordaccess.UnfollowButton.Hide" Location="Mscrm.HomepageGrid.vhacrm_recordaccess.UnfollowButton" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.Activate.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.Activate" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.AddExistingAssoc" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.AddExistingStandard.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.AddExistingStandard" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.AddNewStandard.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.AddNewStandard" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.AddToQueue.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.AddToQueue" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.BulkDelete.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.BulkDelete" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.Deactivate.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.Deactivate" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.Detect.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.Detect" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.Edit.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.Edit" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.FollowButton.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.FollowButton" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.NewRecord.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.NewRecord" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.Remove.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.Remove" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.RunReport.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.RunReport" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.RunScript.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.RunScript" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.RunWorkflow.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.RunWorkflow" />
+    <HideCustomAction HideActionId="vhacrm.Mscrm.SubGrid.vhacrm_recordaccess.UnfollowButton.Hide" Location="Mscrm.SubGrid.vhacrm_recordaccess.UnfollowButton" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions />
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

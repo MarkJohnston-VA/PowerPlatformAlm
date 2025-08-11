@@ -1,0 +1,185 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+	<link href="../../vhacrm_/ESRParts/css/esrpartstyle.css" rel="stylesheet" type="text/css">
+	<script src="../../vhacrm_/scripts/Common/CommCareShared.min.js"></script>
+	<script src="../../bah_jquery_3_2_1.js" type="text/javascript"></script>
+	<script src="../../bah_json2.js" type="text/javascript"></script>
+	<script src="../../bah_via_library.js" type="text/javascript"></script>
+	<script src="../../bah_VeteranAlerts.js" type="text/javascript"></script>
+	<script src="../../bah_bootstrap.js" type="text/javascript"></script>
+	<script src="../../vhacrm_/scripts/Common/CommCareShared.min.js"></script>
+
+	<script>
+		var _esrObj = null;
+
+        function setClientApiContext(xrm, formContext) {
+            window.Xrm = xrm;
+            window._formContext = formContext;
+            CommCare.Shared.FormContext = _formContext;
+            console.log("addresses has context");
+        }
+
+		function buildQueryFilter(field, value, and) {
+			if (value == '') {
+				if (and) {
+					return " and " + field + " eq null";
+				} else {
+					return field + " eq null";
+				}
+			}
+			else {
+				if (and) {
+					return " and " + field + " eq '" + value + "'";
+				} else {
+					return field + " eq '" + value + "'";
+				}
+			}
+		}
+
+		function getParameterByName(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+
+		function doPageLoad() {
+			var esrEndpoint = "";
+			var subscriptionId_east = "";
+            var subscriptionId_south = "";
+            var veisContentSiteUrlScripts = "";
+            var veisContentSiteUrlContent = "";
+			var datavalue = getParameterByName('data');
+			if (datavalue != null) {
+				var params = decodeURIComponent(datavalue).split("&");
+				for (var i in params) {
+					params[i] = params[i].replace(/\+/g, " ").split("=");
+					if (params[i][0] == "esr") {
+						esrEndpoint = params[i][1];
+					}
+					if (params[i][0] == "subscriptionid_east") {
+						subscriptionId_east = params[i][1];
+					}
+					if (params[i][0] == "subscriptionid_south") {
+						subscriptionId_south = params[i][1];
+                    }
+                    if (params[i][0] == "veiscontenturl") {
+                        veisContentSiteUrlContent = params[i][1] + "Content/";
+                        veisContentSiteUrlScripts = params[i][1] + "Scripts/";
+                    }
+				}
+			}
+			if (esrEndpoint != "") {
+                var mcs_GetAPIMTokenRequest = {
+                    getMetadata: function () {
+                        return {
+                            boundParameter: null,
+                            parameterTypes: {},
+                            operationType: 0,
+                            operationName: "mcs_GetAPIMToken"
+                        };
+                    }
+				};
+
+				Xrm.WebApi.online.execute(mcs_GetAPIMTokenRequest).then((result) => {
+					if (result.ok) {
+						return result.json();
+					}
+				}).then((responseBody) => {
+					var authToken = responseBody.token;
+
+                    $.ajax({
+                        url: esrEndpoint,
+                        //beforeSend: function (xhr) { xhr.setRequestHeader('Ocp-Apim-Subscription-Key', '88784cf9396e41dab087c90a5da0c2c1'); },
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Ocp-Apim-Subscription-Key', subscriptionId_east);
+                            xhr.setRequestHeader('Ocp-Apim-Subscription-Key-E', subscriptionId_east);
+                            xhr.setRequestHeader('Ocp-Apim-Subscription-Key-S', subscriptionId_south);
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + authToken);
+                        },
+                        type: "GET",
+                        dataType: "text",
+                        timeout: 4000,
+                        error: function (error) {
+                            _esrObj = null;
+                            writeToConsole(error);
+                        },
+                        success: function (data) {
+                            data = data.replace(new RegExp('/Content/', 'g'), veisContentSiteUrlContent);
+                            data = data.replace(new RegExp('/Scripts/', 'g'), veisContentSiteUrlScripts);
+                            data = data.replace(new RegExp('window.location.href', 'g'), "'" + esrEndpoint + "'");
+                            data = data.replace("url: url,", "url: url,  beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Bearer " + authToken + "'); xhr.setRequestHeader('Ocp-Apim-Subscription-Key', '" + subscriptionId_east + "');  xhr.setRequestHeader('Ocp-Apim-Subscription-Key-E', '" + subscriptionId_east + "');  xhr.setRequestHeader('Ocp-Apim-Subscription-Key-S', '" + subscriptionId_south + "'); },");
+
+                            var iFrame = $('<iframe id="displayframe" style="width:100%;height:100%; border: 0;"></iframe>');
+                            $("#displayframe").remove();
+                            $('#framecontainer').append(iFrame);
+
+                            var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
+
+                            if (data.indexOf("CRM Web Parts") >= 0) {
+                                var displayErrorMessage = data;
+
+                                var entityName = "mcs_errormessages";
+                                var fieldsSelected = "mcs_errormessage,mcs_friendlyerrormessage,mcs_errorname";
+                                var filter = null;
+
+                                CommCare.Shared.CrmCommonJS.WebApi.RetrieveMultiple(entityName, fieldsSelected.toLowerCase(), filter).then(function (results) {
+                                    console.log("Success retrieving friendly MCS Error Messages: ", results);
+
+                                    var errMsgs = results.value;
+
+                                    for (var i = 0; i < errMsgs.length; i++) {
+                                        if (data.indexOf(errMsgs[i].mcs_errormessage) >= 0) {
+                                            // Found a friendlier message to show end user
+                                            displayErrorMessage = errMsgs[i].mcs_friendlyerrormessage.toString();
+                                            break;
+                                        }
+                                    }
+
+                                    //REMOVE ENCODEURICOMPONENT IF DEPLOYING TO CRM
+                                    //ONLY THERE FOR FORTIFY
+                                    //iFrameDoc.write(encodeURIComponent(displayErrorMessage));
+                                    iFrameDoc.write(displayErrorMessage);
+                                    iFrameDoc.close();
+                                }).catch(function (error) {
+                                    console.log("Error retrieving friendly MCS Error Message.");
+                                    console.log(error);
+
+                                    //REMOVE ENCODEURICOMPONENT IF DEPLOYING TO CRM
+                                    //ONLY THERE FOR FORTIFY
+                                    //iFrameDoc.write(encodeURIComponent(displayErrorMessage));
+                                    iFrameDoc.write(displayErrorMessage);
+                                    iFrameDoc.close();
+                                });
+                            }
+                            else {
+                                //REMOVE ENCODEURICOMPONENT IF DEPLOYING TO CRM
+                                //ONLY THERE FOR FORTIFY
+                                //iFrameDoc.write(encodeURIComponent(data));
+                                iFrameDoc.write(data);
+                                iFrameDoc.close();
+                            }
+                        }
+                    });
+				});
+			}
+		}
+
+
+		$(function () {
+			doPageLoad();
+
+		});
+	</script>
+
+	<div id="framecontainer">
+		<iframe id="displayframe"></iframe>
+	</div>
+</body>
+</html>

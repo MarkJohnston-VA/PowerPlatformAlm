@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <HideCustomAction HideActionId="mcs.AccessChecker.OpenDialog.mcs_tracker.Button.Hide" Location="AccessChecker.OpenDialog.mcs_tracker.Button" />
+    <CustomAction Id="mcs.mcs_tracker.Activate.Button.CustomAction" Location="Mscrm.Form.mcs_tracker.MainTab.Save.Controls._children" Sequence="60">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:mcs.mcs_tracker.Activate.Button.Alt" Command="mcs.mcs_tracker.ActivateButton.Command" Id="mcs.mcs_tracker.Activate.Button" Image32by32="$webresource:ProductManagement/_imgs/ribbon/Activate_32.png" Image16by16="$webresource:ProductManagement/_imgs/ribbon/Activate_16.png" LabelText="$LocLabels:mcs.mcs_tracker.Activate.Button.LabelText" Sequence="60" TemplateAlias="o2" ToolTipTitle="$LocLabels:mcs.mcs_tracker.Activate.Button.ToolTipTitle" ToolTipDescription="$LocLabels:mcs.mcs_tracker.Activate.Button.ToolTipDescription" ModernImage="Activate" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.mcs_tracker.AssociateVeteran.Button.CustomAction" Location="Mscrm.Form.mcs_tracker.MainTab.ExportData.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Command="mcs.mcs_tracker.AssociatePerson.Command" Id="mcs.mcs_tracker.AssociateVeteran.Button" LabelText="$LocLabels:mcs.mcs_tracker.AssociateVeteran.Button.LabelText" Sequence="15" TemplateAlias="o2" ModernImage="$webresource:mcs_/Buttons/AssociatePersonIcon.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.mcs_tracker.SendResponse.Button.CustomAction" Location="Mscrm.Form.mcs_tracker.MainTab.ExportData.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:mcs.mcs_tracker.SendResponse.Button.Alt" Command="mcs.mcs_tracker.SendResponse.Command" Id="mcs.mcs_tracker.SendResponse.Button" LabelText="$LocLabels:mcs.mcs_tracker.SendResponse.Button.LabelText" Sequence="10" TemplateAlias="o2" ToolTipTitle="$LocLabels:mcs.mcs_tracker.SendResponse.Button.ToolTipTitle" ModernImage="$webresource:mcs_/Buttons/SendResponse.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_tracker.Activate.Hide" Location="Mscrm.Form.mcs_tracker.Activate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_tracker.AddToQueue.Hide" Location="Mscrm.Form.mcs_tracker.AddToQueue" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_tracker.Assign.Hide" Location="Mscrm.Form.mcs_tracker.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_tracker.Deactivate.Hide" Location="Mscrm.Form.mcs_tracker.Deactivate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_tracker.PDFButtonId.Hide" Location="Mscrm.Form.mcs_tracker.PDFButtonId" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_tracker.QueueItemDetail.Hide" Location="Mscrm.Form.mcs_tracker.QueueItemDetail" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_tracker.QueueItemDetailOmnichannel.Hide" Location="Mscrm.Form.mcs_tracker.QueueItemDetailOmnichannel" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_tracker.Reports.Hide" Location="Mscrm.Form.mcs_tracker.Reports" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.mcs_tracker.WordTemplate.Hide" Location="Mscrm.Form.mcs_tracker.WordTemplate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.mcs_tracker.AddToQueue.Hide" Location="Mscrm.HomepageGrid.mcs_tracker.AddToQueue" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.mcs_tracker.Assign.Hide" Location="Mscrm.HomepageGrid.mcs_tracker.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.mcs_tracker.Deactivate.Hide" Location="Mscrm.HomepageGrid.mcs_tracker.Deactivate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_tracker.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.mcs_tracker.AddExistingAssoc" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_tracker.AddExistingStandard.Hide" Location="Mscrm.SubGrid.mcs_tracker.AddExistingStandard" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_tracker.AddToQueue.Hide" Location="Mscrm.SubGrid.mcs_tracker.AddToQueue" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_tracker.Assign.Hide" Location="Mscrm.SubGrid.mcs_tracker.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_tracker.DocumentTemplate.Hide" Location="Mscrm.SubGrid.mcs_tracker.DocumentTemplate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_tracker.RunReport.Hide" Location="Mscrm.SubGrid.mcs_tracker.RunReport" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.mcs_tracker.WordTemplate.Hide" Location="Mscrm.SubGrid.mcs_tracker.WordTemplate" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="mcs.mcs_tracker.ActivateButton.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.mcs_tracker.ActivateButton.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="reactivateActionItem" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.mcs_tracker.AssociatePerson.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.mcs_tracker.AssociatePerson.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="showMviFromRibbonAIT" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.mcs_tracker.SendResponse.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.mcs_tracker.SendResponse.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="actionItemSendResolutionEmail" Library="$webresource:vhacrm_/WebResources/ribbon.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules>
+      <EnableRule Id="mcs.mcs_tracker.ActivateButton.EnableRule">
+        <CustomRule FunctionName="enableTrackerActivateButton" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="false" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="mcs.mcs_tracker.AssociatePerson.EnableRule">
+        <CustomRule FunctionName="enableAssociatePersonButtonAIT" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="false" />
+      </EnableRule>
+      <EnableRule Id="mcs.mcs_tracker.SendResponse.EnableRule">
+        <CustomRule FunctionName="showHideActionItemSendResolution" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="false" InvertResult="false">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="mcs.mcs_tracker.Activate.Button.Alt">
+      <Titles>
+        <Title description="Activate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.mcs_tracker.Activate.Button.LabelText">
+      <Titles>
+        <Title description="Activate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.mcs_tracker.Activate.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Activate this Action Item. &lt;br&gt;&lt;br&gt;Active records can be edited, assigned, shared, or viewed from the Active Action Item view." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.mcs_tracker.Activate.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Activate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.mcs_tracker.AssociateVeteran.Button.LabelText">
+      <Titles>
+        <Title description="Associate Veteran" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.mcs_tracker.SendResponse.Button.Alt">
+      <Titles>
+        <Title description="Send Response" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.mcs_tracker.SendResponse.Button.LabelText">
+      <Titles>
+        <Title description="Send Response" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.mcs_tracker.SendResponse.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Send Response" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

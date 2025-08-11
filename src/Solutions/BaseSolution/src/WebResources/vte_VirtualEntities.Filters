@@ -1,0 +1,222 @@
+if (typeof (VirtualEntities) == "undefined") { VirtualEntities = {}; }
+// Create Namespace container for functions in this library;
+VirtualEntities.Filters = {};
+
+VirtualEntities.Filters.vte_virtualsettingid = null;
+
+VirtualEntities.Filters.deleteVEdataGetDefault = function (executioncontext, fieldName, entityName) {
+    var userSettings = Xrm.Utility.getGlobalContext().userSettings;
+    var userId = userSettings.userId.substring(1, 37);
+    var Entity = "vte_vefilter";
+    var Select = "?$select=vte_name,vte_value,vte_vefilterid";
+    var Filter = "&$filter=vte_name eq '" + fieldName + "' and  vte_entity eq '" + entityName + "' and  _ownerid_value eq " + userId;
+    Xrm.WebApi.online.retrieveMultipleRecords(Entity, Select + Filter).then(
+        function success(results) {
+           // alert("got filters for " + fieldName + ", this many:" + results.entities.length);
+            //delete all the filters that exist for this user/entity/field
+            for (var i = 0; i < results.entities.length; i++) {
+                var vte_vefilterid = results.entities[i]["vte_vefilterid"];
+                VirtualEntities.Filters.deleteVEFilterdata(executioncontext, vte_vefilterid);
+            }
+            //the populate the field with the default.
+            VirtualEntities.Filters.getVEDefault(executioncontext, fieldName, entityName);
+        },
+        function (error) {
+            alert(error.message);
+        }
+    );
+
+};
+VirtualEntities.Filters.findAndDeleteVEdata = function (executioncontext, fieldName, entityName) {
+    var userSettings = Xrm.Utility.getGlobalContext().userSettings;
+    var userId = userSettings.userId.substring(1, 37);
+    var Entity = "vte_vefilter";
+    var Select = "?$select=vte_name,vte_value,vte_vefilterid";
+    var Filter = "&$filter=vte_name eq '" + fieldName + "' and  vte_entity eq '" + entityName + "' and  _ownerid_value eq " + userId;
+    Xrm.WebApi.online.retrieveMultipleRecords(Entity, Select + Filter).then(
+        function success(results) {
+            //delete all the filters that exist for this user/entity/field
+            //alert("got filters for " + fieldName + ", this many:" + results.entities.length);
+            for (var i = 0; i < results.entities.length; i++) {
+                var vte_vefilterid = results.entities[i]["vte_vefilterid"];
+                VirtualEntities.Filters.deleteVEFilterdata(executioncontext, vte_vefilterid);
+            }
+        },
+        function (error) {
+            alert(error.message);
+        }
+    );
+
+};
+VirtualEntities.Filters.deleteVEFilterdata = function (executioncontext, id) {
+    Xrm.WebApi.deleteRecord("vte_vefilter", id).then(
+        function success(result) {
+            console.log("Deleted");
+
+        },
+        function (error) {
+            alert(error.message);
+        }
+    );
+
+};
+VirtualEntities.Filters.createVEFilterdata = function (executioncontext, data) {
+
+    Xrm.WebApi.createRecord("vte_vefilter", data).then(
+        function success(result) {
+            console.log("added");
+        },
+        function (error) {
+            alert(error.message);
+        }
+    );
+
+};
+
+VirtualEntities.Filters.getVEDefault = function (executioncontext, fieldName, entityName) {
+    var formContext = executioncontext.getFormContext();
+
+    if (VirtualEntities.Filters.vte_virtualsettingid === null) {
+        var Entity = "vte_virtualsetting";
+        var Select = "?$select=vte_virtualsettingid";
+        var Filter = "&$filter=vte_name eq '" + entityName + "' and  vte_method eq true";
+        Xrm.WebApi.online.retrieveMultipleRecords(Entity, Select + Filter).then(
+            function success(results) {
+                for (var i = 0; i < results.entities.length; i++) {
+                    VirtualEntities.Filters.vte_virtualsettingid = results.entities[i]["vte_virtualsettingid"];
+                    var Entity = "vte_urlparameter";
+                    var Select = "?$select=vte_othervalues,vte_value";
+                    var Filter = "&$filter=_vte_virtualsetting_value eq '" + VirtualEntities.Filters.vte_virtualsettingid + "' and  vte_usevefilterifpresent eq true and  vte_vefilterfieldname eq '" + fieldName + "'";
+
+                    Xrm.WebApi.online.retrieveMultipleRecords(Entity, Select + Filter).then(
+                        function success(results) {
+                            for (var i = 0; i < results.entities.length; i++) {
+
+                                debugger;
+                                var vte_othervalues = results.entities[i]["vte_othervalues"];
+                                var vte_value = results.entities[i]["vte_value"];
+
+                                switch (vte_othervalues) {
+
+                                    case 958610000:
+                                        var date = new Date();
+                                        formContext.getAttribute(fieldName).setValue(date);
+                                        break;
+                                    case 958610001:
+                                        var date = new Date();
+                                        var newDate = new Date(date.setMonth(date.getMonth() - 3));
+                                        formContext.getAttribute(fieldName).setValue(newDate);
+                                        break;
+                                    case 958610002:
+                                        var date = new Date();
+                                        var newDate = new Date(date.setMonth(date.getMonth() + 6));
+                                        formContext.getAttribute(fieldName).setValue(newDate);
+                                        break;
+                                    case 958610003:
+                                        var date = new Date();
+                                        var newDate = new Date(date.setMonth(date.getMonth() - 6));
+                                        formContext.getAttribute(fieldName).setValue(newDate);
+                                        break;
+                                    case 958610004:
+                                        var date = new Date();
+                                        var newDate = new Date(date.setFullYear(date.getFullYear() - 1));
+                                        formContext.getAttribute(fieldName).setValue(newDate);
+                                        break;
+                                    case 958610005:
+                                        var date = new Date();
+                                        var newDate = new Date(date.setDate(date.getDate() + 1));
+                                        formContext.getAttribute(fieldName).setValue(newDate);
+                                        break;
+                                    case 958610006:
+                                        var date = new Date();
+                                        var newDate = new Date(date.setMonth(date.getMonth() - 15));
+                                        formContext.getAttribute(fieldName).setValue(newDate);
+                                        break;
+                                    default:
+                                        if (vte_value !== null) {
+                                            var date = new Date(vte_value);
+                                            var newDate = new Date(date.setHours(12));
+                                            formContext.getAttribute(fieldName).setValue(newDate);
+                                        }
+                                        break;
+                                }
+                            }
+                        },
+                        function (error) {
+                            Xrm.Utility.alertDialog(error.message);
+                        }
+                    );
+                }
+            },
+            function (error) {
+                Xrm.Utility.alertDialog(error.message);
+            }
+        );
+    }
+    else {
+
+        var Entity = "vte_urlparameter";
+        var Select = "?$select=vte_othervalues,vte_value";
+        var Filter = "&$filter=_vte_virtualsetting_value eq '" + VirtualEntities.Filters.vte_virtualsettingid + "' and  vte_usevefilterifpresent eq true and  vte_vefilterfieldname eq '" + fieldName + "'";
+
+        alert("had settingid,getting DATA for " + fieldName + "query:" + Select + Filter);
+
+        Xrm.WebApi.online.retrieveMultipleRecords(Entity, Select + Filter).then(
+            function success(results) {
+                for (var i = 0; i < results.entities.length; i++) {
+                    debugger;
+                    var vte_othervalues = results.entities[i]["vte_othervalues"];
+                    var vte_value = results.entities[i]["vte_value"];
+                    switch (vte_othervalues) {
+
+                        case 958610000:
+                            var date = new Date();
+                            formContext.getAttribute(fieldName).setValue(date);
+                            break;
+                        case 958610001:
+                            var date = new Date();
+                            var newDate = new Date(date.setMonth(date.getMonth() - 3));
+                            formContext.getAttribute(fieldName).setValue(newDate);
+                            break;
+                        case 958610002:
+                            var date = new Date();
+                            var newDate = new Date(date.setMonth(date.getMonth() + 6));
+                            formContext.getAttribute(fieldName).setValue(newDate);
+                            break;
+                        case 958610003:
+                            var date = new Date();
+                            var newDate = new Date(date.setMonth(date.getMonth() - 6));
+                            formContext.getAttribute(fieldName).setValue(newDate);
+                            break;
+                        case 958610004:
+                            var date = new Date();
+                            var newDate = new Date(date.setFullYear(date.getFullYear() - 1));
+                            formContext.getAttribute(fieldName).setValue(newDate);
+                            break;
+                        case 958610005:
+                            var date = new Date();
+                            var newDate = new Date(date.setDate(date.getDate() + 1));
+                            formContext.getAttribute(fieldName).setValue(newDate);
+                            break;
+                        case 958610006:
+                            var date = new Date();
+                            var newDate = new Date(date.setMonth(date.getMonth() - 15));
+                            formContext.getAttribute(fieldName).setValue(newDate);
+                            break;
+                        default:
+                            if (vte_value !== null) {
+                                var date = new Date(vte_value);
+                                var newDate = new Date(date.setHours(12));
+                                formContext.getAttribute(fieldName).setValue(newDate);
+                            }
+                            break;
+                    }
+                }
+            },
+            function (error) {
+                Xrm.Utility.alertDialog(error.message);
+            }
+        );
+    }
+
+};

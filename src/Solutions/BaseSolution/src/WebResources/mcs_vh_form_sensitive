@@ -1,0 +1,279 @@
+﻿if (typeof VETHOME == 'undefined') { VETHOME = { __namespace: true }; }
+
+if (typeof (VETHOME.Sensitive) == "undefined") {
+    VETHOME.Sensitive = {
+        __namespace: true
+    };
+}
+
+if (typeof _patientMviIdentifer == 'undefined')
+    _patientMviIdentifer = "";
+
+VETHOME.Sensitive.Functions = function () {
+    function checkForVetSensitivity() {
+        var vetLookup;
+        var entityType = CommCare.Shared.FormContext.data.entity.getEntityName();
+        switch (entityType) {
+            case "mcs_vethomecase":
+            case "mcs_vethometasks":
+                vetLookup = CommCare.Shared.GetFieldValue("mcs_veteranid");
+                break;
+            case "bah_interactions":
+                vetLookup = CommCare.Shared.GetFieldValue("bah_veteranid");
+                break;
+        }
+        if (vetLookup == null)
+            return;
+
+        var recordId = CommCare.Shared.GetCleanId(vetLookup);
+        Xrm.WebApi.online.retrieveRecord("contact", recordId, "?$select=bah_mvipatientidentifier_text,vhacrm_issensitive_bool").then(
+            function success(result) {
+                var icn = result.bah_mvipatientidentifier_text;
+                _patientMviIdentifier = icn;
+                if (!!!icn && !!!_patientMviIdentifer)
+                    return;
+
+                var isSensitive = result.vhacrm_issensitive_bool;
+                if (isSensitive) {
+                    var inCache = findVeteranByMVI(icn) != null;
+                    if (!inCache) {
+                        setChildContext(CommCare.Shared.FormContext, "WebResource_sensitivepop", icn);
+                        console.log("sensitive vet pop");
+                        handleSensitiveVetPop();
+                    }
+                    else {
+                        console.log("already confirmed sensitive modal today, skipping re-prompt");
+                        showSensitiveVetMode(false);
+                    }
+                }
+                else {
+                    console.log("Not sensitive");
+                    showSensitiveVetMode(false);
+                }
+            },
+            function (error) {
+                console.error(error);
+            }
+        );
+    }
+
+    function setChildContext(context, controlName, icn) {
+        var webResource = CommCare.Shared.FormContext.getControl(controlName);
+        console.log("Setting context for Web Resource: " + controlName);
+
+        if (webResource) {
+            webResource.getContentWindow().then((contentWindow) => {
+                contentWindow.setClientApiContext(Xrm, context, icn);
+            }).catch((error) => {
+                console.log("Error in setChildContext");
+                console.log(error);
+            });
+        }
+
+    }
+
+    function goBack() {
+        var allFields = CommCare.Shared.FormContext.data.entity.attributes.get();
+        allFields.forEach(function (attribute) {
+            if (attribute && attribute.getSubmitMode && (attribute.getSubmitMode() == "dirty" || attribute.getSubmitMode() == "always")) {
+                attribute.setSubmitMode("never");
+            }
+        });
+        if (window.history != null) {
+            if (window.history.length > 1)
+                window.history.back();
+            else
+                CommCare.Shared.FormContext.ui.close();
+        }
+    }
+
+    function handleCancelSensitive() {
+        goBack();
+    }
+
+    function handleSensitiveVetContinue(icn) {
+        showSensitiveVetMode(false);
+        UpsertVeteranClickContinue(icn);
+    }
+
+    function handleSensitiveVetPop() {
+        showSensitiveVetMode(true);
+    }
+
+    function showSensitiveVetMode(isSensitive) {
+        var entity = CommCare.Shared.FormContext.data.entity.getEntityName();
+        switch (entity) {
+            case "contact":
+                // display Sensitive vet warning
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_veteranalerthtm"), isSensitive, isSensitive);
+
+                // hide other tabs until after the warning has been accepted.
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("SUMMARY_TAB"), !isSensitive, !isSensitive);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_2"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_10"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_6"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_3"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_4"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_VeteranSidebar"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("RelatedRequests"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("RelatedClaims"), !isSensitive, false);
+                break;
+            case "bah_interactions":
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_veteranalerthtm"), isSensitive, isSensitive);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("interactioninformation"), !isSensitive, !isSensitive);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_2"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_admin"), !isSensitive, false);
+                break;
+            case "mcs_vethomecase":
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_sensitive"), isSensitive, isSensitive);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_general"), !isSensitive, !isSensitive);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_messages"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_notes"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_clinical_information"), !isSensitive, false);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_admin"), !isSensitive, false);
+                break;
+            case "mcs_vethometasks":
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_sensitive"), isSensitive, isSensitive);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_general"), !isSensitive, !isSensitive);
+                setTabVisibilityFocus(CommCare.Shared.FormContext.ui.tabs.get("tab_admin"), !isSensitive, false);
+                break;
+            default:
+                console.log("no sensitive pop on this form: " + entity);
+                break;
+        }
+    }
+
+    function setTabVisibilityFocus(control, displayTab, setFocus) {
+        if (control != null) {
+            control.setVisible(displayTab);
+
+            if (setFocus) {
+                control.setFocus();
+            }
+        }
+    }
+
+    function removeExpiredVeterans() {
+        var veteransList = [];
+        var veterans = localStorage.getItem("storedVeteransList");
+        veteransList = JSON.parse(localStorage.getItem("storedVeteransList"));
+
+        if ((veteransList != null) && (veteransList != "null")) {
+            var i = veteransList.length;
+            while (i--) {
+                var vet = veteransList[i];
+                var d = new Date(vet.DateAdded);
+
+                var now = new Date();
+                var currentDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                if (d.getTime() < currentDate.getTime()) {
+                    veteransList.splice(i, 1);
+                }
+            }
+            localStorage.setItem("storedVeteransList", JSON.stringify(veteransList));
+        }
+    }
+
+    function UpsertVeteranClickContinue(mviIdentifier) {
+        // Called on Continue click 
+        // Check if the veteran exists in local storage (wasn't cleared) and update the date
+        if (!!mviIdentifier && mviIdentifier.indexOf("^") == -1 && mviIdentifier.indexOf("V") != -1)
+            mviIdentifier += "^NI^200M^USVHA^P"; //accommodate rawMVIValue or ICN only
+
+        debugger;
+
+        removeExpiredVeterans();
+
+        var veteransList = [];
+        var veterans = localStorage.getItem("storedVeteransList");
+        veteransList = JSON.parse(localStorage.getItem("storedVeteransList"));
+
+        //get Veteran List,
+        if ((veteransList == null) || (veteransList == "null")) {
+            veteransList = [];
+        }
+
+        var now = new Date();
+        var currentDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        var foundRecord = false;//set default to create
+
+        for (var i = 0; i < veteransList.length; i++) {  //check to see if the vetrean exist already
+
+            if (veteransList[i].MVIId != "null") {
+                if (veteransList[i].MVIId == mviIdentifier) {
+
+
+                    // 
+                    veteransList[i].ClickedContinue = true;
+                    foundRecord = true;
+                    veteransList[i].DateAdded = currentDate;
+                }
+            }
+        }
+
+        // If record not found, create it
+        try {
+            if (!foundRecord)// if no existing record was found it will add a new record to the list
+            {
+                var person = {
+                    "isSensitive": true,
+                    "MVIId": mviIdentifier,
+                    "ClickedContinue": true,
+                    "DateAdded": currentDate
+                };
+
+
+                veteransList.push(person);
+
+                localStorage.setItem("storedVeteransList", JSON.stringify(veteransList));
+            }
+
+            if (veteransList.length > 0) {
+                localStorage.setItem("storedVeteransList", JSON.stringify(veteransList));
+            }
+        }
+        catch (ex) {
+            localStorage.removeItem("storedVeteransList");
+        }
+
+    }
+
+    function findVeteranByMVI(mviIdentifier) {
+        if (!!mviIdentifier && mviIdentifier.indexOf("^") == -1 && mviIdentifier.indexOf("V") != -1)
+            mviIdentifier += "^NI^200M^USVHA^P"; //accommodate rawMVIValue or ICN only
+
+        var veteransList = JSON.parse(localStorage.getItem("storedVeteransList"));
+        if ((veteransList == null) || (veteransList == "null"))
+            return null;
+        else
+            removeExpiredVeterans();
+
+        // Get updated storage
+        veteransList = JSON.parse(localStorage.getItem("storedVeteransList"));
+
+        var now = new Date();
+        var currentDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        for (var i = 0; i < veteransList.length; i++) {
+
+            if (veteransList[i].MVIId != null) {
+                if (veteransList[i].MVIId == mviIdentifier) {
+                    // Confirm this record is still valid by date
+                    var DateAdded = new Date(veteransList[i].DateAdded);
+                    if (DateAdded.getTime() == currentDate.getTime()) {
+                        return veteransList[i];
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    return {
+        HandleCancelSensitive: handleCancelSensitive,
+        HandleSensitiveVetContinue: handleSensitiveVetContinue,
+        CheckForVetSensitivity: checkForVetSensitivity
+    };
+} ();

@@ -1,0 +1,825 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="mcs.bah_interactions..AssignFromForm.Button.CustomAction" Location="Mscrm.Form.bah_interactions.MainTab.Save.Controls._children" Sequence="0">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.AssignFromForm.Command" Id="mcs.bah_interactions..AssignFromForm.Button" Image32by32="/_imgs/ribbon/Assign_32.png" Image16by16="/_imgs/ribbon/Assign_16.png" LabelText="$LocLabels:mcs.bah_interactions..AssignFromForm.Button.LabelText" Sequence="0" TemplateAlias="o1" ModernImage="Assign" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.Activate.Button.CustomAction" Location="Mscrm.Form.bah_interactions.MainTab.Save.Controls._children" Sequence="45">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:mcs.bah_interactions.Activate.Button.Alt" Command="mcs.bah_interactions.ReactivateInteraction.Command" CommandValueId="" Id="mcs.bah_interactions.Activate.Button" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$LocLabels:mcs.bah_interactions.Activate.Button.LabelText" Sequence="45" TemplateAlias="o2" ToolTipTitle="$LocLabels:mcs.bah_interactions.Activate.Button.ToolTipTitle" ToolTipDescription="$LocLabels:mcs.bah_interactions.Activate.Button.ToolTipDescription" ModernImage="ReactivateCase" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.Assign.Button.CustomAction" Location="Mscrm.HomepageGrid.bah_interactions.MainTab.Collaborate.Controls._children" Sequence="0">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.Actions.Assign" Command="mcs.bah_interactions.Assign.Command" Id="mcs.bah_interactions.Assign.Button" Image32by32="/_imgs/ribbon/Assign_32.png" Image16by16="/_imgs/ribbon/Assign_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Actions.Assign" Sequence="0" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.Actions.Assign" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Assign" ModernImage="Assign" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.AssignFromGrid.Button.CustomAction" Location="Mscrm.HomepageGrid.bah_interactions.MainTab.Management.Controls._children" Sequence="0">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.AssignFromGrid.Command" Id="mcs.bah_interactions.AssignFromGrid.Button" Image32by32="/_imgs/ribbon/Assign_32.png" Image16by16="/_imgs/ribbon/Assign_16.png" LabelText="$LocLabels:mcs.bah_interactions.AssignFromGrid.Button.LabelText" Sequence="0" TemplateAlias="o8" ModernImage="Assign" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.AssignFromSubGrid.Button.CustomAction" Location="Mscrm.SubGrid.bah_interactions.MainTab.Management.Controls._children" Sequence="1">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.AssignFromSubGrid.Command" Id="mcs.bah_interactions.AssignFromSubGrid.Button" Image32by32="/_imgs/ribbon/Assign_32.png" Image16by16="/_imgs/ribbon/Assign_16.png" LabelText="$LocLabels:mcs.bah_interactions.AssignFromSubGrid.Button.LabelText" Sequence="1" TemplateAlias="o1" ModernImage="Assign" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.FormPick.Button.CustomAction" Location="Mscrm.Form.bah_interactions.MainTab.Save.Controls._children" Sequence="90">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.FormPick.Command" Id="mcs.bah_interactions.FormPick.Button" LabelText="$LocLabels:mcs.bah_interactions.FormPick.Button.LabelText" Sequence="90" TemplateAlias="o2" ModernImage="$webresource:mcs_vh_icon_pick_interaction.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.FormRelease.Button.CustomAction" Location="Mscrm.Form.bah_interactions.MainTab.Save.Controls._children" Sequence="90">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.FormRelease.Command" Id="mcs.bah_interactions.FormRelease.Button" LabelText="$LocLabels:mcs.bah_interactions.FormRelease.Button.LabelText" Sequence="90" TemplateAlias="o2" ModernImage="$webresource:mcs_vh_icon_release_interaction.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.NewFromVirp.Button.CustomAction" Location="Mscrm.SubGrid.bah_interactions.MainTab.Management.Controls._children" Sequence="6">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.NewFromVirp.Command" Id="mcs.bah_interactions.NewFromVirp.Button" LabelText="$LocLabels:mcs.bah_interactions.NewFromVirp.Button.LabelText" Sequence="6" TemplateAlias="o1" ModernImage="$webresource:Service/_imgs/ribbon/AddResources.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.NewTopic.Button.CustomAction" Location="Mscrm.Form.bah_interactions.MainTab.Save.Controls._children" Sequence="89">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.NewTopic.Command" Id="mcs.bah_interactions.NewTopic.Button" Image32by32="$webresource:Service/_imgs/Ribbon/CreateChildCase_32.png" Image16by16="$webresource:Service/_imgs/Ribbon/CreateChildCase_16.png" LabelText="$LocLabels:mcs.bah_interactions.NewTopic.Button.LabelText" Sequence="89" TemplateAlias="o2" ToolTipTitle="$LocLabels:mcs.bah_interactions.NewTopic.Button.ToolTipTitle" ToolTipDescription="$LocLabels:mcs.bah_interactions.NewTopic.Button.ToolTipDescription" ModernImage="$webresource:mcs_/Icons/CreateChildCase_16.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.OpenMPIDialogFromRibbon.Button.CustomAction" Location="Mscrm.Form.bah_interactions.MainTab.Save.Controls._children" Sequence="38">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.OpenMPIDialogFromRibbon.Command" Id="mcs.bah_interactions.OpenMPIDialogFromRibbon.Button" LabelText="$LocLabels:mcs.bah_interactions.OpenMPIDialogFromRibbon.Button.LabelText" Sequence="38" TemplateAlias="o1" ModernImage="$webresource:mcs_/Buttons/AssociatePersonButton.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.Pick.Button.CustomAction" Location="Mscrm.HomepageGrid.bah_interactions.MainTab.Management.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.Pick.Command" Id="mcs.bah_interactions.Pick.Button" LabelText="$LocLabels:mcs.bah_interactions.Pick.Button.LabelText" Sequence="15" TemplateAlias="o1" ModernImage="$webresource:mcs_vh_icon_pick_interaction.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.Release.Button.CustomAction" Location="Mscrm.HomepageGrid.bah_interactions.MainTab.Management.Controls._children" Sequence="18">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.Release.Command" Id="mcs.bah_interactions.Release.Button" LabelText="$LocLabels:mcs.bah_interactions.Release.Button.LabelText" Sequence="18" TemplateAlias="o1" ModernImage="$webresource:mcs_vh_icon_release_interaction.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.bah_interactions.Submit.Button.CustomAction" Location="Mscrm.Form.bah_interactions.MainTab.Collaborate.Controls._children" Sequence="75">
+      <CommandUIDefinition>
+        <Button Command="mcs.bah_interactions.Submit.Command" Id="mcs.bah_interactions.Submit.Button" Image32by32="$webresource:mcs_SubmitButton_32" Image16by16="$webresource:mcs_SubmitButton_16" LabelText="$LocLabels:mcs.bah_interactions.Submit.Button.LabelText" Sequence="75" TemplateAlias="isv" ToolTipDescription="$LocLabels:mcs.bah_interactions.Submit.Button.ToolTipDescription" ModernImage="$webresource:mcs_SubmitButtonIcon" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.crme.bah_interactions.C4ResourcesHTML.Button.CustomAction" Location="Mscrm.Form.bah_interactions.MainTab.Save.Controls._children" Sequence="84">
+      <CommandUIDefinition>
+        <Button Command="crme.bah_interactions.C4ResourcesHTML.Command" Id="crme.bah_interactions.C4ResourcesHTML.Button" LabelText="$LocLabels:crme.bah_interactions.C4ResourcesHTML.Button.LabelText" Sequence="84" TemplateAlias="o2" ToolTipDescription="$LocLabels:crme.bah_interactions.C4ResourcesHTML.Button.ToolTipDescription" ModernImage="$webresource:mcs_/Buttons/VAResources2.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="mcs.crme.bah_interactions.FMResourcesHTML.Button.CustomAction" Location="Mscrm.Form.bah_interactions.MainTab.Save.Controls._children" Sequence="85">
+      <CommandUIDefinition>
+        <Button Command="crme.bah_interactions.FMResourcesHTML.Command" Id="crme.bah_interactions.FMResourcesHTML.Button" LabelText="$LocLabels:crme.bah_interactions.FMResourcesHTML.Button.LabelText" Sequence="85" TemplateAlias="o2" ToolTipDescription="$LocLabels:crme.bah_interactions.FMResourcesHTML.Button.ToolTipDescription" ModernImage="$webresource:mcs_/Buttons/VAResources2.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.Activate.Hide" Location="Mscrm.Form.bah_interactions.Activate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.Assign.Hide" Location="Mscrm.Form.bah_interactions.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.Close.Hide" Location="Mscrm.Form.bah_interactions.Close" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.Deactivate.Hide" Location="Mscrm.Form.bah_interactions.Deactivate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.Delete.Hide" Location="Mscrm.Form.bah_interactions.Delete" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.FollowButton.Hide" Location="Mscrm.Form.bah_interactions.FollowButton" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.NewRecord.Hide" Location="Mscrm.Form.bah_interactions.NewRecord" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.Permissions.Grant.Hide" Location="Mscrm.Form.bah_interactions.Permissions.Grant" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.Permissions.Sharing.Hide" Location="Mscrm.Form.bah_interactions.Permissions.Sharing" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.Reports.Hide" Location="Mscrm.Form.bah_interactions.Reports" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.RunScript.Hide" Location="Mscrm.Form.bah_interactions.RunScript" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.RunWorkflow.Hide" Location="Mscrm.Form.bah_interactions.RunWorkflow" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.UnfollowButton.Hide" Location="Mscrm.Form.bah_interactions.UnfollowButton" />
+    <HideCustomAction HideActionId="mcs.Mscrm.Form.bah_interactions.WordTemplate.Hide" Location="Mscrm.Form.bah_interactions.WordTemplate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.Activate.Hide" Location="Mscrm.HomepageGrid.bah_interactions.Activate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.Assign.Hide" Location="Mscrm.HomepageGrid.bah_interactions.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.Deactivate.Hide" Location="Mscrm.HomepageGrid.bah_interactions.Deactivate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.DeleteMenu.Hide" Location="Mscrm.HomepageGrid.bah_interactions.DeleteMenu" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.FollowButton.Hide" Location="Mscrm.HomepageGrid.bah_interactions.FollowButton" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.ManageView.Hide" Location="Mscrm.HomepageGrid.bah_interactions.ManageView" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.MBPF.ConvertTo.Hide" Location="Mscrm.HomepageGrid.bah_interactions.MBPF.ConvertTo" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.RunReport.Hide" Location="Mscrm.HomepageGrid.bah_interactions.RunReport" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.RunScript.Hide" Location="Mscrm.HomepageGrid.bah_interactions.RunScript" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.RunWorkflow.Hide" Location="Mscrm.HomepageGrid.bah_interactions.RunWorkflow" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.Sharing.Hide" Location="Mscrm.HomepageGrid.bah_interactions.Sharing" />
+    <HideCustomAction HideActionId="mcs.Mscrm.HomepageGrid.bah_interactions.UnfollowButton.Hide" Location="Mscrm.HomepageGrid.bah_interactions.UnfollowButton" />
+    <CustomAction Id="mcs.Mscrm.OpenRecordItem.Mscrm.SubGrid.bah_interactions.MainTab.Management.CustomAction" Location="Mscrm.SubGrid.bah_interactions.MainTab.Management.Controls._children" Sequence="65">
+      <CommandUIDefinition>
+        <Button Command="Mscrm.OpenRecordItem" Id="Mscrm.OpenRecordItem" LabelText="$LocLabels:Mscrm.OpenRecordItem.Mscrm.SubGrid.bah_interactions.MainTab.Management.LabelText" Sequence="65" TemplateAlias="o1" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.bah_interactions.Activate.Hide" Location="Mscrm.SubGrid.bah_interactions.Activate" />
+    <CustomAction Id="mcs.Mscrm.SubGrid.bah_interactions.AddNewStandard.CustomAction" Location="Mscrm.SubGrid.bah_interactions.MainTab.Management.Controls._children" Sequence="20">
+      <CommandUIDefinition>
+        <Button Alt="$Resources(EntityDisplayName):Ribbon.SubGrid.AddNew" Command="Mscrm.AddNewRecordFromSubGridStandard" Id="Mscrm.SubGrid.bah_interactions.AddNewStandard" Image32by32="/_imgs/ribbon/newrecord32.png" Image16by16="/_imgs/ribbon/New_16.png" LabelText="$Resources(EntityDisplayName):Ribbon.SubGrid.AddNew" Sequence="20" TemplateAlias="o1" ToolTipTitle="$Resources(EntityDisplayName):Mscrm_SubGrid_EntityLogicalName_MainTab_Management_AddNewStandard_ToolTipTitle" ToolTipDescription="$Resources(EntityDisplayName):Mscrm_SubGrid_EntityLogicalName_MainTab_Management_AddNewStandard_ToolTipDescription" ModernImage="New" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.bah_interactions.Assign.Hide" Location="Mscrm.SubGrid.bah_interactions.Assign" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.bah_interactions.Deactivate.Hide" Location="Mscrm.SubGrid.bah_interactions.Deactivate" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.bah_interactions.FollowButton.Hide" Location="Mscrm.SubGrid.bah_interactions.FollowButton" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.bah_interactions.RunScript.Hide" Location="Mscrm.SubGrid.bah_interactions.RunScript" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.bah_interactions.Sharing.Hide" Location="Mscrm.SubGrid.bah_interactions.Sharing" />
+    <HideCustomAction HideActionId="mcs.Mscrm.SubGrid.bah_interactions.UnfollowButton.Hide" Location="Mscrm.SubGrid.bah_interactions.UnfollowButton" />
+    <CustomAction Id="mcs.vhacrm.ApplicationRibbon.Button29.Button.CustomAction" Location="Mscrm.Form.bah_interactions.MainTab.Collaborate.Controls._children" Sequence="35">
+      <CommandUIDefinition>
+        <Button Command="vhacrm.ApplicationRibbon.SuicideKBArticle.Command" Description="Emergency" Id="vhacrm.ApplicationRibbon.Button29.Button" Image32by32="$webresource:vhacrm_/SuicideHotline/png/ribbon_SuicideHotlineButton_32.png" Image16by16="$webresource:vhacrm_/SuicideHotline/png/ribbon_SuicideHotlineButton_16.png" LabelText="$LocLabels:vhacrm.ApplicationRibbon.Button29.Button.LabelText" Sequence="35" TemplateAlias="o2" ModernImage="$webresource:mcs_/Icons/SuicideHotlineUCI.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="crme.bah_interactions.C4ResourcesHTML.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.NotVetHomeOrIsSysAdmin.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="openC4Resources" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="crme.bah_interactions.FMResourcesHTML.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.NotVetHomeOrIsSysAdmin.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="openFMResources" Library="$webresource:vhacrm_/WebResources/ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.Assign.Command">
+      <EnableRules>
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.NotOffline" />
+        <EnableRule Id="Mscrm.IsValidForHierarchyView" />
+        <EnableRule Id="Mscrm.IsValidForHierarchyPageInUC" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AssignSelectedEntityPermission" />
+        <DisplayRule Id="mcs.bah_interactions.NotVetHomeOrIsSysAdmin.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Assign.assignSelectedRecords" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.AssignFromForm.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.CanAssign.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeSupervisor.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeLOB.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="assignInteractionRecords" Library="$webresource:mcs_vh_ribbon_interaction.js">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.AssignFromGrid.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.bah_interactions.AtLeastOneRecordSelected.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.CanAssign.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeSupervisor.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="assignInteractionRecords" Library="$webresource:mcs_vh_ribbon_interaction.js">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.AssignFromSubGrid.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.bah_interactions.AtLeastOneRecordSelected.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.CanAssign.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeSupervisor.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="assignInteractionRecords" Library="$webresource:mcs_vh_ribbon_interaction.js">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.FormPick.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.CanAssign.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeLOB.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.FormStateExisting.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="assignInteractionToSelfFromForm" Library="$webresource:mcs_vh_ribbon_interaction.js">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.FormRelease.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.CanAssign.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeLOB.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeSupervisor.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="reassignInteractionBackToTeamFromForm" Library="$webresource:mcs_vh_ribbon_interaction.js">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.NewFromVirp.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.bah_interactions.ShowCustomNewOnVirp.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeLOB.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="DummyFunctionForRibbon" Library="$webresource:mcs_vh_constants" />
+        <JavaScriptFunction FunctionName="NewFromVirp" Library="$webresource:mcs_vh_ribbon_interaction.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.NewTopic.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.bah_interactions.NewRequest.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.NotVetHomeOrIsSysAdmin.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="CommCare.Interaction.Global.FireVeteranOnChange" Library="$webresource:vhacrm_/Forms/js/entity_Interaction.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.OpenMPIDialogFromRibbon.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.bah_interactions.IsCSWClient.EnableRule" />
+        <EnableRule Id="mcs.bah_interactions.IsVetHomeForm.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeLOB.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.FormStateExisting.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.HideForAuthFromPortal.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.HideForChat.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="OpenMPIDialogFromRibbon" Library="$webresource:mcs_vh_ribbon_interaction.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.Pick.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.bah_interactions.AtLeastOneRecordSelected.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.CanAssign.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="assignInteractionToSelfFromView" Library="$webresource:mcs_vh_ribbon_interaction.js">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.Release.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.bah_interactions.AtLeastOneRecordSelected.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.CanAssign.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeSupervisor.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="reassignInteractionBackToTeamFromView" Library="$webresource:mcs_vh_ribbon_interaction.js">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mcs.bah_interactions.Submit.Command">
+      <EnableRules>
+        <EnableRule Id="mcs.bah_interactions.EnableSubmit.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.NotVetHomeOrIsSysAdmin.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="CommCare.Interaction.Global.SubmitInteraction" Library="$webresource:vhacrm_/Forms/js/entity_Interaction.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AddExistingRecordFromSubGridStandard">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AppendToPrimary" />
+        <EnableRule Id="Mscrm.EntityFormIsEnabled" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="Mscrm.IsRelationshipEnabledInMocaOffline" />
+        <EnableRule Id="mcs.bah_interactions.HideOnInteractionFormComponent.EnableRule" />
+        <EnableRule Id="mcs.bah_interactions.HideOnVirp.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AddExisting" />
+        <DisplayRule Id="Mscrm.ShowForOneToManyGrids" />
+        <DisplayRule Id="Mscrm.AppendToPrimary" />
+        <DisplayRule Id="Mscrm.AppendSelected" />
+        <DisplayRule Id="Mscrm.CanWriteSelected" />
+        <DisplayRule Id="mcs.bah_interactions.NotVetHomeOrIsSysAdmin.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.HideOnSystemUser.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.AddFromSubGrid.addExistingFromSubGridStandard" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AddNewRecordFromSubGridStandard">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AppendToPrimary" />
+        <EnableRule Id="Mscrm.EntityFormIsEnabled" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="mcs.bah_interactions.HideOnVirp.EnableRule" />
+        <EnableRule Id="mcs.bah_interactions.HideOnInteractionFormComponent.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.ShowForOneToManyGrids" />
+        <DisplayRule Id="Mscrm.AppendToPrimary" />
+        <DisplayRule Id="Mscrm.CreateSelectedEntityPermission" />
+        <DisplayRule Id="Mscrm.AppendSelected" />
+        <DisplayRule Id="Mscrm.HideAddNewForChildEntities" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.HideOnSystemUser.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Open.addNewFromSubGridStandard" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AssignPrimaryRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.AssignPrimaryPermission" />
+        <EnableRule Id="Mscrm.NotOffline" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AssignPrimaryPermission" />
+        <DisplayRule Id="Mscrm.NotClosedActivity" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeSupervisor.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Assign.assignObject" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AssignSelectedRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.NotOffline" />
+        <EnableRule Id="Mscrm.IsValidForHierarchyView" />
+        <EnableRule Id="Mscrm.IsValidForHierarchyPageInUC" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AssignSelectedEntityPermission" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeSupervisor.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Assign.assignSelectedRecords" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.OpenRecordItem">
+      <EnableRules>
+        <EnableRule Id="mcs.bah_interactions.OneRecordSelected.EnableRule" />
+        <EnableRule Id="mcs.bah_interactions.AlwaysHide.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="VETHOME.Ribbon.Functions.OpenRecordInSameCSWSession" Library="$webresource:mcs_vh_ribbon_shared.js">
+          <CrmParameter Value="FirstSelectedItemId" />
+          <CrmParameter Value="SelectedEntityTypeName" />
+          <StringParameter Value="mcs_vh_genericentity_tabtemplate" />
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.SaveAndClosePrimary">
+      <EnableRules>
+        <EnableRule Id="Mscrm.IsAutoSaveDisable" />
+        <EnableRule Id="Mscrm.AvailableOnForm" />
+        <EnableRule Id="Mscrm.CanSavePrimary" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="Mscrm.HideOnFormComponent" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanSaveAndClosePrimaryEntityType" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeLOB.DisplayRule" />
+        <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Save.saveAndCloseForm" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="vhacrm.ApplicationRibbon.SuicideKBArticle.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="mcs.bah_interactions.NotVetHomeOrIsSysAdmin.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Popkbarticle" Library="$webresource:vhacrm_/SuicideHotline/js/ribbon_SuicideHotlineButton.js" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="mcs.bah_interactions.CanAssign.DisplayRule">
+        <EntityPrivilegeRule PrivilegeType="Assign" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="mcs.bah_interactions.FormStateExisting.DisplayRule">
+        <FormStateRule State="Existing" />
+      </DisplayRule>
+      <DisplayRule Id="mcs.bah_interactions.HideForAuthFromPortal.DisplayRule">
+        <ValueRule Field="mcs_authenticatedfromportal" Value="1" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="mcs.bah_interactions.HideForChat.DisplayRule">
+        <ValueRule Field="bah_interactionsource_code" Value="810050001" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="mcs.bah_interactions.HideOnSystemUser.DisplayRule">
+        <EntityRule EntityName="systemuser" AppliesTo="PrimaryEntity" Context="SubGridStandard" Default="false" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="mcs.bah_interactions.IsVetHomeLOB.DisplayRule">
+        <ValueRule Field="hrc_lobid" Value="b74f8eab-e865-ed11-9562-001dd8070aa7" />
+      </DisplayRule>
+      <DisplayRule Id="mcs.bah_interactions.IsVetHomeSupervisor.DisplayRule">
+        <EntityPrivilegeRule PrivilegeType="Delete" PrivilegeDepth="Global" EntityName="mcs_vethomeribbonprivileges" />
+      </DisplayRule>
+      <DisplayRule Id="mcs.bah_interactions.IsVetHomeUser.DisplayRule">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" EntityName="mcs_vethomeribbonprivileges" />
+      </DisplayRule>
+      <DisplayRule Id="mcs.bah_interactions.NotVetHomeOrIsSysAdmin.DisplayRule">
+        <OrRule>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" EntityName="mcs_vethomeribbonprivileges" InvertResult="true" />
+          </Or>
+          <Or>
+            <MiscellaneousPrivilegeRule PrivilegeName="PublishCustomization" PrivilegeDepth="Basic" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AddExisting">
+        <ReferencingAttributeRequiredRule Default="false" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AppendSelected">
+        <EntityPrivilegeRule PrivilegeType="Append" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AppendToPrimary">
+        <EntityPrivilegeRule PrivilegeType="AppendTo" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AssignPrimaryPermission">
+        <EntityPrivilegeRule PrivilegeType="Assign" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AssignSelectedEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Assign" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanSaveAndClosePrimaryEntityType">
+        <OrRule>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanWriteSelected">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CreateSelectedEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideAddNewForChildEntities">
+        <OrRule>
+          <Or>
+            <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="IsChildEntity" PropertyValue="false" />
+          </Or>
+          <Or>
+            <RelationshipTypeRule AppliesTo="SelectedEntity" AllowCustomRelationship="false" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.NotClosedActivity">
+        <OrRule>
+          <Or>
+            <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="false" />
+          </Or>
+          <Or>
+            <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="true" />
+            <ValueRule Field="statecode" Value="Open" />
+          </Or>
+          <Or>
+            <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="true" />
+            <ValueRule Field="statecode" Value="Scheduled" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ShowForOneToManyGrids">
+        <RelationshipTypeRule AppliesTo="SelectedEntity" RelationshipType="OneToMany" />
+      </DisplayRule>
+      <DisplayRule Id="vhacrm.bah_interactions.DisplayRule6.DisplayRule">
+        <EntityPrivilegeRule PrivilegeType="Delete" PrivilegeDepth="Basic" EntityName="bah_interactions" />
+      </DisplayRule>
+      <DisplayRule Id="vhacrm.bah_interactions.DisplayRule9.DisplayRule">
+        <EntityPrivilegeRule PrivilegeType="Delete" PrivilegeDepth="Global" EntityName="bah_interactions" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="mcs.bah_interactions.AlwaysHide.EnableRule">
+        <CustomRule FunctionName="isNaN" Library="mcs_vh_ribbon_shared" Default="true" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="mcs.bah_interactions.AtLeastOneRecordSelected.EnableRule">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" />
+      </EnableRule>
+      <EnableRule Id="mcs.bah_interactions.EnableSubmit.EnableRule">
+        <FormStateRule State="Disabled" Default="false" InvertResult="true" />
+        <CustomRule FunctionName="showSubmitButton" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="true" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="mcs.bah_interactions.HideOnInteractionFormComponent.EnableRule">
+        <CustomRule FunctionName="DummyFunctionForRibbon" Library="$webresource:mcs_vh_constants" />
+        <CustomRule FunctionName="IsInteractionFormComponent" Library="$webresource:mcs_vh_ribbon_interaction.js" InvertResult="true">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="mcs.bah_interactions.HideOnVirp.EnableRule">
+        <CustomRule FunctionName="DummyFunctionForRibbon" Library="$webresource:mcs_vh_constants" />
+        <CustomRule FunctionName="IsVirpFormComponent" Library="$webresource:mcs_vh_ribbon_interaction.js" InvertResult="true">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="mcs.bah_interactions.IsCSWClient.EnableRule">
+        <CustomRule FunctionName="IsCSWClient" Library="$webresource:mcs_vh_ribbon_interaction.js" Default="false" />
+      </EnableRule>
+      <EnableRule Id="mcs.bah_interactions.IsVetHomeForm.EnableRule">
+        <CustomRule FunctionName="IsVetHomeInteractionForm" Library="$webresource:mcs_vh_ribbon_interaction.js" Default="false">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="mcs.bah_interactions.NewRequest.EnableRule">
+        <FormStateRule State="Disabled" Default="false" InvertResult="true" />
+        <CustomRule FunctionName="showNewRequestButtion" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="true" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="mcs.bah_interactions.OneRecordSelected.EnableRule">
+        <SelectionCountRule Minimum="1" Maximum="1" />
+      </EnableRule>
+      <EnableRule Id="mcs.bah_interactions.ShowActivate.EnableRule">
+        <FormStateRule State="Disabled" Default="true" InvertResult="false" />
+        <CustomRule FunctionName="showActivateButton" Library="$webresource:vhacrm_/WebResources/ribbon.js" Default="false" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="mcs.bah_interactions.ShowCustomNewOnVirp.EnableRule">
+        <CustomRule FunctionName="DummyFunctionForRibbon" Library="$webresource:mcs_vh_constants" />
+        <CustomRule FunctionName="IsVirpFormComponent" Library="$webresource:mcs_vh_ribbon_interaction.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.AppendToPrimary">
+        <RecordPrivilegeRule PrivilegeType="AppendTo" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.AssignPrimaryPermission">
+        <RecordPrivilegeRule PrivilegeType="Assign" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.AvailableOnForm">
+        <EntityRule AppliesTo="PrimaryEntity" Context="Form" Default="false" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.CanSavePrimary">
+        <OrRule>
+          <Or>
+            <RecordPrivilegeRule PrivilegeType="Create" AppliesTo="PrimaryEntity" />
+            <FormStateRule State="Create" />
+          </Or>
+          <Or>
+            <RecordPrivilegeRule PrivilegeType="Write" AppliesTo="PrimaryEntity" />
+            <FormStateRule State="Existing" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.EntityFormIsEnabled">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.FormStateNotNew">
+        <FormStateRule State="Create" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.HideOnFormComponent">
+        <CustomRule FunctionName="XrmCore.Rules.Form.isFormComponent" Library="$webresource:Main_system_library.js" Default="false" InvertResult="true">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsAutoSaveDisable">
+        <OrRule>
+          <Or>
+            <FormStateRule State="Create" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="XrmCore.Rules.AutoSave.isAutoSaveEnabled" Library="$webresource:Main_system_library.js" InvertResult="true" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="XrmCore.Rules.RefreshForm.isRefreshForm" Library="$webresource:Main_system_library.js" InvertResult="true" />
+          </Or>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline">
+        <CustomRule FunctionName="XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsRelationshipEnabledInMocaOffline">
+        <CustomRule FunctionName="XrmCore.Rules.Online.IsRelationshipEnabledInMocaOffline" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsValidForHierarchyPageInUC">
+        <CustomRule FunctionName="XrmCore.Rules.HierarchyView.isValidForHierarchyPageInUC" Library="$webresource:Main_system_library.js" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsValidForHierarchyView">
+        <CustomRule FunctionName="XrmCore.Rules.HierarchyView.isValidForHierarchyView" Library="$webresource:Main_system_library.js" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.NotOffline">
+        <CrmOfflineAccessStateRule State="Offline" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.SelectionCountAtLeastOne">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.GridCommandActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/CommandBarActions.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="crme.bah_interactions.C4ResourcesHTML.Button.LabelText">
+      <Titles>
+        <Title description="C4 Resources" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="crme.bah_interactions.C4ResourcesHTML.Button.ToolTipDescription">
+      <Titles>
+        <Title description="C4 Resources" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="crme.bah_interactions.FMResourcesHTML.Button.LabelText">
+      <Titles>
+        <Title description="FM Resources" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="crme.bah_interactions.FMResourcesHTML.Button.ToolTipDescription">
+      <Titles>
+        <Title description="FM Resources" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions..AssignFromForm.Button.LabelText">
+      <Titles>
+        <Title description="Assign" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.Activate.Button.Alt">
+      <Titles>
+        <Title description="Activate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.Activate.Button.LabelText">
+      <Titles>
+        <Title description="Activate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.Activate.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Activate these Interactions. &lt;br&gt;&lt;br&gt;Active records can be edited, assigned, shared, or viewed from the Active Interactions view." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.Activate.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Activate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.AssignFromGrid.Button.LabelText">
+      <Titles>
+        <Title description="Assign" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.AssignFromSubGrid.Button.LabelText">
+      <Titles>
+        <Title description="Assign" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.FormPick.Button.LabelText">
+      <Titles>
+        <Title description="Pick" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.FormRelease.Button.LabelText">
+      <Titles>
+        <Title description="Release" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.NewFromVirp.Button.LabelText">
+      <Titles>
+        <Title description="New Interaction" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.NewTopic.Button.LabelText">
+      <Titles>
+        <Title description="New Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.NewTopic.Button.ToolTipDescription">
+      <Titles>
+        <Title description="New Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.NewTopic.Button.ToolTipTitle">
+      <Titles>
+        <Title description="New Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.OpenMPIDialogFromRibbon.Button.LabelText">
+      <Titles>
+        <Title description="Associate Veteran" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.Pick.Button.LabelText">
+      <Titles>
+        <Title description="Pick" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.Release.Button.LabelText">
+      <Titles>
+        <Title description="Release" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.Submit.Button.LabelText">
+      <Titles>
+        <Title description="Submit" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mcs.bah_interactions.Submit.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Submit Interaction" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.OpenRecordItem.Mscrm.SubGrid.bah_interactions.MainTab.Management.LabelText">
+      <Titles>
+        <Title description="Overridden Open (Always Hidden)" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="vhacrm.ApplicationRibbon.Button29.Button.LabelText">
+      <Titles>
+        <Title description="Emergency" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

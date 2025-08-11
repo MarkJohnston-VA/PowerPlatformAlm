@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{40659da9-aa10-468f-8831-f0ebffdc8bf6}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_portalmessageid">
+          <cell name="mcs_name" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_veteran" width="140" />
+          <cell name="mcs_vethomecaseid" width="210" />
+          <cell name="mcs_direction" width="80" />
+          <cell name="statuscode" width="120" />
+          <cell name="createdby" width="130" />
+          <cell name="ownerid" width="130" />
+          <cell name="mcs_datesent" width="120" />
+          <cell name="createdon" width="120" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_portalmessage">
+          <attribute name="mcs_name" />
+          <order attribute="createdon" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_vethomecaseid" />
+          <attribute name="mcs_direction" />
+          <attribute name="mcs_datesent" />
+          <attribute name="mcs_veteran" />
+          <attribute name="statuscode" />
+          <attribute name="createdon" />
+          <attribute name="mcs_portalmessageid" />
+          <attribute name="createdby" />
+          <attribute name="ownerid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.01.03.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Portal Messages" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

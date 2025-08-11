@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{f2dbb8cc-4dba-4e5c-af76-d4f33d3c1154}</formid>
+    <IntroducedVersion>2023.04.05.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{898ad0c8-4310-48b8-9950-c655a1de0830}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{9adc5f4d-19fc-46a8-acd1-6e15725da4ff}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6c88f380-a206-4df0-b93f-0b57129ec14e}">
+                        <labels>
+                          <label description="Name of Due Date Field" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{24271175-c698-6119-7d04-48153e562ce1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Previous Due Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_previousduedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_previousduedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{73660d98-a3b5-cc97-0e83-c43d006e7ac6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Related Action Item" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_relatedactionitemid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_relatedactionitemid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{47927724-728d-48b4-bb73-0093054ee8dc}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Related Tasker" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_relatedtaskerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_relatedtaskerid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8e48120e-a545-1923-5de2-717e9120a7e9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Related Directorate Task" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_relateddirectoratetaskid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_relateddirectoratetaskid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{38b64757-32eb-4941-8eef-8e7eb7381330}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

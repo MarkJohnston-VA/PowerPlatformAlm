@@ -1,0 +1,356 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "mcs_D365ConnectionReference01"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "Central Standard Time",
+            "startTime": "2023-01-17T16:00:00Z",
+            "schedule": {
+              "hours": [
+                "11"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "ae9ca871-5826-440d-bd72-16ebc9d836f1"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Initialize_Flow_ID_variable": {
+          "runAfter": {
+            "Flow_Start_Time": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1a62cdfd-7f5e-4e18-baa7-73b027bd1af5"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow ID",
+                "type": "string",
+                "value": "@{workflow()?['name']}"
+              }
+            ]
+          },
+          "description": "Creates Flow ID Variable used to track Flow Status"
+        },
+        "Flow_Start_Time": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "44e6921c-b92a-4be5-9c1c-524379af6ce6"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Initialize_Flow_Display_Name_variable": {
+          "runAfter": {
+            "Initialize_Flow_ID_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8fc33c19-cade-46ad-89a3-53fdab5e521b"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow Display Name",
+                "type": "string",
+                "value": "@{workflow()?['tags']['flowDisplayName']}"
+              }
+            ]
+          },
+          "description": "Creates Flow Display Name Variable used to track Flow Status"
+        },
+        "Initialize_Flow_URL_variable": {
+          "runAfter": {
+            "Initialize_Flow_Display_Name_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4497aee6-086f-4c9d-a3fe-72016645c169"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow URL",
+                "type": "string",
+                "value": "@{concat('https://gov.flow.microsoft.us/manage/environments/', workflow()?['tags']['environmentName'], '/flows/', workflow()?['name'], '/runs/', workflow()?['run']['name'])}"
+              }
+            ]
+          },
+          "description": "Creates Flow URL variable used to Track Flow Status"
+        },
+        "Initialize_Run_ID_variable": {
+          "runAfter": {
+            "Initialize_Flow_URL_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "77d837a7-6dfa-4956-a256-01829fa71bd2"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Run ID",
+                "type": "string",
+                "value": "@{workflow()?['run']['name']}"
+              }
+            ]
+          },
+          "description": "Creates flow Run ID variable used to track Run ID"
+        },
+        "Create_new_Flow_Activity_Status_Morning": {
+          "runAfter": {
+            "Initialize_Run_ID_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "173fdd54-0742-433d-8539-7bb349f79dde"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "item/mcs_flowname": "@variables('Flow Display Name')",
+              "item/mcs_flowexecutionurl": "@variables('Flow URL')",
+              "item/mcs_flowid": "@variables('Flow ID')",
+              "item/statuscode": 1,
+              "item/mcs_runid": "@variables('Run ID')",
+              "item/mcs_startdatetime": "@body('Flow_Start_Time')",
+              "item/statecode": 0
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Creates new record in Flow Activity Statuses entity to track flow runs."
+        },
+        "Scope": {
+          "actions": {
+            "List_Users_that_have_taskers_approaching_due_date_(or_are_overdue)": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "4252a569-26e1-4c8a-9baf-8a7878d8da49"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "systemusers",
+                  "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"true\">    \n  <entity name=\"systemuser\">\n    <attribute name=\"fullname\" />\n    <attribute name=\"title\" />\n    <attribute name=\"address1_telephone1\" />\n    <attribute name=\"businessunitid\" />\n    <attribute name=\"positionid\" />\n    <attribute name=\"domainname\" />\n    <attribute name=\"internalemailaddress\" />\n    <attribute name=\"systemuserid\" />\n    <order attribute=\"fullname\" descending=\"false\" />\n<filter type=\"and\">\n      <condition attribute=\"isdisabled\" operator=\"eq\" value=\"0\" />\n      <condition attribute=\"accessmode\" operator=\"ne\" value=\"3\" />\n    </filter>\n    <link-entity name=\"mcs_trackeritem\" from=\"mcs_assignedto\" to=\"systemuserid\" link-type=\"inner\" alias=\"am\">\n      <filter type=\"and\">\n        <condition attribute=\"statecode\" operator=\"eq\" value=\"0\" />\n        <filter type=\"or\">\n          <condition attribute=\"mcs_duedate\" operator=\"next-x-days\" value=\"2\" />\n          <condition attribute=\"mcs_duedate\" operator=\"last-x-years\" value=\"10\" />\n        </filter>\n      </filter>\n    </link-entity>\n    <link-entity name=\"systemuserroles\" from=\"systemuserid\" to=\"systemuserid\" visible=\"false\" intersect=\"true\">\n      <link-entity name=\"role\" from=\"roleid\" to=\"roleid\" alias=\"an\">\n        <filter type=\"and\">\n          <condition attribute=\"roleid\" operator=\"in\">\n            <value uiname=\"System Administrator\" uitype=\"role\">{DCECED69-7064-E711-8111-1458D04E2F18}</value>\n            <value uiname=\"CRAM - 16 IVC Front Office\" uitype=\"role\">{5FCB129C-AB6B-EB11-A812-001DD800AC9E}</value>\n            <value uiname=\"CRAM - Directorate\" uitype=\"role\">{C0EE6B57-AC6B-EB11-A812-001DD800A64F}</value>\n            <value uiname=\"CRAM - Executive Directorate\" uitype=\"role\">{19386163-AC6B-EB11-A812-001DD800A64F}</value>\n          </condition>\n        </filter>\n      </link-entity>\n    </link-entity>\n  </entity>\n</fetch>"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Apply_to_each": {
+              "foreach": "@outputs('List_Users_that_have_taskers_approaching_due_date_(or_are_overdue)')?['body/value']",
+              "actions": {
+                "Create_Notification_record": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "a1c2f67c-005e-49e4-8ec4-4280473dd554"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "appnotifications",
+                      "item/title": "Action Required",
+                      "item/body": "Please Take Action on the Following Tasks",
+                      "item/data": "{\n  \"actions\": [\n    {\n      \"data\": {\n        \"url\": \"?pagetype=entitylist&etn=queueitem&viewid=c91ed52e-d260-eb11-a812-001dd801df87\",\n        \"navigationTarget\": \"inline\"\n      },\n      \"title\": \"Taskers\"\n    }\n  ]\n}",
+                      "item/ttlinseconds": 86400,
+                      "item/icontype": 100000000,
+                      "item/ownerid@odata.bind": "systemusers(@{items('Apply_to_each')?['systemuserid']})"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "List_Users_that_have_taskers_approaching_due_date_(or_are_overdue)": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "218d9de6-eba4-4f20-b255-80df3b0db078"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Create_new_Flow_Activity_Status_Morning": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "af3aef12-c159-4d66-b994-a1b0d5a5415f"
+          },
+          "type": "Scope"
+        },
+        "Current_time_Failed": {
+          "runAfter": {
+            "Scope": [
+              "Skipped",
+              "Failed",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d873a0ad-0c99-4341-a515-554b7948c7da"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Update_with_Success_Status": {
+          "runAfter": {
+            "Current_time_Successful": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "90751a53-eaf5-4203-bd2a-0de603453eb2"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "recordId": "@outputs('Create_new_Flow_Activity_Status_Morning')?['body/mcs_flowactivitystatusid']",
+              "item/mcs_enddatetime": "@body('Current_time_Successful')",
+              "item/statuscode": 153190007
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Update the corresponding Flow Activity Status record depending on if Scope step completed successfully.  Update the End Date Time with current time, Flow Run Status to Success.."
+        },
+        "Current_time_Successful": {
+          "runAfter": {
+            "Scope": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b41e3bd9-edcd-463e-9371-7026ac9d298a"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Filter_Error_Array": {
+          "runAfter": {
+            "Current_time_Failed": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8fd80e3d-b708-463c-a4d1-239eca4a7d83"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@result('Scope')",
+            "where": "@equals(item()?['status'], string('Failed'))"
+          },
+          "description": "Filter workflow object based on Failed Status to retrieve Error Message."
+        },
+        "Flow_Error_Message": {
+          "runAfter": {
+            "Filter_Error_Array": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "49924d66-db09-45ad-a544-ce5300b477d5"
+          },
+          "type": "Compose",
+          "inputs": "@body('Filter_Error_Array')[0]?['outputs']?['body']?['error/message']",
+          "description": "Obtain Error Message from workflow object"
+        },
+        "Update_a_row_with_Failed_Status": {
+          "runAfter": {
+            "Flow_Error_Message": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "04a53181-61c9-40b9-b54d-5a666255e4b7"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "recordId": "@outputs('Create_new_Flow_Activity_Status_Morning')?['body/mcs_flowactivitystatusid']",
+              "item/mcs_enddatetime": "@body('Current_time_Failed')",
+              "item/mcs_errormessage": "@string(outputs('Flow_Error_Message'))",
+              "item/statuscode": 153190004
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Update the corresponding Flow Activity Status record due to one or more steps failing in the Scope above.   Update the Start Date field to Current time, Flow Run Status to Error and the Error Message field with the error retrieved from previous step."
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{f21a3179-4787-e611-8124-127b25dcbde7}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="vhacrm_name" select="1" preview="1" icon="1">
+        <row name="result" id="vhacrm_resolutionintersectionid">
+          <cell name="vhacrm_name" width="300" />
+          <cell name="vhacrm_typeintersectionid" width="100" />
+          <cell name="vhacrm_areaintersectionid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="vhacrm_resolutionintersection">
+          <attribute name="vhacrm_name" />
+          <attribute name="vhacrm_typeintersectionid" />
+          <attribute name="vhacrm_areaintersectionid" />
+          <order attribute="vhacrm_name" descending="false" />
+          <filter type="and">
+            <condition attribute="vhacrm_name" operator="ne" value="Answered Question/Inquiry" />
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="vhacrm_resolutionintersectionid" operator="not-in">
+              <value uiname="Resolved" uitype="vhacrm_resolutionintersection">{3346484D-6D74-E611-9423-0050568D64C9}</value>
+              <value uiname="Answered Question/Inquiry" uitype="vhacrm_resolutionintersection">{8B28EB16-5911-E611-941D-0050568D64C9}</value>
+              <value uiname="Resolved" uitype="vhacrm_resolutionintersection">{4EFDC3A0-B522-E611-941E-0050568D64C9}</value>
+              <value uiname="Referred to VAMC" uitype="vhacrm_resolutionintersection">{F7E24601-1430-E711-812A-1289A8FDD3DA}</value>
+              <value uiname="Referred to TPA" uitype="vhacrm_resolutionintersection">{0717C28D-1430-E711-812A-1289A8FDD3DA}</value>
+              <value uiname="Resolved" uitype="vhacrm_resolutionintersection">{B2A86828-A3D1-E511-9417-0050568D64C9}</value>
+              <value uiname="Answered Question/Inquiry" uitype="vhacrm_resolutionintersection">{258F700C-5911-E611-941D-0050568D64C9}</value>
+              <value uiname="Referred to VAMC" uitype="vhacrm_resolutionintersection">{B1871B21-C12A-E711-812A-1289A8FDD3DA}</value>
+              <value uiname="Answered Question/Inquiry" uitype="vhacrm_resolutionintersection">{8E73FAAB-1A31-E711-812A-1289A8FDD3DA}</value>
+              <value uiname="Referred to VAMC" uitype="vhacrm_resolutionintersection">{EAFF23D3-1A31-E711-812A-1289A8FDD3DA}</value>
+              <value uiname="Resolved" uitype="vhacrm_resolutionintersection">{E8D334DE-E65C-E711-812D-1289A8FDD3DA}</value>
+              <value uiname="Referred to VAMC" uitype="vhacrm_resolutionintersection">{0B45A847-F45C-E711-812D-1289A8FDD3DA}</value>
+              <value uiname="Completed Warm Transfer" uitype="vhacrm_resolutionintersection">{1C331634-AF5A-E711-812D-1289A8FDD3DA}</value>
+              <value uiname="Answered Question/Inquiry" uitype="vhacrm_resolutionintersection">{A99FDF48-AF5A-E711-812D-1289A8FDD3DA}</value>
+              <value uiname="Referred to VAMC" uitype="vhacrm_resolutionintersection">{13D8B491-A95A-E711-812D-1289A8FDD3DA}</value>
+              <value uiname="Answered Question/Inquiry" uitype="vhacrm_resolutionintersection">{B4154176-B05A-E711-812D-1289A8FDD3DA}</value>
+              <value uiname="Referred to PACT" uitype="vhacrm_resolutionintersection">{F3F012F4-B05A-E711-812D-1289A8FDD3DA}</value>
+              <value uiname="Referred to TVC" uitype="vhacrm_resolutionintersection">{F9109D44-B15A-E711-812D-1289A8FDD3DA}</value>
+            </condition>
+          </filter>
+          <attribute name="vhacrm_resolutionintersectionid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.2.0.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Request Resolution" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

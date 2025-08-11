@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{41422627-502a-4d42-b82c-58591b8ba56a}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="veis_name" select="1" icon="1" preview="1">
+        <row name="result" id="veis_automationsystemalertid">
+          <cell name="veis_application" width="100" />
+          <cell name="veis_name" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="veis_knownoccurrences" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="veis_exceptionmessage" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="veis_stacktrace" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="veis_automationsystemalert">
+          <attribute name="veis_name" />
+          <order attribute="veis_application" descending="false" />
+          <order attribute="createdon" descending="true" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="veis_stacktrace" />
+          <attribute name="veis_knownoccurrences" />
+          <attribute name="veis_exceptionmessage" />
+          <attribute name="createdon" />
+          <attribute name="veis_application" />
+          <attribute name="veis_automationsystemalertid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.1.5</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Automation System Alerts" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

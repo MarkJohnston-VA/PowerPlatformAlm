@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b771d26b-8efa-e911-a98b-001dd800ba25}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" preview="1" icon="1">
+        <row name="result" id="mcs_callerid">
+          <cell name="mcs_firstname" width="100" />
+          <cell name="mcs_lastname" width="100" />
+          <cell name="mcs_countrycode" width="100" />
+          <cell name="mcs_phonenumber" width="100" />
+          <cell name="mcs_phoneextension" width="100" />
+          <cell name="mcs_interactedwith" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="mcs_caller">
+          <attribute name="createdon" />
+          <attribute name="mcs_lastname" />
+          <attribute name="mcs_firstname" />
+          <order attribute="createdon" descending="true" />
+          <attribute name="mcs_phonenumber" />
+          <attribute name="mcs_interactedwith" />
+          <attribute name="mcs_callerid" />
+          <attribute name="mcs_countrycode" />
+          <attribute name="mcs_phoneextension" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2019.10.28.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Callers Sub Grid" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{fa62a797-f442-42e7-949b-e47975c18d6d}</formid>
+    <IntroducedVersion>1.4.0.2</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighReadOnlyValues">
+      <tabs>
+        <tab verticallayout="true" id="{fa7ce926-6c1c-4140-8d9c-c220a6e99ac0}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{cde8a250-d7d5-47c7-8b9f-0398c81e24cf}" name="{cde8a250-d7d5-47c7-8b9f-0398c81e24cf}" columns="1" locklevel="0" labelwidth="175" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6a4dc893-6864-16ba-a471-85b98ca8dc76}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Request" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_historyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_historyid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8ac6ba21-2093-4bae-a8c1-ec4eab4e4503}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Request Number" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_requestnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_requestnumber" disabled="false" uniqueid="{d3327383-8738-976e-3303-ed340c562b57}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c5d8983c-491e-1323-b298-b2c3bbd1e18a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created By" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_createdby_userid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_createdby_userid" disabled="false" uniqueid="{2d833257-8371-09b3-dca6-074c44635336}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0a4dd998-8498-04d1-7bed-284b88c9dea0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Modified By" languagecode="1033" />
+                        </labels>
+                        <control id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5880d74b-9e15-14e2-8396-c3247cc20872}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Event Type" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_eventtype_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="vhacrm_eventtype_code" disabled="false" uniqueid="{559ab41b-8aa5-0955-41c3-08a2580bcba0}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{53a44713-7956-795e-dcd0-062d78c651aa}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Event Date" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_eventdate_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="vhacrm_eventdate_date" disabled="false" uniqueid="{684c9c93-e270-4e1d-340e-bd0d91262879}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9034d122-15ec-0105-4e1c-4edd2d52c91b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Previous Action" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_previousaction" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_previousaction" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d97aea38-833d-b5d7-42b0-a9ab67022451}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Request Action" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_requestaction" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_requestaction" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9150cd23-b5cc-5c61-d07d-14e5ed70c2d9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Previous Queue" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_previousqueue" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_previousqueue" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bd6682d5-a7e5-db5a-397c-05b2682234a8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Current Queue" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_currentqueue" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_currentqueue" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0cd057e3-53ca-ea56-1349-930cb4369639}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Previously Assigned To" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_previouslyassignedto" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_previouslyassignedto" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{622db270-6203-e32e-a18c-b6a0289d78a9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Currently Assigned To" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_currentlyassignedto" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_currentlyassignedto" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5598a186-89d2-cde4-19be-923496c1b603}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Resolved By" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_resolvedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_resolvedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a0e4a180-0c84-b785-2259-0174d940eeed}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Resolved On" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_resolvedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_resolvedon" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9cbcad83-e0b1-418e-91e2-175d4028d402}" showlabel="false" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" uniqueid="{1dca7485-745b-621a-0188-66cc83554114}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <header id="{9c5d3f0c-d2a7-4765-b347-195b8ed8b4c0}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{5e6af4bc-b08d-4bdd-a6b7-55dbaa463623}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{fefec4c1-3b1b-4bcd-935a-e1ded7b6fc32}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{adff716c-78aa-4cf7-a087-64c12486fb34}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7361d4a8-b006-8665-45ab-394c8ddc7847}" showlabel="true" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Status" languagecode="1033" />
+              </labels>
+              <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" uniqueid="{b0825516-4143-37b8-d299-087d17b3e98d}" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{804eb1f0-2f2e-449c-a5cb-6f6320b61c04}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{7d15381d-9968-42d2-b2a8-ab6fbc9e8292}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f2cec301-0241-44da-9fac-01b84ab53cab}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7eee3fdb-4f67-494a-9b6b-c02eedd08ae6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

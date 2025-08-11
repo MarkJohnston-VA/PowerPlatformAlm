@@ -1,0 +1,9 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(ids, Split(If(!IsBlank(Param("recordId")), Param("recordId"), ""), "|"));
+        Set(dfn, Index(ids, 1).Result);
+        Set(bfn, Index(ids, 2).Result);
+        Set(params, Concatenate("dfn%253D", dfn, "%2526bfn%253D", bfn));
+        Set(url, Concatenate("/WebResources/mcs_ICQClaimSearch.html?data=", params));
+

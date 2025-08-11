@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{595c9e97-15a7-ed11-aad1-001dd80726d6}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="name" select="1" preview="1" icon="1">
+        <row name="result" id="teamid">
+          <cell name="name" width="150" />
+          <cell name="mcs_abbreviation" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="team">
+          <attribute name="name" />
+          <attribute name="mcs_abbreviation" />
+          <order attribute="name" descending="false" />
+          <filter type="and">
+            <filter type="or">
+              <condition attribute="mcs_trackerteamtype" operator="eq" value="803750005" />
+              <condition attribute="mcs_frontofficeteam" operator="eq" value="1" />
+            </filter>
+          </filter>
+          <attribute name="teamid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.02.07.6</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Front Office Teams" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

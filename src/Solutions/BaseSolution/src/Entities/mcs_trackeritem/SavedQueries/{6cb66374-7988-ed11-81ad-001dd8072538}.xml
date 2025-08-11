@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{6cb66374-7988-ed11-81ad-001dd8072538}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_trackeritemid">
+          <cell name="mcs_name" width="300" />
+          <cell name="mcs_executivedirectorateteam" width="100" />
+          <cell name="mcs_assignedto" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_descriptionplaintext" width="100" disableSorting="1" />
+          <cell name="mcs_veteran" width="100" />
+          <cell name="mcs_duedate" width="100" />
+          <cell name="statuscode" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="mcs_trackeritem">
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <attribute name="mcs_descriptionplaintext" />
+          <attribute name="mcs_executivedirectorateteam" />
+          <attribute name="mcs_duedate" />
+          <attribute name="mcs_assignedto" />
+          <attribute name="mcs_veteran" />
+          <order attribute="mcs_duedate" descending="false" />
+          <attribute name="statuscode" />
+          <attribute name="mcs_trackeritemid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2022.12.07.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Taskers" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{0b2ce742-c23f-4a2a-b73c-dc0595eec258}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_whhlcaseupdateid">
+          <cell name="createdon" width="100" />
+          <cell name="mcs_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_activitytype" width="100" />
+          <cell name="mcs_notes" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_callsubject" width="100" />
+          <cell name="mcs_calltype" width="100" />
+          <cell name="mcs_callstatus" width="100" />
+          <cell name="mcs_assignedto" width="100" />
+          <cell name="mcs_priority" width="100" />
+          <cell name="mcs_createdbywhh" width="100" />
+          <cell name="mcs_createdonwhh" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_whhlcaseupdate">
+          <attribute name="mcs_whhlcaseupdateid" />
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="mcs_name" operator="like" value="{0}" />
+          </filter>
+          <attribute name="mcs_priority" />
+          <attribute name="mcs_notes" />
+          <attribute name="mcs_createdonwhh" />
+          <attribute name="mcs_createdbywhh" />
+          <attribute name="mcs_calltype" />
+          <attribute name="mcs_callsubject" />
+          <attribute name="mcs_callstatus" />
+          <attribute name="mcs_assignedto" />
+          <attribute name="mcs_activitytype" />
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2022.09.21.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active WHHL Case Updates" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

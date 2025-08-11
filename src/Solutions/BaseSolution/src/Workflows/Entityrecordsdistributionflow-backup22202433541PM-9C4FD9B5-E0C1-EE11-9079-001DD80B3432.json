@@ -1,0 +1,169 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "id": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "actions": {
+        "Initialization_(Do_not_modify)": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "LiveWorkStreamId",
+                "type": "String"
+              }
+            ]
+          },
+          "runAfter": {}
+        },
+        "Invoke_Omnichannel_(Do_not_modify)": {
+          "type": "Scope",
+          "actions": {
+            "Condition": {
+              "type": "If",
+              "expression": {
+                "not": {
+                  "equals": [
+                    "@variables('LiveWorkStreamId')",
+                    ""
+                  ]
+                }
+              },
+              "actions": {
+                "Invoke_Omnichannel": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "PerformUnboundAction",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "actionName": "msdyn_InitEntityRoutingFlow",
+                      "item/LiveWorkStreamId": "@variables('LiveWorkStreamId')",
+                      "item/QueueId": "@triggerOutputs()?['body/msdyn_queueid']",
+                      "item/EntityRecordId": "@triggerOutputs()?['body/msdyn_entityrecordid']",
+                      "item/EntityLogicalName": "@triggerOutputs()?['body/msdyn_entitylogicalname']",
+                      "item/LiveWorkItemTitle": "@triggerOutputs()?['body/msdyn_routingrequesttitle']"
+                    },
+                    "authentication": "@parameters('$authentication')",
+                    "retryPolicy": {
+                      "type": "exponential",
+                      "count": 6,
+                      "interval": "PT5M",
+                      "minimumInterval": "PT5M",
+                      "maximumInterval": "PT3H"
+                    }
+                  }
+                }
+              },
+              "runAfter": {},
+              "else": {
+                "actions": {
+                  "Terminate_-_Routing_criteria_not_met": {
+                    "type": "Terminate",
+                    "inputs": {
+                      "runStatus": "Failed",
+                      "runError": {
+                        "code": "102",
+                        "message": "LiveWorkStreamId is not set!"
+                      }
+                    },
+                    "runAfter": {}
+                  }
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Omnichannel_Work_Distribution": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Omnichannel_Work_Distribution": {
+          "type": "Switch",
+          "expression": "@triggerOutputs()?['body/msdyn_entitylogicalname']",
+          "cases": {},
+          "default": {
+            "actions": {
+              "Terminate_-_Unknown_entity": {
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Failed",
+                  "runError": {
+                    "code": "101",
+                    "message": "Entity (@{triggerOutputs()?['body/msdyn_entitylogicalname']}) is not enabled for routing"
+                  }
+                },
+                "runAfter": {}
+              }
+            }
+          },
+          "runAfter": {
+            "Initialization_(Do_not_modify)": [
+              "Succeeded"
+            ]
+          }
+        }
+      },
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "WDFlowVersion": {
+          "defaultValue": "1.0.0.1",
+          "type": "String"
+        },
+        "OrganizationId": {
+          "defaultValue": "",
+          "type": "String"
+        },
+        "OmnichannelAPIUrl": {
+          "defaultValue": "",
+          "type": "String"
+        },
+        "EntityRoutingAPIKey": {
+          "defaultValue": "",
+          "type": "SecureString"
+        },
+        "Source": {
+          "defaultValue": "73a5d7e3-a468-48b8-b5f2-544d7d7080f3",
+          "type": "String"
+        }
+      },
+      "triggers": {
+        "When_a_record_is_created": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "msdyn_routingrequest",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "contentVersion": "1.0.0.0",
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

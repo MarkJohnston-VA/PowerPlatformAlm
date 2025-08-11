@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{5699c03f-4379-4d7c-813b-3df41b6cf47f}</savedqueryid>
+    <layoutxml>
+      <grid name="mcs_autocloseentityrelationships" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="mcs_autocloseentityrelationship" id="mcs_autocloseentityrelationshipid">
+          <cell name="mcs_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_childentityname" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_relationshipfieldname" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="statecode" width="100" />
+          <cell name="createdby" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_autocloseentityrelationship">
+          <attribute name="mcs_autocloseentityrelationshipid" />
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="statecode" />
+          <attribute name="mcs_relationshipfieldname" />
+          <attribute name="createdby" />
+          <attribute name="mcs_childentityname" />
+          <order attribute="mcs_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.03.17.3</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="AutoClose Entity Relationship Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

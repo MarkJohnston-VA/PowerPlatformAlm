@@ -1,0 +1,17 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(ids, Split(If(!IsBlank(Param("recordId")), Param("recordId"), ""), "|"));
+        Set(interactionId, Index(ids, 1).Result);
+        Set(lob, Index(ids, 2).Result);
+        Set(type, Index(ids, 3).Result);
+        Set(clientUrl, EncodeUrl(Index(ids, 4).Result));
+        Set(tabId, Index(ids, 5).Result);
+        Set(interactedWith, Index(ids, 6).Result);
+        Set(firstName, Index(ids, 7).Result);
+        Set(lastName, Index(ids, 8).Result);
+        Set(ssn, Index(ids, 9).Result);
+        Set(dob, Index(ids, 10).Result);
+        Set(params, Concatenate("interactionId%253D", interactionId, "%2526lob%253D", lob, "%2526type%253D", type, "%2526clientUrl%253D", clientUrl, "%2526tabId%253D", tabId, "%2526interactedWith%253D", interactedWith, "%2526firstName%253D", firstName, "%2526lastName%253D", lastName, "%2526ssn%253D", ssn, "%2526dob%253D", dob));
+        Set(url, Concatenate("/WebResources/mcs_MVIPersonSearchAddCSW.html?data=", params));
+

@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{2ffba1fa-a942-4907-b0f5-d41bf9bc6d1c}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{627dfa3e-3191-453b-9144-74abbb3db831}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{46cd3b42-01e3-430a-bfee-dc6a9db5599d}" name="{46cd3b42-01e3-430a-bfee-dc6a9db5599d}" columns="1" locklevel="0" labelwidth="150" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3700458f-7465-442e-a7ea-199ca1eda1d4}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="bah_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2c74b0de-0ccb-c1dc-6aa1-e350db8e8403}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Number" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_visnnumber_number" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="vhacrm_visnnumber_number" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5499d00a-3a46-c923-ed0a-126e8637976b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Claims Processing Team" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_claimsprocessing_teamid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_claimsprocessing_teamid" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{57E39843-404C-48E5-B1D9-1889098FB65C}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d1066918-94c6-b52e-d376-49e0bb9ae1b8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="NVCC Onboarded" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_visnonboarded_bool" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="vhacrm_visnonboarded_bool" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5d5e2145-d742-829d-52e8-2843e974d22c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="QueueId" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_queueid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_queueid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{86ea4d37-0862-3407-a935-9d2987b6e24a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Accepting Requests" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_accpetingrequests" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="mcs_accpetingrequests" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_facilities" id="{a87a88ec-1236-2304-eb2e-2119087b709b}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Facilities" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_3_section_1" showlabel="false" showbar="false" locklevel="0" id="{8ad793b6-19d7-7a39-d9d2-2ddc75274bc9}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4c6a5388-66ad-7a23-244c-e361745205e9}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                        <labels>
+                          <label description="Facilities (VISN)" languagecode="1033" />
+                        </labels>
+                        <control id="Facilities" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                          <parameters>
+                            <ViewId>{4E52558F-3638-4A3B-9DDF-11987F409993}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>bah_bah_visn_bah_facility_visnid</RelationshipName>
+                            <TargetEntityType>bah_facility</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{4E52558F-3638-4A3B-9DDF-11987F409993}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_Admin" id="{2ba320a1-cc1d-2eb9-e994-c384aa9c9e40}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
+          <labels>
+            <label description="Administration" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{24bc8638-b5ed-7601-ec97-c59d59a3a8e0}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6071a853-4356-25d5-1db8-388959ba750c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created On" languagecode="1033" />
+                        </labels>
+                        <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                      </cell>
+                      <cell id="{a9b5ec63-9950-4665-a2d3-6d96b6974b82}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Modified On" languagecode="1033" />
+                        </labels>
+                        <control id="modifiedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4de69361-5e25-e1ac-ec36-55ad43b8d41c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created By" languagecode="1033" />
+                        </labels>
+                        <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                      </cell>
+                      <cell id="{32371258-e667-9da6-5331-29d10455e5b4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Modified By" languagecode="1033" />
+                        </labels>
+                        <control id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3b5113a3-c6e9-4c27-9896-cfcec46eb4ec}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                      <cell id="{2047d142-0561-236c-c4cd-aab178e3e956}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CommCare.Visn.Global.OnLoad" libraryName="mcs_VISN" handlerUniqueId="{0b4c391a-c5ee-d891-45bb-400818e4318a}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{6396b884-7172-91ec-9c24-a14e6e43b30a}" />
+        <Library name="mcs_VISN" libraryUniqueId="{022d2d3b-ed91-48e3-30a7-6e985e15cceb}" />
+      </formLibraries>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

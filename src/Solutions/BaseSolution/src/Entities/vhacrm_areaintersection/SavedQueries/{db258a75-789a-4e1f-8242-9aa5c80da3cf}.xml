@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{db258a75-789a-4e1f-8242-9aa5c80da3cf}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="vhacrm_name" select="1" icon="1" preview="1">
+        <row name="result" id="vhacrm_areaintersectionid">
+          <cell name="vhacrm_typeintersectionid" width="125" />
+          <cell name="vhacrm_areaid" width="100" />
+          <cell name="createdon" width="125" />
+          <cell name="createdby" width="100" />
+          <cell name="modifiedon" width="100" />
+          <cell name="modifiedby" width="100" />
+          <cell name="ownerid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="vhacrm_areaintersection">
+          <attribute name="createdon" />
+          <order attribute="vhacrm_typeintersectionid" descending="false" />
+          <order attribute="vhacrm_areaid" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="createdby" />
+          <attribute name="modifiedby" />
+          <attribute name="modifiedon" />
+          <attribute name="ownerid" />
+          <attribute name="vhacrm_areaid" />
+          <attribute name="vhacrm_typeintersectionid" />
+          <attribute name="vhacrm_areaintersectionid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Area Intersections" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

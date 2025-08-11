@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <script src="bah_personsearchutils.js" type="text/javascript"></script>
+    <script src="bah_jquery_3_2_1.js" type="text/javascript"></script>
+    <script src="vhacrm_/scripts/Common/CommCareShared.min.js"></script>
+    <meta>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            //hashReadyNotification();
+            onLoad
+        });
+
+        function hashReadyNotification() {
+            window.location.hash = "ReadyXrm";
+        }
+
+        function setClientApiContext(xrm, formContext) {
+            window.Xrm = xrm;
+            window._formContext = formContext;
+            CommCare.Shared.FormContext = _formContext;
+            console.log("**** PRELOAD HAS CONTEXT ****");
+            onLoad();
+        }
+
+        function onLoad() {
+            if (parent.window.IsUSD) {
+                var ctidob = parent.Xrm.Page.getAttribute("vvhacrm_ctidob").getValue(); //CommCare.Shared.FormContext.getAttribute("vhacrm_ctidob").getValue();
+                var ctissn = parent.Xrm.Page.getAttribute("vhacrm_ctiidentifier").getValue(); //CommCare.Shared.FormContext.getAttribute("vhacrm_ctiidentifier").getValue();
+
+                if ((ctidob != null) && (ctissn != null)) {
+                    //CommCare.Shared.FormContext.ui.tabs.get("tab_2").setVisible(false);
+                    doCTISearch();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

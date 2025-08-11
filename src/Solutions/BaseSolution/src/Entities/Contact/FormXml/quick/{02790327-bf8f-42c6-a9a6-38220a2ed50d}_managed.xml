@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{02790327-bf8f-42c6-a9a6-38220a2ed50d}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{5be0647b-4ed3-4f38-a698-da482a917ba5}" name="tab_1" showlabel="false" labelid="{7651827b-7f0f-4922-9702-c15437c1dbfa}">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{fe09d7b5-d79c-4642-8a80-8150fa1176a4}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelid="{2a94c590-ec14-4cb2-a084-294eeaee83a4}">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6d56d395-bc43-dc22-75e8-e0b43888b184}" showlabel="true" locklevel="0" visible="false" labelid="{5113f959-6cc7-4ed1-944d-19dce308eba5}">
+                        <labels>
+                          <label description="Full Name" languagecode="1033" />
+                        </labels>
+                        <control id="fullname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="fullname" disabled="false" uniqueid="{89678cc9-6c43-3466-6a67-a5515701ead6}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bc323636-6990-8c31-be7d-c96550d16686}" showlabel="false" colspan="1" auto="false" rowspan="7" labelid="{11c6b7be-64c6-4a60-bf52-66de9f163941}">
+                        <labels>
+                          <label description="Requests (Contact)" languagecode="1033" />
+                        </labels>
+                        <control id="VeteranRequestHistory" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{d1aac080-d98c-329a-833d-ce75a2ab79e3}" indicationOfSubgrid="true">
+                          <parameters>
+                            <ViewId>{E21239D7-1EAF-E911-A981-001DD8009F4B}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>incident_customer_contacts</RelationshipName>
+                            <TargetEntityType>incident</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{E21239D7-1EAF-E911-A981-001DD8009F4B},{00000000-0000-0000-00AA-000010001028}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId>{4143B74E-4A07-4D01-9FFE-2CDCAA4208FD}</VisualizationId>
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="13">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Veteran Request History (FM)" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{53ce6928-2415-4f41-a94b-80e593a50971}</formid>
+    <IntroducedVersion>2019.11.08.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1920">
+      <tabs>
+        <tab id="{8ea09904-9263-4362-9329-6676143d10c0}" name="Caller Information" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="CallerInformation" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{c13d0c7a-5c86-49e9-b672-533cf28c99f9}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{62d4d564-109d-08a2-74d8-de76abec5102}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="First Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_firstname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{75020d97-5b17-ad2b-480a-c9d27da1a732}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Last Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_lastname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b9c9e5eb-46ac-8b3a-487b-6eaac771cc16}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Contacting Entity" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_interactedwith" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="mcs_interactedwith" disabled="false" uniqueid="{7b703093-9978-2215-26be-365b05c414b2}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a0587471-99ca-4524-b1b7-6256355493a0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Sub Contacting Entity" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_vadetails" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_vadetails" disabled="false" uniqueid="{630de1dd-0424-b335-cb6b-b1a289cb568e}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{D90AB518-1BC9-4D76-AE61-C6120A7F3934}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{42dab265-d2e6-7dc0-a5a0-7040b181cae2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="VISN" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_visn" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_visn" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a84022ae-0cd2-a936-1591-98971e984a5d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Phone Number" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_phonenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_phonenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a175de46-bba0-b82a-0b03-cee03ada6d38}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Phone Extension" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_phoneextension" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_phoneextension" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7e207c63-6c13-7ab3-adc0-a0c0d58e9e7d}" showlabel="false" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Type Intersection" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_typeintersectionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_typeintersectionid" disabled="false" uniqueid="{a059c302-2d61-0878-9382-4d88a35697a7}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{CF0C70B4-DF9A-442D-967D-3928CD2092B8}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c46828ca-4d68-ac31-adb0-888b58169d4b}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Interaction" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_interaction" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_interaction" disabled="false" uniqueid="{598e5492-5829-6c51-16b3-3c34a09158e9}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{93626DC6-5E42-4130-BC6A-EF606E3644D7}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3509e215-a8a5-3096-32db-68ba046831e6}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Action Item" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_actionitem" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_actionitem" disabled="false" uniqueid="{755b9a28-a4e7-6b13-0a1d-e875287551ec}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{FFE42BBF-806B-4B6E-94AA-5156234DF8B6}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{ce5aaa82-c878-4017-804f-0ff23a22f9d2}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{70c8751e-1a92-94cb-9d11-4d02e72d9399}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Line of Business" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_lineofbusiness" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_lineofbusiness" disabled="false" uniqueid="{e7952e79-bb9a-719e-b0ae-b0e7c86d4089}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{CCBA2E36-BF8B-4DC4-B38F-C45E5EA59C89}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9dbd7b52-d9d5-27a0-e7ed-a441b5bc54d1}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="PATS-R Id" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_patsrid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_patsrid" disabled="false" uniqueid="{93673951-add7-70ad-83db-1c8217546b68}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ad0e0d88-1838-9963-d6cd-46ac1e92289c}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Program Type" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_programtype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_programtype" disabled="false" uniqueid="{aa5437a4-d442-53de-de4e-75772d40ba7a}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{FACEDF20-3C54-4709-9666-A8233D4BAD73}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{ca1bc2a0-883e-4bef-8327-8a3a8f62725c}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{71f3b783-c606-4569-ac0e-e4174dda74b1}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{1dc1d741-7980-aa09-224a-185043b97045}" />
+        <Library name="mcs_Caller.js" libraryUniqueId="{400c7464-6e4e-c259-c8eb-72949a5ced39}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CommCare.Caller.Global.OnLoad" libraryName="mcs_Caller.js" handlerUniqueId="{78b5ced8-76ed-b438-a692-116012963638}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <controlDescriptions />
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Caller Quick Create" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

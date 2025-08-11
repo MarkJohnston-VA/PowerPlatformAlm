@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{0d4bad20-979f-447c-a1b7-9218e76a5ede}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="crme_ssn" select="1" icon="1" preview="1">
+        <row name="result" id="crme_personid">
+          <cell name="crme_ssn" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="crme_person">
+          <attribute name="crme_personid" />
+          <attribute name="crme_ssn" />
+          <attribute name="createdon" />
+          <order attribute="crme_ssn" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2014.12.15</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Person Advanced Find View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

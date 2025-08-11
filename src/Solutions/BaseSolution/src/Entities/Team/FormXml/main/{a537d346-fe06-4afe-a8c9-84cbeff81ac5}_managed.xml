@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a537d346-fe06-4afe-a8c9-84cbeff81ac5}</formid>
+    <IntroducedVersion>2020.12.30.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <ancestor id="{7ba7fac1-1418-4335-935f-f7f8dfd73fcc}" />
+      <tabs>
+        <tab name="general" verticallayout="true" id="{0840971E-E63D-4FD3-825F-44A6203D7B28}" IsUserDefined="0" expanded="true" showlabel="true" labelid="{a381a8af-c9f5-4fcd-a758-abe437ab6f02}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="34%">
+              <sections>
+                <section name="General" showlabel="false" showbar="false" id="{DC61780B-91D3-43C4-90F8-BE6F1EACD317}" IsUserDefined="0" labelwidth="100" labelid="{3d4b6b00-67aa-49a5-bad2-1a7b3d5a8508}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6727C94D-0CD6-4003-AE6D-484652C0A578}" labelid="{a80555c9-6446-4dc1-9f21-e4685e901f85}">
+                        <labels>
+                          <label description="Team Name" languagecode="1033" />
+                        </labels>
+                        <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{BF695E55-85F5-4534-8980-8932A4D18263}" labelid="{84cdd072-5118-4610-962f-63ffbd27e9af}">
+                        <labels>
+                          <label description="Business Unit" languagecode="1033" />
+                        </labels>
+                        <control id="businessunitid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="businessunitid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2248D866-7813-404D-8479-2210483745D9}" labelid="{91f6b47a-0cf5-453f-a483-1557d57be019}">
+                        <labels>
+                          <label description="Administrator" languagecode="1033" />
+                        </labels>
+                        <control id="administratorid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="administratorid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e3dca6c4-ae67-419b-93c7-41d574042dfd}" labelid="{ca20f5e6-0c23-4b26-a821-7d8c1d33a6fd}">
+                        <labels>
+                          <label description="Team Type" languagecode="1033" />
+                        </labels>
+                        <control id="teamtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="teamtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{19c6d20a-099d-8cd8-1465-0440147b0218}" labelid="{a808a3bb-7769-4b37-9542-0be0382aa9a6}">
+                        <labels>
+                          <label description="Membership Type" languagecode="1033" />
+                        </labels>
+                        <control id="membershiptype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="membershiptype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1d2365b3-98c5-4b3a-93fd-f0acbc13ff88}" labelid="{3b501f6a-92f7-4818-8a5c-4a52bfeafc1f}">
+                        <labels>
+                          <label description="Azure AD Object Id for a group" languagecode="1033" />
+                        </labels>
+                        <control id="azureactivedirectoryobjectid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="azureactivedirectoryobjectid" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e1e4a653-8d66-a2c2-1884-c87943325224}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Tracker Team Type" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_trackerteamtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="mcs_trackerteamtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cbd7038d-a9c3-218a-226b-683b58bb784b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Front Office Team" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_frontofficeteam" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="mcs_frontofficeteam" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ec4b5a65-c817-c058-7d8c-88c0b67e3eb5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Parent Team" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_parentteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_parentteam" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3870b109-5dd1-7ad8-378b-31b69156ee62}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Region" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_region" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_region" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3b0be7b1-48e0-8c96-5b91-2031b416e396}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Abbreviation" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_abbreviation" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_abbreviation" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{91319c34-3ac8-87c3-ab3c-9c3748ea7d4e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Email Subject" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_emailsubject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_emailsubject" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4d0da186-9059-2e78-dcda-db287566cb4e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Provision Team Type" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_provisionteamtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="mcs_provisionteamtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4c496453-d66a-eed6-4a1e-a06724218076}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Associated Outgoing Team" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_associatedoutgoingteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_associatedoutgoingteam" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="Description" showlabel="false" showbar="false" locklevel="0" id="{510EDF68-06A4-4C18-8DE1-150251BD0A19}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top" labelid="{3ffadeb7-7076-4fbd-81c1-351852e7d378}">
+                  <labels>
+                    <label description="DESCRIPTION" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{BD50EAB1-25F3-464D-ADAB-FEFAE73F6F96}" showlabel="true" locklevel="0" labelid="{8e4cf982-614c-45c3-a10e-fd7aebc1b2c3}">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="66%">
+              <sections>
+                <section name="TeamMembers" showlabel="false" showbar="false" locklevel="0" id="{D5F76F10-BA8B-4309-8FED-5B6B0238533D}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top" labelid="{5b83edc6-118c-43d5-ac58-8a63ba0d8e8a}">
+                  <labels>
+                    <label description="TEAM MEMBERS" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{B8D227A6-18AB-486E-8084-81E26E44B821}" showlabel="true" auto="false" rowspan="14" colspan="1" labelid="{67cf76b6-178b-4ef3-b921-19dc37aa6e29}">
+                        <labels>
+                          <label description="MEMBERS" languagecode="1033" />
+                        </labels>
+                        <control id="Members" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                          <parameters>
+                            <ViewId>{30CE6879-6B7A-E211-8976-00155D89AC0C}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>teammembership_association</RelationshipName>
+                            <TargetEntityType>systemuser</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>true</EnableQuickFind>
+                            <EnableViewPicker>true</EnableViewPicker>
+                            <EnableJumpBar>true</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>10</RecordsPerPage>
+                            <RelationshipRoleOrdinal>1</RelationshipRoleOrdinal>
+                            <ViewIds />
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="ChildTeams" id="{62116eb4-1b8a-6d3d-7d3e-31aeb72ae08b}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Child Teams" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="ChildTeams" showlabel="false" showbar="false" locklevel="0" id="{250daba6-0332-dde4-557c-130437b00eae}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Child Teams" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d780ed62-65da-5454-51cc-45b1907228cc}" showlabel="true" colspan="1" auto="false" rowspan="23">
+                        <labels>
+                          <label description="Child Teams" languagecode="1033" />
+                        </labels>
+                        <control id="ChildTeams" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{8ad281aa-c6ba-7369-7b21-15935569516b}">
+                          <parameters>
+                            <ViewId>{747E32B0-4E78-EB11-A812-001DD8011447}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>mcs_team_team_ParentTeam</RelationshipName>
+                            <TargetEntityType>team</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>true</EnableViewPicker>
+                            <ViewIds>{863DF6DE-D609-ED11-BB3A-001DD803EA40},{747E32B0-4E78-EB11-A812-001DD8011447}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>20</RecordsPerPage>
+                            <HeaderColorCode>#F5F6F8</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <clientresources>
+        <internalresources>
+          <clientincludes>
+            <internaljscriptfile src="$webresource:Team_main_system_library.js" />
+          </clientincludes>
+        </internalresources>
+      </clientresources>
+      <header id="{C4057CC3-270C-40D8-BAB7-4418CB323D2C}" columns="111">
+        <rows>
+          <row>
+            <cell id="{93BCC9EF-6750-4BFE-BB32-BB56C6BC0CE8}" showlabel="false" labelid="{0352df19-2e79-4f3a-b1f4-633ef0da80b4}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1DCAD190-7FDE-4F7D-870A-BA20127DACE9}" showlabel="false" labelid="{2ef74d93-8bb9-42de-84d8-784c2b2546c1}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{C0079CB8-5922-43C9-93ED-A52C51847C3F}" showlabel="true" locklevel="0" labelid="{b4edb5ba-96b8-4dea-a520-dcf3ca08932d}">
+              <labels>
+                <label description="Default Queue" languagecode="1033" />
+              </labels>
+              <control id="header_queueid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="queueid" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <events>
+        <event name="onload" application="true" active="true">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.Form_onload" libraryName="Team_main_system_library.js" handlerUniqueId="06131746-007C-4094-9C39-683554194748" enabled="true" />
+          </InternalHandlers>
+        </event>
+        <event name="onchange" application="true" active="true" attribute="teamtype">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.teamtype_onchange" libraryName="Team_main_system_library.js" handlerUniqueId="3BAEE412-4718-4EC5-992E-0769C108749B" enabled="true" passExecutionContext="true" />
+          </InternalHandlers>
+        </event>
+        <event name="onchange" application="true" active="true" attribute="membershiptype">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.membershiptype_onchange" libraryName="Team_main_system_library.js" handlerUniqueId="3BAEE412-4718-4EC5-992E-0769C1087491" enabled="true" passExecutionContext="true" />
+          </InternalHandlers>
+        </event>
+      </events>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <DisplayConditions FallbackForm="true" Order="4">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Team - Action Item Tracker" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Updated default Team form" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

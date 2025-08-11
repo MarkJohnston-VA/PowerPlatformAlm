@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{96c051ed-2482-4ea5-8d34-ce5c71083abe}</formid>
+    <IntroducedVersion>1.5.0.2</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1900" headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{80af2c0e-7bc9-4603-a308-4234ca9aee82}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{44fc06b6-1fa1-47da-b6f7-c76008052a67}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{113b8838-11f7-46a8-b390-4f9fda6757a9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Referral Number" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{95cb6868-0b8c-968d-74e9-84608b949b0b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Inpatient/Outpatient" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_inpatientoutpatient_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="vhacrm_inpatientoutpatient_code" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7a5c55cb-9c5c-d348-2142-45594b3643d4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Referral Date" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_fromdate_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="vhacrm_fromdate_date" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3ae9609e-c765-bbb7-2cb6-503c036ca451}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Referral Expiration Date" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_todate_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="vhacrm_todate_date" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bc16c48d-9c96-2e9d-35e1-765e6d768964}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Vendor" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_vendor_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_vendor_text" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{86d4e756-6133-8726-153e-d8b3b07d7ad1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Servicing Facility" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_servicingfacilityid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_servicingfacilityid" disabled="false" uniqueid="{82ba6221-3929-87d9-3d31-052c464338cc}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{FB00787C-7183-4A2B-B885-C875DEF48E81}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d012e457-6347-4ccb-b99d-72237487757d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Veteran" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_veteranid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_veteranid" disabled="true">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{966acd10-58c7-6518-9087-a339e53d906c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Request" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_requestid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_requestid" disabled="true">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{9AC51863-58C7-49A0-ADCC-AFD9A4C3EE59}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{60205b93-5117-d6aa-00ee-c8731d904c6a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Interaction" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_interactionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_interactionid" disabled="true">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{93626DC6-5E42-4130-BC6A-EF606E3644D7}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7ab2c660-18ff-4dfd-9fa6-34874720c8b2}" showlabel="true" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <footer id="{73245243-cd42-474b-899c-79e357ce904d}" columns="111">
+        <rows>
+          <row>
+            <cell id="{56d2318e-62bc-9891-21ab-a89aaa65a25c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{60d6e192-9da9-e5d9-01d1-28ac484e1bbb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{828a0162-9a70-3508-a7b0-8cb67404c715}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{224abc63-579c-1161-9581-9037b6a71adb}" />
+        <Library name="mcs_/scripts/entity_referral.js" libraryUniqueId="{2497cce2-c39e-9469-ab2e-606904c32e8d}" />
+        <Library name="mcs_usd_Referral.js" libraryUniqueId="{54a297d4-0d68-c451-a292-75d65be1d52e}" />
+      </formLibraries>
+      <events>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler handlerUniqueId="{ea08eb11-ec42-616d-eb56-7ce8e4e61a22}" functionName="CommCare.Referral.FormOnSave" libraryName="mcs_/scripts/entity_referral.js" enabled="true" passExecutionContext="true" parameters="" />
+          </Handlers>
+        </event>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CommCare.Referral.FormOnLoad" libraryName="mcs_/scripts/entity_referral.js" handlerUniqueId="{ae684e2a-91c3-85a7-d604-763d0660b6a0}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <controlDescriptions />
+      <header id="{92041905-da83-4ff1-957d-ff05eddf877e}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{23d9a7bf-7ec2-4200-a52c-a0cdb91358f2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{43e92c0a-1543-4f32-be2f-300794224f2a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c31e1c6a-91e3-479d-9eeb-ffcb1613d4ae}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

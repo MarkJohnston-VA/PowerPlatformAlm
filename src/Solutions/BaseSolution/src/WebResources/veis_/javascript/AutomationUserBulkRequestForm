@@ -1,0 +1,202 @@
+"use strict";
+
+// This method is invoked by the Clone button to open a new record
+function CloneRecord(primaryControl, recordId) {
+
+    var entityFormOptions = {};
+    entityFormOptions["entityName"] = "veis_automationuserbulkrequest";
+
+    // Set default values for the Contact form
+    var formParameters = {};
+    formParameters["veis_clonedrecordsource"] = recordId;
+
+    Xrm.Navigation.openForm(entityFormOptions, formParameters);
+}
+
+function ReopenForEdit(context, recordId) {
+
+    let statusCode = context.getAttribute('statuscode').getValue();
+    if (statusCode === 345990004) {
+        var ownerId = context.getAttribute('ownerid')?.getValue()[0]?.id;
+        var userId = Xrm.Utility.getGlobalContext().userSettings.userId;
+        if (ownerId !== userId) {
+            ShowTimedNotification(context, 'Only the record owner can edit the request.', 'WARNING', 4000);
+        }
+        else {
+            context.getAttribute('statuscode').setValue(345990000);
+            context.getAttribute('veis_resubmittodevops').setValue(false);
+            context.data.save();
+            context.ui.tabs.get('generalTab').setVisible(false);
+            context.ui.tabs.get('userUpdatesTab').setVisible(false);
+            context.ui.tabs.get('notesTab').setVisible(false);
+            context.ui.tabs.get('userWizardTab').setVisible(true);
+            context.getControl('WebResource_userProvisionWizard').setFocus(); // Ensure the focus is set on the tab
+            context.ui.tabs.get('userWizardTab').sections.get('userWizardTab_returnReasonSection').setVisible(false);            
+        }
+    }
+    else if (statusCode === 345990000) {
+        ShowTimedNotification(context, 'This request is already editable.', 'WARNING', 4000);
+    }
+    else {
+        ShowTimedNotification(context, 'This request can no longer be edited.', 'WARNING', 4000);
+    }
+}
+
+function ShowTimedNotification(context, message, level, milliseconds) {
+
+    var messageId = "'" + Math.floor((Math.random() * 10000) + 1 + "'");
+
+    context.ui.setFormNotification(message, level, messageId);
+    setTimeout(function () { context.ui.clearFormNotification(messageId)}, milliseconds);
+}
+
+// Method that runs when the Notes tab is clicked. This refreshes the section to ensure the CSV is visible immediately after approving the process.
+function RefreshNotesArea(executionContext) {
+    let formContext = executionContext.getFormContext();
+    formContext.getControl('Timeline').refresh();
+}
+
+// This is called on form load
+function FormLoad(executionContext) {
+    let formContext = executionContext.getFormContext();    
+    let generalTab = formContext.ui.tabs.get('generalTab');
+    let userUpdatesTab = formContext.ui.tabs.get('userUpdatesTab');
+    let notesTab = formContext.ui.tabs.get('notesTab');
+    let wizardTab = formContext.ui.tabs.get('userWizardTab');
+
+    DisableBpfFields(formContext);
+
+    let recordStatus = formContext.getAttribute('statuscode');
+    if (formContext.ui.getFormType() === 1 || (recordStatus === null || recordStatus.getValue() === 345990000)) {
+
+        // If there's a cloned record source, pull in the related JSON
+        var clonedSource = formContext.getAttribute('veis_clonedrecordsource').getValue();
+        if (clonedSource !== undefined && clonedSource !== null && clonedSource !== '') {
+            let relatedJson = RetrieveJSonRequest(formContext, clonedSource);
+            formContext.getAttribute('veis_jsonrequest').setValue(relatedJson);
+        }
+
+        generalTab.setVisible(false);
+        userUpdatesTab.setVisible(false);
+        notesTab.setVisible(false);
+        wizardTab.setVisible(true);
+
+        formContext.getControl('WebResource_userProvisionWizard').setFocus(); // Ensure the focus is set on the tab
+        let returnReason = formContext.getAttribute('veis_devopsreturnreason').getValue();
+        wizardTab.sections.get('userWizardTab_returnReasonSection').setVisible(returnReason !== null && returnReason !== '');
+    }
+    else {
+        generalTab.setVisible(true);
+        generalTab.setVisible(true);
+        notesTab.setVisible(true);
+        formContext.getControl('veis_originalrequestsubmittedbyid').setFocus();
+        wizardTab.setVisible(false);
+        HandleDevOpsVisibility(executionContext);
+        HandleLicenseEvaluationVisibility(executionContext);
+        HandleUserUpdatesVisibility(executionContext);
+        HandleSubmittedToSnowChange(executionContext);
+    }
+
+}
+
+function DisableBpfFields(formContext) {
+    
+    formContext.getControl('header_process_veis_devopsreviewstatus').setDisabled(true);
+    formContext.getControl('header_process_veis_platformteamcompleted').setDisabled(true);
+    formContext.getControl('header_process_veis_submissionsupervisor').setDisabled(true);
+    formContext.getControl('header_process_veis_userupdatescompleted').setDisabled(true);
+}
+
+// This function is called when the veis_resubmittodevops field is changed. It's a workaround to trigger the form load code from the React app.
+function ResubmitToDevOps(executionContext) {
+    
+    let formContext = executionContext.getFormContext();
+    formContext.data.refresh(true).then(() => {
+        FormLoad(executionContext);
+    });
+}
+
+function HandleDevOpsVisibility(executionContext) {
+    let formContext = executionContext.getFormContext();
+
+    let reviewStatus = formContext.getAttribute('veis_devopsreviewstatus').getValue();
+    
+    // If it's approved    
+    formContext.getControl('veis_devopsapprovedbyid').setVisible((reviewStatus !== null && reviewStatus === 345990000));
+    formContext.getControl('veis_submissiondevops').setVisible((reviewStatus !== null && reviewStatus === 345990000));
+    formContext.getControl('veis_devopsreturnreason').setVisible(reviewStatus !== null && reviewStatus === 345990001);
+    formContext.getAttribute('veis_devopsreturnreason').setRequiredLevel((reviewStatus !== null && reviewStatus === 345990001) ? 'required' : 'none');
+}
+
+function HandleLicenseEvaluationVisibility(executionContext) {
+    let formContext = executionContext.getFormContext();
+
+    if (formContext.getAttribute('veis_devopsreviewstatus').getValue() !== null && formContext.getAttribute('veis_devopsreviewstatus').getValue() === 345990000) {
+        // DevOps = Approved 
+        formContext.ui.tabs.get('generalTab').sections.get('licenseEvaluationSection').setVisible(true);
+        let evaluationStatus = formContext.getAttribute('veis_licenseevaluationstatus').getValue();
+        if (evaluationStatus === null || evaluationStatus === 345990000) {
+            // Pending
+            formContext.getControl('veis_submittedtoplatformteam').setVisible(false);
+            formContext.getControl('veis_platformteamticketnumber').setVisible(false);
+            formContext.getControl('veis_platformteamsubmissionby').setVisible(false);
+            formContext.getControl('veis_submissionplatformteam').setVisible(false);
+        }
+        else if (evaluationStatus !== null && evaluationStatus === 345990002) {
+            // Unlicensed
+            formContext.getControl('veis_submittedtoplatformteam').setVisible(true);
+            formContext.getControl('veis_platformteamticketnumber').setVisible(true);
+            formContext.getControl('veis_platformteamsubmissionby').setVisible(true);
+            formContext.getControl('veis_submissionplatformteam').setVisible(true);
+        }
+        else if (evaluationStatus !== null && evaluationStatus === 345990001) {
+            // All Licensed
+            let submittedToPlatformTeam = formContext.getAttribute('veis_submittedtoplatformteam').getValue();
+            formContext.getControl('veis_submittedtoplatformteam').setVisible(submittedToPlatformTeam !== null && submittedToPlatformTeam === true);
+            formContext.getControl('veis_platformteamticketnumber').setVisible(submittedToPlatformTeam !== null && submittedToPlatformTeam === true);
+            formContext.getControl('veis_platformteamsubmissionby').setVisible(submittedToPlatformTeam !== null && submittedToPlatformTeam === true);
+            formContext.getControl('veis_submissionplatformteam').setVisible(submittedToPlatformTeam !== null && submittedToPlatformTeam === true);
+        }
+    }
+    else {
+        formContext.ui.tabs.get('generalTab').sections.get('licenseEvaluationSection').setVisible(false);
+    }
+}
+
+function HandleUserUpdatesVisibility(executionContext) {
+    let formContext = executionContext.getFormContext();
+
+    let licenseUpdatesComplete = (formContext.getAttribute('veis_licenseevaluationstatus').getValue() !== null && formContext.getAttribute('veis_licenseevaluationstatus').getValue() === 345990001);
+    formContext.ui.tabs.get('generalTab').sections.get('userUpdatesSection').setVisible(licenseUpdatesComplete);
+}
+
+function HandleSubmittedToSnowChange(executionContext) {
+    let formContext = executionContext.getFormContext();
+    let submitted = formContext.getAttribute('veis_submittedtoplatformteam').getValue();
+    formContext.getAttribute('veis_platformteamticketnumber').setRequiredLevel((submitted) ? 'required' : 'none');
+}
+
+function RetrieveJSonRequest(formContext, recordId) {
+    let request = '';
+    let req = new XMLHttpRequest();
+    let url = formContext.context.getClientUrl() + "/api/data/v9.1/veis_automationuserbulkrequests(" + recordId.replace("{", "").replace("}", "") + ")?$select=veis_jsonrequest";
+    
+    req.open("GET", url, false);
+    req.setRequestHeader("OData-MaxVersion", "4.0");
+    req.setRequestHeader("OData-Version", "4.0");
+    req.setRequestHeader("Accept", "application/json");
+    req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    req.setRequestHeader("Prefer", "odata.include-annotations=\"*\"");
+    req.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            req.onreadystatechange = null;
+            if (this.status === 200) {
+                var result = JSON.parse(this.response);
+                request = result["veis_jsonrequest"];
+            } else {
+            }
+        }
+    };
+    req.send();
+    return request;
+}

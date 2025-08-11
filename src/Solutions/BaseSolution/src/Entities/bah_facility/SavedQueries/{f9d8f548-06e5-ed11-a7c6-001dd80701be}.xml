@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{f9d8f548-06e5-ed11-a7c6-001dd80701be}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_name" select="1" preview="1" icon="1">
+        <row name="result" id="bah_facilityid">
+          <cell name="bah_name" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="bah_stationsuffix_text" width="100" />
+          <cell name="bah_mainphonenumber_text" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="bah_facility">
+          <attribute name="bah_name" />
+          <attribute name="bah_mainphonenumber_text" />
+          <order attribute="bah_name" descending="false" />
+          <attribute name="bah_stationsuffix_text" />
+          <attribute name="bah_facilityid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.04.25.01</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Visits" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

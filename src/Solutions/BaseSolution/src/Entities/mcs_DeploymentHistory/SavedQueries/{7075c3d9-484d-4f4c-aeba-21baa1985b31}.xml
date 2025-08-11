@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{7075c3d9-484d-4f4c-aeba-21baa1985b31}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_deploymenthistoryid">
+          <cell name="mcs_name" width="300" />
+          <cell name="mcs_deploymentcountry" width="159" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_deploymenthistory">
+          <attribute name="mcs_deploymenthistoryid" />
+          <attribute name="mcs_name" />
+          <attribute name="mcs_deploymentcountry" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.04.25.01</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Deployment History" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

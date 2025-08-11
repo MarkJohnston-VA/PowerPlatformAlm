@@ -1,0 +1,47 @@
+﻿<html>
+<head>
+    <title>Sensitive Veteran Warning</title>
+    <meta charset="utf-8">
+</head>
+<body style="-ms-word-wrap: break-word;">
+    <link href="bah_bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="bah_personsearchstyle.css" rel="stylesheet" type="text/css">
+    <script src="mcs_vh_form_sensitive" type="text/javascript"></script>
+    <script src="bah_jquery_3_2_1.js" type="text/javascript"></script>
+    <script src="vhacrm_/scripts/Common/CommCareShared.min.js"></script>
+    <script>
+        var _icn = "";
+
+        function hashReadyNotification() {
+            window.location.hash = "ReadyXrm";
+        }
+
+        function setClientApiContext(xrm, formContext, icn) {
+            window.Xrm = xrm;
+            window._formContext = formContext;
+            CommCare.Shared.FormContext = _formContext;
+            _icn = icn;
+            console.log("Sensitive Vets has context");
+        }
+
+    </script>
+
+    <div tabindex="-1" id="modal-sensitive-confirmation" name="modal-sensitive-confirmation">
+        <h4 class="modal-title">THIS RECORD IS SENSITIVE. DO YOU WISH TO CONTINUE?</h4>
+        <div style="border: thin solid black;">
+            <small>
+                This record is protected by the Privacy Act of 1974 and the Health    <br>
+                Insurance Portability and Accountability Act of 1996. If you elect    <br>
+                to proceed, you will be required to prove you have a need to know.    <br>
+                Accessing this patient is tracked, and your station Security Officer  <br>
+                will contact you for your justification.                              <br>
+            </small>
+        </div>
+        <br>
+        <button name="call_MVI_audit" id="executeMVIAudit" onclick="VETHOME.Sensitive.Functions.HandleSensitiveVetContinue(_icn)">Continue</button>
+        &nbsp;&nbsp;<button name="cancel_MVI_audit" id="cancelMVIAudit" onclick="VETHOME.Sensitive.Functions.HandleCancelSensitive()">Cancel</button>
+    </div>
+
+
+</body>
+</html>

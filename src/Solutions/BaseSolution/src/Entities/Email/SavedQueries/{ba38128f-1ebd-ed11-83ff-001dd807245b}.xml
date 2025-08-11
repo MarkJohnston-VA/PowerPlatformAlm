@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{ba38128f-1ebd-ed11-83ff-001dd807245b}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="subject" select="1" icon="1" preview="1">
+        <row name="result" id="activityid">
+          <cell name="to" width="130" />
+          <cell name="from" width="130" />
+          <cell name="subject" width="200" />
+          <cell name="regardingobjectid" width="160" />
+          <cell name="a_07579ca24571419d99ad30513129935c.vhacrm_interactionsubpurposeid" width="200" />
+          <cell name="a_07579ca24571419d99ad30513129935c.ownerid" width="130" />
+          <cell name="actualend" width="100" />
+          <cell name="modifiedon" width="120" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="email">
+          <attribute name="subject" />
+          <attribute name="activityid" />
+          <link-entity alias="a_07579ca24571419d99ad30513129935c" name="bah_interactions" to="regardingobjectid" from="bah_interactionsid" link-type="inner">
+            <attribute name="ownerid" />
+            <attribute name="vhacrm_interactionsubpurposeid" />
+            <filter type="and">
+              <condition attribute="vhacrm_interactionpurposeid" operator="eq" value="{e6f8e7d1-34a6-ed11-aad1-001dd80726d6}" uiname="Airborne Hazards &amp; Open Burn Pit Registry" uitype="vhacrm_areaintersection" />
+            </filter>
+          </link-entity>
+          <attribute name="actualend" />
+          <attribute name="from" />
+          <attribute name="to" />
+          <attribute name="regardingobjectid" />
+          <attribute name="modifiedon" />
+          <order attribute="modifiedon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.03.01.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All COE Emails" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="View of Emails Related to COE Interactions" languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

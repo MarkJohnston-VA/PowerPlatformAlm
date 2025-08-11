@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{0a8fa653-4147-4282-bf6b-168cfa839803}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="fullname" select="1" icon="1" preview="1">
+        <row name="result" id="contactid">
+          <cell name="bah_source_text" width="100" />
+          <cell name="firstname" width="125" />
+          <cell name="middlename" width="125" />
+          <cell name="lastname" width="125" />
+          <cell name="bah_ssn_text" width="100" />
+          <cell name="bah_dob_date" width="100" />
+          <cell name="bah_isdeceased_bool" width="125" />
+          <cell name="telephone1" width="125" />
+          <cell name="bah_branch_text" width="125" />
+          <cell name="jobtitle" width="125" />
+          <cell name="bah_dutystatus_text" width="125" />
+          <cell name="bah_isenrolled_bool" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="contact">
+          <link-entity name="connection" from="record2id" to="contactid" alias="DealInfluencer">
+            <filter type="and">
+              <condition attribute="record2roleid" operator="eq" value="A061872D-07CF-4de7-8ED0-EF79A55F1A94" />
+            </filter>
+            <link-entity name="opportunity" from="opportunityid" to="record1id" alias="DealInfluenced">
+              <filter type="and">
+                <condition attribute="statecode" operator="eq" value="1" />
+                <condition attribute="actualclosedate" operator="last-x-months" value="12" />
+              </filter>
+            </link-entity>
+          </link-entity>
+          <attribute name="telephone1" />
+          <attribute name="contactid" />
+          <attribute name="bah_ssn_text" />
+          <attribute name="bah_branch_text" />
+          <attribute name="lastname" />
+          <attribute name="firstname" />
+          <attribute name="bah_dob_date" />
+          <attribute name="bah_source_text" />
+          <attribute name="bah_isdeceased_bool" />
+          <attribute name="bah_isenrolled_bool" />
+          <attribute name="middlename" />
+          <attribute name="jobtitle" />
+          <attribute name="bah_dutystatus_text" />
+          <order attribute="bah_ssn_text" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Contacts: Influenced Deals That We Won" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Key contacts who influenced deals that have been won in the last 12 months." languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

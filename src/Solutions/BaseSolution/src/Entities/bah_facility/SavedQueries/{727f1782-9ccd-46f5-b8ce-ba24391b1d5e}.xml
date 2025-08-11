@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{727f1782-9ccd-46f5-b8ce-ba24391b1d5e}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bah_name" select="1" icon="1" preview="1">
+        <row name="result" id="bah_facilityid">
+          <cell name="bah_name" width="200" />
+          <cell name="vhacrm_facilityonboarded_bool" width="125" />
+          <cell name="vhacrm_facilityabbreviation_text" width="300" />
+          <cell name="bah_stationsuffix_text" width="100" />
+          <cell name="bah_visnid" width="125" />
+          <cell name="bah_previousfacilityname_text" width="150" />
+          <cell name="bah_streetaddress_text" width="100" />
+          <cell name="bah_site_text" width="125" />
+          <cell name="bah_city_text" width="100" />
+          <cell name="bah_zipcode_text" width="100" />
+          <cell name="bah_mainphonenumber_text" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="bah_facility">
+          <attribute name="bah_name" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="bah_zipcode_text" operator="like" value="{0}" />
+            <condition attribute="ccwf_visnnumber_number" operator="eq" value="{1}" />
+            <condition attribute="bah_visnid" operator="like" value="{0}" />
+            <condition attribute="bah_stationsuffix_text" operator="like" value="{0}" />
+            <condition attribute="bah_stateid" operator="like" value="{0}" />
+            <condition attribute="bah_site_text" operator="like" value="{0}" />
+            <condition attribute="bah_previousfacilityname_text" operator="like" value="{0}" />
+            <condition attribute="bah_name" operator="like" value="{0}" />
+            <condition attribute="vhacrm_facilityabbreviation_text" operator="like" value="{0}" />
+          </filter>
+          <attribute name="bah_visnid" />
+          <attribute name="bah_zipcode_text" />
+          <attribute name="bah_streetaddress_text" />
+          <attribute name="bah_stationsuffix_text" />
+          <attribute name="bah_previousfacilityname_text" />
+          <attribute name="bah_mainphonenumber_text" />
+          <attribute name="bah_city_text" />
+          <attribute name="bah_site_text" />
+          <attribute name="vhacrm_facilityabbreviation_text" />
+          <attribute name="vhacrm_facilityonboarded_bool" />
+          <order attribute="bah_visnid" descending="false" />
+          <order attribute="bah_name" descending="false" />
+          <attribute name="bah_facilityid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Facilities" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

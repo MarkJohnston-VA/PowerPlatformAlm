@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{927e6cd8-b3ed-4c20-a154-b8bd8a86d172}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="fullname" select="1" icon="1" preview="1">
+        <row name="result" id="contactid">
+          <cell name="bah_source_text" width="100" />
+          <cell name="firstname" width="125" />
+          <cell name="middlename" width="125" />
+          <cell name="lastname" width="125" />
+          <cell name="bah_ssn_text" width="100" />
+          <cell name="bah_dob_date" width="100" />
+          <cell name="bah_isdeceased_bool" width="125" />
+          <cell name="telephone1" width="125" />
+          <cell name="bah_branch_text" width="125" />
+          <cell name="jobtitle" width="125" />
+          <cell name="bah_dutystatus_text" width="125" />
+          <cell name="bah_isenrolled_bool" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="contact">
+          <attribute name="contactid" />
+          <attribute name="telephone1" />
+          <filter type="or">
+            <condition attribute="lastusedincampaign" operator="olderthan-x-months" value="3" />
+            <condition attribute="lastusedincampaign" operator="null" />
+          </filter>
+          <attribute name="bah_ssn_text" />
+          <attribute name="bah_branch_text" />
+          <attribute name="lastname" />
+          <attribute name="firstname" />
+          <attribute name="bah_dob_date" />
+          <attribute name="bah_source_text" />
+          <attribute name="bah_isdeceased_bool" />
+          <attribute name="bah_isenrolled_bool" />
+          <attribute name="middlename" />
+          <attribute name="jobtitle" />
+          <attribute name="bah_dutystatus_text" />
+          <order attribute="bah_ssn_text" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Contacts: No Campaign Activities in Last 3 Months" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

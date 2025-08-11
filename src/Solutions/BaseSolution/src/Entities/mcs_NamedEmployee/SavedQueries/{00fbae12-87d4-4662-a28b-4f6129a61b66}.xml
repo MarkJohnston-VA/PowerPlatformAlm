@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{00fbae12-87d4-4662-a28b-4f6129a61b66}</savedqueryid>
+    <layoutxml>
+      <grid name="mcs_namedemployees" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="mcs_namedemployee" id="mcs_namedemployeeid">
+          <cell name="mcs_firstname" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_lastname" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_position" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_email" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_namedemployee">
+          <attribute name="mcs_namedemployeeid" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="mcs_email" />
+          <attribute name="mcs_lastname" />
+          <attribute name="mcs_firstname" />
+          <attribute name="mcs_position" />
+          <order attribute="mcs_firstname" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2020.06.20.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Involved Party Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

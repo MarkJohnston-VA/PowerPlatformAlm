@@ -1,0 +1,391 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "c26abb31-484d-4612-a3e9-c30f1900cd8b"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "FirstName_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                },
+                "LastName_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                },
+                "SSN_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                },
+                "ActionItemId_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                },
+                "DOB_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                }
+              },
+              "required": [
+                "FirstName_Value",
+                "LastName_Value",
+                "SSN_Value",
+                "ActionItemId_Value",
+                "DOB_Value"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "FirstName": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "67de81b0-9367-436f-905a-48ada090f16f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "FirstName",
+                "type": "string",
+                "value": "@{triggerBody()['FirstName_Value']}"
+              }
+            ]
+          }
+        },
+        "LastName": {
+          "runAfter": {
+            "FirstName": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5827dc31-e747-4bec-8193-edd63d01b095"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "LastName",
+                "type": "string",
+                "value": "@{triggerBody()['LastName_Value']}"
+              }
+            ]
+          }
+        },
+        "SSN": {
+          "runAfter": {
+            "LastName": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e4ccf433-ec9d-4126-96ae-34e57699c086"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "SSN",
+                "type": "string",
+                "value": "@{triggerBody()['SSN_Value']}"
+              }
+            ]
+          }
+        },
+        "ActionItemId": {
+          "runAfter": {
+            "SSN": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1ea6295c-7785-411c-a4ff-0bd3f55f9aff"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ActionItemId",
+                "type": "string",
+                "value": "@{triggerBody()['ActionItemId_Value']}"
+              }
+            ]
+          }
+        },
+        "Relate_rows": {
+          "runAfter": {
+            "Condition": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "af698350-bc71-41f6-87c7-62e348b364fa"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "AssociateEntities",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_trackers",
+              "recordId": "@variables('ActionItemId')",
+              "associationEntityRelationship": "mcs_tracker_Contact_Contact",
+              "item/@odata.id": "https://dvagov-commcare-dev.crm9.dynamics.com/api/data/v9.1/contacts(@{variables('ContactId')})"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "DOB": {
+          "runAfter": {
+            "ActionItemId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ee56f160-ae69-4d13-90a5-8eb45ce76e39"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DOB",
+                "type": "string",
+                "value": "@{triggerBody()['DOB_Value']}"
+              }
+            ]
+          }
+        },
+        "Condition": {
+          "actions": {
+            "Create_a_new_row_without_DOB": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "40fb047f-01db-4509-bf7b-c909684efee0"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "contacts",
+                  "item/firstname": "@variables('FirstName')",
+                  "item/lastname": "@variables('LastName')",
+                  "item/bah_ssn_text": "@variables('SSN')"
+                },
+                "authentication": {
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                }
+              }
+            },
+            "Set_variable": {
+              "runAfter": {
+                "Create_a_new_row_without_DOB": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "dfb17053-7089-47ec-b2ed-6ae4ea0f60f8"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "ContactId",
+                "value": "@outputs('Create_a_new_row_without_DOB')?['body/contactid']"
+              }
+            }
+          },
+          "runAfter": {
+            "NullString": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Create_a_new_row_with_DOB": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "2794ade9-8234-4aa7-ae17-ad17bad5ed6c"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_commondataserviceforapps",
+                    "operationId": "CreateRecord",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  },
+                  "parameters": {
+                    "entityName": "contacts",
+                    "item/firstname": "@variables('FirstName')",
+                    "item/lastname": "@variables('LastName')",
+                    "item/bah_dob_date": "@variables('DOB')",
+                    "item/bah_ssn_text": "@variables('SSN')"
+                  },
+                  "authentication": {
+                    "type": "Raw",
+                    "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                  }
+                }
+              },
+              "Set_variable_2": {
+                "runAfter": {
+                  "Create_a_new_row_with_DOB": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "41d5f130-0e5c-464e-a405-cc4e5fcb0333"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "ContactId",
+                  "value": "@outputs('Create_a_new_row_with_DOB')?['body/contactid']"
+                }
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@variables('DOB')",
+              "@variables('NullString')"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9f244509-7e83-4cec-afe2-e789a10f3e23"
+          },
+          "type": "If"
+        },
+        "ContactId": {
+          "runAfter": {
+            "DOB": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b7975add-d21b-4938-ab99-93d51fe24e06"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ContactId",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "NullString": {
+          "runAfter": {
+            "ContactId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8254c563-99bd-4c83-9860-ad9969a66668"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "NullString",
+                "type": "string",
+                "value": "null"
+              }
+            ]
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "JsonResponse": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5702e548-484a-4348-ab2a-35ab8d403b94"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "body": "@variables('JsonResponse')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "JsonResponse": {
+          "runAfter": {
+            "Relate_rows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b7636a6e-2778-40e7-b326-ad5d41bc7bb7"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "JsonResponse",
+                "type": "object",
+                "value": {
+                  "value": "@{variables('ContactId')}"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

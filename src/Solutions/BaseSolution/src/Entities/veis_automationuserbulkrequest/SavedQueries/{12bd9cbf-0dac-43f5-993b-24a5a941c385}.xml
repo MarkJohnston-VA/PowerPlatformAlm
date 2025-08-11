@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{12bd9cbf-0dac-43f5-993b-24a5a941c385}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="veis_name" select="1" icon="1" preview="1">
+        <row name="result" id="veis_automationuserbulkrequestid">
+          <cell name="createdon" width="179" />
+          <cell name="veis_requestnumber" width="165" />
+          <cell name="veis_application" width="139" />
+          <cell name="ownerid" width="181" />
+          <cell name="statuscode" width="231" />
+          <cell name="veis_platformteamticketnumber" width="154" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="veis_automationuserbulkrequest">
+          <attribute name="veis_automationuserbulkrequestid" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="statuscode" />
+          <attribute name="ownerid" />
+          <order attribute="createdon" descending="true" />
+          <attribute name="veis_requestnumber" />
+          <attribute name="veis_application" />
+          <attribute name="veis_platformteamticketnumber" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Open Requests" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

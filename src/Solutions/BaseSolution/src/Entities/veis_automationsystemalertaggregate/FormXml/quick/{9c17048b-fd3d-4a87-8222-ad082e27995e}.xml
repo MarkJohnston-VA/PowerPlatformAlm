@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{9c17048b-fd3d-4a87-8222-ad082e27995e}</formid>
+    <IntroducedVersion>0.0.1.5</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{9b460f94-88d0-45f1-bbb8-8bbe8b49bcb2}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{74f35ef6-76b9-49ca-a3d2-153fd9126f3a}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c5b26698-e0c3-098c-8b0c-8c26b5380d39}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Aggregate Count" languagecode="1033" />
+                        </labels>
+                        <control id="veis_count" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="veis_count" disabled="false" uniqueid="{2864892b-3e42-4cc9-939a-de9bb11e2309}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{27d42557-6294-67a0-2212-180153e67538}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Aggregate Count (Last Updated On)" languagecode="1033" />
+                        </labels>
+                        <control id="veis_count_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="veis_count_date" disabled="false" uniqueid="{4646c086-82be-0123-24ee-500dbdb27759}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Aggregate Parent Count" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

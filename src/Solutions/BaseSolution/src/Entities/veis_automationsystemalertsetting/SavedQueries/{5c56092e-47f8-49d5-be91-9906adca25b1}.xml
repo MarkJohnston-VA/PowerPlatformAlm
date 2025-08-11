@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{5c56092e-47f8-49d5-be91-9906adca25b1}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="veis_name" select="1" icon="1" preview="1">
+        <row name="result" id="veis_automationsystemalertsettingid">
+          <cell name="veis_name" width="300" />
+          <cell name="veis_alertperinterval" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="veis_alertperday" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="veis_automationsystemalertsetting">
+          <attribute name="veis_name" />
+          <order attribute="veis_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="veis_alertperinterval" />
+          <attribute name="veis_alertperday" />
+          <attribute name="veis_automationsystemalertsettingid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.1.5</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Automation System Alert  Settings" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

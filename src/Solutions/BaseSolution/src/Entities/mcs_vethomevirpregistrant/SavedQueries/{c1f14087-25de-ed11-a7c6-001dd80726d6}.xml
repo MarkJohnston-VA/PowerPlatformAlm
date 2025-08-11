@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{c1f14087-25de-ed11-a7c6-001dd80726d6}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_vethomevirpregistrantid">
+          <cell name="mcs_name" width="200" />
+          <cell name="mcs_registrationstatus" width="140" />
+          <cell name="mcs_assignedfacility" width="170" />
+          <cell name="mcs_assignedvisn" width="120" />
+          <cell name="mcs_questionnairecompletedondate" width="240" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="mcs_vethomevirpregistrant">
+          <attribute name="mcs_name" />
+          <attribute name="mcs_vethomevirpregistrantid" />
+          <attribute name="mcs_registrationstatus" />
+          <attribute name="mcs_assignedfacility" />
+          <attribute name="mcs_assignedvisn" />
+          <attribute name="mcs_questionnairecompletedondate" />
+          <order attribute="mcs_questionnairecompletedondate" descending="true" />
+          <filter type="and">
+            <condition attribute="mcs_registrationstatus" operator="eq" value="Participant" />
+            <condition attribute="mcs_declinedexamflag" operator="null" />
+            <condition attribute="mcs_examdate_date" operator="null" />
+            <condition attribute="mcs_edipi" operator="not-null" />
+            <condition attribute="mcs_contactedon" operator="null" />
+            <condition attribute="mcs_qualifyingexam" operator="null" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2023.04.13.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Pending Chart Review VIRP Participants" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="View of the Chart Review VIRP Participants where Filtered by Registration Status = Participant, Declined Exam Flag Does not contain Data, Exam Date does not contain data" languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

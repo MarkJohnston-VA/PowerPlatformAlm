@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{d6d5fb94-538e-4fc0-80bc-d72a06d42bfb}</formid>
+    <IntroducedVersion>2022.12.07.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighReadOnlyValues">
+      <tabs>
+        <tab verticallayout="true" id="{27d1c64a-62fc-4147-b92a-31a15edcdd57}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{f9eccc51-e9a8-4191-b0b0-f0feafeb72bb}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{06ab1d40-adc9-4c0e-9dc2-2186a2dfe088}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{581a7a6f-3cec-466a-9267-da0b906e7cf1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Concurrence Type" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_concurrencetype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="mcs_concurrencetype" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{51b7f37f-809f-41ff-b2fc-c9d0a520542e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Edits" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_edits" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="mcs_edits" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{99eb80ed-e9bb-4993-9741-f5eac7c325e1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Reviewed By" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_reviewedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_reviewedby" disabled="true">
+                          <parameters>
+                            <DisableMru>true</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ac0c3bc7-04ae-4115-a5e7-e37241a1a28e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Review Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_reviewdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="mcs_reviewdate" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{df343f3f-d259-45de-8c7f-6660f92b5a07}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Group" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_group" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_group" disabled="true">
+                          <parameters>
+                            <DisableMru>true</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{92ae1b95-6257-40b1-a24f-d701be908c2b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Rejection Reason" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_rejectionreasonmulti" classid="{4AA28AB7-9C13-4F57-A73D-AD894D048B5F}" datafieldname="mcs_rejectionreasonmulti" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{5a6e0f5d-61b7-4d2a-bd67-6a0a6685bc83}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{e2bf1d20-ca2e-4f89-a459-b279c8989e5b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2abd488d-8bd2-4a18-9e01-9a6acc7c34bb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5f7bad4e-2b92-44d3-a9f7-498ecb972d49}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d68a837d-e173-4753-82da-5389e2c5f16a}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{75e6f4e3-a0ea-40be-82f5-b3d21e2f1af3}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{eb1b6c1f-125c-4bf3-af98-3af24352bc09}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3780ba9d-8900-4f16-94ae-e8c53f575cc8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ea1944ec-acc2-4ac5-af64-66973a1f3f2c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Concurrence" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

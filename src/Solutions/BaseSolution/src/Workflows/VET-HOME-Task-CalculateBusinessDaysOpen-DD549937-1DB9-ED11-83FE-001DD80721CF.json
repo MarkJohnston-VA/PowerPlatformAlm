@@ -1,0 +1,631 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "mcs_sharedcommondataserviceforapps_7c6b2"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "Eastern Standard Time",
+            "schedule": {
+              "hours": [
+                "1"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "e7aa7a2b-df6b-4716-b404-698f4d832a44"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Initialize_Flow_ID_variable": {
+          "runAfter": {
+            "Flow_Start_Time": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1a62cdfd-7f5e-4e18-baa7-73b027bd1af5"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow ID",
+                "type": "string",
+                "value": "@{workflow()?['name']}"
+              }
+            ]
+          },
+          "description": "Creates Flow ID Variable used to track Flow Status"
+        },
+        "Flow_Start_Time": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "44e6921c-b92a-4be5-9c1c-524379af6ce6"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Initialize_Flow_Display_Name_variable": {
+          "runAfter": {
+            "Initialize_Flow_ID_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8fc33c19-cade-46ad-89a3-53fdab5e521b"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow Display Name",
+                "type": "string",
+                "value": "@{workflow()?['tags']['flowDisplayName']}"
+              }
+            ]
+          },
+          "description": "Creates Flow Display Name Variable used to track Flow Status"
+        },
+        "Initialize_Flow_URL_variable": {
+          "runAfter": {
+            "Initialize_Flow_Display_Name_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4497aee6-086f-4c9d-a3fe-72016645c169"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Flow URL",
+                "type": "string",
+                "value": "@{concat('https://gov.flow.microsoft.us/manage/environments/', workflow()?['tags']['environmentName'], '/flows/', workflow()?['name'], '/runs/', workflow()?['run']['name'])}"
+              }
+            ]
+          },
+          "description": "Creates Flow URL variable used to Track Flow Status"
+        },
+        "Initialize_Run_ID_variable": {
+          "runAfter": {
+            "Initialize_Flow_URL_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "77d837a7-6dfa-4956-a256-01829fa71bd2"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Run ID",
+                "type": "string",
+                "value": "@{workflow()?['run']['name']}"
+              }
+            ]
+          },
+          "description": "Creates flow Run ID variable used to track Run ID"
+        },
+        "Create_new_Flow_Activity_Status_Morning": {
+          "runAfter": {
+            "Initialize_Run_ID_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "173fdd54-0742-433d-8539-7bb349f79dde"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "CreateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "item/mcs_flowname": "@variables('Flow Display Name')",
+              "item/mcs_flowexecutionurl": "@variables('Flow URL')",
+              "item/mcs_flowid": "@variables('Flow ID')",
+              "item/statuscode": 1,
+              "item/mcs_runid": "@variables('Run ID')",
+              "item/mcs_startdatetime": "@body('Flow_Start_Time')",
+              "item/statecode": 0
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Creates new record in Flow Activity Statuses entity to track flow runs."
+        },
+        "Scope": {
+          "actions": {
+            "TodayDate": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "ba783829-c784-4af6-96a9-701f1d4cd996"
+              },
+              "type": "Compose",
+              "inputs": "@formatDateTime(utcNow(), 'yyyy-MM-dd')"
+            },
+            "List_Tasks": {
+              "runAfter": {
+                "TodayDate": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c6bbe41a-ffe0-4958-85a9-908f8fa8f1d9"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "mcs_vethometaskses",
+                  "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\">\n  <entity name=\"mcs_vethometasks\">\n    <attribute name=\"mcs_vethometasksid\" />\n    <attribute name=\"mcs_name\" />\n    <attribute name=\"createdon\" />\n    <attribute name=\"mcs_actionintersectionroutetype\" />\n    <attribute name=\"ownerid\" />\n    <attribute name=\"mcs_numberofbusinessdaysopen\" />\n    <attribute name=\"mcs_case\" />\n    <order attribute=\"mcs_name\" descending=\"false\" />\n    <filter type=\"and\">\n      <condition attribute=\"statecode\" operator=\"eq\" value=\"0\" />\n    </filter>\n  </entity>\n</fetch>"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Apply_to_each_2": {
+              "foreach": "@outputs('List_Tasks')?['body/value']",
+              "actions": {
+                "Condition": {
+                  "actions": {
+                    "Get_Related_Case": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "9b7fc91e-5688-49fe-883b-2096515ac559"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "GetItem",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "mcs_vethomecases",
+                          "recordId": "@items('Apply_to_each_2')?['_mcs_case_value']",
+                          "$select": "mcs_appointmentscheduledintmp"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Set_startDate_to_Appointment_Date": {
+                      "runAfter": {
+                        "Get_Related_Case": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "ddbf3c98-ffb9-4039-ab6e-66029b81dec7"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "startDate",
+                        "value": "@outputs('Get_Related_Case')?['body/mcs_appointmentscheduledintmp']"
+                      }
+                    }
+                  },
+                  "runAfter": {},
+                  "else": {
+                    "actions": {
+                      "Set_startDate_to_Created_on_Date": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "222e2c62-21f8-428f-a551-7019ec906358"
+                        },
+                        "type": "SetVariable",
+                        "inputs": {
+                          "name": "startDate",
+                          "value": "@items('Apply_to_each_2')?['createdon']"
+                        }
+                      }
+                    }
+                  },
+                  "expression": {
+                    "equals": [
+                      "@items('Apply_to_each_2')?['mcs_actionintersectionroutetype']",
+                      806860002
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "82261cbd-a4ac-453a-b03a-c7b91f4c4a59"
+                  },
+                  "type": "If"
+                },
+                "Do_until": {
+                  "actions": {
+                    "Check_if_weekend": {
+                      "actions": {},
+                      "runAfter": {},
+                      "else": {
+                        "actions": {
+                          "List_Holiday_Schedule": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "f0f78589-8191-442d-9a90-bfd94d595de9"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "host": {
+                                "connectionName": "shared_commondataserviceforapps_1",
+                                "operationId": "ListRecords",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                              },
+                              "parameters": {
+                                "entityName": "calendars",
+                                "$select": "calendarid, name",
+                                "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\" >\n    <entity name=\"calendar\" >\n        <attribute name=\"calendarid\" />\n        <attribute name=\"name\" />\n        <link-entity name=\"calendarrule\" from=\"calendarid\" to=\"calendarid\" >\n            <attribute name=\"name\" />\n            <attribute name=\"starttime\" />\n            <filter type=\"and\" >\n                <condition attribute=\"starttime\" operator=\"this-year\" />\n                <condition attribute=\"starttime\" operator=\"on\" value=\"@{variables('startDate')}\" />                \n            </filter>\n        </link-entity>\n        <filter type=\"and\" >\n            <condition attribute=\"name\" operator=\"eq\" value=\"Federal Holiday Schedule\" />\n        </filter>\n    </entity>\n</fetch>"
+                              },
+                              "authentication": "@parameters('$authentication')"
+                            }
+                          },
+                          "Condition_4": {
+                            "actions": {
+                              "Increment_variable_2": {
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "05d61777-c865-40b4-8bac-977fb9438e9b"
+                                },
+                                "type": "IncrementVariable",
+                                "inputs": {
+                                  "name": "numOfBusinessDays",
+                                  "value": 1
+                                }
+                              }
+                            },
+                            "runAfter": {
+                              "List_Holiday_Schedule": [
+                                "Succeeded"
+                              ]
+                            },
+                            "expression": {
+                              "equals": [
+                                "@length(outputs('List_Holiday_Schedule')?['body/value'])",
+                                0
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "ad705321-0e1c-410c-81e5-63b062850663"
+                            },
+                            "type": "If"
+                          }
+                        }
+                      },
+                      "expression": {
+                        "or": [
+                          {
+                            "equals": [
+                              "@dayOfWeek(variables('startDate'))",
+                              0
+                            ]
+                          },
+                          {
+                            "equals": [
+                              "@dayOfWeek(variables('startDate'))",
+                              6
+                            ]
+                          }
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "fedcb7e2-39fa-4bce-b5e3-d48243122c56"
+                      },
+                      "type": "If"
+                    },
+                    "Set_variable": {
+                      "runAfter": {
+                        "Check_if_weekend": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "5e453636-9b68-4989-af50-1cf7102e6358"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "increaseStartDate",
+                        "value": "@{addDays(variables('startDate'),1, 'yyyy-MM-dd')}"
+                      }
+                    },
+                    "Set_variable_2": {
+                      "runAfter": {
+                        "Set_variable": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "afc64df4-4f7b-4775-948b-808cf5dd6d17"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "startDate",
+                        "value": "@variables('increaseStartDate')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Condition": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": "@greater(variables('startDate'), outputs('TodayDate'))",
+                  "limit": {
+                    "count": 60,
+                    "timeout": "PT1H"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "114b58ac-6812-4767-9b91-3e5001d43d3b"
+                  },
+                  "type": "Until"
+                },
+                "Update_a_row": {
+                  "runAfter": {
+                    "Do_until": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "ba013889-55fa-4c9c-94ab-af2de52661f6"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "mcs_vethometaskses",
+                      "recordId": "@items('Apply_to_each_2')?['mcs_vethometasksid']",
+                      "item/mcs_numberofbusinessdaysopen": "@variables('numOfBusinessDays')"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Set_Number_of_Business_Days": {
+                  "runAfter": {
+                    "Update_a_row": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "ec9257fc-b04d-4cb6-906d-1ef6d1f62b02"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "numOfBusinessDays",
+                    "value": 0
+                  }
+                }
+              },
+              "runAfter": {
+                "List_Tasks": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e7d81250-cc8f-4a57-bc12-bfeed96a9456"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Var_numberOfBusinessDays": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "af3aef12-c159-4d66-b994-a1b0d5a5415f"
+          },
+          "type": "Scope"
+        },
+        "Current_time_Failed": {
+          "runAfter": {
+            "Scope": [
+              "Skipped",
+              "Failed",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d873a0ad-0c99-4341-a515-554b7948c7da"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Update_with_Success_Status": {
+          "runAfter": {
+            "Current_time_Successful": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "90751a53-eaf5-4203-bd2a-0de603453eb2"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "recordId": "@outputs('Create_new_Flow_Activity_Status_Morning')?['body/mcs_flowactivitystatusid']",
+              "item/mcs_enddatetime": "@body('Current_time_Successful')",
+              "item/statuscode": 153190007
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Update the corresponding Flow Activity Status record depending on if Scope step completed successfully.  Update the End Date Time with current time, Flow Run Status to Success.."
+        },
+        "Current_time_Successful": {
+          "runAfter": {
+            "Scope": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b41e3bd9-edcd-463e-9371-7026ac9d298a"
+          },
+          "type": "Expression",
+          "kind": "CurrentTime",
+          "inputs": {}
+        },
+        "Filter_Error_Array": {
+          "runAfter": {
+            "Current_time_Failed": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8fd80e3d-b708-463c-a4d1-239eca4a7d83"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@result('Scope')",
+            "where": "@equals(item()?['status'], string('Failed'))"
+          },
+          "description": "Filter workflow object based on Failed Status to retrieve Error Message."
+        },
+        "Flow_Error_Message": {
+          "runAfter": {
+            "Filter_Error_Array": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "49924d66-db09-45ad-a544-ce5300b477d5"
+          },
+          "type": "Compose",
+          "inputs": "@body('Filter_Error_Array')[0]?['outputs']?['body']?['error/message']",
+          "description": "Obtain Error Message from workflow object"
+        },
+        "Update_a_row_with_Failed_Status": {
+          "runAfter": {
+            "Flow_Error_Message": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "04a53181-61c9-40b9-b54d-5a666255e4b7"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "mcs_flowactivitystatuses",
+              "recordId": "@outputs('Create_new_Flow_Activity_Status_Morning')?['body/mcs_flowactivitystatusid']",
+              "item/mcs_enddatetime": "@body('Current_time_Failed')",
+              "item/mcs_errormessage": "@string(outputs('Flow_Error_Message'))",
+              "item/statuscode": 153190004
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Update the corresponding Flow Activity Status record due to one or more steps failing in the Scope above.   Update the Start Date field to Current time, Flow Run Status to Error and the Error Message field with the error retrieved from previous step."
+        },
+        "var_startDate": {
+          "runAfter": {
+            "Create_new_Flow_Activity_Status_Morning": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "77b9fdff-e7e8-493e-ab9e-08e63ae3b3e5"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "startDate",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "var_IncStartDate": {
+          "runAfter": {
+            "var_startDate": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0b42dff3-2d63-4638-99fb-102ba0efdd9c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "increaseStartDate",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Var_numberOfBusinessDays": {
+          "runAfter": {
+            "var_IncStartDate": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b9de20a4-1533-4456-bdd7-d043360c6502"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "numOfBusinessDays",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,96 @@
+<html><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VistA Login Control</title>
+    <!-- NOTE: ClientGlobalContext.js.aspx URL below is set with ../../ because the web resource that needs it is installed in a 3 level folder structure -->
+    <script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <!-- Telerik KendoUI is required by this application, CRM must contain the Tribridge Adoption Essentials component "TribridgeIPCRMKuiFrameworkNS_Managed_2015_4_0001_target_CRM_7.0"  -->
+    <script src="bah_jquery_3_2_1.js" type="text/javascript"></script>
+    <!-- VistA Login Control Custom Stylesheet -->
+    <link href="mcs_VistaLoginControlStyle.css" rel="stylesheet">
+    <!--Control Library /-->
+    <script src="mcs_VistaLoginControlScriptLib.js" type="text/javascript"></script>
+    <!--SSOi Library /-->
+    <script src="mcs_SSOiServiceScriptLib.js" type="text/javascript"></script>
+    <script src="mcs_ViaServiceLibrary.js" type="text/javascript"></script>
+    <script src="vhacrm_/scripts/Common/CommCareShared.min.js"></script>
+    <script src="mcs_CPRSNotesWorkload.js" type="text/javascript"></script>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta charset="utf-8">
+<meta></head>
+<body class="VistaLoginForm" lang="en-US" style="overflow-wrap: break-word;" dir="LTR" onfocusout="parent.setEmailRange();">
+    <div id="VistaLoginForm" style="font-family: undefined;">
+        <table class="stdTable">
+            <tbody>
+                <tr>
+                    <td height="50">
+                        <div title="VISTA Login" class="headerMainLeft" id="lblTitle">
+                            VISTA Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input title="Check to sign in using your PIV card.  (SSOi)" id="ssoicheck" style="visibility: hidden; cursor: pointer;" onchange="vlc_ssoiChecked();" type="checkbox">
+                            <label for="ssoicheck"><i title="Check to sign in using your PIV card.  (SSOi)" style="font-size: 16px; visibility: hidden; cursor: pointer;">Check to sign in using your PIV card&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(SSOi)</i></label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="50">
+                        <div title="Enter your Access Code, Verify Code and eSignature Code" class="headerSubLeft" id="lblSubTitle">
+                            <label id="lblSubTitleLabel" for="lblSubTitle">Enter your Access Code, Verify Code and eSignature Code for any Facility listed</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="50">
+                        <table width="100%" id="tblVistaLogin" cellspacing="1" cellpadding="1">
+                            <tbody>
+                                <tr style="display: none;">
+                                    <td><b>FACILITY NAME</b></td>
+                                    <td>&nbsp;</td>
+                                    <td><b>Access Code</b></td>
+                                    <td><input title="Enter your Access Code" id="vlc_accessCode" type="text" maxlength="30" value=""></td>
+                                    <td>&nbsp;</td>
+                                    <td><b>Verify Code</b></td>
+                                    <td><input title="Enter your Verify Code" id="vlc_verifyCode" type="password" maxlength="30" value=""></td>
+                                    <td>&nbsp;</td>
+                                    <td><b>eSignature Code</b></td>
+                                    <td><input title="Enter your eSignature Code" id="vlc_esignatureCode" onkeypress="vlc_loginKeyPress(event)" type="password" maxlength="30" value=""></td>
+                                    <td><input name="vlc_loginbutton" title="Login to VISTA" id="vlc_loginbuttonid" style="vertical-align: bottom; cursor: pointer;" onclick="vlc_vistaLogin();" type="button" value="Login"></td>
+                                    <td><div id="BusySpinner" style="display: inline-block;"><img src="mcs_busyspinner"></div></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+			//debugger;
+            //Actions/Functions to execute as soon as the form is at a ready state.
+            try {
+                //Construct the initial Login Control
+                vlc_formLoad();
+            }
+            catch (err) {
+                //Display Error....
+                alert("VistaLoginControl.html Script Document Ready Error: " + err.message);
+            }
+        });
+    </script>
+
+
+
+</body></html>

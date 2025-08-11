@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Notification</title>
+    <link href="bah_bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="bah_personsearchstyle.css" rel="stylesheet" type="text/css">
+    <script src="bah_jquery_3_2_1.js" type="text/javascript"></script>
+    <script src="bah_bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript" src="mcs_CustomerNotification.js"></script>
+    <script src="vhacrm_/scripts/Common/CommCareShared.min.js"></script>
+</head>
+
+<body>
+    <script>
+        function hashReadyNotification() {
+            window.location.hash = "ReadyXrm";
+        }
+
+        function setClientApiContext(xrm, formContext) {
+            window.Xrm = xrm;
+            window._formContext = formContext
+            CommCare.Shared.FormContext = formContext;
+            console.log("CustomerNotification has context");
+            OnLoad();
+        }
+
+        function OnLoad() {
+            try {
+                var msg = CommCare.Shared.GetFieldValue("mcs_customernotification");
+                DisplayCustomerNotification(msg);
+            } catch (e) {
+                return;
+            }
+        }
+
+        $(document).ready(function () {
+            //hashReadyNotification();
+        });
+    </script>
+    <div class="container" style="width: 100%;">
+        <div id="divMessage" class="alert alert-warning" style="font-family: arial; font-size: large; border-radius: 4px; width: 100%;">
+        </div>
+    </div>
+</body>
+</html>

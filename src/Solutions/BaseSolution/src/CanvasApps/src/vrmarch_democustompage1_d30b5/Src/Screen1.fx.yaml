@@ -1,0 +1,162 @@
+"Screen1 As screen.'tabletLayout_Tutorial_ver3.0'":
+    Fill: =RGBA(0, 255, 75, 1)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    RectTextBkg1 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =ColorFade(RGBA(0, 120, 212, 1), 90%)
+        Height: =Parent.Height
+        Width: =Parent.Width / 2
+        X: =Parent.Width/2
+        ZIndex: =1
+
+    TutorialNavigator1 As gallery.TutorialGalleryHorizontal:
+        AccessibleLabel: ="Layouts_Tutorial_Gallery_Accessible_Text"
+        BorderColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderColor: =RGBA(0, 120, 212, 1)
+        FocusedBorderThickness: =2
+        Height: =55
+        Items: |-
+            =Table(         
+             {Step: 0, Text:"Create a tutorial to show people how to use your app.", Image: SampleImage},         
+             {Step: 1, Text:"Customize your text from the formula bar. Open the formula bar by selecting the screen indicator dots.", Image: SampleImage},         
+             {Step: 2, Text:"Use screenshots of your app to highlight features and show its interface.", Image: SampleImage},         
+             {Step: 3, Text:"Your tutorial screens start with zero in the formula. Leave it at zero so your tutorial advances correctly.", Image: SampleImage}         
+            )
+        ShowScrollbar: =false
+        TemplatePadding: =8
+        TemplateSize: =25
+        Width: =CountRows(Self.AllItems) * (Self.TemplateWidth + Self.TemplatePadding) + 5
+        X: =Parent.Width/4 - Self.Width/2
+        Y: =Parent.Height - Self.Height - 20
+        ZIndex: =2
+
+        Circle1 As circle:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =2
+            DisabledFill: =RGBA(0, 120, 212, 1)
+            Fill: =If(Or(ThisItem.Step = 0 && IsBlank(_guideStep), ThisItem.Step = _guideStep), iconPrev1.Color, RGBA(0,0,0,0))
+            FocusedBorderThickness: =4
+            Height: =Circle1.Width
+            HoverFill: =RGBA(0, 120, 212, 1)
+            OnSelect: =Set(_guideStep, ThisItem.Step)
+            PressedFill: =RGBA(0, 120, 212, 1)
+            TabIndex: =0
+            Width: =Parent.TemplateWidth - 5
+            X: =Parent.TemplateWidth/2 - Self.Width/2
+            Y: =Parent.TemplateHeight/2 - Self.Height/2
+            ZIndex: =1
+
+    TutorialImage1 As image:
+        AccessibleLabel: ="Layouts_Tutorial_Image_Accessible_Text"
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Height: =Self.Width
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =If(IsBlank(_guideStep), First(TutorialNavigator1.AllItems).Image, LookUp(TutorialNavigator1.AllItems, Step = _guideStep).Image)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =Parent.Width / 2 - 200
+        X: =Parent.Width/2 + Parent.Width/4 - Self.Width/2
+        Y: =Parent.Height/2 - Self.Height/2
+        ZIndex: =3
+
+    TutorialText1 As label:
+        Align: =Align.Center
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.'Segoe UI'
+        Height: =170
+        LineHeight: =1.3
+        PaddingLeft: =20
+        PaddingRight: =20
+        Size: =17
+        Text: =If(IsBlank(_guideStep), First(TutorialNavigator1.AllItems).Text, LookUp(TutorialNavigator1.AllItems, Step = _guideStep).Text)
+        Width: =iconNext1.X - iconNext1.Width - iconPrev1.X
+        X: =iconPrev1.X + iconPrev1.Width
+        Y: =Parent.Height / 2 - Self.Height/2 - 50
+        ZIndex: =4
+
+    iconNext1 As icon.ChevronRight:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(0, 120, 212, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Height: =32
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.ChevronRight
+        OnSelect: =Set(_guideStep, Min(_guideStep+1, Last(TutorialNavigator1.AllItems).Step))
+        PaddingBottom: =3
+        PaddingLeft: =3
+        PaddingRight: =3
+        PaddingTop: =3
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        TabIndex: =0
+        Tooltip: ="Next step"
+        Visible: =Last(TutorialNavigator1.AllItems).Step > _guideStep
+        Width: =32
+        X: =Parent.Width/4 - Self.Width/2 + 275
+        Y: =TutorialText1.Y + TutorialText1.Height/2 - Self.Height/2
+        ZIndex: =5
+
+    iconPrev1 As icon.ChevronLeft:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(0, 120, 212, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Height: =32
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Set(_guideStep, Max(_guideStep-1, First(TutorialNavigator1.AllItems).Step))
+        PaddingBottom: =3
+        PaddingLeft: =3
+        PaddingRight: =3
+        PaddingTop: =3
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        TabIndex: =0
+        Tooltip: ="Previous step"
+        Visible: =_guideStep > 0
+        Width: =32
+        X: =Parent.Width/4 - Self.Width/2 - 275
+        Y: =TutorialText1.Y + TutorialText1.Height/2 - Self.Height/2
+        ZIndex: =6
+
+    LabelSkip1 As label:
+        Align: =Align.Center
+        BorderColor: =Self.Color
+        Color: =RGBA(0, 134, 208, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =2
+        Font: =Font.'Segoe UI'
+        Height: =55
+        OnSelect: =Set(_guideStep, Last(TutorialNavigator1.AllItems).Step)
+        Size: =15
+        TabIndex: =0
+        Text: ="Skip"
+        Width: =100
+        X: =Parent.Width/2 - Self.Width
+        Y: =Parent.Height - Self.Height
+        ZIndex: =7
+
+    DemoPcf11 As DemoPcf1:
+        DisplayMode: =DisplayMode.Edit
+        Height: =200
+        Width: =675
+        X: =3
+        Y: =0
+        ZIndex: =8
+

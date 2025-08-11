@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{1cac1575-bd75-4e55-b7d5-3054beebd7c4}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_servicelineid">
+          <cell name="mcs_name" width="300" />
+          <cell name="mcs_facility" width="100" />
+          <cell name="mcs_lob" width="100" />
+          <cell name="mcs_program" width="100" />
+          <cell name="mcs_purposeintersection" width="100" />
+          <cell name="mcs_requestorgroup" width="100" />
+          <cell name="mcs_typeintersection" width="100" />
+          <cell name="mcs_vsignalspurposedetail" width="100" />
+          <cell name="mcs_whhlpurposedetail" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_serviceline">
+          <attribute name="mcs_servicelineid" />
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="mcs_name" operator="like" value="{0}" />
+          </filter>
+          <attribute name="mcs_whhlpurposedetail" />
+          <attribute name="mcs_vsignalspurposedetail" />
+          <attribute name="mcs_typeintersection" />
+          <attribute name="mcs_requestorgroup" />
+          <attribute name="mcs_purposeintersection" />
+          <attribute name="mcs_program" />
+          <attribute name="mcs_lob" />
+          <attribute name="mcs_facility" />
+          <order attribute="mcs_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.06.10.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Service Lines" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

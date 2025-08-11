@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{96d4fe8a-2d30-ec11-b6e5-001dd8029b3d}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="vhacrm_name" select="1" icon="1" preview="1">
+        <row name="result" id="vhacrm_subareaintersectionid">
+          <cell name="vhacrm_name" width="300" />
+          <cell name="statuscode" width="100" />
+          <cell name="a_2e6b914dfc88e711810f1458d04eaba0.vhacrm_typeintersectionid" width="100" disableSorting="1" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="vhacrm_subareaintersection">
+          <attribute name="vhacrm_name" />
+          <attribute name="createdon" />
+          <attribute name="statuscode" />
+          <order attribute="vhacrm_name" descending="false" />
+          <link-entity alias="a_2e6b914dfc88e711810f1458d04eaba0" name="vhacrm_areaintersection" from="vhacrm_areaintersectionid" to="vhacrm_areaintersectionid" link-type="outer" visible="false">
+            <attribute name="vhacrm_typeintersectionid" />
+          </link-entity>
+          <attribute name="vhacrm_subareaintersectionid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.10.15.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Sub Area Intersections" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{d87f865b-8ff7-4a1e-9a11-5dd37fc0c095}</formid>
+    <IntroducedVersion>0.0.1.5</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{bf8b17f6-bbd8-4905-948c-f0a02b7f39d1}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{29782480-3aee-4866-abfa-cc1a2fb2b8eb}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{415f79ad-5430-47e8-bf22-3f18894a0c27}">
+                        <labels>
+                          <label description="Setting Name" languagecode="1033" />
+                        </labels>
+                        <control id="veis_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="veis_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e96155d9-5e6a-17ac-972d-1860e593ae3c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Alert per Interval" languagecode="1033" />
+                        </labels>
+                        <control id="veis_alertperinterval" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="veis_alertperinterval" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5a10dd3e-3924-1e22-2ec0-25ed05928437}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Alert per Day" languagecode="1033" />
+                        </labels>
+                        <control id="veis_alertperday" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="veis_alertperday" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{127fcded-725d-4438-b8d3-05d977bc9a50}" columns="111">
+        <rows>
+          <row>
+            <cell id="{6e7dd021-d977-4d61-b78b-74af580885d3}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1c36927c-c545-4261-b6d1-f3fc0a8ef609}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d8e6909c-634b-0dd2-9ab1-29c978e52009}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Parent" languagecode="1033" />
+              </labels>
+              <control id="header_veis_parentid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="veis_parentid" disabled="true" uniqueid="{55a2564e-e365-1219-28ed-c43686c8cdab}">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                  <DisableQuickFind>false</DisableQuickFind>
+                  <DisableViewPicker>false</DisableViewPicker>
+                  <DefaultViewId>{BA2427A2-DBA8-4AC4-9131-F32A1B984815}</DefaultViewId>
+                  <AllowFilterOff>false</AllowFilterOff>
+                </parameters>
+              </control>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{48b331ee-d547-4b27-8e33-862e966f00f5}" columns="111">
+        <rows>
+          <row>
+            <cell id="{27340bdd-4c79-80b3-8c26-4e5d5383bb31}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Last Interval Alert" languagecode="1033" />
+              </labels>
+              <control id="footer_veis_lastintervalalert" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="veis_lastintervalalert" disabled="true" uniqueid="{8a061c20-a51a-2995-4da3-9ec712384b8b}" />
+            </cell>
+            <cell id="{a7882830-50db-4bd1-bc05-5d19248d6fa0}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7a340766-9e89-c74e-71d9-1432c7370ba9}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Last Day Alert" languagecode="1033" />
+              </labels>
+              <control id="footer_veis_lastdayalert" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="veis_lastdayalert" disabled="true" />
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

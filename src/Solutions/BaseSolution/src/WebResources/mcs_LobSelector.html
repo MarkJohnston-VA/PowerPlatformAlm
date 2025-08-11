@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="bah_bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="bah_personsearchstyle.css" rel="stylesheet" type="text/css">
+    <script src="vhacrm_/scripts/Common/CommCareShared.min.js"></script>
+    <script src="vhacrm_/Forms/js/entity_Interaction.js"></script>
+    <script src="bah_jquery_3_2_1.js" type="text/javascript"></script>
+    <script src="bah_json2.js" type="text/javascript"></script>
+    <script src="vhacrm_/SSOI/js/viaSSOI.js" type="text/javascript"></script>
+    <script src="bah_via_library.js" type="text/javascript"></script>
+    <script src="bah_bootstrap.js" type="text/javascript"></script>
+    <script src="mcs_LobSelector.js" type="text/javascript"></script>
+
+    
+
+    <title>SELECT YOUR LOB</title>
+    <script>
+        $(document).ready(function () {
+            console.log("in start");
+            //hashReadyNotification();
+        });
+
+        function hashReadyNotification() {
+            window.location.hash = "ReadyXrm";
+        }
+
+        function setClientApiContext(xrm, formContext) {
+            window.Xrm = xrm;
+            window._formContext = formContext;
+            CommCare.Shared.FormContext = _formContext;
+            console.log("LOB Selector has context");
+            onLoad();
+        }
+
+    </script>
+</head>
+<body style="margin-left: 2%; margin-right: 2%">
+    <div class="container">
+        <div id="LobSelector">
+            <div class="col-lg-12" id="header">
+                <table style="width: 100%; height:100%;">
+                    <tr>
+                        <td style="vertical-align:middle;" align='left'>
+                            <h3>SELECT YOUR LOB</h3>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="container" style="width: 500px; height: 40px; padding-top: 10px">
+                <div class="dropdown" style="width: 500px">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="lobDropDown" style="width: 500px">
+                        LOB
+                        <span class="caret" style="color: white"></span>
+                    </button>
+                    <ul class="dropdown-menu" id="lobMenu" style="width: 500px"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="TeamsSelector" style="visibility: hidden; padding-top: 20px">
+            <div class="col-lg-12" id="header">
+                <table style="width: 100%; height:100%;">
+                    <tr>
+                        <td style="vertical-align:middle;" align='left'>
+                            <h3>SELECT YOUR TEAM</h3>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="container" style="width: 500px; height: 40px; padding-top: 10px">
+                <div class="dropdown" style="width: 500px" id="teamParent">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="teamDropDown" style="width: 500px">
+                        Team
+                        <span class="caret" style="color: white"></span>
+                    </button>
+                    <ul class="dropdown-menu" id="teamMenu" style="width: 500px"></ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container">
+            <button type="button" class="btn btn-primary" id="submit" onclick="submitLobTeam()" style="margin-top: 50px">Submit</button>
+        </div>
+
+        <div id="tmpDialog" style="visibility: hidden">
+            <table style="width: 100%; height:100%; cursor:progress">
+                <tr>
+                    <td style="vertical-align:middle;" align='center'>
+                        <img alt="" src="/_imgs/AdvFind/progress.gif" /><br />
+                        <label id='lblStatus'>Working on it. Please wait...</label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-12" style="display:none" id="noContent">
+            <div class="table-responsive">
+                <table style="text-align:center; width: 100%; height:100%;" id="table">
+                    <tr><td><h2>No Content Found</h2></td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

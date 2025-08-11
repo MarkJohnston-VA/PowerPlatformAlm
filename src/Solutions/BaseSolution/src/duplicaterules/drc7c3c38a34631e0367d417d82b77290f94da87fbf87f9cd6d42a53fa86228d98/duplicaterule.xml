@@ -1,0 +1,19 @@
+<duplicaterule uniquename="drc7c3c38a34631e0367d417d82b77290f94da87fbf87f9cd6d42a53fa86228d98">
+  <baseentityname>mcs_taskertask</baseentityname>
+  <excludeinactiverecords>1</excludeinactiverecords>
+  <iscasesensitive>0</iscasesensitive>
+  <iscustomizable>1</iscustomizable>
+  <matchingentityname>mcs_taskertask</matchingentityname>
+  <name>Directorate Tasks with the Same Name</name>
+  <duplicateruleconditions>
+    <duplicaterulecondition baseattributename="mcs_name" matchingattributename="mcs_name" operatorcode="1" uniquerulename="drc7c3c38a34631e0367d417d82b77290f94da87fbf87f9cd6d42a53fa86228d98">
+      <ignoreblankvalues>0</ignoreblankvalues>
+      <iscustomizable>1</iscustomizable>
+      <operatorparam>350</operatorparam>
+    </duplicaterulecondition>
+    <duplicaterulecondition baseattributename="mcs_requestorgroup" matchingattributename="mcs_requestorgroup" operatorcode="0" uniquerulename="drc7c3c38a34631e0367d417d82b77290f94da87fbf87f9cd6d42a53fa86228d98">
+      <ignoreblankvalues>0</ignoreblankvalues>
+      <iscustomizable>1</iscustomizable>
+    </duplicaterulecondition>
+  </duplicateruleconditions>
+</duplicaterule>

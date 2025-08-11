@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a2ea731f-2d21-4434-8c01-16a5d05ecad8}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{a2c5a4f8-5211-4283-8506-d071cf008149}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{9a294812-acfd-4959-a9ed-c3216843ab72}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{64167e4c-ad64-496c-9541-2586ad7f8fc6}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="hac_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_name" />
+                      </cell>
+                      <cell id="{8af7b524-4272-4db6-adfa-35820d4b557a}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2cb10c7a-8056-86e7-2a44-8307660c6259}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="hac_coveragetype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_coveragetype" disabled="false" />
+                      </cell>
+                      <cell id="{c7ecb473-80c5-eda3-b222-248813196632}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="hac_lastupdated" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="hac_lastupdated" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6e6c210a-3403-0176-9345-708b6ae01236}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="hac_beneficiaryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="hac_beneficiaryid" disabled="false" />
+                      </cell>
+                      <cell id="{da62aea8-9257-b1e4-8a68-c8e369629b00}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="hac_lastupdatedby" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_lastupdatedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6c0dc674-c6b0-5698-ebc2-9b9882e719dc}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="hac_beginningdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="hac_beginningdate" disabled="false" />
+                      </cell>
+                      <cell id="{3b19ec85-20a4-0ba0-0deb-bd1676a33140}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9b72203a-d7a7-5848-d17d-4575a7d739b7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="hac_endingdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="hac_endingdate" disabled="false" />
+                      </cell>
+                      <cell id="{01543acc-d359-3ace-78da-1cc02b431485}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <footer id="{8d19fe31-260f-4e21-8e1d-1a27f1db9a71}">
+        <rows>
+          <row>
+            <cell id="{07b42105-f8b1-4793-bd1b-ada8a2ad52fe}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+              <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Processes" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

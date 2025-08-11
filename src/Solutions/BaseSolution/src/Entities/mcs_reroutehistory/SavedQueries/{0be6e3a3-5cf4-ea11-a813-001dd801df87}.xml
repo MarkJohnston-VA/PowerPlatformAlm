@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{0be6e3a3-5cf4-ea11-a813-001dd801df87}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" preview="1" icon="1">
+        <row name="result" id="mcs_reroutehistoryid">
+          <cell name="mcs_name" width="150" />
+          <cell name="mcs_taskid" width="100" />
+          <cell name="createdon" width="100" />
+          <cell name="mcs_reroutedby" width="100" />
+          <cell name="mcs_rerouteteam" width="100" />
+          <cell name="mcs_rerouteaction" width="100" />
+          <cell name="mcs_initialrouteaction" width="100" />
+          <cell name="mcs_initiallyroutedby" width="100" />
+          <cell name="mcs_initiallyroutedbyteam" width="100" />
+          <cell name="mcs_resolutionreason" width="100" />
+          <cell name="mcs_resolutiondetail" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="mcs_reroutehistory">
+          <attribute name="mcs_name" />
+          <order attribute="createdon" descending="true" />
+          <link-entity name="systemuser" from="systemuserid" to="owninguser" alias="aa">
+            <filter type="and">
+              <condition attribute="parentsystemuserid" operator="eq-userid" />
+            </filter>
+          </link-entity>
+          <attribute name="mcs_taskid" />
+          <attribute name="createdon" />
+          <attribute name="mcs_reroutedby" />
+          <attribute name="mcs_rerouteteam" />
+          <attribute name="mcs_rerouteaction" />
+          <attribute name="mcs_initialrouteaction" />
+          <attribute name="mcs_initiallyroutedby" />
+          <attribute name="mcs_initiallyroutedbyteam" />
+          <attribute name="mcs_resolutionreason" />
+          <attribute name="mcs_resolutiondetail" />
+          <attribute name="mcs_reroutehistoryid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Re-Route History for My Team (draft)" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

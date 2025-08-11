@@ -1,0 +1,41 @@
+<html><head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .SummaryHeader {
+            font-family: "Segoe UI Regular", SegoeUI, "Segoe UI";
+            font-size: 12pt;
+            font-weight: 400;
+        }
+        
+        .SummaryDetail {
+            font-family: "Segoe UI Regular", SegoeUI, "Segoe UI";
+            font-size: 10pt;
+            font-weight: 400;
+        }
+    </style>
+<meta></head>
+<body>
+    <div id="summaryPlaceholder"></div>
+
+
+<script>
+
+    "use strict";
+
+    async function RenderControlWithContext(globalContext, executionContext) {
+        let formContext = executionContext.getFormContext();
+        let attribute = formContext.getAttribute('veis_errordetails');
+        let errorDetails = attribute.getValue();
+        let summaryPlaceholder = $('#summaryPlaceholder');
+        summaryPlaceholder.html = '';
+        if (errorDetails !== null && errorDetails !== '') {
+            summaryPlaceholder.append($("<div class=\"SummaryHeader\">" + errorDetails + "</div>"));
+        }
+        else {
+            summaryPlaceholder.append($("<div class=\"SummaryHeader\">Awaiting updates.</div>"));
+        }
+    }
+
+</script>
+
+</body></html>

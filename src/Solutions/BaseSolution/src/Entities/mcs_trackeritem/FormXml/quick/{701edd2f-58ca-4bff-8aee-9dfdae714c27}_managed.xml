@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{701edd2f-58ca-4bff-8aee-9dfdae714c27}</formid>
+    <IntroducedVersion>2021.08.02.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{5c771a60-0600-4437-97c9-5a2098d4ad2b}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{523a1997-51b4-4209-83de-0d1d639c0cce}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c2eec17e-2be0-86e2-1ed2-6add1b2d0895}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Description (Tasker)" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_descriptionplaintext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="mcs_descriptionplaintext" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2312e03d-d118-8d62-9d2a-4e9b783c7bb7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Due Date" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_duedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="mcs_duedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2061783b-a0c4-9289-4143-46e7cb94e331}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Executive Directorate" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_executivedirectorateteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_executivedirectorateteam" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8c5197b2-7539-d38c-e6ec-841983e80392}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="2">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Parent Tasker Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Used on the Due Date Extension Request form to show Parent Record information to the Approver" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

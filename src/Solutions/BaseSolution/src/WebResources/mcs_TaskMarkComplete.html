@@ -1,0 +1,186 @@
+<html>
+<head>
+    <script src="vhacrm_/scripts/Common/CommCareShared.min.js"></script>
+    <script src="bah_jquery_3_2_1.js" type="text/javascript"></script>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            overflow: auto;
+            border-width: 0px;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .pure-button {
+            /* Structure */
+            display: inline-block;
+            zoom: 1;
+            line-height: normal;
+            white-space: nowrap;
+            vertical-align: middle;
+            text-align: center;
+            cursor: pointer;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Arial;
+            font-size: 100%;
+            padding: 0.5em 1em;
+            color: #444; /* rgba not supported (IE 8) */
+            color: rgba(0, 0, 0, 0.80); /* rgba supported */
+            border: 1px solid #999; /*IE 6/7/8*/
+            border: none rgba(0, 0, 0, 0); /*IE9 + everything else*/
+            background-color: #E6E6E6;
+            text-decoration: none;
+            border-radius: 2px;
+        }
+
+            /* Firefox: Get rid of the inner focus border */
+            .pure-button::-moz-focus-inner {
+                padding: 0;
+                border: 0;
+            }
+
+            .pure-button-hover,
+            .pure-button:hover,
+            .pure-button:focus {
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
+                background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0,0,0, 0.05)), to(rgba(0,0,0, 0.10)));
+                background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+                background-image: -moz-linear-gradient(top, rgba(0,0,0, 0.05) 0%, rgba(0,0,0, 0.10));
+                background-image: -o-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+                background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+            }
+
+            .pure-button:focus {
+                outline: 0;
+            }
+
+            .pure-button-active,
+            .pure-button:active {
+                box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+                border-color: #000\9;
+            }
+
+            .pure-button[disabled],
+            .pure-button-disabled,
+            .pure-button-disabled:hover,
+            .pure-button-disabled:focus,
+            .pure-button-disabled:active {
+                border: none;
+                background-image: none;
+                filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+                filter: alpha(opacity=40);
+                -khtml-opacity: 0.40;
+                -moz-opacity: 0.40;
+                opacity: 0.40;
+                cursor: not-allowed;
+                box-shadow: none;
+            }
+
+        .pure-button-hidden {
+            display: none;
+        }
+
+        /* Firefox: Get rid of the inner focus border */
+        .pure-button::-moz-focus-inner {
+            padding: 0;
+            border: 0;
+        }
+
+        .pure-button-primary,
+        .pure-button-selected,
+        a.pure-button-primary,
+        a.pure-button-selected {
+            background-color: rgb(0, 120, 231);
+            color: #fff;
+        }
+
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221); /* this is a light blue */
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //hashReadyNotification();
+        });
+        function MarkComplete(actionName) {
+            console.log(_formContext.data.entity.getId());
+            try {
+                _formContext.data.save().then(function () {
+                    var id = _formContext.data.entity.getId();
+                    id = id.replace('{', '').replace('}', '');
+
+                    var entityName = "task";
+
+                    var parameters = {};
+                    var callMarkComplete = CommCare.Shared.CallEntityAction(actionName, entityName, id, parameters);
+
+                    var markCompleteCallback = callMarkComplete.then(function (result) {
+                        if (result.OutArgument == "saveandclose") {
+                            CommCare.Shared.CrmCommonJS.Notification.ClearNotification("missinginfomsg");
+
+                            if (parent.window.IsUSD) {
+                                _formContext.data.save("saveandclose").then(function () {
+
+                                    var windowtoOpen = "http://event/?eventName=MarkTaskComplete";
+                                    window.open(windowtoOpen);
+                                }, function () {
+                                    console.log("Error in Task save");
+                                });
+                            }
+                            else {
+                                //_formContext.data.entity.save("saveandclose");
+                                var saveOptions = {};
+                                saveOptions.saveMode = 2;
+                                _formContext.data.save().then(function (success) {
+                                    console.log("success");
+                                    _formContext.ui.close();
+                                }, function (error) { console.log("ERROR"); });
+                            }
+                        }
+                        else if (result.OutArgument == "missinginfomsg") {
+                            CommCare.Shared.CrmCommonJS.Notification.SetInfo("You must select a Resolution before attempting to close the Task.", "missinginfomsg");
+                        }
+                    });
+                });
+            } catch (e) {
+                console.log("Error: " + e.message);
+                CommCare.Shared.CrmCommonJS.Notification.SetInfo("Mark Complete failed. Please contact the help desk with the following error message: " + e.message, "missinginfomsg");
+            }
+        };
+
+        function hashReadyNotification() {
+            window.location.hash = "ReadyXrm";
+        }
+
+        function setClientApiContext(xrm, formContext) {
+            window.Xrm = xrm;
+            window._formContext = formContext;
+            CommCare.Shared.FormContext = _formContext;
+            console.log("Mark Complete Button has context");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="MarkComplete('mcs_FMTaskMarkComplete')" type="button" class="pure-button button-secondary">Mark Complete</button>
+</body>
+</html>

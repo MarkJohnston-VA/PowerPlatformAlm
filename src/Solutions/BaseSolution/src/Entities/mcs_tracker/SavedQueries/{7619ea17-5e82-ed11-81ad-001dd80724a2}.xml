@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{7619ea17-5e82-ed11-81ad-001dd80724a2}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" preview="1" icon="1">
+        <row name="result" id="mcs_trackerid">
+          <cell name="mcs_name" width="150" />
+          <cell name="mcs_descriptionplaintext" width="100" disableSorting="1" />
+          <cell name="mcs_veteran" width="100" />
+          <cell name="mcs_frontofficeduedate" width="100" />
+          <cell name="mcs_priority" width="100" />
+          <cell name="ownerid" width="100" />
+          <cell name="createdby" width="100" />
+          <cell name="mcs_requestorgroup" width="100" />
+          <cell name="createdon" width="100" />
+          <cell name="mcs_responseplaintext" width="100" />
+          <cell name="mcs_briefstatementofissueandstatusplaintext" width="100" />
+          <cell name="mcs_actionsprogressandresolutionplaintext" width="100" />
+          <cell name="mcs_nextstepsplaintext" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="mcs_tracker">
+          <attribute name="mcs_name" />
+          <attribute name="mcs_veteran" />
+          <attribute name="mcs_requestorgroup" />
+          <attribute name="mcs_priority" />
+          <attribute name="ownerid" />
+          <attribute name="mcs_frontofficeduedate" />
+          <attribute name="mcs_descriptionplaintext" />
+          <attribute name="createdon" />
+          <order attribute="mcs_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statuscode" operator="eq" value="803750012" />
+          </filter>
+          <attribute name="mcs_trackerid" />
+          <attribute name="mcs_responseplaintext" />
+          <attribute name="mcs_briefstatementofissueandstatusplaintext" />
+          <attribute name="mcs_actionsprogressandresolutionplaintext" />
+          <attribute name="mcs_nextstepsplaintext" />
+          <attribute name="createdby" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2022.12.07.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Action Items Sent to Executive Office" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

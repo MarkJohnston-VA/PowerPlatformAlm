@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{3be4544f-27ee-eb11-bacb-001dd8018ade}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_duedateextensionrequestid">
+          <cell name="mcs_name" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_currentduedate" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_requestedduedate" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="mcs_descriptionplaintext" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="statuscode" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mcs_duedateextensionrequest">
+          <attribute name="mcs_name" />
+          <attribute name="createdon" />
+          <attribute name="mcs_currentduedate" />
+          <attribute name="mcs_requestedduedate" />
+          <attribute name="statuscode" />
+          <attribute name="mcs_descriptionplaintext" />
+          <order attribute="createdon" descending="true" />
+          <attribute name="mcs_duedateextensionrequestid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2021.07.22.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Due Date Extension Requests" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

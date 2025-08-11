@@ -1,0 +1,197 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "bah_customentities",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "bah_customentity",
+    "Name": "CRAM Tasks",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "{Attachments}": "Attachments",
+      "bah_contactingentity": "Contacting Entity",
+      "bah_CRAMActionItem": "CRAM Action Item",
+      "bah_cramactionitemnumber": "CRAM Action Item Number",
+      "bah_cramsubject": "CRAM Subject",
+      "bah_customentity_Annotations": "Notes",
+      "bah_customentity_AsyncOperations": "System Jobs",
+      "bah_customentity_BulkDeleteFailures": "Bulk Delete Failures",
+      "bah_customentity_connections1": "Connections (bah_customentity_connections1)",
+      "bah_customentity_connections2": "Connections (bah_customentity_connections2)",
+      "bah_customentity_DuplicateBaseRecord": "Duplicate Records (bah_customentity_DuplicateBaseRecord)",
+      "bah_customentity_DuplicateMatchingRecord": "Duplicate Records (bah_customentity_DuplicateMatchingRecord)",
+      "bah_customentity_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "bah_customentity_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "bah_customentity_ProcessSession": "Process Sessions",
+      "bah_customentity_QueueItems": "Queue Items",
+      "bah_customentity_SyncErrors": "Sync Errors",
+      "bah_customentityid": "CRAM Task",
+      "bah_description": "Description",
+      "bah_Patient": "Patient",
+      "bah_Purpose": "Purpose",
+      "bah_PurposeDetail": "Purpose Detail",
+      "bah_source": "Source",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "processid": "Process Id",
+      "stageid": "(Deprecated) Stage Id",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "traversedpath": "(Deprecated) Traversed Path",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "CRAM Tasks",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "CRAM Tasks (Views)",
+    "Name": "_bah_customentity_views",
+    "RelatedEntityName": "CRAM Tasks",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "02bec2da-b13e-456c-81d5-5b8c8cb02abe": "Active CRAM Tasks",
+      "0602b4d9-a05c-4fbc-bf05-e2e162497fe1": "CRAM Task Associated View",
+      "57383a2f-a793-42bd-8a70-25196a5ef66a": "CRAM Task Lookup View",
+      "b08ef575-8649-4d4a-b356-4bf53dd7c49b": "Inactive CRAM Tasks",
+      "cc436ec7-ad62-4e7f-8f04-533e79c4c142": "CRAM Task Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (CRAM Tasks)",
+    "Name": "bah_customentity_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "CRAM Tasks"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "CRAM Tasks",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (CRAM Tasks)",
+    "Name": "bah_customentity_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "CRAM Tasks"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "CRAM Tasks",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Interacted With",
+    "Name": "bah_interactedwith_code",
+    "OptionSetInfoNameMapping": {
+      "713770000": "VA Employee",
+      "803750000": "VIP Provider",
+      "803750001": "Legal Representative",
+      "803750002": "Community Provider Office",
+      "803750003": "TPA",
+      "803750004": "VAMC",
+      "803750005": "VACO",
+      "803750006": "VA Provider",
+      "803750007": "VBA",
+      "803750008": "VISN",
+      "803750009": "White House",
+      "803750010": "10D",
+      "803750011": "Humanitarian",
+      "803750012": " VA Employee (Non-Clinical)",
+      "803750013": "Active Duty Service Member",
+      "803750014": "Clinician",
+      "806860000": "Beneficiary",
+      "806860002": "Sponsor",
+      "806860005": "Caregiver",
+      "806860006": "Camp LeJeune",
+      "806860007": "Clinical",
+      "806860008": "Congressional",
+      "806860009": "Internal Group",
+      "806860011": "Social Worker",
+      "806860012": "Training",
+      "806860013": "VA General Counsel",
+      "810050000": "Community Care Provider",
+      "810050001": "Veteran",
+      "810050002": "Meaningful Relationship",
+      "810050003": "Veteran Service Officer",
+      "810050004": "Other"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "bah_contactingentity",
+        "OptionSetReferenceEntityName": "CRAM Tasks"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "bah_contactingentity",
+    "RelatedEntityName": "CRAM Tasks",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Case Origin",
+    "Name": "incident_caseorigincode",
+    "OptionSetInfoNameMapping": {
+      "1": "Phone",
+      "100000000": "AVA",
+      "2": "Email",
+      "2483": "Facebook",
+      "3": "Web",
+      "3986": "Twitter",
+      "803750000": "Survey",
+      "803750001": "IRIS",
+      "803750002": "PATS-R",
+      "803750003": "Fax - Additional Document",
+      "803750004": "Other",
+      "806860010": "Internal",
+      "810050001": "Chat",
+      "810050003": "Fax",
+      "810050004": "Mail",
+      "810050005": "Portal",
+      "810050006": "Walk-in",
+      "810050007": "CRAM"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "bah_source",
+        "OptionSetReferenceEntityName": "CRAM Tasks"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "bah_source",
+    "RelatedEntityName": "CRAM Tasks",
+    "Type": "OptionSetInfo"
+  }
+]

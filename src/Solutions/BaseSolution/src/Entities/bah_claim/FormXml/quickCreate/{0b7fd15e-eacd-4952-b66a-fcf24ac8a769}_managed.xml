@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{0b7fd15e-eacd-4952-b66a-fcf24ac8a769}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1900">
+      <tabs>
+        <tab id="{5fc3ee56-5c37-4c23-a133-dc97f1dd21ca}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{d92fffb8-9c74-46a8-9d59-9a825f2c208a}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{700e68b6-0057-3e65-2a62-52e6e4e2c147}" showlabel="true" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Claim Source" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_claimsource" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="mcs_claimsource" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6e69ac22-d18a-7ac4-b551-ad87724d29d1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Claim Resolution" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_claimresolution_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="vhacrm_claimresolution_code" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1f430bda-5581-45be-abeb-815eecdbc1d7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Provider Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_providername" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="mcs_providername" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{83f675f8-5489-46e9-9040-0e249dfb1229}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Provider Phone Number" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_providerphonenumber" classid="{8C10015A-B339-4982-9474-A95FE05631A5}" datafieldname="mcs_providerphonenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bce5634d-0bc7-4940-a4f1-ffd3ca21276b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="NPI" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_npi" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="mcs_npi" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e9516622-3940-c554-c833-349719c4e077}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Claim Number" languagecode="1033" />
+                        </labels>
+                        <control id="bah_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_name" disabled="false" uniqueid="{2414598d-63a8-337e-ab04-ce2ab8cd13cb}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2989a9db-84e5-d774-26e2-e362bd9b488c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Billed Amount" languagecode="1033" />
+                        </labels>
+                        <control id="ccwf_billedamount_currency" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="ccwf_billedamount_currency" disabled="false" uniqueid="{2c770bb7-e289-70b4-c139-78a30ec4e54e}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8e27dd7b-8a17-6a8e-15b4-bd2192ea1328}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Start Date of Service" languagecode="1033" />
+                        </labels>
+                        <control id="ccwf_dateofservice_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="ccwf_dateofservice_date" disabled="false" uniqueid="{7774da89-a427-82a9-378d-42305708bd3b}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{65668941-c5de-340e-9443-b868132b0244}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="End Date of Service" languagecode="1033" />
+                        </labels>
+                        <control id="ccwf_enddateofservice_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="ccwf_enddateofservice_date" disabled="false" uniqueid="{1c06ea40-729d-1c66-55a3-9bda04c3a693}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{c61cd046-0170-40a6-969a-e9473cfea8d3}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{9a135db4-7127-2497-3d66-2a1864290ee2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Patient" languagecode="1033" />
+                        </labels>
+                        <control id="ccwf_veteranid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ccwf_veteranid" disabled="true" uniqueid="{81679627-1c08-47ac-c693-6b8a87e69be6}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4d863e28-2638-12ba-6d92-7cb970d27d68}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Interaction" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_interactionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_interactionid" disabled="true" uniqueid="{74e822e4-cc9d-b172-486c-83e6d93ed232}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{93626DC6-5E42-4130-BC6A-EF606E3644D7}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b9965742-6018-4e82-e560-caed698aedcd}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Request" languagecode="1033" />
+                        </labels>
+                        <control id="ccwf_requestid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ccwf_requestid" disabled="true" uniqueid="{2c0e9268-5d45-9428-11ce-5a5add654040}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{9AC51863-58C7-49A0-ADCC-AFD9A4C3EE59}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{7b994419-470c-49e7-bf18-e02c16af700c}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5e8535aa-e7e3-07db-69db-b4135be92a9b}" showlabel="true" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" uniqueid="{4e3c8ae7-be37-b446-3d0d-248b9a979239}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{449c3107-a9b9-b874-2de4-ba1d6ad56088}" />
+        <Library name="mcs_ApplicationInsights" libraryUniqueId="{d80c0b72-93be-b798-724d-a6818b17a801}" />
+        <Library name="mcs_/scripts/entity_claim.js" libraryUniqueId="{b84cc54c-362e-dd7c-0513-e8b1ca21792a}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CommCare.Claim.QuickCreate.OnLoad" libraryName="mcs_/scripts/entity_claim.js" handlerUniqueId="{a1eb4cec-d30b-7e69-39cc-e1b4994425d4}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="initiateAppInsights" libraryName="mcs_ApplicationInsights" handlerUniqueId="{96acb36d-5106-7d2a-2d52-019cd66dec4e}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CommCare.Claim.QuickCreate.OnSave" libraryName="mcs_/scripts/entity_claim.js" handlerUniqueId="{7723848a-1021-178e-860c-c7e8a1436139}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <formparameters>
+        <querystringparameter name="p_claimonfile" type="Boolean" />
+      </formparameters>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Claim Quick Create" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Claim Quick Create Form" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

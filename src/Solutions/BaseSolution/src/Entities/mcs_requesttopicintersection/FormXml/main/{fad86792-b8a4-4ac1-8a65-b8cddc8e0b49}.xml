@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{fad86792-b8a4-4ac1-8a65-b8cddc8e0b49}</formid>
+    <IntroducedVersion>2022.12.07.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{4a252d53-1413-44e6-a4fb-4ed533130a37}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{1fafa9d1-a732-4dfc-94a8-fe3fd3346149}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{64332c2f-1722-4060-9a3b-9cc4e42a6fee}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7bd277bb-9c28-b35c-9e2c-8e24dc1ab36d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Action Item" languagecode="1033" />
+                        </labels>
+                        <control id="new_actionitemid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_actionitemid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9226dc18-97de-15cc-e762-cb7572e77664}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Request Topic" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_requesttopicid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_requesttopicid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d3c1b66e-a90c-4dce-b50c-0bc80db7daf4}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

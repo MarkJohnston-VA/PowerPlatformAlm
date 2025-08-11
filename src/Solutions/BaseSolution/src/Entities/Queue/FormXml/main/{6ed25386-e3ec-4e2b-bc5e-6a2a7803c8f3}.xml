@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{6ed25386-e3ec-4e2b-bc5e-6a2a7803c8f3}</formid>
+    <IntroducedVersion>6.1.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab name="general" verticallayout="true" id="{26ee6844-370e-41e0-97f4-66afd3d838b9}" IsUserDefined="0" ordinalvalue="0">
+          <columns>
+            <column width="34%" id="0">
+              <sections>
+                <section name="queue information" showlabel="true" showbar="false" id="{6a5f6485-f4fb-4809-a27c-1bec47ea232f}" IsUserDefined="0" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell colspan="2" id="{c41a3cfb-87c1-4a3f-ae79-9e4969338ef4}" ordinalvalue="10000">
+                        <labels>
+                          <label description="Name" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell colspan="2" id="{a5cccf27-97b5-49c6-b1bc-9fdf037804f7}" ordinalvalue="10001">
+                        <labels>
+                          <label description="Type" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell colspan="2" id="{0ae52dec-4a09-4af3-a2da-e0046e088913}" ordinalvalue="10002">
+                        <labels>
+                          <label description="Incoming Email" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell colspan="2" id="{dc16fa25-d252-4ed3-b0bc-38054a643069}" ordinalvalue="10003">
+                        <labels>
+                          <label description="Owner" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell colspan="2" showlabel="true" rowspan="5" id="{d69d808e-6aad-4db5-b772-6693cf7ce512}" ordinalvalue="10006" solutionaction="Modified">
+                        <labels>
+                          <label description="Description" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a84436c8-151e-08c2-49bd-d1956442341d}" showlabel="true" locklevel="0" colspan="2" ordinalvalue="10004" solutionaction="Added">
+                        <labels>
+                          <label description="Line of Business" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_lineofbusiness" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="mcs_lineofbusiness" disabled="false" uniqueid="{e9a36bdc-2b62-2e92-e11b-7bb12670020a}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{CCBA2E36-BF8B-4DC4-B38F-C45E5EA59C89}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4c333a25-6168-6834-8c7b-e84374ad5619}" showlabel="true" locklevel="0" colspan="2" ordinalvalue="10005" solutionaction="Added">
+                        <labels>
+                          <label description="Incoming Team" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_incomingteam" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="mcs_incomingteam" disabled="false" uniqueid="{492721dd-71c8-04c2-9500-e5b0d893ad0e}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{405953dc-7e7c-aa28-4c33-1968293cd871}" showlabel="true" locklevel="0" ordinalvalue="10007" solutionaction="Added">
+                        <labels>
+                          <label description="Email Subject" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_emailsubject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_emailsubject" disabled="false" uniqueid="{0a66687d-c801-d03e-7e17-68718588e576}" />
+                      </cell>
+                      <cell id="{d5186d21-bce5-8ad1-248b-7446256beb86}" showlabel="false" ordinalvalue="20008" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="incoming email" showlabel="true" showbar="false" locklevel="0" id="{90b8dd85-867b-4aca-8d30-7c00117e693a}" IsUserDefined="0" labelwidth="200" ordinalvalue="1">
+                  <rows>
+                    <row>
+                      <cell id="{46b89973-7949-4e41-83b9-baeba8ccde64}" ordinalvalue="10000">
+                        <labels>
+                          <label description="Convert Incoming Email To Activities" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a24c5251-56c3-4b8f-824a-fc013d4b4534}" showlabel="true" locklevel="0" ordinalvalue="10001">
+                        <labels>
+                          <label description="Mailbox" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar />
+      </Navigation>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Queue" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Updated default Queue form." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,1606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{d502b223-01d3-4d3d-b0ba-ae4e38bdb08e}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighReadOnlyValues" maxWidth="1900" showImage="false" shownavigationbar="true">
+      <tabs>
+        <tab id="{ca64c018-6447-6032-1d32-eaa0a24dceb3}" name="LOB_Selector" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+          <labels>
+            <label description="Select Your LOB and Team" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{2eb54ad2-ed5e-8d58-03d5-82d5b8915cba}" name="tab_10_section_1" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" columns="1" labelwidth="115" height="auto">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{76aad29a-ac62-541e-9ab9-92ac2219769b}" showlabel="false" colspan="1" auto="true" rowspan="10">
+                        <labels>
+                          <label description="LOB Selector" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_mcs_LobSelector" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>mcs_LobSelector.html</Url>
+                            <PassParameters>false</PassParameters>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <WebResourceId>{42E9320F-5CAD-E911-A98A-001DD800951B}</WebResourceId>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{f7a2f4e3-6da9-4b4c-84c3-9c93a6ff4050}" name="interactioninformation" IsUserDefined="1" locklevel="0" showlabel="true" expanded="true" labelid="{3bf3d646-29c2-4874-83ab-91a704bf5be6}" verticallayout="true">
+          <labels>
+            <label description="Interaction Information" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{3b059f76-266b-41a1-99d3-1803fc00e315}" name="{3b059f76-266b-41a1-99d3-1803fc00e315}" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" columns="11" labelwidth="140" labelid="{a1dac7c8-77ca-4315-b03a-1d53fbfd69d0}" celllabelposition="Left" celllabelalignment="Left">
+                  <labels>
+                    <label description="Interaction Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{cc706422-eb97-1c65-64d4-9a9adc667446}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Program Type" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_programtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{2e93a2c1-4c34-d91b-ae33-23d48ba54ca2}" datafieldname="bah_programtypeid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{FACEDF20-3C54-4709-9666-A8233D4BAD73}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{101b3a53-b364-cbd7-67cc-3b3082ae7e89}" locklevel="0" showlabel="true" colspan="1" labelid="{1197042f-c8f2-4495-8bc5-7638d1683d8e}">
+                        <labels>
+                          <label description="Interaction Purpose" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_interactionpurposeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{21300e18-7552-70ee-84a6-58e378924e5d}" datafieldname="vhacrm_interactionpurposeid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{571AB441-9236-E711-812A-1289A8FDD3DA}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                            <AvailableViewIds>{571AB441-9236-E711-812A-1289A8FDD3DA}</AvailableViewIds>
+                            <FilterRelationshipName>vhacrm_vhacrm_typeintersection_vhacrm_areaintersection_typeintersectionid</FilterRelationshipName>
+                            <DependentAttributeName>bah_interactions.vhacrm_typeintersectionid</DependentAttributeName>
+                            <DependentAttributeType>vhacrm_typeintersection</DependentAttributeType>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9772b696-11c7-dbcb-6a25-31c55c6d75d6}" locklevel="0" showlabel="true" labelid="{05a9189b-32dc-46db-831c-e8a65e1b9e64}">
+                        <labels>
+                          <label description="Source" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_interactionsource_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" uniqueid="{e84622ed-9bce-5ebe-c71d-5621a57bc770}" datafieldname="bah_interactionsource_code" />
+                      </cell>
+                      <cell id="{39eba14b-0b3d-6952-6c3d-2b337420c8a8}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Interaction Purpose Detail" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_interactionsubpurposeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{dae454d6-2611-8ed6-302c-76107203695e}" datafieldname="vhacrm_interactionsubpurposeid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{BD48B8BA-8E37-4006-937A-2C6208F65A32}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                            <FilterRelationshipName>vhacrm_vhacrm_areaintersection_vhacrm_subareaintersection_areaintersectionid</FilterRelationshipName>
+                            <DependentAttributeName>bah_interactions.vhacrm_interactionpurposeid</DependentAttributeName>
+                            <DependentAttributeType>vhacrm_areaintersection</DependentAttributeType>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8e2e002b-1d21-7955-6ab3-276d70dad5b4}" locklevel="0" showlabel="true" colspan="1" labelid="{e1139c19-f837-4925-a313-b4a0accd7ea3}">
+                        <labels>
+                          <label description="Contacting Entity" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_interactedwith_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" uniqueid="{74737e31-b432-5451-1c46-81ad89977d97}" datafieldname="bah_interactedwith_code" />
+                      </cell>
+                      <cell id="{1ae0077d-9c90-2953-e655-0c7da92c544d}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Non-Core Reason" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_noncorereason_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" uniqueid="{e6e79080-44a3-ac6e-529a-47a6e32e6eae}" datafieldname="vhacrm_noncorereason_code" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{73463222-54c9-bb95-6e5e-41698ae6e5e8}" locklevel="0" showlabel="true" visible="false" colspan="1" labelid="{98d00b8c-41ef-4792-8a1d-12c735ce39cf}">
+                        <labels>
+                          <label description="Other Title" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_interactedwithother_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{3ea19730-9ab6-a49d-cb44-9a5561903ae8}" datafieldname="bah_interactedwithother_text" />
+                      </cell>
+                      <cell id="{c002aac4-a93e-bc64-66b7-b9a4b537ba03}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Other Detail" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hac_areadetail_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{8b195b31-d4ac-581d-b82a-8b4bc45059c8}" datafieldname="hac_areadetail_text" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e1b96203-9499-8697-841a-76616179c62e}" locklevel="0" showlabel="true" colspan="1" labelid="{d75a45be-745c-4067-b409-53450f776196}">
+                        <labels>
+                          <label description="First Name" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_firstname_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_firstname_text" />
+                      </cell>
+                      <cell id="{b57e65b1-6205-7d36-93e5-22de8193b319}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="TIN" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="ccwf_tin_text" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{2e8a1509-ac21-6975-d3a1-2582a28397da}" datafieldname="ccwf_tin_text" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{25ab50b3-524a-6478-44e7-b36da802a393}" locklevel="0" showlabel="true" colspan="1" labelid="{725b97d9-cb8d-4ac9-913c-831aca0200a3}">
+                        <labels>
+                          <label description="Last Name" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_lastname_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_lastname_text" />
+                      </cell>
+                      <cell id="{068a880b-4e24-aabd-55dc-b9deb7bc0662}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Provider Facility" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="ccwf_providerfacility_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{7b86d7e2-3b3b-e428-639b-2d353e900597}" datafieldname="ccwf_providerfacility_text" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d558e0c5-7957-645e-013a-c6d8d0d10d3a}" locklevel="0" showlabel="true" colspan="1" labelid="{73c08661-2582-4f12-8cca-55de15afc4cb}">
+                        <labels>
+                          <label description="Phone Number" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_phonenumber_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{e8126cb7-d3ae-0040-40b3-a897948495ed}" datafieldname="bah_phonenumber_text" />
+                      </cell>
+                      <cell id="{ea173ac3-ed46-bad3-629d-b12d37946d10}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Provider Address Line 1" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_address1_line1_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{7d8ecb64-ae20-aba6-59d9-e47949367282}" datafieldname="vhacrm_address1_line1_text" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8359a754-e008-c217-4257-7b943e85a6d2}" locklevel="0" showlabel="true" colspan="1" labelid="{a401364e-9dda-4341-8646-54f4c68af71d}">
+                        <labels>
+                          <label description="Phone Extension" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_phoneextension_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_phoneextension_text" />
+                      </cell>
+                      <cell id="{a6e99c0b-4853-5356-c09d-76232a1e2de6}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Provider Address Line 2" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_provideraddressline2_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{ecaea9d3-e0b6-aca6-98a3-5ea3506eba7c}" datafieldname="mcs_provideraddressline2_text" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8e9231da-cc78-dc1a-9357-8a23e7491797}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Email Address" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_emailaddress" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="mcs_emailaddress" disabled="false" />
+                      </cell>
+                      <cell id="{2be083b9-4a74-5c74-ec80-2550613ee236}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Provider City" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_address1_city_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{eaa95c88-b2c6-03d1-dbce-ac1e02d7509d}" datafieldname="vhacrm_address1_city_text" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1356125d-be7e-50e1-a06e-ca232c3ace0b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Fax Number" languagecode="1033" />
+                        </labels>
+                        <control id="ccwf_faxnumber_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ccwf_faxnumber_text" disabled="false" />
+                      </cell>
+                      <cell id="{a1a9ba70-a1c7-2d1e-3ccb-c2812e94ec5c}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Provider State/Province" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_address1_stateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{48ed2765-855c-0810-c46d-7c00c4670859}" datafieldname="vhacrm_address1_stateid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{99D99091-1094-46C7-85C8-F5B10E36C8F5}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{07751aad-0840-cec9-6a39-6dd00c35c6b0}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Sender Email Address" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hrc_emailaddress_text" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" uniqueid="{9d11a6e3-71b4-3979-9cc6-1dc3c3630644}" datafieldname="hrc_emailaddress_text" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1391de3d-6947-86ce-2111-4713a7513b6d}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Receiver Email Address" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_prrtreceiveremailaddress" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" uniqueid="{62d70e8b-ed23-87a3-e745-44d971b67324}" datafieldname="mcs_prrtreceiveremailaddress" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3dc2db43-0948-4be7-11d2-6d6a40151b64}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Email Subject" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_emailsubject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_emailsubject" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b0187b48-7dc9-c202-b9d9-e0abd7885b34}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Date Email Received" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_dateemailrecieved" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" uniqueid="{3dde62eb-471d-7539-5256-81691de1ee66}" datafieldname="mcs_dateemailrecieved" />
+                      </cell>
+                      <cell id="{33e20376-2300-6cae-7c59-6c73c3ec4e71}" locklevel="0" showlabel="true" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Provider Postal Code" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_address1_zip_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{8821db89-035c-ad21-6766-2a8740c759e2}" datafieldname="vhacrm_address1_zip_text" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8e056b31-5dc9-20a0-230e-26e42e8a4976}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Customer to Beneficiary" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_relationshiptoveteran_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" uniqueid="{13743588-9cc8-1edc-2dbd-05e4c7cb6086}" datafieldname="bah_relationshiptoveteran_code" />
+                      </cell>
+                      <cell id="{d015d020-cee2-3e6a-922b-348eaac3d016}" locklevel="0" showlabel="true" visible="false" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Provider Country" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_providercountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{95ce3900-342b-979d-86dc-74191a7bd9e5}" datafieldname="mcs_providercountryid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{0B60BA60-E74B-45A9-8213-0B285A076FF9}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e39caee2-6aa9-4b6d-2a7b-ddd6da9db87a}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Other Relationship" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_otherrelationship_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{60e164c8-4c64-16e2-78da-c688cb9e619c}" datafieldname="bah_otherrelationship_text" />
+                      </cell>
+                      <cell id="{7d0b18fc-1f1e-4712-9151-67e7c26c2ec8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="PATS-R Case Number" languagecode="1033" />
+                        </labels>
+                        <control id="mcs_patsrcasenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="mcs_patsrcasenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1500a463-93d2-3710-4cc7-3b3536602c71}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Address Line 1" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_addressline1_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{8c1289ae-d821-7b01-d0b8-2d2d0538e1d7}" datafieldname="vhacrm_addressline1_text" />
+                      </cell>
+                      <cell locklevel="0" id="{8a156715-5dac-4451-9a79-936bcc3f1bbf}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="PATS-R Cases" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="PATSRCases" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>mcs_patsrcase</TargetEntityType>
+                            <ViewId>{D7A1CCAD-CA13-EB11-A813-001DD801DF87}</ViewId>
+                            <ViewIds>{FB32CBD7-F38B-4DB8-98D8-C50764295CFD},{D7A1CCAD-CA13-EB11-A813-001DD801DF87}</ViewIds>
+                            <RelationshipName>mcs_bah_interactions_mcs_patsrcase_Interaction</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{da401ad8-329d-6a2b-be48-c43a85b13697}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Address Line 2" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_addressline2_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{489a4200-92c7-00b0-7ee2-4cc561dd39a3}" datafieldname="mcs_addressline2_text" />
+                      </cell>
+                      <cell id="{3c3b8431-d169-a550-82e9-20876458d4d5}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{79e50794-2770-3cc3-17b6-9c6da41dd8b9}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="City" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_city_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{d56b3d76-bcd3-2db1-79d5-3287335ae03d}" datafieldname="vhacrm_city_text" />
+                      </cell>
+                      <cell id="{a38e2215-c803-2856-072b-a9a4644a9b81}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8b394ca5-c306-1cab-0044-1c601ba7e518}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="State/Province" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_stateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{65e7061b-0447-e092-8be5-44b6ab7d41e2}" datafieldname="vhacrm_stateid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{99D99091-1094-46C7-85C8-F5B10E36C8F5}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{7912c0dd-5a56-c2ea-c7a3-d9c3bd5049bc}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{083d77cc-718c-7d97-dd2e-935344eb9b27}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Postal Code" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_zip_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{b4a74e63-e56a-b5c4-1cd6-cd3c7abae75a}" datafieldname="vhacrm_zip_text" />
+                      </cell>
+                      <cell id="{47d6748b-5228-3c71-5bbc-6b247ed15e45}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{83b956ba-2c94-e9ae-bace-bc9bc665332b}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Country" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_countryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{b4e03248-8096-cca8-8e23-b6a0324a1064}" datafieldname="mcs_countryid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{0B60BA60-E74B-45A9-8213-0B285A076FF9}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{484c7502-1da0-3728-cc20-a92d2788a37e}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{93749054-634d-4802-ab6a-42ce7eec455a}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Survey Email Address" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_surveyemailaddress" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" uniqueid="{0a8a5b30-31e9-a5bb-7256-ed8b5169169e}" datafieldname="mcs_surveyemailaddress" />
+                      </cell>
+                      <cell id="{900b6332-cd3b-a58e-0a46-65d72bcac5b0}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{20de5aa7-48b6-1848-0e13-d0d5b8a3d0d4}" showlabel="false" userspacer="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{0d006c69-a662-a6a0-6b0d-3eae30949e7d}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d01dbc1c-079c-8c92-b9c1-2697781e0318}" showlabel="false" colspan="1" auto="false" rowspan="1">
+                        <labels>
+                          <label description="PreloadMVISearch" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_PreloadMVISearch" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>mcs_PreloadMVISearch.html</Url>
+                            <PassParameters>false</PassParameters>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <Security>false</Security>
+                            <Scrolling>no</Scrolling>
+                            <Border>false</Border>
+                            <WebResourceId>{DF98FBAE-68BF-E911-A983-001DD8009F4B}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false">
+                            <dependencies />
+                          </event>
+                        </events>
+                      </cell>
+                      <cell id="{759117c7-34a9-d79b-41c4-00d9ca695157}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section id="{126549ba-a648-1a3a-2084-8c0e38d817eb}" name="interactioninformation_section_3" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" celllabelalignment="Left">
+                  <labels>
+                    <label description="Callers (Contacting Entity)" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{138c6c14-33e6-b2d8-3e66-3886457255b8}" showlabel="true" colspan="1" auto="false" rowspan="7">
+                        <labels>
+                          <label description="Callers (Contacting Entity)" languagecode="1033" />
+                        </labels>
+                        <control id="Callers" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{250c03a6-70a5-13d7-8743-b5a601450cb2}" indicationOfSubgrid="true">
+                          <parameters>
+                            <ViewId>{B771D26B-8EFA-E911-A98B-001DD800BA25}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>mcs_bah_interactions_mcs_caller_Interaction</RelationshipName>
+                            <TargetEntityType>mcs_caller</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{CDF9B20E-9A33-40A0-B9B8-E45AC6F2F9E9},{B771D26B-8EFA-E911-A98B-001DD800BA25}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section id="{b439c829-889c-84e4-b6e5-9c80bb903717}" name="interactioninformation_hhdata" IsUserDefined="0" locklevel="0" showlabel="false" visible="false" showbar="false" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" celllabelalignment="Left">
+                  <labels>
+                    <label description="HH Data" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5399396c-c6be-4856-d2a7-44805848c05c}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Household Data" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_householddata" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{41b803bc-7149-18ae-c1b4-40b349ea0c38}" datafieldname="mcs_householddata" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3a16e1dd-b20e-7dc7-4896-d09b0ab81b47}" locklevel="0" showlabel="true" visible="false">
+                        <labels>
+                          <label description="HouseHold Data Large" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_householddatalarge" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" uniqueid="{d66345cd-5697-d8eb-85c9-5a1b19ee6b60}" datafieldname="mcs_householddatalarge" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{99ae0694-1ad6-8282-084e-0776ab12ec18}" name="tab_2" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" labelid="{5a47c96b-4429-45d3-9ccb-910d565f8f0f}">
+          <labels>
+            <label description="MPI Search" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{e6d17c08-36e1-cdbe-5e6e-18aa023d40ae}" name="tab_2_section_1" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" columns="1111" labelwidth="90" height="auto" labelid="{88224f2e-e43e-456b-a564-45ce89a482d9}" celllabelposition="Left" celllabelalignment="Left">
+                  <labels>
+                    <label description="Search by Traits" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{82239116-44b3-dc3a-b694-91e0936c2c95}" showlabel="false" colspan="4" auto="true" rowspan="10" labelid="{feac1946-b464-4517-add4-e9365adb3afc}">
+                        <labels>
+                          <label description="ccwf_mvisearch" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_ccwf_mvisearch" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>bah_MVIPersonSearchAdd</Url>
+                            <PassParameters>false</PassParameters>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <WebResourceId>{22298861-48C4-E511-941B-0050568D2641}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false">
+                            <dependencies />
+                          </event>
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_TinSearch" id="0b094695-be93-46ee-acaa-6ba93e38a4e5" IsUserDefined="0" locklevel="0" showlabel="true" visible="false">
+          <labels>
+            <label description="TIN Search" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_11_section_1" id="67ab77a7-4829-442d-9565-e3ef276ff12e" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell rowspan="15" id="{68a425e6-1465-46f3-80fa-a994a0c44758}" showlabel="false" colspan="1" auto="true">
+                        <labels>
+                          <label description="RequestsByTinSearch" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_RequestsByTinSearch" classid="{9FDF5F91-88B1-47F4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>mcs_RequestsByTinSearch.html</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <WebResourceId>{1392c799-907e-ea11-a811-001dd8018230}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false" active="false" />
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{5a8e7271-9762-c286-13c2-31060c03bb1d}" name="request_create_tab" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Requests" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{7c4518ad-9cdd-b733-07c9-4d839aab16a1}" name="{f7a2f4e3-6da9-4b4c-84c3-9c93a6ff4050}_section_7" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" columns="11" labelwidth="125" labelid="{31ce9f33-bd1f-4441-8b46-580f9649d9d2}" celllabelposition="Left" celllabelalignment="Left">
+                  <labels>
+                    <label description="Related Requests" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4d6847eb-5a91-ec93-78ca-025b874d77e1}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Patient" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="bah_veteranid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{5ab93279-cda4-6875-cbb0-a0197ad0d711}" datafieldname="bah_veteranid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{c6994b33-8682-d4c9-63b1-31ad41e8a287}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Request" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="vhacrm_requestid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{db73549b-158d-a76c-3187-a7a2aae7b7b4}" datafieldname="vhacrm_requestid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{9AC51863-58C7-49A0-ADCC-AFD9A4C3EE59}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{01544528-0dee-62e6-ce62-64ba77352872}" showlabel="true" colspan="2" auto="false" rowspan="13">
+                        <labels>
+                          <label description="Requests created for this Interaction" languagecode="1033" />
+                        </labels>
+                        <control id="RequestDetail" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{30045853-1dd6-3355-0036-1714639be9d5}" indicationOfSubgrid="true">
+                          <parameters>
+                            <ViewId>{F1A659D5-4E21-E811-811E-1458D04E2938}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>bah_interactions_incident_interactionstorequestid</RelationshipName>
+                            <TargetEntityType>incident</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{00000000-0000-0000-00AA-000010001028},{F1A659D5-4E21-E811-811E-1458D04E2938}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId>{4143B74E-4A07-4D01-9FFE-2CDCAA4208FD}</VisualizationId>
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>10</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{0b945608-1b87-4c85-13c4-e74e6a23b60e}" name="PatientHistory" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Patient History" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{e2478e18-9c56-7345-3ddc-10b101c36ec1}" name="RequestHistory" IsUserDefined="0" locklevel="0" showlabel="true" showbar="true" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" celllabelalignment="Left">
+                  <labels>
+                    <label description="Request History" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8084732b-4d08-ec99-08dc-645631c75a00}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Patient" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="bah_veteranid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="bah_veteranid" uniqueid="{676510db-bb0b-6157-4591-8d0ba05ab4a8}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bd7d8c7a-6c7a-070b-319b-6a7a7a3746cb}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="Patient" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="VeteranRequestHistory" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="bah_veteranid">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="contact"&gt;02790327-bf8f-42c6-a9a6-38220a2ed50d&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{6232dc7e-cad4-eba4-1340-95c2d79783b4}" name="tab_admin" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false" labelid="{b3e1ee7b-1130-4225-b64b-acdd8889b648}">
+          <labels>
+            <label description="Administration" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section id="{946ae11c-b247-eaba-78d9-b57cc7ee6051}" name="tab_3_section_3" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" columns="11" labelwidth="115" labelid="{bc530894-2c69-42cb-975e-734fea33cac9}" celllabelposition="Left" celllabelalignment="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{cdabae93-bc66-7073-9289-0704e384cb3e}" locklevel="0" showlabel="true" labelid="{86f8fe91-0b8d-44f0-add2-926a52bd7ebf}">
+                        <labels>
+                          <label description="Created On" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" />
+                      </cell>
+                      <cell id="{a397d206-13cb-c4b4-80d0-539e81bcb112}" locklevel="0" showlabel="true" labelid="{2ed4a5b0-dcaa-44c9-b46a-bc260a33327d}">
+                        <labels>
+                          <label description="Created By" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9dea9e72-6e16-75e3-8be4-07cea66c9a96}" locklevel="0" showlabel="true" labelid="{764d04d4-9321-4a89-89a8-e44d1ec9da3f}">
+                        <labels>
+                          <label description="Modified On" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="modifiedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" />
+                      </cell>
+                      <cell id="{3d57d4ae-7b02-d123-8571-47ac58d1e6ea}" locklevel="0" showlabel="true" labelid="{03344eea-edd6-4053-b184-03f7cb0ff87f}">
+                        <labels>
+                          <label description="Modified By" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section id="{68dcc257-5c05-5853-51ea-ab59e9881d3e}" name="tab_3_section_4" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" columns="11" labelwidth="115" labelid="{851378ec-13c6-4d4d-93c5-7cb8a88fb4c5}" celllabelposition="Left" celllabelalignment="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{32a8d523-57dd-4c11-67a7-c15e25591ad5}" locklevel="0" showlabel="true" labelid="{f69ef8df-26dc-41eb-ad59-874408be99cb}">
+                        <labels>
+                          <label description="Status" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+                      </cell>
+                      <cell id="{19b721bb-71b6-4690-eba6-68645e87024e}" locklevel="0" showlabel="true" labelid="{aa19950e-1f03-4181-a4e1-f71a69641dab}">
+                        <labels>
+                          <label description="Status Reason" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aeb3e18e-c021-4886-a475-fb2eae97d7a2}" locklevel="1" showlabel="true" labelid="{040ad4f2-34e9-477f-b285-d8d4b50e3f0d}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{cbe7b4e5-3e49-6d8d-b557-4da2e211d323}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{25a40abd-700c-b70a-cae9-ea4375cb8960}" name="tab_7" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+          <labels>
+            <label description="Related Tasks" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{983b323c-32e9-a876-532b-bceb2144c9a4}" name="tab_7_section_1" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8c5cb3a6-aa67-b635-916b-7a1c191ab281}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="Action Tasks" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="actiontasks" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="vhacrm_requestid">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="incident"&gt;683731a3-c9c8-4e2f-b431-59122dc000a2&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Notes" id="{34c40187-335e-2d84-18c2-e96e66ce165a}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Notes and Activities" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_10_section_2" showlabel="false" showbar="false" locklevel="0" id="{3e153ac8-dbb8-01a6-a51b-cc3d768dabe1}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" height="auto">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{24cb3119-90bb-8a07-8950-57c7b5042c3c}" showlabel="true" rowspan="15" auto="true" colspan="1" locklevel="0">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" uniqueid="{0b65c354-0224-3e53-9173-bac1e6d738e0}" disabled="false">
+                          <parameters>
+                            <UClientUniqueName>Timeline</UClientUniqueName>
+                            <UClientModules>Notes</UClientModules>
+                            <UClientDefaultModuleForCreateExperience>Notes</UClientDefaultModuleForCreateExperience>
+                            <UClientShowFilterPane>false</UClientShowFilterPane>
+                            <UClientExpandFilterPane>false</UClientExpandFilterPane>
+                            <UClientOrderBy>descending</UClientOrderBy>
+                            <UClientRecordPerPage>10</UClientRecordPerPage>
+                            <DefaultTabId>ActivitiesTab</DefaultTabId>
+                            <EmailConversationView>true</EmailConversationView>
+                            <ShowArticleTab>false</ShowArticleTab>
+                            <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                            <UClientNotesConfigurationJSON>{"fieldsConfig":{"labelOverride":true,"header":{"labelOption":"Show","displayOption":"AlwaysShow"},"body":[{"labelOption":"Hide","displayOption":"AlwaysShow"},{"labelOption":"Hide","displayOption":"AlwaysShow"}],"footer":{"labelOption":"Hide","displayOption":"Hide"}}}</UClientNotesConfigurationJSON>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{05067839-6eb7-768a-1481-ac68845ea4ed}" name="tab_hidden" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" labelid="{cb3f0aa9-d67a-47bc-9ba6-bedef2e6a715}" visible="false">
+          <labels>
+            <label description="Hidden Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{18a9a5dd-4c34-9ee4-ce4a-3426333aca80}" name="tab_6_section_2" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" columns="1111" labelwidth="115" labelid="{d988f5f5-0667-406c-aabf-dc1f7e9b65e6}" celllabelposition="Left" celllabelalignment="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ded0ec7c-b9b0-7635-2079-8d348d3ae8b4}" locklevel="0" showlabel="true" visible="false" labelid="{4e0a24df-5ed1-4a53-b0b5-48253e9ac08e}">
+                        <labels>
+                          <label description="Interaction #" languagecode="1033" />
+                        </labels>
+                        <control disabled="true" id="hrc_interactionno_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hrc_interactionno_text" />
+                      </cell>
+                      <cell id="{3db7ca65-8092-4775-a333-cf546dee733d}" locklevel="0" showlabel="true" visible="false" labelid="{8e90bf58-d768-4bf6-ba5a-3d5514c20acd}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_name" />
+                      </cell>
+                      <cell id="{baa7a839-1893-68b4-ba30-c7c153c61cea}" locklevel="1" showlabel="true" visible="false" labelid="{3c17dad9-a747-4bdc-a3cf-123e559e168e}">
+                        <labels>
+                          <label description="Current Claim" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_claimid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_claimid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{FCE27742-B0F0-49E7-96A3-FE493C868927}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{204cb1be-c415-0442-a00a-5a4745035b74}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Team" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hac_teamid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{d1966ab7-eb5e-50ec-b143-ddbac1a97668}" datafieldname="hac_teamid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{57E39843-404C-48E5-B1D9-1889098FB65C}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b6eb5cc0-b045-9b12-0755-373d97aa6b75}" locklevel="0" showlabel="true" colspan="1" labelid="{e363e3bb-a2ab-4b07-98c5-220204532bff}">
+                        <labels>
+                          <label description="Line of Business" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hrc_lobid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{69ca1097-6b21-d1e4-17eb-c52615b70b67}" datafieldname="hrc_lobid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{CCBA2E36-BF8B-4DC4-B38F-C45E5EA59C89}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{71b9542c-ddab-812d-0005-9c2a8614d2db}" locklevel="0" showlabel="true" visible="false" labelid="{844f6ef1-1714-4e37-af15-ef2df27f6fcf}">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_typeintersectionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{4e91ca8e-036a-1393-030d-e34ead0a4b5e}" datafieldname="vhacrm_typeintersectionid">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{CF0C70B4-DF9A-442D-967D-3928CD2092B8}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{0a21091e-c146-a111-79e3-95572d838c83}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="CSR Supervisor" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hac_csr_supervisor" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="hac_csr_supervisor" />
+                      </cell>
+                      <cell id="{e5b53b5b-6c2b-a9a2-923c-b892a4581dea}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Non-Bene Hidden" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hac_nonbenetemp_bool" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" uniqueid="{6e085acc-71dd-043c-7ec2-bc8a47b541a5}" datafieldname="hac_nonbenetemp_bool" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bb2b25b6-bc2b-8a4d-3dd1-42b625024656}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Family Member Name" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hac_veteranname_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_veteranname_text" />
+                      </cell>
+                      <cell id="{b1e0b826-2bc8-a6c5-ed2d-e736bc06c0a2}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Family Member SSN" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hac_veteranssn_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_veteranssn_text" />
+                      </cell>
+                      <cell id="{915b554c-213d-c817-e22e-29427814ae08}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="PDI Number" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hac_pdinumber_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hac_pdinumber_text" />
+                      </cell>
+                      <cell id="{5eb68241-de8d-b635-08d9-39da9e27cd13}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Non-Beneficiary Reason" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hac_nonbenereason_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="hac_nonbenereason_code" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4119e917-4147-e99a-d296-94c797237a45}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Close Interaction" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_closeinteraction" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="vhacrm_closeinteraction" />
+                      </cell>
+                      <cell id="{d514889c-42a0-1b50-1244-11c2a4c0ce62}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Increment No." languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_incrementno_number" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" uniqueid="{95c29eba-80aa-50d5-b748-2712b24a7b85}" datafieldname="vhacrm_incrementno_number" />
+                      </cell>
+                      <cell id="{dc6ca545-263e-5be8-6d86-2d033e21532e}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Veteran" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_veteranid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="bah_veteranid" />
+                      </cell>
+                      <cell id="{c6d4e1a3-ec97-0152-6e08-64c252467a05}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Team" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="hac_teamid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{0016b407-2d26-720d-240b-e0852edd2ecc}" datafieldname="hac_teamid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{76539133-39bd-a21d-2496-39e2b0d57b45}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="SSN" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_ssn_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_ssn_text" />
+                      </cell>
+                      <cell id="{5c6b95aa-e6b4-0061-ac60-5a0a8b1a17c1}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="DOB" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="bah_dob_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="bah_dob_date" />
+                      </cell>
+                      <cell id="{337335ca-bcd2-7c72-9d78-676a83d872eb}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="Survey Customer" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="mcs_surveycustomer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{0acb95eb-3ea5-3024-e850-10688ad37d70}" datafieldname="mcs_surveycustomer">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{5605129b-2aac-e264-4a25-de4558ab4545}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Purpose" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_areaintersectionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_areaintersectionid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{70d10717-e409-1c57-98e2-b51766d593b1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Purpose Detail" languagecode="1033" />
+                        </labels>
+                        <control id="vhacrm_subareaintersectionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vhacrm_subareaintersectionid" disabled="false" />
+                      </cell>
+                      <cell id="{ba12e59c-b5e2-89e7-7e10-d98509916d19}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{71c54d51-7c98-6e98-0ba4-551d3d71b975}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{4a6b0b50-45a3-023a-8dba-177d33732091}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{6da0b4c2-358e-1934-5c77-e0791d941b59}" name="tab_8" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+          <labels>
+            <label description="CTI Data" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section id="{c706151b-9e0e-4cc9-bec2-1b5a8997a87b}" name="tab_8_section_1" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{26998909-1032-8ea7-55c0-ec77269ab72c}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="CTI ANI" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_ctiani" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_ctiani" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{04c66403-8462-cdd4-3b66-7b1d7c5345a1}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="CTI DNIS" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_ctidnis" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{366c2584-aede-3d31-2700-0146e00292cd}" datafieldname="vhacrm_ctidnis" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dd754b9a-6c79-38be-43ce-9905cadce5a4}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="CTI Inbound Phone" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_ctiinboundphone" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_ctiinboundphone" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ee55ac3b-3aad-7848-3861-4325425578d3}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="CTI Triggered" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_ctitriggered" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" uniqueid="{34d76b22-9d88-a5a1-324a-b309e7cb6875}" datafieldname="vhacrm_ctitriggered" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section id="{edd65cad-0a08-5e5c-ea94-1c2e4394c45b}" name="tab_8_section_2" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{941bd166-3dad-0c9d-8e4c-9b988b09de41}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="CTI Identifier" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_ctiidentifier" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_ctiidentifier" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6ba09738-d34a-6e80-2292-eca80ee8be09}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="CTI DOB" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_ctidob" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_ctidob" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c928a010-3890-cac2-87d2-d7d40d4a5a7b}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="CTI EDIPI" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_ctiedipi" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_ctiedipi" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{02128a27-a3be-3ecd-ebc4-041c624db884}" locklevel="0" showlabel="true">
+                        <labels>
+                          <label description="CTI TIN" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="vhacrm_ctitin" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="vhacrm_ctitin" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{e96b94ac-e588-45a5-b6ca-14adfdf4f0a6}" columns="1111" labelwidth="250" celllabelposition="Left" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{199d10ee-765d-272a-66dc-76ae8ab77488}" locklevel="0" showlabel="true" labelid="{6b7f4872-987f-44fa-a384-525bc032f757}">
+              <labels>
+                <label description="Contacting Entity" languagecode="1033" />
+              </labels>
+              <control disabled="true" id="header_bah_interactedwith_code" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="bah_interactedwith_code" uniqueid="{657ab2dd-a065-94e6-4067-7a80e01c54e4}" />
+            </cell>
+            <cell id="{d3e373e4-d3cb-54b7-1349-323a5e8cbe19}" locklevel="0" showlabel="true" labelid="{e44358cc-e675-4bb7-a1d5-92ae290f1573}">
+              <labels>
+                <label description="Caller First Name" languagecode="1033" />
+              </labels>
+              <control disabled="true" id="header_bah_firstname_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bah_firstname_text" />
+            </cell>
+            <cell id="{ac760ca6-bc84-b84e-d92b-63d694244691}" locklevel="0" showlabel="true">
+              <labels>
+                <label description="Patient First Name" languagecode="1033" />
+              </labels>
+              <control disabled="true" id="header_vhacrm_veteranfirstname_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{bc3ea108-4244-67ca-23ac-d42ea6326541}" datafieldname="vhacrm_veteranfirstname_text" />
+            </cell>
+            <cell id="{376ed34e-e032-ade4-be39-72e0aaa115a6}" locklevel="0" showlabel="true">
+              <labels>
+                <label description="Patient Last Name" languagecode="1033" />
+              </labels>
+              <control disabled="true" id="header_vhacrm_veteranlastname_text" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{326d203d-92ab-2b8e-9e4c-c5ed6d6ebb7c}" datafieldname="vhacrm_veteranlastname_text" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{129edcd5-cfb0-4639-9862-e7e9e7c8688d}" columns="1111" labelwidth="115" celllabelposition="Left" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{157355b8-45a7-c056-202b-7da3c171a9eb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a1e637d7-e330-d64a-1277-15b6bda5e883}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{47d5c12d-8155-4872-26c4-230a4ce2a79c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{002c6481-0827-c6a2-2204-461d0a1b6c16}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar>
+          <NavBarByRelationshipItem RelationshipName="mcs_NamedEmployee_Interaction_bah_interac" Sequence="10000" Area="Info" Id="nav_mcs_NamedEmployee_Interaction_bah_interac" Show="false">
+            <Titles>
+              <Title LCID="1033" Text="Named Employees" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_bah_interactions_queueitem_Interaction" Sequence="10000" Area="Info" Id="nav_mcs_bah_interactions_queueitem_Interaction" Show="false">
+            <Titles>
+              <Title LCID="1033" Text="Queue Items" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_bah_interactions_mcs_patsrcase_Interaction" Sequence="10000" Area="Info" Id="nav_mcs_bah_interactions_mcs_patsrcase_Interaction" Show="false">
+            <Titles>
+              <Title LCID="1033" Text="PATS-R Cases" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_Task_Interaction_bah_interactions" Sequence="10000" Area="Info" Id="nav_mcs_Task_Interaction_bah_interactions" Show="false">
+            <Titles>
+              <Title LCID="1033" Text="Tasks" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navAudit" Id="navAudit" Show="true" Sequence="10000" Area="Info">
+            <Titles>
+              <Title LCID="1033" Text="Audit History" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_bah_interactions_mcs_prrtroute_AssociatedInteraction" Sequence="10001" Area="Info" Id="nav_mcs_bah_interactions_mcs_prrtroute_AssociatedInteraction" Show="false">
+            <Titles>
+              <Title LCID="1033" Text="PRRT Routes" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem Id="nav_vhacrm_bah_interactions_vhacrm_correspondence_interactionstorequestid" Area="Info" Sequence="10002" RelationshipName="vhacrm_bah_interactions_vhacrm_correspondence_interactionstorequestid" Show="false">
+            <Titles>
+              <Title Text="Correspondences" LCID="1033" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem Id="nav_bah_interactions_incident_interactionstorequestid" Area="Info" Sequence="10003" RelationshipName="bah_interactions_incident_interactionstorequestid" Show="false">
+            <Titles>
+              <Title Text="Requests" LCID="1033" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem Id="nav_hrc_bah_interactions_bah_casenote_interactionid" Area="Info" Sequence="10004" RelationshipName="hrc_bah_interactions_bah_casenote_interactionid" Show="false">
+            <Titles>
+              <Title Text="Case Notes" LCID="1033" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem Id="nav_vhacrm_bah_interactions_bah_claim" Area="Info" Sequence="10005" RelationshipName="vhacrm_bah_interactions_bah_claim" Show="false">
+            <Titles>
+              <Title Text="Claims" LCID="1033" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem Id="nav_vhacrm_bah_interactions_vhacrm_recordaccess_interaction" Area="Info" Sequence="10006" RelationshipName="vhacrm_bah_interactions_vhacrm_recordaccess_interaction" Show="false">
+            <Titles>
+              <Title Text="Records Accessed" LCID="1033" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem Id="nav_vhacrm_bah_interactions_vhacrm_referrals_interactionid" Area="Info" Sequence="10007" RelationshipName="vhacrm_bah_interactions_vhacrm_referrals_interactionid" Show="false">
+            <Titles>
+              <Title Text="Referrals" LCID="1033" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem Id="nav_hac_bah_interactions_hac_casenote_interactionid" Area="Info" Sequence="10008" RelationshipName="hac_bah_interactions_hac_casenote_interactionid" Show="false">
+            <Titles>
+              <Title Text="Related Notes" LCID="1033" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_bah_interactions_mcs_caller_Interaction" Sequence="10009" Area="Info" Id="nav_mcs_bah_interactions_mcs_caller_Interaction" Show="false">
+            <Titles>
+              <Title LCID="1033" Text="Callers" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="mcs_bah_interactions_mcs_crpsnote_Interaction" Sequence="10010" Area="Info" Id="nav_mcs_bah_interactions_mcs_crpsnote_Interaction" Show="false">
+            <Titles>
+              <Title LCID="1033" Text="CPRS Notes" />
+            </Titles>
+          </NavBarByRelationshipItem>
+        </NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title Text="Common" LCID="1033" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title Text="Sales" LCID="1033" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title Text="Service" LCID="1033" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title Text="Marketing" LCID="1033" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title Text="Process Sessions" LCID="1033" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions>
+        <controlDescription forControl="{2e8a1509-ac21-6975-d3a1-2582a28397da}">
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="0">
+            <parameters>
+              <datafieldname>ccwf_tin_text</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="1">
+            <parameters>
+              <datafieldname>ccwf_tin_text</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="2">
+            <parameters>
+              <datafieldname>ccwf_tin_text</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl name="MscrmControls.InputMask.InputMaskControl" formFactor="-1">
+            <parameters>
+              <value>ccwf_tin_text</value>
+              <mask type="SingleLine.Text" static="true">000000000</mask>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{30045853-1dd6-3355-0036-1714639be9d5}">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="0">
+            <parameters>
+              <ViewId>{F1A659D5-4E21-E811-811E-1458D04E2938}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>bah_interactions_incident_interactionstorequestid</RelationshipName>
+              <TargetEntityType>incident</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{00000000-0000-0000-00AA-000010001028},{F1A659D5-4E21-E811-811E-1458D04E2938}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>Grid</ChartGridMode>
+              <VisualizationId>{4143B74E-4A07-4D01-9FFE-2CDCAA4208FD}</VisualizationId>
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>false</EnableChartPicker>
+              <RecordsPerPage>10</RecordsPerPage>
+              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+            </parameters>
+          </customControl>
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="1">
+            <parameters>
+              <ViewId>{F1A659D5-4E21-E811-811E-1458D04E2938}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>bah_interactions_incident_interactionstorequestid</RelationshipName>
+              <TargetEntityType>incident</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{00000000-0000-0000-00AA-000010001028},{F1A659D5-4E21-E811-811E-1458D04E2938}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>Grid</ChartGridMode>
+              <VisualizationId>{4143B74E-4A07-4D01-9FFE-2CDCAA4208FD}</VisualizationId>
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>false</EnableChartPicker>
+              <RecordsPerPage>10</RecordsPerPage>
+              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+            </parameters>
+          </customControl>
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="2">
+            <parameters>
+              <ViewId>{F1A659D5-4E21-E811-811E-1458D04E2938}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>bah_interactions_incident_interactionstorequestid</RelationshipName>
+              <TargetEntityType>incident</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{00000000-0000-0000-00AA-000010001028},{F1A659D5-4E21-E811-811E-1458D04E2938}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>Grid</ChartGridMode>
+              <VisualizationId>{4143B74E-4A07-4D01-9FFE-2CDCAA4208FD}</VisualizationId>
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>false</EnableChartPicker>
+              <RecordsPerPage>10</RecordsPerPage>
+              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+            </parameters>
+          </customControl>
+          <customControl name="MscrmControls.Grid.ReadOnlyGrid" formFactor="-1">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{F1A659D5-4E21-E811-811E-1458D04E2938}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>bah_interactions_incident_interactionstorequestid</RelationshipName>
+                <TargetEntityType>incident</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{00000000-0000-0000-00AA-000010001028},{F1A659D5-4E21-E811-811E-1458D04E2938}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">no</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <formLibraries>
+        <Library name="vhacrm_/scripts/Common/CommCareShared.min.js" libraryUniqueId="{c4d42062-6848-7b42-38ba-783114ae5145}" />
+        <Library name="mcs_ApplicationInsights" libraryUniqueId="{434a88d8-7547-4441-188c-2e773d6aa91b}" />
+        <Library name="vhacrm_/Forms/js/entity_Interaction.js" libraryUniqueId="{98115c4b-d262-08c6-d933-c324cc3ee76e}" />
+        <Library name="hac_/WebResources/Forms/js/entity_Interaction_OCCFM.js" libraryUniqueId="{e81b084a-3be8-92dc-d190-60e0d6818cb7}" />
+        <Library name="bah_/Forms/js/entity_Interaction_RequestValidation" libraryUniqueId="{463012cf-aa95-4783-8977-fc1c92352bdf}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler parameters="" passExecutionContext="true" enabled="true" libraryName="vhacrm_/Forms/js/entity_Interaction.js" functionName="CommCare.Interaction.Global.OnLoad" handlerUniqueId="{3da4388e-ad30-c6c1-c0b4-960e123aaa04}" />
+            <Handler parameters="" passExecutionContext="true" enabled="false" libraryName="hac_/WebResources/Forms/js/entity_Interaction_OCCFM.js" functionName="form_OnLoad" handlerUniqueId="{82e367dc-4d77-88e1-6708-cc7577e3ca81}" />
+            <Handler functionName="initiateAppInsights" libraryName="mcs_ApplicationInsights" handlerUniqueId="{1b76ddca-3ab1-759a-5a2b-15a4ae75381d}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="1" FallbackForm="true">
+        <Role Id="{44F43F70-E434-E311-884B-08002781895E}" />
+        <Role Id="{618A7DAA-0A35-E311-B65C-080027582B1C}" />
+        <Role Id="{095BAEC5-5620-E711-942D-0050568D1C17}" />
+        <Role Id="{28E61246-B61F-E711-942D-0050568D1C17}" />
+        <Role Id="{6C81475C-BA4B-E711-9435-0050568D1C17}" />
+        <Role Id="{2EDBC270-6020-E711-942D-0050568D1C17}" />
+        <Role Id="{D02E3675-ED29-E711-9431-0050568D1C17}" />
+        <Role Id="{37FB9892-8141-E711-9434-0050568D1C17}" />
+        <Role Id="{A7FAC18A-8341-E711-9434-0050568D1C17}" />
+        <Role Id="{D16EB936-C11F-E711-942D-0050568D1C17}" />
+        <Role Id="{1CB3F922-5D20-E711-942D-0050568D1C17}" />
+        <Role Id="{3CF22D91-3116-E711-8168-1200A26D3DA3}" />
+        <Role Id="{929393DF-E31E-E711-942D-0050568D1C17}" />
+        <Role Id="{CDD0B545-4A16-E711-8168-1200A26D3DA3}" />
+        <Role Id="{1D1C4B74-5D20-E711-942D-0050568D1C17}" />
+        <Role Id="{CF192F49-3416-E711-8168-1200A26D3DA3}" />
+        <Role Id="{F1E2899D-ED1E-E711-942D-0050568D1C17}" />
+        <Role Id="{837BCF3C-B61F-E711-942D-0050568D1C17}" />
+        <Role Id="{A8223F03-3716-E711-8168-1200A26D3DA3}" />
+        <Role Id="{489127E3-3616-E711-8168-1200A26D3DA3}" />
+        <Role Id="{CCCBC873-3916-E711-8168-1200A26D3DA3}" />
+        <Role Id="{C3DFF2C3-5D20-E711-942D-0050568D1C17}" />
+        <Role Id="{AFD425CB-4616-E711-8168-1200A26D3DA3}" />
+        <Role Id="{9C2D2794-3516-E711-8168-1200A26D3DA3}" />
+        <Role Id="{F25F59B0-E31E-E711-942D-0050568D1C17}" />
+        <Role Id="{5E199501-5E20-E711-942D-0050568D1C17}" />
+        <Role Id="{3C3B6249-4B16-E711-8168-1200A26D3DA3}" />
+        <Role Id="{DA494801-E41E-E711-942D-0050568D1C17}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="OCCFM" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="New OCCFM Interaction Form" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

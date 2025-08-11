@@ -1,0 +1,10 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |
+        =Set(entityName, If(!IsBlank(Param("entityName")), Param("entityName"), ""));
+        Set(ids, Split(If(!IsBlank(Param("recordId")), Param("recordId"), ""), "|"));
+        Set(appId, Index(ids, 1).Result);
+        Set(formId, Index(ids, 2).Result);
+        Set(recordId, Index(ids, 3).Result);
+        Set(url, Concatenate("/main.aspx?appid=",appId,"&pagetype=entityrecord&navbar=off&etn=",entityName, "&formid=", formId, "&id=", recordId));
+

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{ccb6974d-8458-45bc-8eb5-5d18fc5226ae}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mcs_name" select="1" icon="1" preview="1">
+        <row name="result" id="mcs_taskertaskid">
+          <cell name="mcs_name" width="300" />
+          <cell name="mcs_descriptionplaintext" width="100" disableSorting="1" />
+          <cell name="mcs_veteran" width="100" />
+          <cell name="mcs_directorateduedate" width="100" />
+          <cell name="mcs_submittedby" width="100" />
+          <cell name="mcs_approvedby" width="100" />
+          <cell name="modifiedon" width="100" />
+          <cell name="mcs_responseplaintext" width="100" />
+          <cell name="mcs_briefstatementofissueandstatusplaintext" width="100" />
+          <cell name="mcs_actionsprogressandresolutionplaintext" width="100" />
+          <cell name="mcs_nextstepsplaintext" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="mcs_taskertask">
+          <attribute name="mcs_name" />
+          <attribute name="mcs_submittedby" />
+          <attribute name="modifiedon" />
+          <attribute name="mcs_directorateduedate" />
+          <attribute name="mcs_approvedby" />
+          <attribute name="mcs_descriptionplaintext" />
+          <attribute name="mcs_veteran" />
+          <attribute name="mcs_responseplaintext" />
+          <attribute name="mcs_briefstatementofissueandstatusplaintext" />
+          <attribute name="mcs_actionsprogressandresolutionplaintext" />
+          <attribute name="mcs_nextstepsplaintext" />
+          <order attribute="mcs_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+            <condition attribute="mcs_parenttask" operator="null" />
+            <condition attribute="statuscode" operator="ne" value="803750010" />
+          </filter>
+          <attribute name="mcs_taskertaskid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2020.12.30.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Directorate Tasks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

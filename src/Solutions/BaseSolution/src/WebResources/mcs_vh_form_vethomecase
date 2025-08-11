@@ -1,0 +1,281 @@
+if (!window.VETHOME) { window.VETHOME = {}; }
+if (!VETHOME.Case) { VETHOME.Case = {}; }
+if (!VETHOME.Case.Constants) { VETHOME.Case.Constants = {}; }
+
+VETHOME.Case.Constants = {
+	CREATE_FORM: 1,
+	UPDATE_FORM: 2,
+	READ_ONLY_FORM: 3
+};
+
+VETHOME.Case.Functions = (function () {
+	return {
+		OnLoad: onLoad,
+		OnSave: onSave,
+		OnLoadSetIFrame: onLoadSetIFrame,
+		ControlDuSubStatus: controlDuSubStatus
+	};
+
+	//OnLoad
+	function onLoad(executionContext) {
+		CommCare.Shared.GetFormContext(executionContext);
+		CommCare.Shared.SetChildContext(CommCare.Shared.FormContext, "IFRAME_VeteranSidebar");
+		//CommCare.Shared.SetChildContext(CommCare.Shared.FormContext, "WebResource_sensitivepop"); //Moved to inside sensitive vet check in order to pass ICN into web resource
+		VETHOME.Sensitive.Functions.CheckForVetSensitivity();
+		onLoadSetIFrame();
+		controlDuSubStatus();
+		controlResolution(executionContext)
+		setOnChanges(executionContext);
+		filterPreferredMoc(executionContext);
+		hideVIRPRegistrantIfNull();
+
+		//Vetern Preferred Method of Contact
+		MocValidation("mcs_preferredmethodofcontact", 10);
+		MocValidation("mcs_followupletterpreferredmethodofcontact", 10);
+		MocValidation("mcs_followuplettermethodofdelivery", 10);
+	}
+
+	function setOnChanges(executionContext) {
+		CommCare.Shared.SetOnChange("statuscode", function () { controlDuSubStatus() });
+		CommCare.Shared.SetOnChange("mcs_resolutionid", function () { controlResolution(executionContext) });
+		CommCare.Shared.SetOnChange("mcs_preferredmethodofcontact", function () { MocValidation("mcs_preferredmethodofcontact") });
+		CommCare.Shared.SetOnChange("mcs_followupletterpreferredmethodofcontact", function () { MocValidation("mcs_followupletterpreferredmethodofcontact") });
+		CommCare.Shared.SetOnChange("mcs_followuplettermethodofdelivery", function () { MocValidation("mcs_followuplettermethodofdelivery") });        
+		CommCare.Shared.FormContext.ui.tabs.get("tab_clinical_information").addTabStateChange(function () { onLoadSetIFrame() });
+		CommCare.Shared.SetOnChange("bah_veteranid", function () { onLoadSetIFrame });
+		CommCare.Shared.SetOnChange("mcs_vethomevirpregistrant", function () { hideVIRPRegistrantIfNull });        
+
+		executionContext.getFormContext().data.entity.addOnSave(function (executionContext) { onSave(executionContext); });
+	}
+
+	function filterPreferredMoc(executionContext) {
+		var formContext = executionContext.getFormContext();
+		var pMoc = formContext.getControl("mcs_preferredmethodofcontact");
+		var followUpMoD = formContext.getControl("mcs_followuplettermethodofdelivery");
+		var followUpPmoc = formContext.getControl("mcs_followupletterpreferredmethodofcontact");
+		pMoc.removeOption(803750002);
+		followUpPmoc.removeOption(153190001);
+		followUpMoD.removeOption(153190001);
+	}
+
+
+	//OnSave
+	function onSave(executionContext) {
+		//
+		changeTaskOwnerToProvider(executionContext);
+	}
+
+	function onLoadSetIFrame() {
+		var clinicalTab = CommCare.Shared.FormContext.ui.tabs.get("tab_clinical_information");
+		var iFrame = CommCare.Shared.FormContext.getControl("IFRAME_VeteranSidebar");
+		var vetObj = CommCare.Shared.GetFieldValue("mcs_veteranid");
+		var vetId = CommCare.Shared.GetCleanId(vetObj);
+		if (!iFrame || iFrame.getSrc() != "about:blank" || vetId == null || clinicalTab.getDisplayState() != "expanded") {
+			return;
+		}
+		//function getICN(iframename, icn, iframeurl) {
+		// Get the iframe, and make ICN available to inner Iframe
+		Xrm.WebApi.online.retrieveRecord("contact", vetId, "?$select=bah_mvipatientidentifier_text").then(
+			function success(result) {
+				var icn = result["bah_mvipatientidentifier_text"];
+				var hostURL = Xrm.Utility.getGlobalContext().getClientUrl();
+				var iframeURL = hostURL + "/WebResources/vhacrm_/ESRParts/mcs_vh_html_VeteranSidebar.html?data=" + icn;
+				iFrame.setSrc(iframeURL);
+			},
+			function (error) {
+				Xrm.Utility.alertDialog(error.message);
+			}
+		);
+	}
+
+
+	function controlDuSubStatus() {
+		var statusReason = CommCare.Shared.GetFieldValue("statuscode");
+		//if Pending DU Urine
+		if (statusReason === 803750010) {
+			CommCare.Shared.SetVisible("mcs_duurinesubstatus", true);
+			CommCare.Shared.SetRequired("mcs_duurinesubstatus", "required");
+		}
+		else {
+			CommCare.Shared.SetVisible("mcs_duurinesubstatus", false);
+			CommCare.Shared.SetRequired("mcs_duurinesubstatus", "none");
+			CommCare.Shared.SetFieldValue("mcs_duurinesubstatus", null);
+		}
+	}
+
+	function hideVIRPRegistrantIfNull() {
+		if (CommCare.Shared.GetFieldValue("mcs_vethomevirpregistrant") === null) {
+			CommCare.Shared.FormContext.ui.tabs.get("tab_general").sections.get("tab_general_section_virp").setVisible(false);
+		}
+		else {
+			CommCare.Shared.FormContext.ui.tabs.get("tab_general").sections.get("tab_general_section_virp").setVisible(true);
+        }
+    }
+
+})();
+
+function controlResolution(executionContext) {
+	var formContext = executionContext.getFormContext();
+	var res = formContext.getAttribute("mcs_resolutionid");
+
+	//Resolution = All Results Received and Final Follow up Letter Sent
+	if (res.getValue() != null && res.getValue()[0].name == "All Results Received and Final Follow up Letter Sent") {
+		CommCare.Shared.SetVisible("mcs_datefollowuplettersent", true);
+		CommCare.Shared.SetVisible("mcs_followuplettermethodofdelivery", true);
+		CommCare.Shared.SetRequired("mcs_datefollowuplettersent", "required");
+		CommCare.Shared.SetRequired("mcs_followuplettermethodofdelivery", "required");
+
+	} else {
+		CommCare.Shared.SetVisible("mcs_datefollowuplettersent", false);
+		CommCare.Shared.SetVisible("mcs_followuplettermethodofdelivery", false);
+		CommCare.Shared.SetRequired("mcs_datefollowuplettersent", "none");
+		CommCare.Shared.SetRequired("mcs_followuplettermethodofdelivery", "none");
+		CommCare.Shared.SetFieldValue("mcs_datefollowuplettersent", null);
+		CommCare.Shared.SetFieldValue("mcs_followuplettermethodofdelivery", null);        
+	}    
+}
+
+async function MocValidation(optionSet, retryCount) {
+	const formComponent = CommCare.Shared.FormContext.ui.controls.get("mcs_veteranid1");
+	try {
+		!formComponent.data;
+		console.log("FormComponent is not null");
+
+		const formComponentData = formComponent.data.entity.attributes;
+		const methodOfContact = CommCare.Shared.FormContext.getAttribute(optionSet).getValue();
+
+		const preferredMoc = CommCare.Shared.FormContext.getAttribute("mcs_preferredmethodofcontact").getValue(); //email, phone, portal	
+		const followupLMoc = CommCare.Shared.FormContext.getAttribute("mcs_followupletterpreferredmethodofcontact").getValue(); //email, poratl, mail
+		const followupLMod = CommCare.Shared.FormContext.getAttribute("mcs_followuplettermethodofdelivery").getValue(); //email, poratl, mail
+
+		switch (methodOfContact) {
+			case 153190000: //email
+				formComponentData.get("emailaddress1").setRequiredLevel("required");
+				if (preferredMoc != 153190001) { //phone
+					formComponentData.get("telephone1").setRequiredLevel("none");
+				}
+				if (followupLMod != 803750002 && followupLMoc != 803750002) { //mail
+					formComponentData.get("address1_line1").setRequiredLevel("none");
+					formComponentData.get("address1_city").setRequiredLevel("none");
+					formComponentData.get("bah_address1_stateid").setRequiredLevel("none");
+					formComponentData.get("address1_postalcode").setRequiredLevel("none");
+				}
+				break;
+			case 153190001: //phone
+				formComponentData.get("telephone1").setRequiredLevel("required");
+				if (preferredMoc != 153190000 && followupLMod != 153190000 && followupLMoc != 153190000) { //email
+					formComponentData.get("emailaddress1").setRequiredLevel("none");
+				}
+				if (followupLMod != 803750002 && followupLMoc != 803750002) { //mail
+					formComponentData.get("address1_line1").setRequiredLevel("none");
+					formComponentData.get("address1_city").setRequiredLevel("none");
+					formComponentData.get("bah_address1_stateid").setRequiredLevel("none");
+					formComponentData.get("address1_postalcode").setRequiredLevel("none");
+				}
+				break;
+			case 803750001: //portal
+				if (preferredMoc != 153190001) { //phone
+					formComponentData.get("telephone1").setRequiredLevel("none");
+				}
+				if (preferredMoc != 153190000 && followupLMod != 153190000 && followupLMoc != 153190000) { //email
+					formComponentData.get("emailaddress1").setRequiredLevel("none");
+				}
+				if (followupLMod != 803750002 && followupLMoc != 803750002) { //mail
+					formComponentData.get("address1_line1").setRequiredLevel("none");
+					formComponentData.get("address1_city").setRequiredLevel("none");
+					formComponentData.get("bah_address1_stateid").setRequiredLevel("none");
+					formComponentData.get("address1_postalcode").setRequiredLevel("none");
+				}
+				if (!formComponentData.get("adx_identity_username").getValue()) { //no UserName
+					const alertStrings = {
+						text: "A Portal Account is required. Please send Portal Invitation for an account to be created.",
+						title: "Validation Error"
+					};
+					const alertOptions = { height: 200, width: 300 };
+					Xrm.Navigation.openAlertDialog(alertStrings, alertOptions)
+						.then(success => {
+							Xrm.Navigation.closeForm(CommCare.Shared.FormContext.getAttribute(optionSet).setValue(null));
+						})
+						.catch(error => {
+							console.log("Error in closing dialog", error);
+						});
+				}
+				break;
+			case 803750002: //mail            
+				formComponentData.get("address1_line1").setRequiredLevel("required");
+				formComponentData.get("address1_city").setRequiredLevel("required");
+				formComponentData.get("bah_address1_stateid").setRequiredLevel("required");
+				formComponentData.get("address1_postalcode").setRequiredLevel("required");
+
+				if (preferredMoc != 153190000 && followupLMod != 153190000 && followupLMoc != 153190000) { //email
+					formComponentData.get("emailaddress1").setRequiredLevel("none");
+				}
+				break;
+			default:
+				if (!preferredMoc) { //phone
+					formComponentData.get("telephone1").setRequiredLevel("none");
+					if (followupLMod != 153190000 && followupLMoc != 153190000) { //email
+						formComponentData.get("emailaddress1").setRequiredLevel("none");
+					}
+				}
+				if (!followupLMod && !followupLMoc) { //mail                    
+					formComponentData.get("address1_line1").setRequiredLevel("none");
+					formComponentData.get("address1_city").setRequiredLevel("none");
+					formComponentData.get("bah_address1_stateid").setRequiredLevel("none");
+					formComponentData.get("address1_postalcode").setRequiredLevel("none");
+				}
+				if (!preferredMoc && !followupLMod && !followupLMoc) { //email
+					formComponentData.get("emailaddress1").setRequiredLevel("none");
+				}
+				break;
+		}
+	} catch (err) {
+		if (retryCount > 0) {
+			console.log("FormComponent is null");
+			await new Promise(resolve => setTimeout(resolve, 1000));
+			await MocValidation(optionSet, retryCount - 1);
+		} else {
+			console.log("Maximum number of retries reached")
+		}
+	}
+}
+
+function changeTaskOwnerToProvider(executionContext) {	
+	var vetHomeProvider = CommCare.Shared.FormContext.getAttribute("mcs_vethomeprovider").getValue();
+	if (vetHomeProvider) {
+		var WorkflowId = "45DED833-5E6A-4441-B2FA-EBABEDFC19E3";
+
+		Xrm.WebApi.online.retrieveMultipleRecords("mcs_vethometasks", "?$select=mcs_name,mcs_vethometasksid&$filter=mcs_actionintersectionroutetype eq 806860002").then(
+			function success(result) {
+				for (var i = 0; i < result.entities.length; i++) {
+					var entityId = result.entities[i]["mcs_vethometasksid"];
+
+					var entity = {};
+					entity.EntityId = entityId;
+
+					var req = new XMLHttpRequest();
+					req.open("POST", Xrm.Page.context.getClientUrl() + "/api/data/v9.0/workflows(" + WorkflowId + ")/Microsoft.Dynamics.CRM.ExecuteWorkflow", true);
+					req.setRequestHeader("OData-MaxVersion", "4.0");
+					req.setRequestHeader("OData-Version", "4.0");
+					req.setRequestHeader("Accept", "application/json");
+					req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+					req.onreadystatechange = function () {
+						if (this.readyState === 4) {
+							req.onreadystatechange = null;
+							if (this.status === 204) {
+								console.log("Success for record ID: " + entityId);
+								//context.data.refresh();
+							} else {
+								console.log(this.statusText);
+							}
+						}
+					};
+					req.send(JSON.stringify(entity));
+				}
+			},
+			function error(error) {
+				console.log(error.message);
+			}
+		);
+	}
+}

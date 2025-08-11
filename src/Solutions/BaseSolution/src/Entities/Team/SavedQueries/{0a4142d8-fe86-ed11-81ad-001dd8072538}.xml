@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{0a4142d8-fe86-ed11-81ad-001dd8072538}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="name" select="1" preview="1" icon="1">
+        <row name="result" id="teamid">
+          <cell name="name" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="team">
+          <attribute name="name" />
+          <order attribute="name" descending="false" />
+          <filter type="and">
+            <condition attribute="mcs_frontofficeteam" operator="eq" value="1" />
+          </filter>
+          <link-entity name="teammembership" from="teamid" to="teamid" visible="false" intersect="true">
+            <link-entity name="systemuser" from="systemuserid" to="systemuserid" alias="aa">
+              <filter type="and">
+                <condition attribute="systemuserid" operator="eq-userid" />
+              </filter>
+            </link-entity>
+          </link-entity>
+          <attribute name="teamid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>2022.12.07.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Front Office Teams I am a Member of" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
