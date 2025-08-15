@@ -8,3 +8,11 @@ CDCEP.DonationReferenceQuickCreate.OnLoad = function (executionContext) {
 	validateQuickCreate(executionContext, ["cdcep_facilityid"], "Option not available", "Option is not available through this menu selection");
 
 }
+
+// Export functions for testing
+//istanbul ignore next
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        CDCEP
+    };
+}

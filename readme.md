@@ -15,6 +15,7 @@ The initial test solution was created from the CDCE DEV instance.
   - **Solutions** - Contains one folder for each Solution (generally, one for the Base Solution and one at a time for each Release)
   - **WebResources** - Contains source for all web resources, including projects that require building before deployment (i.e. TypeScript)
 - **tools** - scripts and tools to help with converting to and from source code
+- **tests** - Unit Tests of each type (Dotnet, JavaScript/TypeScript)
 
 ## Configurations
 
@@ -79,3 +80,9 @@ NOTE: Portal content is not packaged; it is uploaded directly from source using 
 
 1. There seems to be a convention with the build tooling that the Plugin Assemblies are expected to have a file name that matches the Assembly Name. If the file name is different then the build process can't seem to find it. Several workarounds have been explored, but the best one is to rename the registered Plugin Assembly to have the same name as its physical file. The `BuildSolution.ps1` script makes a number of edits to the relevant files to work around this issue.
 1. A NuGet Package is used to assist with Packing and Unpacking the Reference Data: [XrmCIFramework](https://www.nuget.org/packages/XrmCIFramework). The PowerShell scripts automatically download this package before using it, and delete it after using it. However, these files often remain in use and aren't able to be removed from the `.\packages` folder in this Repo. These package files can be manually deleted at any time (they will be re-downloaded by the relevant scripts as needed).
+
+## Base Solution
+
+The Base Solution is a custom, unmanaged solution that contains all customizations applied to the system by the VRM.
+
+See [Base Solution documentation](./baseSolution.md) for details.

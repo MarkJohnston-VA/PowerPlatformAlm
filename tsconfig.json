@@ -3,7 +3,7 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "commonjs",
-        "outDir": "./dist",
+        "outDir": "src/WebResources/dist",
         "sourceMap": true,
         "strict": true,
         "removeComments": false,
@@ -17,11 +17,10 @@
         // "noUnusedParameters": true,  /* Report errors on unused parameters. */
     },
     "include": [
-        "typings/**/*",
-        "src/**/*"
+        "src/WebResources/src/**/*"
     ],
     "exclude": [
-        "tests/**/*.spec.ts",
+        "tests/Javascript/**/*.spec.{ts,js}",
         "dist/**/*"
     ],
     "ts-node": {

@@ -29,7 +29,7 @@ namespace VRM.Architects.Plugins
             // Check for the entity on which the plugin would be registered
             if (context.InputParameters.Contains("Target") && context.InputParameters["Target"] is Entity)
             {
-               var entity = (Entity)context.InputParameters["Target"];
+                var entity = (Entity)context.InputParameters["Target"];
                 var preImage = context.PreEntityImages["AwardNomination"];
 
                 // Check for entity name on which this plugin would be registered

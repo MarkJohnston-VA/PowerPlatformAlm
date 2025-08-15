@@ -54,7 +54,8 @@ export abstract class BaseForm {
      * @returns True if the form is read-only (statecode is not 0), false otherwise
      */
     isReadOnly = (eventContext: Xrm.Events.EventContext): boolean => {
-        return this.getFormContext(eventContext).getAttribute("statecode").getValue() !== 0;
+        const stateCodeAttr = this.getFormContext(eventContext).getAttribute("statecode");
+        return stateCodeAttr ? stateCodeAttr.getValue() !== 0 : false;
     }
 
     /**

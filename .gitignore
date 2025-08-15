@@ -4,6 +4,9 @@
 **/bin
 **/obj
 
+# Generated output
+dist
+
 # MSBuild Binary and Structured Log
 *.binlog
 
@@ -12,6 +15,7 @@
 **/node_modules
 packages
 
+# User-specific settings
 .env
 
 # We don't want to save the binaries in the repo, since they'll 
@@ -19,3 +23,8 @@ packages
 *.msapp
 *.dll
 *.nupkg
+
+# Unit Test output and Code coverage
+**/TestResults
+.nyc_output
+coverage

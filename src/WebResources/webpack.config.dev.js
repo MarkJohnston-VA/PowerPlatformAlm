@@ -7,7 +7,9 @@ const CopyPlugin = require("copy-webpack-plugin");
 const webresources = require('./webresources.json');
 
 module.exports = () => {
-    dotenv.config({  path: resolve(__dirname, ".env") });
+    const envpath = resolve('../../', '.env');
+    console.warn(`ENVPATH: ${envpath}`);
+    dotenv.config({  path: envpath });
 
     //Build an array of file copy patterns based on the webresources.json file
     //This will copy the built JavaScript files to the correct location in the browser override content root

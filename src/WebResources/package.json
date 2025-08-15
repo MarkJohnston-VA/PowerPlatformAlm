@@ -5,9 +5,7 @@
     "scripts": {
         "build-dev": "webpack --config webpack.config.dev.js",
         "build": "webpack --config webpack.config.prod.js",
-        "test": "jasmine --config=jasmine.json",
-        "server-dev": "npx webpack-dev-server --config webpack.config.server.js --mode development",
-        "coverage": "nyc npm run test"
+        "server-dev": "npx webpack-dev-server --config webpack.config.server.js --mode development"
     },
     "author": "Dataverse DevTools",
     "devDependencies": {
@@ -21,10 +19,6 @@
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
-        "jasmine": "^5.7.1",
-        "jasmine-core": "^5.7.1",
-        "jsdom": "^26.1.0",
-        "nyc": "^17.1.0",
         "prettier": "2.3.2",
         "terser-webpack-plugin": "^5.2.5",
         "ts-loader": "^9.2.6",

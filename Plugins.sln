@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRM.Architects.Plugins", "VRM.Architects.Plugins\VRM.Architects.Plugins.csproj", "{D868DBBC-923F-4FA2-977F-C9FF1050B7E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRM.Architects.Plugins", "src\Plugins\VRM.Architects.Plugins\VRM.Architects.Plugins.csproj", "{D868DBBC-923F-4FA2-977F-C9FF1050B7E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRM.Architects.PluginPackage", "VRM.Architects.PluginPackage\VRM.Architects.PluginPackage.csproj", "{5030C5C7-E7D2-2A09-A87D-D4E5836BEEE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRM.Architects.PluginPackage", "src\Plugins\VRM.Architects.PluginPackage\VRM.Architects.PluginPackage.csproj", "{5030C5C7-E7D2-2A09-A87D-D4E5836BEEE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRM.Architects.Models", "VRM.Architects.Models\VRM.Architects.Models.csproj", "{1FCC485F-93FF-44C3-85F3-94A29D4F0B77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRM.Architects.Models", "src\Plugins\VRM.Architects.Models\VRM.Architects.Models.csproj", "{1FCC485F-93FF-44C3-85F3-94A29D4F0B77}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginAssembly", "PluginAssembly", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginPackage", "PluginPackage", "{804A5CB5-903A-465B-8B80-3D8AD48D43B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{07C6C329-FF75-4381-B99E-7F87D120F665}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRM.Architects.PluginsTests", "tests\Dotnet\VRM.Architects.PluginsTests\VRM.Architects.PluginsTests.csproj", "{150EB775-CA72-1A8F-003B-939244F2A1DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,18 @@ Global
 		{1FCC485F-93FF-44C3-85F3-94A29D4F0B77}.Release|x64.Build.0 = Release|Any CPU
 		{1FCC485F-93FF-44C3-85F3-94A29D4F0B77}.Release|x86.ActiveCfg = Release|Any CPU
 		{1FCC485F-93FF-44C3-85F3-94A29D4F0B77}.Release|x86.Build.0 = Release|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Debug|x64.Build.0 = Debug|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Debug|x86.Build.0 = Debug|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Release|x64.ActiveCfg = Release|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Release|x64.Build.0 = Release|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Release|x86.ActiveCfg = Release|Any CPU
+		{150EB775-CA72-1A8F-003B-939244F2A1DA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +83,7 @@ Global
 		{D868DBBC-923F-4FA2-977F-C9FF1050B7E6} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{5030C5C7-E7D2-2A09-A87D-D4E5836BEEE5} = {804A5CB5-903A-465B-8B80-3D8AD48D43B7}
 		{1FCC485F-93FF-44C3-85F3-94A29D4F0B77} = {804A5CB5-903A-465B-8B80-3D8AD48D43B7}
+		{150EB775-CA72-1A8F-003B-939244F2A1DA} = {07C6C329-FF75-4381-B99E-7F87D120F665}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A742EB5-4EA1-40E7-9098-FFD78C6F664F}

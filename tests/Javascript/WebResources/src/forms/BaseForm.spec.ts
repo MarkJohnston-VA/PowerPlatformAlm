@@ -1,4 +1,4 @@
-import { BaseForm } from "../../src/forms/BaseForm";
+import { BaseForm } from "../../../../../src/WebResources/src/forms/BaseForm";
 
 class TestForm extends BaseForm {
   //Use this form as a concrete testing implementation, since BaseForm is abstract.
