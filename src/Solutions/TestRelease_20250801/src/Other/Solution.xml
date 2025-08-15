@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25062.212" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25062.212" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.25062.00212">
+<ImportExportXml version="9.2.25065.200" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25065.200" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.25071.00228">
   <SolutionManifest>
     <UniqueName>TestRelease_20250801</UniqueName>
     <LocalizedNames>
@@ -85,18 +85,47 @@
       <RootComponent type="1" schemaName="contact" behavior="1" />
       <RootComponent type="1" schemaName="vrmarch_awardnomination" behavior="0" />
       <RootComponent type="1" schemaName="vrmarch_awardtype" behavior="0" />
+      <RootComponent type="29" id="{61f7252a-126b-f011-bec3-001dd803d7d3}" behavior="0" />
+      <RootComponent type="300" schemaName="vrmarch_demoapp_9bc04" behavior="0" />
       <RootComponent type="300" schemaName="vrmarch_democustompage1_d30b5" behavior="0" />
       <RootComponent type="60" id="{37ea3c3b-3966-f011-bec2-001dd803d7d3}" />
       <RootComponent type="61" schemaName="vrmarch_Welcome.html" behavior="0" />
       <RootComponent type="62" schemaName="vrmarch_ArchitectPOC" behavior="0" />
       <RootComponent type="66" schemaName="vrmarch_VRM.CDCE.DemoPcf1" behavior="0" />
       <RootComponent type="80" schemaName="vrmarch_ArchitectPOC" behavior="0" />
+      <RootComponent type="91" id="{de53cda7-4578-f011-b4cc-001dd80b1a80}" schemaName="PluginPackageDeserialization.Plugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" behavior="0" />
       <RootComponent type="91" id="{312643f1-d960-f011-bec2-001dd80b1a80}" schemaName="VRM.Architects.PluginPackage, Version=1.10.0.0, Culture=neutral, PublicKeyToken=null" behavior="0" />
       <RootComponent type="91" id="{44498f0e-9f86-423d-857c-b90da611ad93}" schemaName="VRM.Architects.Plugins, Version=1.0.1.10, Culture=neutral, PublicKeyToken=4b70400e4b96f0c8" behavior="0" />
       <RootComponent type="92" id="{88845965-6b5e-f011-bec2-001dd80b1a80}" behavior="0" />
       <RootComponent type="92" id="{8980252c-da60-f011-bec2-001dd803d7d3}" behavior="0" />
+      <RootComponent type="92" id="{b87e02d8-4578-f011-b4cc-001dd80b1a80}" behavior="0" />
+      <RootComponent type="92" id="{c2c94ee4-4578-f011-b4cc-001dd803d7d3}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="bah_claim" displayName="Claim" solution="Active" />
+        <Dependent type="300" schemaName="vrmarch_demoapp_9bc04" displayName="Demo App" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Community Care - Clinical Provider" solution="Active" id="{4b1caf53-1c5a-e911-a96c-001dd800ba25}" />
+        <Dependent type="80" schemaName="vrmarch_ArchitectPOC" displayName="Architect POC" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Community Care - Clinical RN" solution="Active" id="{5a764928-1c5a-e911-a96c-001dd800ba25}" />
+        <Dependent type="80" schemaName="vrmarch_ArchitectPOC" displayName="Architect POC" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Community Care - Clinical MSA Supervisor" solution="Active" id="{6d078881-1a5a-e911-a96c-001dd800ba25}" />
+        <Dependent type="80" schemaName="vrmarch_ArchitectPOC" displayName="Architect POC" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Community Care - Clinical MSA" solution="Active" id="{db4d1f88-055a-e911-a979-001dd800b582}" />
+        <Dependent type="80" schemaName="vrmarch_ArchitectPOC" displayName="Architect POC" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Community Care - Clinical Nurse Manager" solution="Active" id="{e2f8be3f-1c5a-e911-a96c-001dd800ba25}" />
+        <Dependent type="80" schemaName="vrmarch_ArchitectPOC" displayName="Architect POC" />
+      </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
         <Dependent type="80" schemaName="vrmarch_ArchitectPOC" displayName="Architect POC" />
@@ -106,6 +135,24 @@
           <package appName="PowerAppsAppFramework Package" version="1.0.0.21">PowerAppsAppFramework_Anchor (1.0.0.21)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=vrmarch_ArchitectPOC,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="vrmarch_ArchitectPOC" id.settingdefinitionid.uniquename="AppChannel" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="FormFillBarUXEnabled" solution="msdyn_FormsInfraSettings (1.0.0.7)" id.uniquename="FormFillBarUXEnabled">
+          <package appName="PowerAppsFormsApp Package" version="1.0.0.4">msdyn_FormsInsightSettings (1.0.0.4)</package>
+        </Required>
+        <Dependent type="OrganizationSetting" displayName="FormFillBarUXEnabled" id.settingdefinitionid.uniquename="FormFillBarUXEnabled" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="FormPredictEnabled" solution="msdyn_FormPredict (1.0.0.1)" id.uniquename="FormPredictEnabled">
+          <package appName="PowerAppsProductivityApp Package" version="1.0.0.1">msdyn_FormPredict (1.0.0.1)</package>
+        </Required>
+        <Dependent type="OrganizationSetting" displayName="FormPredictEnabled" id.settingdefinitionid.uniquename="FormPredictEnabled" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="FormPredictSmartPasteEnabledOnByDefault" solution="msdyn_FormsInfraSettings (1.0.0.7)" id.uniquename="FormPredictSmartPasteEnabledOnByDefault">
+          <package appName="PowerAppsFormsApp Package" version="1.0.0.4">msdyn_FormsInsightSettings (1.0.0.4)</package>
+        </Required>
+        <Dependent type="OrganizationSetting" displayName="FormPredictSmartPasteEnabledOnByDefault" id.settingdefinitionid.uniquename="FormPredictSmartPasteEnabledOnByDefault" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

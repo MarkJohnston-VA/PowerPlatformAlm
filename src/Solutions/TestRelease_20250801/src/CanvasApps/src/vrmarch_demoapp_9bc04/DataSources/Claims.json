@@ -1,0 +1,158 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "bah_claims",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "bah_claim",
+    "Name": "Claims",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "bah_claim_AsyncOperations": "System Jobs",
+      "bah_claim_BulkDeleteFailures": "Bulk Delete Failures",
+      "bah_claim_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "bah_claim_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "bah_claim_ProcessSession": "Process Sessions",
+      "bah_claim_SyncErrors": "Sync Errors",
+      "bah_claimid": "Claim",
+      "bah_name": "Claim Number",
+      "ccwf_billedamount_currency": "Billed Amount",
+      "ccwf_billedamount_currency_base": "Billed Amount (Base)",
+      "ccwf_dateofservice_date": "Start Date of Service",
+      "ccwf_enddateofservice_date": "End Date of Service",
+      "ccwf_requestid": "Request",
+      "ccwf_veteranid": "Patient",
+      "createdbyname": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfbyname": "Created By (Delegate)",
+      "exchangerate": "Exchange Rate",
+      "importsequencenumber": "Import Sequence Number",
+      "mcs_claimsource": "Claim Source",
+      "mcs_npi": "NPI",
+      "mcs_providername": "Provider Name",
+      "mcs_providerphonenumber": "Provider Phone Number",
+      "modifiedbyname": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfbyname": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "transactioncurrencyid": "Currency",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number",
+      "vhacrm_bah_claim_bah_interactions_claimid": "Interactions",
+      "vhacrm_claimresolution_code": "Claim Resolution",
+      "vhacrm_interactionid": "Interaction"
+    },
+    "PreferredName": "Claims",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Claims (Views)",
+    "Name": "_bah_claim_views",
+    "RelatedEntityName": "Claims",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1efb514b-6033-4945-b5ef-86f492b8b185": "Claim Advanced Find View",
+      "5f68729b-1c17-4b3c-b43a-9b43c5da81da": "Claim Associated View",
+      "76ba6c10-bc70-4398-a819-7b853fc251f4": "Inactive Claims",
+      "84f14f59-9145-e611-8120-127b25dcbde7": "Veteran Claims View",
+      "9862715e-a514-e711-812a-1289a8fdd3da": "Interaction Claim Grid View",
+      "c7ad218f-cd4c-4f2b-bab9-fa99c3de372c": "Active Claims",
+      "fce27742-b0f0-49e7-96a3-fe493c868927": "Claim Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Claims)",
+    "Name": "bah_claim_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Claims"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Claims",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Claims)",
+    "Name": "bah_claim_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Claims"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Claims",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Claim Source (Claims)",
+    "Name": "mcs_bah_claim_mcs_claimsource",
+    "OptionSetInfoNameMapping": {
+      "803750000": "FBCA",
+      "803750001": "eCAMS",
+      "803750002": "VistA",
+      "803750003": "No Claim on File",
+      "803750004": "CCN-Optum",
+      "803750005": "CCN-TriWest"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "mcs_claimsource",
+        "OptionSetReferenceEntityName": "Claims"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "mcs_claimsource",
+    "RelatedEntityName": "Claims",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Claim Resolution",
+    "Name": "vhacrm_claimresolution_code",
+    "OptionSetInfoNameMapping": {
+      "713770000": "Claim Paid",
+      "713770001": "Claim Denied",
+      "713770002": "Additional Information Required",
+      "713770003": "Suspended VA/OGC Ruling (Mill Bill)",
+      "803750005": "Provider Agreed to Write Off Claim"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "vhacrm_claimresolution_code",
+        "OptionSetReferenceEntityName": "Claims"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "vhacrm_claimresolution_code",
+    "RelatedEntityName": "Claims",
+    "Type": "OptionSetInfo"
+  }
+]

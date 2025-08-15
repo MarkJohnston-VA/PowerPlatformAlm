@@ -14,7 +14,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{7797fbc7-a09a-4e02-bd84-136a1cfaac3b}">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{7797fbc7-a09a-4e02-bd84-136a1cfaac3b}" name="section_general">
                   <labels>
                     <label description="General" languagecode="1033" />
                   </labels>
@@ -33,6 +33,14 @@
                           <label description="Award Type" languagecode="1033" />
                         </labels>
                         <control id="vrmarch_awardtype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="vrmarch_awardtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{2b752f2d-f71e-4de4-b999-853c95f33943}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="vrmarch_name" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="vrmarch_name" uniqueid="{f9c18415-b0f3-42e3-8d8a-81e6a99bd349}" disabled="true" />
                       </cell>
                     </row>
                     <row>
@@ -103,6 +111,35 @@
       <DisplayConditions Order="0" FallbackForm="true">
         <Everyone />
       </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{f9c18415-b0f3-42e3-8d8a-81e6a99bd349}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>vrmarch_name</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>vrmarch_name</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="vrmarch_VRM.CDCE.DemoPcf1">
+            <parameters>
+              <sampleProperty type="SingleLine.Text">vrmarch_name</sampleProperty>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="vrmarch_VRM.CDCE.DemoPcf1">
+            <parameters>
+              <sampleProperty type="SingleLine.Text">vrmarch_name</sampleProperty>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="vrmarch_VRM.CDCE.DemoPcf1">
+            <parameters>
+              <sampleProperty type="SingleLine.Text">vrmarch_name</sampleProperty>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
