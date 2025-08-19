@@ -22,17 +22,17 @@
     performing the packing operation. Set to $false to perform the actual packing.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\Personal\PowerPlatformAlm\src\Solutions\TestRelease_20250801" -DryRun $true
+    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\Personal\PowerPlatformAlm\power-platform\Solutions\TestRelease_20250801" -DryRun $true
     
     Performs a dry run to show which Canvas App source directories would be packed without actually packing them.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\Personal\PowerPlatformAlm\src\Solutions\TestRelease_20250801" -DryRun $false
+    .\PackCanvasApps.ps1 -SolutionPath "C:\Repos\Personal\PowerPlatformAlm\power-platform\Solutions\TestRelease_20250801" -DryRun $false
     
     Packs all Canvas App source directories found in the specified solution path to .msapp files ready for deployment.
 
 .EXAMPLE
-    .\PackCanvasApps.ps1 -SolutionPath "C:\MyProject\src\Solutions\MyCustomSolution"
+    .\PackCanvasApps.ps1 -SolutionPath "C:\MyProject\power-platform\Solutions\MyCustomSolution"
     
     Performs a dry run (default behavior) for Canvas App source files in the specified absolute path.
 

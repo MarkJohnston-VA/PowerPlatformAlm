@@ -18,13 +18,13 @@
     - Canvas App Automation: Packs apps and cleans up source files for deployment readiness
 
     The script expects a specific folder structure:
-    - Solution source files in: src\Solutions\{SolutionName}\
+    - Solution source files in: power-platform\Solutions\{SolutionName}\
     - Build tools in: tools\ directory  
     - Solution project file: {SolutionName}.cdsproj
-    - Configuration file: src\SolutionBuildConfiguration.json
+    - Configuration file: power-platform\SolutionBuildConfiguration.json
 
 .PARAMETER SolutionName
-    The name of the Power Platform solution to build. This should match the folder name under src\Solutions\.
+    The name of the Power Platform solution to build. This should match the folder name under power-platform\Solutions\.
     Example: "TestRelease_20250801"
 
 .PARAMETER VersionNumber
@@ -116,7 +116,7 @@ $scriptFullPath = $MyInvocation.MyCommand.Path
 $scriptDirectory = Split-Path $scriptFullPath -Parent
 
 # Resolve solution folder path
-$solutionRelativePath = "$scriptDirectory\..\src\Solutions\$SolutionName"
+$solutionRelativePath = "$scriptDirectory\..\power-platform\Solutions\$SolutionName"
 if (-not (Test-Path $solutionRelativePath)) {
     Write-Host "ERROR: Solution folder not found at: $solutionRelativePath" -ForegroundColor Red
     Write-Host "Please verify the solution name and folder structure." -ForegroundColor Yellow
@@ -166,7 +166,7 @@ try {
 Write-Host "`n--- Step 3: Adding Project References and Plugin Packages ---" -ForegroundColor Cyan
 
 # Read the SolutionBuildConfiguration.json file
-$configFilePath = Join-Path $scriptDirectory "..\src\SolutionBuildConfiguration.json"
+$configFilePath = Join-Path $scriptDirectory "..\power-platform\SolutionBuildConfiguration.json"
 if (-not (Test-Path $configFilePath)) {
     Write-Host "WARNING: SolutionBuildConfiguration.json not found at: $configFilePath" -ForegroundColor Yellow
     Write-Host "Skipping project reference addition" -ForegroundColor Yellow
@@ -228,7 +228,7 @@ if (-not (Test-Path $configFilePath)) {
 <Target Name="$targetName">
  <PropertyGroup>
   <LinkedProject>..\..\$projectFolder\$($projectName).csproj</LinkedProject>
-  <$($shortName)Target>src\pluginpackages\$($packageName)\package\$($packageName).nupkg</$($shortName)Target>
+  <$($shortName)Target>power-platform\pluginpackages\$($packageName)\package\$($packageName).nupkg</$($shortName)Target>
   <$($shortName)Source>..\..\$($projectFolder)\bin\`$(Configuration)\$($projectName).$($pluginPackageVersion).nupkg</$($shortName)Source>
  </PropertyGroup>
  <MSBuild Projects="`$(LinkedProject)" Targets="Clean;Build;Pack">

@@ -13,7 +13,7 @@
 
 .PARAMETER DataRelativePath
     The relative path containing XML files to package.
-    Default is ".\src\ReferenceData".
+    Default is ".\power-platform\ReferenceData".
 
 .PARAMETER Environment
     The source environment name used to locate XML files in subfolders.
@@ -64,7 +64,7 @@
 
 param(
     [Parameter(Mandatory = $false, HelpMessage = "The relative path containing XML files to package")]
-    [string]$DataRelativePath = ".\src\ReferenceData",
+    [string]$DataRelativePath = ".\power-platform\ReferenceData",
 
     [Parameter(Mandatory = $false, HelpMessage = "Environment: DEV, INT, QA, PreProd, Prod, Hotfix, Training, Common")]
     [ValidateSet("DEV", "INT", "QA", "PreProd", "Prod", "Hotfix", "Training", "Common")]
@@ -150,19 +150,40 @@ function PackageReferenceData {
     }
 
     try {
-        # Install XrmCIFramework
+        # Download and extract XrmCIFramework NuGet package
         $version = "9.1.0.18"
-        Write-Host "Installing XrmCIFramework version $version..." -ForegroundColor Yellow
-        
-        Install-Package XrmCIFramework -Scope CurrentUser -Destination $packagesPath -Force -RequiredVersion $version -ErrorAction Stop
-        Write-Host "Successfully installed XrmCIFramework" -ForegroundColor Green
+        $nupkgName = "XrmCIFramework.$version.nupkg"
+        $nupkgPath = Join-Path $packagesPath $nupkgName
+        $extractPath = Join-Path $packagesPath "XrmCIFramework.$version"
+
+        Write-Host "Downloading XrmCIFramework NuGet package version $version..." -ForegroundColor Yellow
+        $nugetUrl = "https://www.nuget.org/api/v2/package/XrmCIFramework/$version"
+        Invoke-WebRequest -Uri $nugetUrl -OutFile $nupkgPath -ErrorAction Stop
+        Write-Host "Downloaded $nupkgName to $nupkgPath" -ForegroundColor Green
+
+        Write-Host "Extracting NuGet package..." -ForegroundColor Yellow
+        Add-Type -AssemblyName System.IO.Compression.FileSystem
+        # Custom extraction logic: do not fail if files already exist
+        $zip = [System.IO.Compression.ZipFile]::OpenRead($nupkgPath)
+        foreach ($entry in $zip.Entries) {
+            $destination = Join-Path $extractPath $entry.FullName
+            $destinationDir = Split-Path $destination -Parent
+            if (!(Test-Path $destinationDir)) {
+                New-Item -Path $destinationDir -ItemType Directory -Force | Out-Null
+            }
+            if ($entry.Name -and !(Test-Path $destination)) {
+                [System.IO.Compression.ZipFileExtensions]::ExtractToFile($entry, $destination, $false)
+            }
+        }
+        $zip.Dispose()
+        Write-Host "Extracted to $extractPath (skipped existing files)" -ForegroundColor Green
 
         # Configure packaging settings
         $combineDataXmlFile = $true
 
-        # Construct script path
-        $scriptPath = Join-Path -Path $packagesPath -ChildPath "XrmCIFramework.$version\tools\PackCMData.ps1"
-        
+        # Construct script path (NuGet packages have tools in 'tools' folder)
+        $scriptPath = Join-Path $extractPath "tools\PackCMData.ps1"
+
         if (-not (Test-Path $scriptPath)) {
             Write-Host "Error: PackCMData script not found at: $scriptPath" -ForegroundColor Red
             return $false
@@ -173,11 +194,11 @@ function PackageReferenceData {
         Write-Host "  Source: $sourcePath" -ForegroundColor Gray
         Write-Host "  Destination: $dataFile" -ForegroundColor Gray
         Write-Host "  Combine XML files: $combineDataXmlFile" -ForegroundColor Gray
-        
+
         & $scriptPath -dataFile $dataFile -extractFolder $sourcePath -combineDataXmlFile $combineDataXmlFile
-        
+
         Write-Host "Successfully packaged reference data" -ForegroundColor Green
-        
+
         # Show summary of created file
         if (Test-Path $dataFile) {
             $fileSize = (Get-Item $dataFile).Length
@@ -185,6 +206,16 @@ function PackageReferenceData {
             Write-Host ""
             Write-Host "Created data package: $dataFile ($fileSizeMB MB)" -ForegroundColor Green
         }
+
+        # Clean up extracted files and nupkg
+        Write-Host "Cleaning up NuGet package and extracted files..." -ForegroundColor Yellow
+        if (Test-Path $extractPath) {
+            Remove-Item -Path $extractPath -Recurse -Force -ErrorAction SilentlyContinue
+        }
+        if (Test-Path $nupkgPath) {
+            Remove-Item -Path $nupkgPath -Force -ErrorAction SilentlyContinue
+        }
+        Write-Host "Cleanup complete." -ForegroundColor Green
         return $true
     }
     catch {
@@ -192,18 +223,7 @@ function PackageReferenceData {
         return $false
     }
     finally {
-        # Cleanup: Uninstall XrmCIFramework and remove packages
-        try {
-            Write-Host "Cleaning up temporary files..." -ForegroundColor Yellow
-            Uninstall-Package XrmCIFramework -Scope CurrentUser -Destination $packagesPath -Force -ErrorAction SilentlyContinue
-            if (Test-Path $packagesPath) {
-                Remove-Item -Path $packagesPath -Recurse -Force -ErrorAction SilentlyContinue
-                Write-Host "Cleaned up packages directory" -ForegroundColor Green
-            }
-        }
-        catch {
-            Write-Warning "Could not fully clean up packages directory: $($_.Exception.Message)"
-        }
+        # No additional cleanup needed; handled after packaging
     }
 }
 

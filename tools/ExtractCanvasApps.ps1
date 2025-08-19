@@ -20,12 +20,12 @@
     performing the extraction. Set to $false to perform the actual extraction and deletion.
 
 .EXAMPLE
-    .\ExtractCanvasApps.ps1 -SolutionPath "C:\MyProject\src\Solutions\TestRelease_20250801" -DryRun $true
+    .\ExtractCanvasApps.ps1 -SolutionPath "C:\MyProject\power-platform\Solutions\TestRelease_20250801" -DryRun $true
 
     Performs a dry run to show which Canvas Apps would be extracted without actually extracting them or deleting files.
 
 .EXAMPLE
-    .\ExtractCanvasApps.ps1 -SolutionPath "C:\MyProject\src\Solutions\TestRelease_20250801" -DryRun $false
+    .\ExtractCanvasApps.ps1 -SolutionPath "C:\MyProject\power-platform\Solutions\TestRelease_20250801" -DryRun $false
 
     Extracts all Canvas Apps found in the specified solution path to their respective source directories
     and deletes the original .msapp files after successful extraction.

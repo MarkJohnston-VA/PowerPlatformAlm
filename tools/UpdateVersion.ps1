@@ -21,7 +21,7 @@
     - This prevents breaking changes while updating build information
 
 .PARAMETER SolutionName
-    The name of the Power Platform solution to update. This should match the folder name under src\Solutions\.
+    The name of the Power Platform solution to update. This should match the folder name under power-platform\Solutions\.
     Example: "TestRelease_20250801"
 
 .PARAMETER VersionNumber
@@ -95,9 +95,9 @@ Write-Host "Validating file paths..." -ForegroundColor Cyan
 # Convert relative paths to absolute paths
 Write-Host "Validating file paths..." -ForegroundColor Cyan
 
-$SolutionRelativePath = ".\src\Solutions\$SolutionName\src\Other\Solution.xml"
-$PluginAssembliesRelativePath = ".\src\Solutions\$SolutionName\src\PluginAssemblies"
-$SdkMessageProcessingStepsRelativePath = ".\src\Solutions\$SolutionName\src\SdkMessageProcessingSteps"
+$SolutionRelativePath = ".\power-platform\Solutions\$SolutionName\src\Other\Solution.xml"
+$PluginAssembliesRelativePath = ".\power-platform\Solutions\$SolutionName\src\PluginAssemblies"
+$SdkMessageProcessingStepsRelativePath = ".\power-platform\Solutions\$SolutionName\src\SdkMessageProcessingSteps"
 
 # Check Solution.xml path
 if (Test-Path $SolutionRelativePath) {
@@ -395,7 +395,7 @@ if($null -ne $SdkMessageProcessingStepsPath) {
 # Update Plugin Package XML files
 Write-Host "`n--- Updating Plugin Package XML Files ---" -ForegroundColor Cyan
 
-$pluginPackagesRelativePath = ".\src\Solutions\$SolutionName\src\pluginpackages"
+$pluginPackagesRelativePath = ".\power-platform\Solutions\$SolutionName\src\pluginpackages"
 if (Test-Path $pluginPackagesRelativePath) {
     $pluginPackagesPath = (Resolve-Path $pluginPackagesRelativePath).Path
     Write-Host "Plugin packages path: $pluginPackagesPath" -ForegroundColor Cyan
@@ -454,7 +454,7 @@ if (Test-Path $pluginPackagesRelativePath) {
 # Update PCF ControlManifest.Input.xml files
 Write-Host "`n--- Updating PCF Control Manifest Files ---" -ForegroundColor Cyan
 
-$pcfPath = ".\src\PCF"
+$pcfPath = ".\power-platform\PCF"
 if (Test-Path $pcfPath) {
     $controlManifestFiles = Get-ChildItem -Path $pcfPath -Recurse -Filter "ControlManifest.Input.xml" -ErrorAction SilentlyContinue
     

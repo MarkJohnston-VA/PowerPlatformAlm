@@ -1,4 +1,4 @@
-const { CDCEP } = require('../../../../src/WebResources/scripts/cdcep_DonationReference_QuickCreate.js');
+const { CDCEP } = require('../../../../power-platform/WebResources/scripts/cdcep_DonationReference_QuickCreate.js');
 
 // Mock the validateQuickCreate function since it's defined in cdcep_CommonValidation.js
 

@@ -15,7 +15,7 @@
 
 .PARAMETER SolutionName
     The name of the Power Platform solution to sync. This should match the solution name 
-    in your Power Platform environment and the folder name under src\Solutions\.
+    in your Power Platform environment and the folder name under power-platform\Solutions\.
     Example: "TestRelease_20250801"
 
 .PARAMETER MapFileName
@@ -52,7 +52,7 @@
     
     Post-Sync Processing:
     - Canvas Apps: Extracted to src/CanvasApps/src/{AppName} directories, .msapp files deleted
-    - Plugin Assemblies: All .dll files removed from src/PluginAssemblies directory tree
+    - Plugin Assemblies: All .dll files removed from power-platform/PluginAssemblies directory tree
     - Source Control Optimization: Only source-friendly files remain after processing
     
     Exit Codes:
@@ -90,7 +90,7 @@ $scriptFullPath = $MyInvocation.MyCommand.Path
 $scriptDirectory = Split-Path $scriptFullPath -Parent
 
 # Resolve solution folder path
-$solutionRelativePath = "$scriptDirectory\..\src\Solutions\$SolutionName"
+$solutionRelativePath = "$scriptDirectory\..\power-platform\Solutions\$SolutionName"
 if (-not (Test-Path $solutionRelativePath)) {
     Write-Host "ERROR: Solution folder not found at: $solutionRelativePath" -ForegroundColor Red
     Write-Host "Please verify the solution name and folder structure." -ForegroundColor Yellow
@@ -170,7 +170,7 @@ try {
 Write-Host "`n--- Step 3: Cleaning Plugin Assembly DLL Files ---" -ForegroundColor Cyan
 
 try {
-    $pluginAssembliesPath = Join-Path $solutionFolderPath.Path "src\PluginAssemblies"
+    $pluginAssembliesPath = Join-Path $solutionFolderPath.Path "power-platform\PluginAssemblies"
     
     if (Test-Path $pluginAssembliesPath) {
         Write-Host "Searching for DLL files in: $pluginAssembliesPath" -ForegroundColor Yellow

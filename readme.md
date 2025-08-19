@@ -6,7 +6,7 @@ The initial test solution was created from the CDCE DEV instance.
 
 ## Folder Structure
 
-- **src** - The main folder where all source lives
+- **power-platform** - The main folder where all power-platform related source lives
   - **EnvironmentVariables** - JSON files containing the (NON-SENSITIVE) environment variable values for each environment
   - **PCFControls** - Contains all PCF Controls projects
   - **Plugins** - Contains all Plugin project folders
@@ -19,7 +19,7 @@ The initial test solution was created from the CDCE DEV instance.
 
 ## Configurations
 
-A configuration file is used by the Build Solution script (`.\tools\BuildSolution.ps1`): `.\src\SolutionBuildConfiguration.json`. This configuration file has the following schema:
+A configuration file is used by the Build Solution script (`.\tools\BuildSolution.ps1`): `.\power-platform\SolutionBuildConfiguration.json`. This configuration file has the following schema:
   - **projectReferences** - String array of references to `csproj` and `pcfproj` files that will be built and packaged. These are generally Plugin Assemblies and PCF Projects.
   - **pluginPackages** - Array of Plugin Package objects, with the following structure:
     - **shortName** - Short descriptive name of the Plugin Package. This can be anything as long as its unique (and doesn't contain spaces). Example: *VrmArchitectsPluginPackage*
@@ -31,8 +31,8 @@ Full sample of the SolutionBuildConfiguration.json:
 ```json
 {
   "projectReferences": [
-    "src\\Plugins\\VRM.Architects.Plugins\\VRM.Architects.Plugins.csproj",
-    "src\\PCF\\DemoPcf1\\DemoPcf1.pcfproj"
+    "power-platform\\Plugins\\VRM.Architects.Plugins\\VRM.Architects.Plugins.csproj",
+    "power-platform\\PCF\\DemoPcf1\\DemoPcf1.pcfproj"
   ],
   "pluginPackages": [
     { 
@@ -67,12 +67,12 @@ Full sample of the SolutionBuildConfiguration.json:
 ### Portal
 
 1. Use `pac pages list` to find the websiteId of the desired Portal
-1. Use `pac pages download --websiteId <YourWebsiteId> --path .\src\Portal --overwrite`
+1. Use `pac pages download --websiteId <YourWebsiteId> --path .\power-platform\Portal --overwrite`
 
 ## Packaging/Exporting for Deployment
 
 1. Use `.\tools\buildSolution.ps1 -SolutionName "TestRelease_20250801" -Version "1.4.0.0"` to build the Solution; the solution zip file will be created in `./bin/Debug/<SolutionName>.zip` (when building for Debug). Add `--configuration=Release` to build for Release.
-1. Use `./tools/PackReferenceData.ps1 .\src\ReferenceData <Environment> $false`; an output file will created: `.\bin\Data_<Environment>.zip` (repeat this for each environment, such as `Common`, `QA`, `PROD`, etc.)
+1. Use `./tools/PackReferenceData.ps1 .\power-platform\ReferenceData <Environment> $false`; an output file will created: `.\bin\Data_<Environment>.zip` (repeat this for each environment, such as `Common`, `QA`, `PROD`, etc.)
 
 NOTE: Portal content is not packaged; it is uploaded directly from source using `pac pages upload`.
 
