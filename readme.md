@@ -20,29 +20,39 @@ The initial test solution was created from the CDCE DEV instance.
 ## Configurations
 
 A configuration file is used by the Build Solution script (`.\tools\BuildSolution.ps1`): `.\power-platform\SolutionBuildConfiguration.json`. This configuration file has the following schema:
-  - **projectReferences** - String array of references to `csproj` and `pcfproj` files that will be built and packaged. These are generally Plugin Assemblies and PCF Projects.
-  - **pluginPackages** - Array of Plugin Package objects, with the following structure:
-    - **shortName** - Short descriptive name of the Plugin Package. This can be anything as long as its unique (and doesn't contain spaces). Example: *VrmArchitectsPluginPackage*
-    - **projectFolder** - Relative reference to the Plugins Package project folder, within the `src` folder. Example: `Plugins\\VRM.Architects.PluginPackage`
-    - **packageName** - Logical name assigned to the Plugin Package by the system. Example: `vrmarch_VRM.Architects.PluginPackage`
-    - **projectName** - Name of the csproj file, without the extension. Example: `VRM.Architects.PluginPackage`
+  - **solutions** - Array of Solution objects:
+    - **name** - Name of the Solution. This must be consistently used in both the system and source control. For example, the Solution Name is also expected to match the folder name in Source Control, as well as the `.cdsproj` file name.
+    - **version** - Version of the Solution, used when building (typically, increment this beyond the current version in the system when building)
+    - **projectReferences** - String array of references to `csproj` and `pcfproj` files that will be built and packaged. These are generally Plugin Assemblies and PCF Projects.
+    - **pluginPackages** - Array of Plugin Package objects, with the following structure:
+      - **shortName** - Short descriptive name of the Plugin Package. This can be anything as long as its unique (and doesn't contain spaces). Example: *VrmArchitectsPluginPackage*
+      - **projectFolder** - Relative reference to the Plugins Package project folder, within the `src` folder. Example: `Plugins\\VRM.Architects.PluginPackage`
+      - **packageName** - Logical name assigned to the Plugin Package by the system. Example: `vrmarch_VRM.Architects.PluginPackage`
+      - **projectName** - Name of the csproj file, without the extension. Example: `VRM.Architects.PluginPackage`
 
 Full sample of the SolutionBuildConfiguration.json:
 ```json
 {
-  "projectReferences": [
-    "power-platform\\Plugins\\VRM.Architects.Plugins\\VRM.Architects.Plugins.csproj",
-    "power-platform\\PCF\\DemoPcf1\\DemoPcf1.pcfproj"
-  ],
-  "pluginPackages": [
-    { 
-      "shortName": "VrmArchitectsPluginPackage",
-      "projectFolder": "Plugins\\VRM.Architects.PluginPackage",
-      "packageName": "vrmarch_VRM.Architects.PluginPackage",
-      "projectName": "VRM.Architects.PluginPackage"
+  "solutions": [
+    {
+      "name": "TestRelease_20250801",
+      "version": "1.11.0.0",
+      "projectReferences": [
+        "power-platform\\Plugins\\VRM.Architects.Plugins\\VRM.Architects.Plugins.csproj",
+        "power-platform\\PCF\\DemoPcf1\\DemoPcf1.pcfproj"
+      ],
+      "pluginPackages": [
+        { 
+          "shortName": "VrmArchitectsPluginPackage",
+          "projectFolder": "Plugins\\VRM.Architects.PluginPackage",
+          "packageName": "vrmarch_VRM.Architects.PluginPackage",
+          "projectName": "VRM.Architects.PluginPackage"
+        }
+      ]
     }
   ]
 }
+
 ```
 
 ## Updating the Repo
@@ -71,8 +81,13 @@ Full sample of the SolutionBuildConfiguration.json:
 
 ## Packaging/Exporting for Deployment
 
-1. Use `.\tools\buildSolution.ps1 -SolutionName "TestRelease_20250801" -Version "1.4.0.0"` to build the Solution; the solution zip file will be created in `./bin/Debug/<SolutionName>.zip` (when building for Debug). Add `--configuration=Release` to build for Release.
-1. Use `./tools/PackReferenceData.ps1 .\power-platform\ReferenceData <Environment> $false`; an output file will created: `.\bin\Data_<Environment>.zip` (repeat this for each environment, such as `Common`, `QA`, `PROD`, etc.)
+- For building Solutions, there are 2 options:
+  1. Build All Solutions - This uses `SolutionBuildConfiguration.json` to determine which solutions to build. Each solution included will be built with the specified versions. Use `.\tools\BuildAllSolutions.ps1` for this.
+  1. Build individual solution (still requires configuration in `SolutionBuildConfiguration.json` for Project References and Plugin Packages). Use `.\tools\buildSolution.ps1 -SolutionName "TestRelease_20250801" -Version "1.4.0.0"` to build the Solution;
+  
+    The solution zip file(s) will be created in `./bin/Debug/<SolutionName>.zip` (when building for Debug). Add `--configuration=Release` to build for Release.
+
+-  Use `./tools/PackReferenceData.ps1 .\power-platform\ReferenceData <Environment> $false`; an output file will created: `.\bin\Data_<Environment>.zip` (repeat this for each environment, such as `Common`, `QA`, `PROD`, etc.)
 
 NOTE: Portal content is not packaged; it is uploaded directly from source using `pac pages upload`.
 
@@ -80,6 +95,7 @@ NOTE: Portal content is not packaged; it is uploaded directly from source using 
 
 1. There seems to be a convention with the build tooling that the Plugin Assemblies are expected to have a file name that matches the Assembly Name. If the file name is different then the build process can't seem to find it. Several workarounds have been explored, but the best one is to rename the registered Plugin Assembly to have the same name as its physical file. The `BuildSolution.ps1` script makes a number of edits to the relevant files to work around this issue.
 1. A NuGet Package is used to assist with Packing and Unpacking the Reference Data: [XrmCIFramework](https://www.nuget.org/packages/XrmCIFramework). The PowerShell scripts automatically download this package before using it, and delete it after using it. However, these files often remain in use and aren't able to be removed from the `.\packages` folder in this Repo. These package files can be manually deleted at any time (they will be re-downloaded by the relevant scripts as needed).
+1. Version management of PCF Controls lives in the `ControlManifest.Input.xml` file in each PCF control's source path, rather than in any metadata inside the Solution. When building the solution, the source file (`ControlManifest.Input.xml`) will be updated with the respective version number for EVERY SOLUTION that is included in `SolutionBuildConfiguration.json`, even if the PCF Control is not included in the Solution. THIS IS OK because only the expected version will be included with the Solution package, regardless of the last version number saved. (Theoretically, the PCF control could be included in more than one solution, even though it should only be in one.) A future enhancement may be to include PCF controls in the solution object in `SolutionBuildConfiguration.json`, and then the version change could be filtered to only apply it to the expected solution.
 
 ## Base Solution
 

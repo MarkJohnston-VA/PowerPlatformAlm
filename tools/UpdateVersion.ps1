@@ -92,9 +92,6 @@ if ($VersionNumber -notmatch '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$') {
 # Convert relative paths to absolute paths
 Write-Host "Validating file paths..." -ForegroundColor Cyan
 
-# Convert relative paths to absolute paths
-Write-Host "Validating file paths..." -ForegroundColor Cyan
-
 $SolutionRelativePath = ".\power-platform\Solutions\$SolutionName\src\Other\Solution.xml"
 $PluginAssembliesRelativePath = ".\power-platform\Solutions\$SolutionName\src\PluginAssemblies"
 $SdkMessageProcessingStepsRelativePath = ".\power-platform\Solutions\$SolutionName\src\SdkMessageProcessingSteps"

@@ -1,27 +1,26 @@
 <#
 .SYNOPSIS
-    Builds a Power Platform solution with comprehensive automation including plugin packaging and MSBuild integration.
+    Builds a single Power Platform solution with comprehensive automation including plugin packaging and MSBuild integration.
 
 .DESCRIPTION
-    This script provides complete build automation for Power Platform solutions with advanced features including:
+    This script provides complete build automation for a single Power Platform solution with advanced features including:
     1. Validates the provided version number format (x.x.x.x semantic versioning)
     2. Packs Canvas Apps using PackCanvasApps.ps1 and deletes source .msapp files after extraction
     3. Updates version numbers across all solution components using UpdateVersion.ps1 with advanced version merging
-    4. Adds project references from SolutionBuildConfiguration.json
+    4. Adds project references from the solution configuration
     5. Injects plugin package build targets into MSBuild project files with proper DefaultTargets management
     6. Builds the solution using dotnet build with Release configuration
 
     Advanced Features:
     - Plugin Package Integration: Automatically injects MSBuild targets for plugin packages defined in configuration
     - DefaultTargets Management: Handles semicolon-separated MSBuild targets with malformed target detection and correction
-    - Project Reference Automation: Adds both plugin projects and PCF controls from configuration file
+    - Project Reference Automation: Adds both plugin projects and PCF controls from configuration
     - Canvas App Automation: Packs apps and cleans up source files for deployment readiness
 
     The script expects a specific folder structure:
     - Solution source files in: power-platform\Solutions\{SolutionName}\
     - Build tools in: tools\ directory  
     - Solution project file: {SolutionName}.cdsproj
-    - Configuration file: power-platform\SolutionBuildConfiguration.json
 
 .PARAMETER SolutionName
     The name of the Power Platform solution to build. This should match the folder name under power-platform\Solutions\.
@@ -37,7 +36,7 @@
     Example: "2.1.0.0"
 
 .EXAMPLE
-    .\BuildSolution.ps1 -SolutionName "TestRelease_20250801" -VersionNumber "2.1.0.0"
+    .\BuildIndividualSolution.ps1 -SolutionName "TestRelease_20250801" -VersionNumber "2.1.0.0"
 
     Builds the TestRelease_20250801 solution with version 2.1.0.0, including:
     - Canvas app packing and cleanup
@@ -46,20 +45,14 @@
     - Project reference addition
     - Complete MSBuild compilation
 
-.EXAMPLE
-    .\BuildSolution.ps1 -SolutionName "MyCustomSolution" -VersionNumber "1.0.5.23"
-    
-    Builds MyCustomSolution with plugin packaging automation and version 1.0.5.23
-
 .NOTES
-    File Name      : BuildSolution.ps1
+    File Name      : BuildIndividualSolution.ps1
     Author         : Mark Johnston (with GitHub Copilot) - Mark.Johnston@va.gov
     Prerequisite   : PowerShell 5.1+, .NET SDK, Power Platform CLI (for canvas apps)
     
     Dependencies:
     - PackCanvasApps.ps1 (for canvas app packaging and cleanup)
     - UpdateVersion.ps1 (for comprehensive version updating with merging logic)
-    - SolutionBuildConfiguration.json (for project references and plugin packages)
     - {SolutionName}.cdsproj (MSBuild solution project file)
     
     Plugin Package Features:
@@ -91,17 +84,9 @@ param(
 
 # Display script header
 Write-Host "============================================" -ForegroundColor Cyan
-Write-Host "Power Platform Solution Builder" -ForegroundColor Cyan
-Write-Host "============================================" -ForegroundColor Cyan
-Write-Host "Solution: $SolutionName" -ForegroundColor Yellow
+Write-Host "Building Solution: $SolutionName" -ForegroundColor Cyan
 Write-Host "Version: $VersionNumber" -ForegroundColor Yellow
 Write-Host "============================================" -ForegroundColor Cyan
-
-# Validate version number is provided (redundant check since parameter is mandatory, but kept for safety)
-if ([string]::IsNullOrEmpty($VersionNumber)) {
-    Write-Host "ERROR: No version number provided. Please use the -VersionNumber parameter." -ForegroundColor Red
-    exit 1
-}
 
 # Validate version number format (semantic versioning with build number: x.x.x.x)
 if ($VersionNumber -notmatch '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$') {
@@ -125,6 +110,33 @@ if (-not (Test-Path $solutionRelativePath)) {
 $solutionFolderPath = Resolve-Path $solutionRelativePath
 
 Write-Host "Solution folder: $($solutionFolderPath.Path)" -ForegroundColor Green
+
+# Read and parse solution configuration
+Write-Host "`n--- Reading Solution Configuration ---" -ForegroundColor Cyan
+$configPath = "$scriptDirectory\..\power-platform\SolutionBuildConfiguration.json"
+if (-not (Test-Path $configPath)) {
+    Write-Host "ERROR: Configuration file not found at: $configPath" -ForegroundColor Red
+    exit 2
+}
+
+try {
+    $configContent = Get-Content $configPath -Raw | ConvertFrom-Json
+    $SolutionConfiguration = $configContent.solutions | Where-Object { $_.name -eq $SolutionName }
+    
+    if (-not $SolutionConfiguration) {
+        Write-Host "ERROR: Solution '$SolutionName' not found in configuration file." -ForegroundColor Red
+        Write-Host "Available solutions:" -ForegroundColor Yellow
+        $configContent.solutions | ForEach-Object { Write-Host "  - $($_.name)" -ForegroundColor Yellow }
+        exit 2
+    }
+    
+    Write-Host "Found configuration for solution: $SolutionName" -ForegroundColor Green
+    Write-Host "  Project References: $($SolutionConfiguration.projectReferences.Count)" -ForegroundColor Yellow
+    Write-Host "  Plugin Packages: $($SolutionConfiguration.pluginPackages.Count)" -ForegroundColor Yellow
+} catch {
+    Write-Host "ERROR: Failed to read configuration file - $($_.Exception.Message)" -ForegroundColor Red
+    exit 2
+}
 
 # Set environment variable for version number
 Write-Host "`n--- Setting Environment Variables ---" -ForegroundColor Cyan
@@ -165,70 +177,63 @@ try {
 # Step 3: Add Project References and Plugin Packages
 Write-Host "`n--- Step 3: Adding Project References and Plugin Packages ---" -ForegroundColor Cyan
 
-# Read the SolutionBuildConfiguration.json file
-$configFilePath = Join-Path $scriptDirectory "..\power-platform\SolutionBuildConfiguration.json"
-if (-not (Test-Path $configFilePath)) {
-    Write-Host "WARNING: SolutionBuildConfiguration.json not found at: $configFilePath" -ForegroundColor Yellow
-    Write-Host "Skipping project reference addition" -ForegroundColor Yellow
-} else {
+# Use the provided solution configuration
+$projectReferences = $SolutionConfiguration.projectReferences
+
+if ($projectReferences -and $projectReferences.Count -gt 0) {
+    # Save current location and change to solution directory
+    $originalLocation = Get-Location
     try {
-        $configContent = Get-Content $configFilePath -Raw | ConvertFrom-Json
-        $projectReferences = $configContent.projectReferences
+        Set-Location $solutionFolderPath.Path
+        Write-Host "Working directory set to: $($solutionFolderPath.Path)" -ForegroundColor Yellow
         
-        if ($projectReferences -and $projectReferences.Count -gt 0) {
-            # Save current location and change to solution directory
-            $originalLocation = Get-Location
-            try {
-                Set-Location $solutionFolderPath.Path
-                Write-Host "Working directory set to: $($solutionFolderPath.Path)" -ForegroundColor Yellow
-                
-                foreach ($reference in $projectReferences) {
-                    # Convert relative path to absolute path relative to the project file location
-                    $relativePath = Join-Path $scriptDirectory "..\$reference"
-                    $absolutePath = Resolve-Path $relativePath -ErrorAction SilentlyContinue
-                    if ($absolutePath) {
-                        Write-Host "Adding project reference: $($absolutePath.Path)" -ForegroundColor Yellow
-                        & pac solution add-reference --path $absolutePath.Path
-                        if ($LASTEXITCODE -eq 0) {
-                            Write-Host "Successfully added reference: $reference" -ForegroundColor Green
-                        } else {
-                            Write-Host "WARNING: Failed to add reference: $reference (Exit Code: $LASTEXITCODE)" -ForegroundColor Yellow
-                        }
-                    } else {
-                        Write-Host "WARNING: Project reference not found: $reference" -ForegroundColor Yellow
-                    }
+        foreach ($reference in $projectReferences) {
+            # Convert relative path to absolute path relative to the project file location
+            $relativePath = Join-Path $scriptDirectory "..\$reference"
+            $absolutePath = Resolve-Path $relativePath -ErrorAction SilentlyContinue
+            if ($absolutePath) {
+                Write-Host "Adding project reference: $($absolutePath.Path)" -ForegroundColor Yellow
+                & pac solution add-reference --path $absolutePath.Path
+                if ($LASTEXITCODE -eq 0) {
+                    Write-Host "Successfully added reference: $reference" -ForegroundColor Green
+                } else {
+                    Write-Host "WARNING: Failed to add reference: $reference (Exit Code: $LASTEXITCODE)" -ForegroundColor Yellow
                 }
-            } finally {
-                # Always restore the original location
-                Set-Location $originalLocation
+            } else {
+                Write-Host "WARNING: Project reference not found: $reference" -ForegroundColor Yellow
             }
-        } else {
-            Write-Host "No project references found in configuration file" -ForegroundColor Yellow
         }
+    } finally {
+        # Always restore the original location
+        Set-Location $originalLocation
+    }
+} else {
+    Write-Host "No project references found for solution '$SolutionName'" -ForegroundColor Yellow
+}
 
-        # Handle plugin packages
-        if ($configContent.pluginPackages -and $configContent.pluginPackages.Count -gt 0) {
-            # Save current location and change to solution directory
-            $originalLocation = Get-Location
-            try {
-                Set-Location $solutionFolderPath.Path
-                Write-Host "Working directory set to: $($solutionFolderPath.Path)" -ForegroundColor Yellow
+# Handle plugin packages for the current solution
+if ($SolutionConfiguration.pluginPackages -and $SolutionConfiguration.pluginPackages.Count -gt 0) {
+    # Save current location and change to solution directory
+    $originalLocation = Get-Location
+    try {
+        Set-Location $solutionFolderPath.Path
+        Write-Host "Working directory set to: $($solutionFolderPath.Path)" -ForegroundColor Yellow
 
-                # Use only the first 3 parts of the version number for plugin packages (major.minor.patch)
-                $versionParts = $VersionNumber -split '\.'
-                $pluginPackageVersion = "$($versionParts[0]).$($versionParts[1]).$($versionParts[2])"
+        # Use only the first 3 parts of the version number for plugin packages (major.minor.patch)
+        $versionParts = $VersionNumber -split '\.'
+        $pluginPackageVersion = "$($versionParts[0]).$($versionParts[1]).$($versionParts[2])"
 
-                foreach ($package in $configContent.pluginPackages) {
-                    $shortName = $package.shortName
-                    $projectFolder = $package.projectFolder
-                    $packageName = $package.packageName
-                    $projectName = $package.projectName
-                    $targetName = "Build$($package.shortName)"
-                    $newTarget = @"
+        foreach ($package in $SolutionConfiguration.pluginPackages) {
+            $shortName = $package.shortName
+            $projectFolder = $package.projectFolder
+            $packageName = $package.packageName
+            $projectName = $package.projectName
+            $targetName = "Build$($package.shortName)"
+            $newTarget = @"
 <Target Name="$targetName">
  <PropertyGroup>
   <LinkedProject>..\..\$projectFolder\$($projectName).csproj</LinkedProject>
-  <$($shortName)Target>power-platform\pluginpackages\$($packageName)\package\$($packageName).nupkg</$($shortName)Target>
+  <$($shortName)Target>src\pluginpackages\$($packageName)\package\$($packageName).nupkg</$($shortName)Target>
   <$($shortName)Source>..\..\$($projectFolder)\bin\`$(Configuration)\$($projectName).$($pluginPackageVersion).nupkg</$($shortName)Source>
  </PropertyGroup>
  <MSBuild Projects="`$(LinkedProject)" Targets="Clean;Build;Pack">
@@ -237,89 +242,83 @@ if (-not (Test-Path $configFilePath)) {
 </Target>
 "@
 
-                    # Read the solution project file
-                    $projectFilePath = Join-Path $solutionFolderPath.Path "$SolutionName.cdsproj"
-                    if (Test-Path $projectFilePath) {
-                        Write-Host "Injecting plugin build target for package: $($package.packageName)" -ForegroundColor Yellow
-                        
-                        try {
-                            # Read the project file content
-                            $projectContent = Get-Content $projectFilePath -Raw
+            # Read the solution project file
+            $projectFilePath = Join-Path $solutionFolderPath.Path "$SolutionName.cdsproj"
+            if (Test-Path $projectFilePath) {
+                Write-Host "Injecting plugin build target for package: $($package.packageName)" -ForegroundColor Yellow
+                
+                try {
+                    # Read the project file content
+                    $projectContent = Get-Content $projectFilePath -Raw
 
-                            # Update the DefaultTargets attribute to include the new target
-                            $defaultTargetsPattern = '(<Project[^>]*DefaultTargets=")([^"]*?)(")'
-                            if ($projectContent -match $defaultTargetsPattern) {
-                                $currentTargets = $matches[2]
-                                $targetList = $currentTargets -split(';')
-                                # Add the new target if it doesn't already exist
-                                if ($targetList -notcontains $targetName) {
-                                    $targetList = @($targetName) + $targetList
-                                }
-                                # Join targets with semicolon
-                                $newTargetsValue = $targetList -join ";"
-                                $projectContent = $projectContent -replace $defaultTargetsPattern, "`${1}$newTargetsValue`$3"
-                                
-                                Write-Host "Updated DefaultTargets to: $newTargetsValue" -ForegroundColor Green
-                            } else {
-                                # If no DefaultTargets attribute exists, add it to the Project element
-                                $projectElementPattern = '(<Project[^>]*?)(\s*>)'
-                                if ($projectContent -match $projectElementPattern) {
-                                    $newDefaultTargets = "$targetName;Build"
-                                    $projectContent = $projectContent -replace $projectElementPattern, "`${1} DefaultTargets=`"$newDefaultTargets`"`$2"
-                                    Write-Host "Added DefaultTargets attribute: $newDefaultTargets" -ForegroundColor Green
-                                } else {
-                                    Write-Host "WARNING: Could not find Project element to add DefaultTargets attribute" -ForegroundColor Yellow
-                                }
-                            }
-                            
-                            # Always replace the target block, even if it already exists
-                            if ($projectContent -match "<Target Name=`"$targetName`">") {
-                                # Target exists, remove the existing one first (including surrounding whitespace)
-                                $targetPattern = "(?s)\s*<Target Name=`"$targetName`">.*?</Target>\s*"
-                                $projectContent = $projectContent -replace $targetPattern, ""
-                                Write-Host "Removed existing target '$targetName' from project file" -ForegroundColor Yellow
-                            }
-                            
-                            # Find the closing </Project> tag and insert the new target before it
-                            $insertionPoint = $projectContent.LastIndexOf("</Project>")
-                            if ($insertionPoint -gt 0) {
-                                # Ensure there's no trailing whitespace before </Project>
-                                $beforeProject = $projectContent.Substring(0, $insertionPoint).TrimEnd()
-                                $afterProject = $projectContent.Substring($insertionPoint)
-                                
-                                # Insert the new target with proper indentation, single newline before </Project>
-                                $indentedTarget = $newTarget -replace '^', '  ' -replace '\n', "`n  "
-                                $projectContent = $beforeProject + "`n`n" + $indentedTarget + "`n" + $afterProject
-                                
-                                Write-Host "Successfully injected target '$targetName' into project file" -ForegroundColor Green
-                            } else {
-                                Write-Host "WARNING: Could not find </Project> tag in project file" -ForegroundColor Yellow
-                            }
-                            
-                            # Write the updated content back to the file (includes DefaultTargets changes)
-                            [System.IO.File]::WriteAllText($projectFilePath, $projectContent, [System.Text.Encoding]::UTF8)
-                            Write-Host "Project file changes saved successfully" -ForegroundColor Green
-                        } catch {
-                            Write-Host "WARNING: Failed to inject target into project file - $($_.Exception.Message)" -ForegroundColor Yellow
+                    # Update the DefaultTargets attribute to include the new target
+                    $defaultTargetsPattern = '(<Project[^>]*DefaultTargets=")([^"]*?)(")'
+                    if ($projectContent -match $defaultTargetsPattern) {
+                        $currentTargets = $matches[2]
+                        $targetList = $currentTargets -split(';')
+                        # Add the new target if it doesn't already exist
+                        if ($targetList -notcontains $targetName) {
+                            $targetList = @($targetName) + $targetList
                         }
+                        # Join targets with semicolon
+                        $newTargetsValue = $targetList -join ";"
+                        $projectContent = $projectContent -replace $defaultTargetsPattern, "`${1}$newTargetsValue`$3"
+                        
+                        Write-Host "Updated DefaultTargets to: $newTargetsValue" -ForegroundColor Green
                     } else {
-                        Write-Host "WARNING: Project file not found: $projectFilePath" -ForegroundColor Yellow
+                        # If no DefaultTargets attribute exists, add it to the Project element
+                        $projectElementPattern = '(<Project[^>]*?)(\s*>)'
+                        if ($projectContent -match $projectElementPattern) {
+                            $newDefaultTargets = "$targetName;Build"
+                            $projectContent = $projectContent -replace $projectElementPattern, "`${1} DefaultTargets=`"$newDefaultTargets`"`$2"
+                            Write-Host "Added DefaultTargets attribute: $newDefaultTargets" -ForegroundColor Green
+                        } else {
+                            Write-Host "WARNING: Could not find Project element to add DefaultTargets attribute" -ForegroundColor Yellow
+                        }
                     }
+                    
+                    # Always replace the target block, even if it already exists
+                    if ($projectContent -match "<Target Name=`"$targetName`">") {
+                        # Target exists, remove the existing one first (including surrounding whitespace)
+                        $targetPattern = "(?s)\s*<Target Name=`"$targetName`">.*?</Target>\s*"
+                        $projectContent = $projectContent -replace $targetPattern, ""
+                        Write-Host "Removed existing target '$targetName' from project file" -ForegroundColor Yellow
+                    }
+                    
+                    # Find the closing </Project> tag and insert the new target before it
+                    $insertionPoint = $projectContent.LastIndexOf("</Project>")
+                    if ($insertionPoint -gt 0) {
+                        # Ensure there's no trailing whitespace before </Project>
+                        $beforeProject = $projectContent.Substring(0, $insertionPoint).TrimEnd()
+                        $afterProject = $projectContent.Substring($insertionPoint)
+                        
+                        # Insert the new target with proper indentation, single newline before </Project>
+                        $indentedTarget = $newTarget -replace '^', '  ' -replace '\n', "`n  "
+                        $projectContent = $beforeProject + "`n`n" + $indentedTarget + "`n" + $afterProject
+                        
+                        Write-Host "Successfully injected target '$targetName' into project file" -ForegroundColor Green
+                    } else {
+                        Write-Host "WARNING: Could not find </Project> tag in project file" -ForegroundColor Yellow
+                    }
+                    
+                    # Write the updated content back to the file (includes DefaultTargets changes)
+                    [System.IO.File]::WriteAllText($projectFilePath, $projectContent, [System.Text.Encoding]::UTF8)
+                    Write-Host "Project file changes saved successfully" -ForegroundColor Green
+                } catch {
+                    Write-Host "WARNING: Failed to inject target into project file - $($_.Exception.Message)" -ForegroundColor Yellow
                 }
-
-            } finally {
-                # Always restore the original location
-                Set-Location $originalLocation
+            } else {
+                Write-Host "WARNING: Project file not found: $projectFilePath" -ForegroundColor Yellow
             }
-
-        } else {
-            Write-Host "No plugin packages found in configuration file" -ForegroundColor Yellow
         }
 
-    } catch {
-        Write-Host "WARNING: Failed to process project references - $($_.Exception.Message)" -ForegroundColor Yellow
-        Write-Host "Continuing with build process..." -ForegroundColor Yellow
+    } finally {
+        # Always restore the original location
+        Set-Location $originalLocation
     }
+
+} else {
+    Write-Host "No plugin packages found for solution '$SolutionName'" -ForegroundColor Yellow
 }
 
 # Step 4: Build Solution
@@ -342,19 +341,18 @@ try {
     
     if ($LASTEXITCODE -eq 0) {
         Write-Host "`n============================================" -ForegroundColor Green
-        Write-Host "BUILD SUCCESSFUL" -ForegroundColor Green
+        Write-Host "BUILD SUCCESSFUL: $SolutionName" -ForegroundColor Green
         Write-Host "============================================" -ForegroundColor Green
         Write-Host "Solution '$SolutionName' version $VersionNumber built successfully" -ForegroundColor Green
+        exit 0
     } else {
         Write-Host "`n============================================" -ForegroundColor Red
-        Write-Host "BUILD FAILED" -ForegroundColor Red
+        Write-Host "BUILD FAILED: $SolutionName" -ForegroundColor Red
         Write-Host "============================================" -ForegroundColor Red
         Write-Host "Build failed with exit code: $LASTEXITCODE" -ForegroundColor Red
         exit 3
     }
 } catch {
-    Write-Host "ERROR: Build process failed - $($_.Exception.Message)" -ForegroundColor Red
+    Write-Host "ERROR: Build process failed for $SolutionName - $($_.Exception.Message)" -ForegroundColor Red
     exit 3
 }
-
-Write-Host "`nBuild process completed successfully!" -ForegroundColor Green

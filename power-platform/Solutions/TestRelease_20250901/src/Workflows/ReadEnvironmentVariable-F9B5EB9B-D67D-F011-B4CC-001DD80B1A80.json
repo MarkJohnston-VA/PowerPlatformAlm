@@ -1,0 +1,89 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_flowpush": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "vrmarch_sharedflowpush_7108d"
+        },
+        "api": {
+          "name": "shared_flowpush"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "DefaultDayOfMonth (vrmarch_DefaultDayOfMonth)": {
+          "defaultValue": 1,
+          "type": "Int",
+          "metadata": {
+            "schemaName": "vrmarch_DefaultDayOfMonth"
+          }
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "d7610af6-f9b6-44b6-9a64-7b2370eac319"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Compose": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "7be54837-ff99-402d-a60a-107c75f5754c"
+          },
+          "type": "Compose",
+          "inputs": "@parameters('DefaultDayOfMonth (vrmarch_DefaultDayOfMonth)')"
+        },
+        "Send_me_a_mobile_notification": {
+          "runAfter": {
+            "Compose": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8c76ef4e-0d5a-4a76-b3e5-b78b3268fd60"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_flowpush",
+              "operationId": "SendNotification",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowpush"
+            },
+            "parameters": {
+              "NotificationDefinition/notificationText": "Default Day of Month value is: @{outputs('Compose')}"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
