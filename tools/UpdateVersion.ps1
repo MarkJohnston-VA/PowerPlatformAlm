@@ -142,8 +142,9 @@ Write-Host "`n--- Updating Solution.xml ---" -ForegroundColor Cyan
 # Read the file as text to preserve formatting - use -Raw to get exact content
 $solutionContent = Get-Content $SolutionPath -Raw
 
-# Use compatible regex pattern for Windows PowerShell
-$versionPattern = '<Version>([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)</Version>'
+
+# Use regex pattern that supports 2-part (1.0) and 4-part (1.0.0.0) version numbers
+$versionPattern = '<Version>([0-9]+\.[0-9]+(?:\.[0-9]+\.[0-9]+)?)</Version>'
 $versionMatch = [regex]::Match($solutionContent, $versionPattern)
 
 if (-not $versionMatch.Success) {
@@ -156,8 +157,8 @@ if (-not $versionMatch.Success) {
     # Replace only the version number, preserving all formatting
     $newSolutionContent = $solutionContent -replace $versionPattern, "<Version>$VersionNumber</Version>"
     
-    # Verify the replacement was successful
-    $verificationMatch = [regex]::Match($newSolutionContent, '<Version>([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)</Version>')
+    # Verify the replacement was successful (supporting both 2-part and 4-part)
+    $verificationMatch = [regex]::Match($newSolutionContent, '<Version>([0-9]+\.[0-9]+(?:\.[0-9]+\.[0-9]+)?)</Version>')
     if ($verificationMatch.Success -and $verificationMatch.Groups[1].Value -eq $VersionNumber) {
         # Write the updated content back to the file without adding extra newlines
         [System.IO.File]::WriteAllText($SolutionPath, $newSolutionContent, [System.Text.Encoding]::UTF8)
