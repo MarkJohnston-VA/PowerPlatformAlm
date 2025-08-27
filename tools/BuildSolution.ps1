@@ -26,15 +26,6 @@
     The name of the Power Platform solution to build. This should match the folder name under power-platform\Solutions\.
     Example: "TestRelease_20250801"
 
-.PARAMETER VersionNumber
-    The version number to apply to the solution in x.x.x.x format (semantic versioning with build number).
-    This version will be applied using advanced merging logic:
-    - Solution.xml (full 4-part version with merging applied)
-    - Plugin assembly files (full 4-part version with merging applied)  
-    - PCF controls (first 3 parts only, e.g., x.x.x)
-    
-    Example: "2.1.0.0"
-
 .EXAMPLE
     .\BuildIndividualSolution.ps1 -SolutionName "TestRelease_20250801" -VersionNumber "2.1.0.0"
 
@@ -75,26 +66,13 @@
 param(
     [Parameter(Mandatory=$true, HelpMessage="The name of the Power Platform solution to build")]
     [ValidateNotNullOrEmpty()]
-    [string]$SolutionName,
-    
-    [Parameter(Mandatory=$true, HelpMessage="Version number in x.x.x.x format (e.g., 2.1.0.0)")]
-    [ValidateNotNullOrEmpty()]
-    [string]$VersionNumber
+    [string]$SolutionName
 )
 
 # Display script header
 Write-Host "============================================" -ForegroundColor Cyan
 Write-Host "Building Solution: $SolutionName" -ForegroundColor Cyan
-Write-Host "Version: $VersionNumber" -ForegroundColor Yellow
 Write-Host "============================================" -ForegroundColor Cyan
-
-# Validate version number format (semantic versioning with build number: x.x.x.x)
-if ($VersionNumber -notmatch '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$') {
-    Write-Host "ERROR: Version number '$VersionNumber' is not in the correct format." -ForegroundColor Red
-    Write-Host "Expected format: x.x.x.x (e.g., 2.1.0.0)" -ForegroundColor Red
-    Write-Host "Where: x = Major.Minor.Patch.Build" -ForegroundColor Yellow
-    exit 1
-}
 
 # Get script directory for relative path resolution
 $scriptFullPath = $MyInvocation.MyCommand.Path
@@ -129,10 +107,22 @@ try {
         $configContent.solutions | ForEach-Object { Write-Host "  - $($_.name)" -ForegroundColor Yellow }
         exit 2
     }
-    
+
+    $VersionNumber = $SolutionConfiguration.version
+
+    # Validate version number format (semantic versioning with build number: x.x.x.x)
+    if ($VersionNumber -notmatch '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$') {
+        Write-Host "ERROR: Version number '$VersionNumber' is not in the correct format." -ForegroundColor Red
+        Write-Host "Expected format: x.x.x.x (e.g., 2.1.0.0)" -ForegroundColor Red
+        Write-Host "Where: x = Major.Minor.Patch.Build" -ForegroundColor Yellow
+        exit 1
+    }
+
     Write-Host "Found configuration for solution: $SolutionName" -ForegroundColor Green
+    Write-Host "  Version Number: $($SolutionConfiguration.version)" -ForegroundColor Yellow
     Write-Host "  Project References: $($SolutionConfiguration.projectReferences.Count)" -ForegroundColor Yellow
     Write-Host "  Plugin Packages: $($SolutionConfiguration.pluginPackages.Count)" -ForegroundColor Yellow
+
 } catch {
     Write-Host "ERROR: Failed to read configuration file - $($_.Exception.Message)" -ForegroundColor Red
     exit 2

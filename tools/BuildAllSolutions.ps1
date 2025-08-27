@@ -83,12 +83,19 @@ if (-not (Test-Path $individualBuildScript)) {
 
 # Process each solution
 $successCount = 0
+$skippedCount = 0
 $failureCount = 0
 $buildResults = @()
 
 foreach ($solution in $solutions) {
     $SolutionName = $solution.name
     $VersionNumber = $solution.version
+
+    if($solution.skipFromBuild) {
+        Write-Host "Skipping solution: $SolutionName" -ForegroundColor Yellow
+        $skippedCount++
+        continue
+    }
     
     Write-Host "`n============================================" -ForegroundColor Cyan
     Write-Host "Starting Build: $SolutionName (v$VersionNumber)" -ForegroundColor Cyan
@@ -96,7 +103,7 @@ foreach ($solution in $solutions) {
 
     try {
         # Call BuildSolution.ps1 for this solution
-        & $individualBuildScript -SolutionName $SolutionName -VersionNumber $VersionNumber
+        & $individualBuildScript -SolutionName $SolutionName
         
         if ($LASTEXITCODE -eq 0) {
             Write-Host "BUILD SUCCESSFUL: $SolutionName" -ForegroundColor Green
@@ -137,6 +144,9 @@ Write-Host "Total Solutions: $($solutions.Count)" -ForegroundColor White
 Write-Host "Successful Builds: $successCount" -ForegroundColor Green
 if($failureCount -gt 0) {
     Write-Host "Failed Builds: $failureCount" -ForegroundColor Red
+}
+if($skippedCount -gt 0) {
+    Write-Host "Skipped Builds: $skippedCount" -ForegroundColor Yellow
 }
 
 # Display detailed results

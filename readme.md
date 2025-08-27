@@ -19,10 +19,11 @@ The initial test solution was created from the CDCE DEV instance.
 
 ## Configurations
 
-A configuration file is used by the Build Solution script (`.\tools\BuildSolution.ps1`): `.\power-platform\SolutionBuildConfiguration.json`. This configuration file has the following schema:
+A configuration file is used by the Build Solution script (`.\tools\BuildSolution.ps1` or `.\tools\BuildAllSolutions.ps1`): `.\power-platform\SolutionBuildConfiguration.json`. This configuration file has the following schema:
   - **solutions** - Array of Solution objects:
     - **name** - Name of the Solution. This must be consistently used in both the system and source control. For example, the Solution Name is also expected to match the folder name in Source Control, as well as the `.cdsproj` file name.
     - **version** - Version of the Solution, used when building (typically, increment this beyond the current version in the system when building)
+    - **skipFromBuild** - Skip this solution when running `BuildAllSolutions.ps1`; solution can still be built with `BuildSolution.ps1` by providing Solution Name and Version Number
     - **projectReferences** - String array of references to `csproj` and `pcfproj` files that will be built and packaged. These are generally Plugin Assemblies and PCF Projects.
     - **pluginPackages** - Array of Plugin Package objects, with the following structure:
       - **shortName** - Short descriptive name of the Plugin Package. This can be anything as long as its unique (and doesn't contain spaces). Example: *VrmArchitectsPluginPackage*
@@ -49,6 +50,11 @@ Full sample of the SolutionBuildConfiguration.json:
           "projectName": "VRM.Architects.PluginPackage"
         }
       ]
+    },
+    {
+      "name": "TestRelease_20250901",
+      "version": "1.1.0.0",
+      "skipFromBuild": true
     }
   ]
 }
