@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25071.232" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25071.232" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.25071.00232">
+<ImportExportXml version="9.2.25072.232" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25072.232" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.25072.00232">
   <SolutionManifest>
     <UniqueName>TestRelease_20250901</UniqueName>
     <LocalizedNames>
       <LocalizedName description="TestRelease_20250901" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.1.0.0</Version>
+    <Version>1.0.0.0</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>VRMArchitects</UniqueName>
@@ -80,9 +80,14 @@
       </Addresses>
     </Publisher>
     <RootComponents>
+      <RootComponent type="29" id="{61f7252a-126b-f011-bec3-001dd803d7d3}" behavior="0" />
       <RootComponent type="29" id="{f9b5eb9b-d67d-f011-b4cc-001dd80b1a80}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="vrmarch_sharedflowpush_7108d" solution="Active" id.connectionreferencelogicalname="vrmarch_sharedflowpush_7108d" />
+        <Dependent type="29" displayName="Test - Notification" id="{61f7252a-126b-f011-bec3-001dd803d7d3}" />
+      </MissingDependency>
       <MissingDependency>
         <Required type="connectionreference" displayName="vrmarch_sharedflowpush_7108d" solution="Active" id.connectionreferencelogicalname="vrmarch_sharedflowpush_7108d" />
         <Dependent type="29" displayName="ReadEnvironmentVariable" id="{f9b5eb9b-d67d-f011-b4cc-001dd80b1a80}" />
