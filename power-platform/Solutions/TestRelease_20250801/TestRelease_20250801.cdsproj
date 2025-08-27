@@ -61,8 +61,8 @@
   <Target Name="BuildVrmArchitectsPluginPackage">
    <PropertyGroup>
     <LinkedProject>..\..\Plugins\VRM.Architects.PluginPackage\VRM.Architects.PluginPackage.csproj</LinkedProject>
-    <VrmArchitectsPluginPackageTarget>power-platform\pluginpackages\vrmarch_VRM.Architects.PluginPackage\package\vrmarch_VRM.Architects.PluginPackage.nupkg</VrmArchitectsPluginPackageTarget>
-    <VrmArchitectsPluginPackageSource>..\..\Plugins\VRM.Architects.PluginPackage\bin\$(Configuration)\VRM.Architects.PluginPackage.1.10.0.nupkg</VrmArchitectsPluginPackageSource>
+    <VrmArchitectsPluginPackageTarget>src\pluginpackages\vrmarch_VRM.Architects.PluginPackage\package\vrmarch_VRM.Architects.PluginPackage.nupkg</VrmArchitectsPluginPackageTarget>
+    <VrmArchitectsPluginPackageSource>..\..\Plugins\VRM.Architects.PluginPackage\bin\$(Configuration)\VRM.Architects.PluginPackage.1.11.0.nupkg</VrmArchitectsPluginPackageSource>
    </PropertyGroup>
    <MSBuild Projects="$(LinkedProject)" Targets="Clean;Build;Pack">
    </MSBuild>
