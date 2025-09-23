@@ -1,8 +1,17 @@
 # ALM Example
 
-This repo is a POC showing how to store several types of assets from PowerPlatform in source contorl and then package them into artifacts for deployment.
+This a Proof-of-Concept showing how to implement a Source Control-Centric ALM processfor each type of PowerPlatform asset. This differs from the commonly-understood approach of Environment-Centric, where the Environment (usually DEV or INT) is the source of truth. In this case, the source control repository is the source of truth, and **ALL deployment assets** (including to a vanilla environment) can be generated from here.
 
-The initial test solution was created from the CDCE DEV instance.
+This POC uses PowerShell scripts (in the `./tools` folder) along with Power Platform CLI (`pac`) commands to perform the various steps for extracting and packaging the various assets. In a real-world implementation, these commands will likely be performed by corresponding GitHub Actions using either the official Power Platform Actions or using the `pac` commands with a script executed in the GitHub workflow.
+
+The following types of assets are included in this POC:
+- **Dataverse Solution Metadata** (tables, forms, views, etc.)
+- **Built Dataverse Solution Assets** (PCF Controls, Web Resources, Plugin Assemblies, Plugin Packages)
+- **Power Pages Portal** configuration/assets
+- **Environment Variables** (including Environment-specific Values)
+- **Common or Environment-specific Reference Data** (generally speaking this is for lookup data, but could be any other data that needs to be deployed to an environment)
+
+The initial test solution was created from the CDCE DEV instance, and then later the CommCare MOCK instance was used. **This specific solution is not intended to be deployable to a single environment, but only as a demo of how real solutions in real environments can be configured!**
 
 ## Folder Structure
 
@@ -30,6 +39,8 @@ A configuration file is used by the Build Solution script (`.\tools\BuildSolutio
       - **projectFolder** - Relative reference to the Plugins Package project folder, within the `src` folder. Example: `Plugins\\VRM.Architects.PluginPackage`
       - **packageName** - Logical name assigned to the Plugin Package by the system. Example: `vrmarch_VRM.Architects.PluginPackage`
       - **projectName** - Name of the csproj file, without the extension. Example: `VRM.Architects.PluginPackage`
+  
+      *Note: Plugin Packages are different from Plugin Assemblies and require these additional configuration details to be properly deployed.*
 
 Full sample of the SolutionBuildConfiguration.json:
 ```json
